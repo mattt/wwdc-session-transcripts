@@ -1,0 +1,2750 @@
+1
+00:00:07,610 --> 00:00:10,610
+>> Michael Creasy: Hi, everyone and welcome.
+
+1
+2
+00:00:10,610 --> 00:00:15,310
+I'm Michael, here to talk today about Automated
+User Interface Testing with Instruments,
+
+2
+3
+00:00:15,310 --> 00:00:18,960
+or as I like to call it, "How to find bugs while you sleep."
+
+3
+4
+00:00:18,960 --> 00:00:23,330
+Now, I know a lot of you are developers, and
+you're building these great applications,
+
+4
+5
+00:00:23,330 --> 00:00:26,290
+and maybe you don't have a dedicated QA person.
+
+5
+6
+00:00:26,290 --> 00:00:33,050
+You're trying to split your time between testing your
+application, actually developing your application,
+
+6
+7
+00:00:33,050 --> 00:00:35,930
+and testing the new features that you're implementing.
+
+7
+8
+00:00:35,930 --> 00:00:41,240
+So what I'm going to show you today is how you can turn
+a little bit of your time automating some of your tests
+
+8
+9
+00:00:41,240 --> 00:00:45,130
+and then get right back to developing
+those great new features.
+
+9
+10
+00:00:45,130 --> 00:00:48,850
+Now, maybe you do have a dedicated QA
+person, or maybe you are that QA person.
+
+10
+11
+00:00:48,850 --> 00:00:55,680
+Well, I'm going to show you how you can automate your tests,
+kind of automate those tests that you do maybe every day,
+
+11
+12
+00:00:55,680 --> 00:01:00,440
+on every build, that kind of mundane stuff
+that you have to go through all the time,
+
+12
+13
+00:01:00,440 --> 00:01:06,500
+and then you can spend your time hunting down those
+edge cases and those more interesting scenarios.
+
+13
+14
+00:01:06,500 --> 00:01:08,030
+So let's get started.
+
+14
+15
+00:01:08,030 --> 00:01:09,160
+What am I going to talk about today?
+
+15
+16
+00:01:09,160 --> 00:01:13,400
+Well, first of all, why you should create automated tests.
+
+16
+17
+00:01:13,400 --> 00:01:16,380
+And we'll talk about what is UI Automation?
+
+17
+18
+00:01:16,380 --> 00:01:18,290
+What is it that we have for you today?
+
+18
+19
+00:01:18,290 --> 00:01:23,960
+We're going to talk about how to automate an application;
+we are going through step by step by step how to build
+
+19
+20
+00:01:23,960 --> 00:01:29,420
+up a test case, how to actually create
+your first automated script; and, lastly,
+
+20
+21
+00:01:29,420 --> 00:01:31,520
+I'm going to cover some of the more advanced topics.
+
+21
+22
+00:01:31,520 --> 00:01:35,540
+These are the more interesting things
+that you can do with UI Automation.
+
+22
+23
+00:01:35,540 --> 00:01:39,900
+So why should you create automated tests?
+
+23
+24
+00:01:39,900 --> 00:01:43,130
+Well, you can find bugs while you sleep.
+
+24
+25
+00:01:43,130 --> 00:01:49,460
+One of the great things about automation is the system
+can be testing your application while you're doing
+
+25
+26
+00:01:49,460 --> 00:01:50,660
+something else.
+
+26
+27
+00:01:50,660 --> 00:01:55,680
+You can be getting back to doing developing, writing
+those great new features for your application.
+
+27
+28
+00:01:55,680 --> 00:01:58,910
+You can be, maybe you're doing some other manual testing;
+
+28
+29
+00:01:58,910 --> 00:02:03,940
+digging in deeper into your application
+while the automation is running for you.
+
+29
+30
+00:02:03,940 --> 00:02:07,520
+You can create repeatable regression tests.
+
+30
+31
+00:02:07,520 --> 00:02:14,330
+So let's say you find a bug in your application,
+you write a script that covers that scenario,
+
+31
+32
+00:02:14,330 --> 00:02:18,860
+and then from that point on, you never
+need to worry about that bug coming back.
+
+32
+33
+00:02:18,860 --> 00:02:23,190
+You never need to be concerned that you've got to
+keep testing that because you've got a script now.
+
+33
+34
+00:02:23,190 --> 00:02:27,990
+That script is going to find that bug should it ever
+come back; something you never need to worry about again.
+
+34
+35
+00:02:27,990 --> 00:02:32,990
+You can quickly turn around updates to your application.
+
+35
+36
+00:02:32,990 --> 00:02:36,570
+Now, users love getting updates to their application.
+
+36
+37
+00:02:36,570 --> 00:02:40,390
+Personally, I check the App Store every day
+just to see what new updates I have available.
+
+37
+38
+00:02:40,390 --> 00:02:46,840
+The trouble with pushing out an update for your
+application is that you have to test everything again
+
+38
+39
+00:02:46,840 --> 00:02:50,770
+because you don't want to introduce a new regression
+or a new bug that your user's going to run into.
+
+39
+40
+00:02:50,770 --> 00:02:55,780
+So you want to make sure that you've maintained or
+exceeded that level of quality that you had previously.
+
+40
+41
+00:02:55,780 --> 00:03:02,240
+So the great thing with automation is that if you have
+a suite of automated tests, you can run through those
+
+41
+42
+00:03:02,240 --> 00:03:07,380
+with your new update, and you instantly know
+if you've maintained that level of quality.
+
+42
+43
+00:03:07,380 --> 00:03:11,370
+So what is UI Automation?
+
+43
+44
+00:03:11,370 --> 00:03:16,380
+Well, User Interface Automation for the iPhone.
+
+44
+45
+00:03:16,380 --> 00:03:19,550
+Internally at Apple, we've been
+using UI Automation for a long time.
+
+45
+46
+00:03:19,550 --> 00:03:21,640
+This is how we do a lot of our testing.
+
+46
+47
+00:03:21,640 --> 00:03:25,000
+We're working through the User
+Interface in our applications,
+
+47
+48
+00:03:25,000 --> 00:03:29,770
+we're making sure that what the user
+sees is what we want them to see.
+
+48
+49
+00:03:29,770 --> 00:03:32,650
+So we automate UIKit based applications.
+
+49
+50
+00:03:32,650 --> 00:03:37,510
+Now many of you are familiar with UIKit,
+you're using it to build your applications,
+
+50
+51
+00:03:37,510 --> 00:03:40,430
+and so really you don't need to
+do any more work for automation.
+
+51
+52
+00:03:40,430 --> 00:03:43,230
+It's just going to better work through your application.
+
+52
+53
+00:03:43,230 --> 00:03:46,400
+Fully touch based.
+
+53
+54
+00:03:46,400 --> 00:03:50,510
+Anything a user can do with a finger
+on a device, maybe Tap, Scroll,
+
+54
+55
+00:03:50,510 --> 00:03:54,430
+that kind of thing, you can automate through UI Automation.
+
+55
+56
+00:03:54,430 --> 00:04:03,190
+Support the iPhone, iPod touch, and iPhone Simulator
+-- one script runs in all three exactly the same.
+
+56
+57
+00:04:03,190 --> 00:04:09,340
+So this is any device that runs
+iOS 4.0 and supports multitasking,
+
+57
+58
+00:04:09,340 --> 00:04:15,250
+will run with UI Automation; one
+script exactly the same each time.
+
+58
+59
+00:04:15,250 --> 00:04:17,230
+It's integrated into Instruments.
+
+59
+60
+00:04:17,230 --> 00:04:19,290
+So Instruments is an amazing tool.
+
+60
+61
+00:04:19,290 --> 00:04:22,000
+Maybe you've already been to some of
+the sessions on Instruments this week.
+
+61
+62
+00:04:22,000 --> 00:04:27,320
+So with Instruments you can monitor kind of your
+performance of your application, memory usage.
+
+62
+63
+00:04:27,320 --> 00:04:31,720
+And so we've added in the ability
+to automate your application.
+
+63
+64
+00:04:31,720 --> 00:04:36,780
+And what this means is that you can use the
+Automation Instrument alongside other instruments
+
+64
+65
+00:04:36,780 --> 00:04:40,000
+and see exactly what is happening in your application.
+
+65
+66
+00:04:40,000 --> 00:04:42,400
+So maybe you've been trying to track down a memory leak,
+
+66
+67
+00:04:42,400 --> 00:04:45,820
+maybe you've had other performance
+issues with your application.
+
+67
+68
+00:04:45,820 --> 00:04:51,160
+You can now write an automated script that runs
+through your application with those other instruments,
+
+68
+69
+00:04:51,160 --> 00:04:59,770
+and you can pinpoint exactly what was going on when
+you saw, maybe, a memory spike or some other issue.
+
+69
+70
+00:04:59,770 --> 00:05:01,850
+Fully accessibility based.
+
+70
+71
+00:05:01,850 --> 00:05:05,260
+Now, there's one key thing with accessibility that's going
+
+71
+72
+00:05:05,260 --> 00:05:09,200
+to make automating your application
+easier, and that's up here.
+
+72
+73
+00:05:09,200 --> 00:05:11,320
+The Accessibility Label.
+
+73
+74
+00:05:11,320 --> 00:05:16,840
+You set this in Interface Builder, you put a name
+in for your controls that you're building up,
+
+74
+75
+00:05:16,840 --> 00:05:20,350
+that is going to make your life when
+it comes to automation so much easier.
+
+75
+76
+00:05:20,350 --> 00:05:25,840
+It's not required, but it's going to make life
+easier because it will enable you to know exactly
+
+76
+77
+00:05:25,840 --> 00:05:29,630
+which control you're using when
+you're automating your application.
+
+77
+78
+00:05:29,630 --> 00:05:32,730
+And we'll show an example of this a little later.
+
+78
+79
+00:05:32,730 --> 00:05:34,500
+So we use JavaScript to automate.
+
+79
+80
+00:05:34,500 --> 00:05:39,980
+And you're probably thinking, "Michael, why
+are you using JavaScript for automation?"
+
+80
+81
+00:05:39,980 --> 00:05:42,510
+Well, there's a couple of reasons.
+
+81
+82
+00:05:42,510 --> 00:05:47,190
+Automation has always traditionally
+been used with a scripting language.
+
+82
+83
+00:05:47,190 --> 00:05:53,030
+And so the reason behind this is that scripting
+language is very easy for anyone to pick up.
+
+83
+84
+00:05:53,030 --> 00:05:59,210
+There's a lot of very talented QA engineers out there
+that maybe don't have any programming experience
+
+84
+85
+00:05:59,210 --> 00:06:04,080
+that you developers have, and so something like
+JavaScript is very easy for them to pick up and learn,
+
+85
+86
+00:06:04,080 --> 00:06:11,520
+yet it also has the flexibility and complexity
+for you developers to do more complex things,
+
+86
+87
+00:06:11,520 --> 00:06:14,510
+and we'll cover some of those a little later.
+
+87
+88
+00:06:14,510 --> 00:06:18,930
+And lastly, with the JavaScript, it
+runs outside of your application.
+
+88
+89
+00:06:18,930 --> 00:06:20,930
+So the application that you're testing
+
+89
+90
+00:06:20,930 --> 00:06:25,900
+through your automation is exactly the
+same as what you'll submit to the store.
+
+90
+91
+00:06:25,900 --> 00:06:33,020
+You're not adding anything to your application in order to
+do the testing, so it's exactly the same code each time.
+
+91
+92
+00:06:33,020 --> 00:06:37,670
+So with that, I'm going to hand it over to Matt who's going
+to show us a quick demo of what UI Automation looks like.
+
+92
+93
+00:06:37,670 --> 00:06:40,400
+>> Matt Dreisbach: So let's see
+how this looks like on a device.
+
+93
+94
+00:06:40,400 --> 00:06:47,210
+What we've got here is a piece of sample code
+it's available on the Developer's Site UI Catalog.
+
+94
+95
+00:06:47,210 --> 00:06:48,600
+We've gone ahead and written the script.
+
+95
+96
+00:06:48,600 --> 00:06:54,510
+You can see that we can identify buttons,
+navigate the navigation bar, click on things.
+
+96
+97
+00:06:54,510 --> 00:07:01,310
+[ Running script ]
+
+97
+98
+00:07:01,310 --> 00:07:03,390
+We can interact with text fields.
+
+98
+99
+00:07:03,390 --> 00:07:13,230
+So we're going to go ahead and set -- cap the
+field to make it First Responder and set the text.
+
+99
+100
+00:07:13,230 --> 00:07:22,950
+We can simulate various gestures
+such as Inch Open and Drags.
+
+100
+101
+00:07:22,950 --> 00:07:25,900
+Notice I'm not interacting with the device.
+
+101
+102
+00:07:25,900 --> 00:07:27,610
+Easy to do double taps.
+
+102
+103
+00:07:27,610 --> 00:07:34,160
+You can set the orientation, in case your app happens
+to run in landscape, you can do some testing there.
+
+103
+104
+00:07:34,160 --> 00:07:40,000
+Show you a few more examples of it interacting with some
+controls, and then I'll show you exactly how you set one
+
+104
+105
+00:07:40,000 --> 00:07:42,620
+of these up in Instruments to run your script.
+
+105
+106
+00:07:42,620 --> 00:07:45,050
+Interacting with Switches here, Sliders.
+
+106
+107
+00:07:45,050 --> 00:07:50,420
+You can also simulate a Lock, and you can
+also do Backgrounding and Foregrounding
+
+107
+108
+00:07:50,420 --> 00:07:53,510
+of your app, so you can test the Multitask interface.
+
+108
+109
+00:07:53,510 --> 00:07:55,790
+Okay. So how did I run that script?
+
+109
+110
+00:07:55,790 --> 00:08:01,250
+Let's go look at the desktop machine here, and
+I'm going to bring up a new Instrument session.
+
+110
+111
+00:08:01,250 --> 00:08:06,910
+You notice when you first launch Instruments, you'll
+be prevented -- presented with this template chooser.
+
+111
+112
+00:08:06,910 --> 00:08:11,680
+Under the iPhone templates here, you'll
+want to select the Automation template.
+
+112
+113
+00:08:11,680 --> 00:08:18,050
+Then you need to make sure you're targeting your iPhone.
+
+113
+114
+00:08:18,050 --> 00:08:27,060
+So up here in the target chooser, select iPhone, and
+select your -- the application that you want to target.
+
+114
+115
+00:08:27,060 --> 00:08:31,830
+And then down here on the left there's a Choose Script.
+
+115
+116
+00:08:31,830 --> 00:08:39,900
+You just need to navigate to your script,
+and then start the Tracing session
+
+116
+117
+00:08:39,900 --> 00:08:42,150
+which will automatically start up the script.
+
+117
+118
+00:08:42,150 --> 00:08:51,370
+So you'll see as you run the automation, you can log the
+beginning of tests, and they show up in this Outline view.
+
+118
+119
+00:08:51,370 --> 00:08:54,030
+You can expand that and see more detailed logging inside.
+
+119
+120
+00:08:54,030 --> 00:08:58,200
+We also have the ability to capture screenshots,
+so if there's something you're interested
+
+120
+121
+00:08:58,200 --> 00:09:02,550
+in onscreen while you're running your test, you see
+it over here on the right in the Extended Detail,
+
+121
+122
+00:09:02,550 --> 00:09:05,280
+it will display the screenshot that you took.
+
+122
+123
+00:09:05,280 --> 00:09:10,080
+And up at the top here in the timeline, we
+highlight green when you passed this test.
+
+123
+124
+00:09:10,080 --> 00:09:12,030
+If you were to fail a test, we'll highlight that red.
+
+124
+125
+00:09:12,030 --> 00:09:16,750
+So I'm going to hand this back to Michael, and he's going
+to tell you a little bit about how you write this script.
+
+125
+126
+00:09:16,750 --> 00:09:20,660
+>> Michael Creasy: So now you've seen kind of
+an example script and how you can use that.
+
+126
+127
+00:09:20,660 --> 00:09:24,440
+So let's look at how we can actually
+automate an application.
+
+127
+128
+00:09:24,440 --> 00:09:28,610
+First thing I need to talk about is Elements.
+
+128
+129
+00:09:28,610 --> 00:09:34,020
+So every control in your application
+gets represented to UI Automation
+
+129
+130
+00:09:34,020 --> 00:09:38,330
+as an element, Now the base element is UIAElement.
+
+130
+131
+00:09:38,330 --> 00:09:41,650
+This is from what all other elements are inherited from.
+
+131
+132
+00:09:41,650 --> 00:09:46,390
+And there's a couple of properties on that
+that are really important to understand.
+
+132
+133
+00:09:46,390 --> 00:09:50,890
+There's a lot more than this, but these are
+the four that I really want to focus on today.
+
+133
+134
+00:09:50,890 --> 00:09:53,000
+First up, Name.
+
+134
+135
+00:09:53,000 --> 00:09:57,620
+Now the name is what was set -- if you
+remember, we talked about accessibility,
+
+135
+136
+00:09:57,620 --> 00:10:01,660
+the Accessibility Label gets translated
+into the name of your element.
+
+136
+137
+00:10:01,660 --> 00:10:07,730
+And this is what makes it very easy for you to
+find individual controls in your application.
+
+137
+138
+00:10:07,730 --> 00:10:09,010
+The Value.
+
+138
+139
+00:10:09,010 --> 00:10:12,310
+As you'd expect, this is the value of a control.
+
+139
+140
+00:10:12,310 --> 00:10:18,510
+Say you had a text field, for example, any text that
+appeared in that field gets represented as the value.
+
+140
+141
+00:10:18,510 --> 00:10:25,930
+So you can very easily read maybe some text out
+of your application for verification purposes.
+
+141
+142
+00:10:25,930 --> 00:10:31,900
+Elements. Well, you think of your
+application as having a hierarchy of controls.
+
+142
+143
+00:10:31,900 --> 00:10:38,830
+This gets represented as individual elements, so
+every element can contain zero or more other elements.
+
+143
+144
+00:10:38,830 --> 00:10:44,990
+Think, for example, a table here may have
+multiple cells as its child elements,
+
+144
+145
+00:10:44,990 --> 00:10:47,490
+and equally parent within one level back up.
+
+145
+146
+00:10:47,490 --> 00:10:51,970
+So let's look at the control hierarchy a little bit more.
+
+146
+147
+00:10:51,970 --> 00:10:59,080
+Here we have the rest of his sample from Developer website,
+and we're going to dig through this and see how we build
+
+147
+148
+00:10:59,080 --> 00:11:04,210
+up a line of code to access a particular
+element in your application.
+
+148
+149
+00:11:04,210 --> 00:11:07,240
+So let's start off with the target application.
+
+149
+150
+00:11:07,240 --> 00:11:11,280
+This is the application that -- your
+application that you're testing.
+
+150
+151
+00:11:11,280 --> 00:11:17,420
+And we access that through UIATarget,
+localTarget, and the frontMost application.
+
+151
+152
+00:11:17,420 --> 00:11:21,270
+From there we move down to the
+mainWindow, which looks identical, it is,
+
+152
+153
+00:11:21,270 --> 00:11:24,170
+after all, the main window of the application.
+
+153
+154
+00:11:24,170 --> 00:11:27,550
+Move down from the mainWindow, we get to an individual view.
+
+154
+155
+00:11:27,550 --> 00:11:30,180
+In this case we have a tableView.
+
+155
+156
+00:11:30,180 --> 00:11:34,570
+Moving down from the tableView,
+we get down to an individual cell.
+
+156
+157
+00:11:34,570 --> 00:11:38,290
+And you'll see how I've accessed
+this, we have an array of table views,
+
+157
+158
+00:11:38,290 --> 00:11:41,000
+we just chose the first one, so the Zero Table view.
+
+158
+159
+00:11:41,000 --> 00:11:43,950
+And again I've chosen the first
+cell which is highlighted here.
+
+159
+160
+00:11:43,950 --> 00:11:52,420
+Beyond the individual element, you get a child element,
+in this case, we're directly accessing "chocolate cake."
+
+160
+161
+00:11:52,420 --> 00:11:57,860
+So how do you go from that to actually
+building up a test case?
+
+161
+162
+00:11:57,860 --> 00:11:59,330
+Well, let's start with something really simple.
+
+162
+163
+00:11:59,330 --> 00:12:01,680
+I'm going to start by tapping a button.
+
+163
+164
+00:12:01,680 --> 00:12:07,170
+Nearly every application uses a button at some point, you're
+going to want to tap one at some point during your testing.
+
+164
+165
+00:12:07,170 --> 00:12:10,300
+So we got a little code snippet up
+here that shows you how it's done.
+
+165
+166
+00:12:10,300 --> 00:12:15,890
+But what I want you to pay attention to
+is when I've worked through the hierarchy
+
+166
+167
+00:12:15,890 --> 00:12:20,190
+of the navigation bar, individual
+buttons, into the add button.
+
+167
+168
+00:12:20,190 --> 00:12:24,310
+And so that's actually the plus button that
+you see at the top of the navigation bar,
+
+168
+169
+00:12:24,310 --> 00:12:29,440
+and the reason we can access it using the word
+"add" is because that's the Accessibility Label
+
+169
+170
+00:12:29,440 --> 00:12:32,070
+that we've set on that individual button.
+
+170
+171
+00:12:32,070 --> 00:12:36,490
+So we've made it easy for ourselves to go and be
+able to find that rather than having to see, oh,
+
+171
+172
+00:12:36,490 --> 00:12:39,390
+the zero button or the first button, you know.
+
+172
+173
+00:12:39,390 --> 00:12:44,330
+Accessing it by name makes not only a more readable script,
+but it makes it much easier for you to write your script.
+
+173
+174
+00:12:44,330 --> 00:12:47,770
+So let's go ahead and tap that and see what happens.
+
+174
+175
+00:12:47,770 --> 00:12:49,720
+Well, we've moved to another screen.
+
+175
+176
+00:12:49,720 --> 00:12:51,450
+It looks like that worked.
+
+176
+177
+00:12:51,450 --> 00:12:54,640
+So what are we going to do next?
+
+177
+178
+00:12:54,640 --> 00:12:59,990
+Well, we've got a text input there, you
+probably want to type something into it.
+
+178
+179
+00:12:59,990 --> 00:13:03,970
+We start off by declaring a local variable,
+in this case a bit of text with "Turtle Pie."
+
+179
+180
+00:13:03,970 --> 00:13:08,390
+It's a favorite recipe of Matt's, and he's
+promised to bring some into the office next week.
+
+180
+181
+00:13:08,390 --> 00:13:13,660
+So how do I get that text into that text field?
+
+181
+182
+00:13:13,660 --> 00:13:18,630
+Well, again, I work my way through the
+control hierarchy to the first text field.
+
+182
+183
+00:13:18,630 --> 00:13:22,000
+There's only one there, so I don't
+really necessary access it by name.
+
+183
+184
+00:13:22,000 --> 00:13:26,560
+I can just go for the first one in
+our array and course setValue on it,
+
+184
+185
+00:13:26,560 --> 00:13:32,190
+and that's going to insert the text
+directly into -- into the display.
+
+185
+186
+00:13:32,190 --> 00:13:33,730
+So let's take a look at that.
+
+186
+187
+00:13:33,730 --> 00:13:38,170
+Sure enough we've managed to insert Turtle Pie.
+
+187
+188
+00:13:38,170 --> 00:13:41,660
+Tabs are great in your application.
+
+188
+189
+00:13:41,660 --> 00:13:46,210
+It lets you display a lot more information
+users can navigate back and forth between.
+
+189
+190
+00:13:46,210 --> 00:13:49,050
+But how do you access individual tabs?
+
+190
+191
+00:13:49,050 --> 00:13:52,040
+How do you move between them in your application?
+
+191
+192
+00:13:52,040 --> 00:13:54,400
+Well, it turns out it's a lot like tapping a button.
+
+192
+193
+00:13:54,400 --> 00:13:57,640
+Let's have a look at this little code
+snippet here and see how it's done.
+
+193
+194
+00:13:57,640 --> 00:14:03,910
+First of all, I'm declaring a local variable to access the
+tabBar directly so I don't have to write that huge long line
+
+194
+195
+00:14:03,910 --> 00:14:07,380
+of text every single time, I can
+just narrow it down to one element.
+
+195
+196
+00:14:07,380 --> 00:14:13,120
+Once I've got my tabBar, I want
+to know which tab is selected.
+
+196
+197
+00:14:13,120 --> 00:14:19,340
+So I'm accessing the tabBar, asking for the
+selected button, and getting the name of it.
+
+197
+198
+00:14:19,340 --> 00:14:23,450
+Then I'm checking to see what tab is selected.
+
+198
+199
+00:14:23,450 --> 00:14:30,080
+Now, is it the Unit Conversion tab, and if it's not,
+we just tap that button, and let's see what happens.
+
+199
+200
+00:14:30,080 --> 00:14:33,520
+Well, we moved to the next tab as we expected.
+
+200
+201
+00:14:33,520 --> 00:14:37,440
+So let's move on in building up our test.
+
+201
+202
+00:14:37,440 --> 00:14:38,590
+Scrolling.
+
+202
+203
+00:14:38,590 --> 00:14:41,960
+You got a table in your application,
+you're already used to scrolling up
+
+203
+204
+00:14:41,960 --> 00:14:46,840
+and down to find individual elements,
+so let's see how we to that.
+
+204
+205
+00:14:46,840 --> 00:14:54,580
+First of all, again, accessing localTarget, frontMost
+application, my mainWindow, and the individual table,
+
+205
+206
+00:14:54,580 --> 00:14:58,350
+and now I want to scroll to that
+Turtle Pie recipe we've added.
+
+206
+207
+00:14:58,350 --> 00:15:03,240
+So I'm using the function called
+scrollToElementWithPredicate, and what this enables you
+
+207
+208
+00:15:03,240 --> 00:15:08,490
+to do is scroll to an element that maybe
+you don't know the complete name of.
+
+208
+209
+00:15:08,490 --> 00:15:14,340
+This will come in handy if maybe you have some
+unexpected text, maybe some text that's come
+
+209
+210
+00:15:14,340 --> 00:15:17,660
+from the Internet, maybe a date or a time.
+
+210
+211
+00:15:17,660 --> 00:15:20,100
+Something that you can't predict at
+the time you're writing your script.
+
+211
+212
+00:15:20,100 --> 00:15:23,900
+In this case, we could predict it,
+but let's have a look at how it works.
+
+212
+213
+00:15:23,900 --> 00:15:30,750
+So I create a predicate, namebeginswith
+"Turtle Pie," and that enables me to access
+
+213
+214
+00:15:30,750 --> 00:15:33,700
+that cell directly and scroll down to it.
+
+214
+215
+00:15:33,700 --> 00:15:38,400
+So once you've worked through your application, it's great
+that you can tap individual elements, you can find stuff,
+
+215
+216
+00:15:38,400 --> 00:15:42,200
+you can scroll, but that doesn't make a great test case.
+
+216
+217
+00:15:42,200 --> 00:15:46,660
+For a test to actually work, you
+need some sort of verification.
+
+217
+218
+00:15:46,660 --> 00:15:51,300
+You need to actually verify that you've done
+something and that a test has passed or failed.
+
+218
+219
+00:15:51,300 --> 00:15:56,600
+So let's look at how we'd verify that
+we've added Turtle Pie to our recipe.
+
+219
+220
+00:15:56,600 --> 00:15:58,650
+This big chunk of code here.
+
+220
+221
+00:15:58,650 --> 00:16:02,730
+Again, what I want to do is access
+the cell that contains Turtle Pie
+
+221
+222
+00:16:02,730 --> 00:16:09,140
+and determine if it's -- that -- if it's there or not.
+
+222
+223
+00:16:09,140 --> 00:16:15,370
+So first of all, I create a local reference
+to that cell, and I'm using this case,
+
+223
+224
+00:16:15,370 --> 00:16:18,640
+firstWithPredicate, and namebeginswith "Turtle Pie" as well.
+
+224
+225
+00:16:18,640 --> 00:16:20,580
+That will give me a reference to that cell.
+
+225
+226
+00:16:20,580 --> 00:16:24,470
+I then check if the cell is valid or not valid.
+
+226
+227
+00:16:24,470 --> 00:16:30,410
+And if it is valid, I go ahead and log a pass for
+my test; and if it isn't, then I go and log a fail.
+
+227
+228
+00:16:30,410 --> 00:16:36,240
+And what cell.isValid is actually doing is
+checking to see if that cell exists or not.
+
+228
+229
+00:16:36,240 --> 00:16:38,010
+How do you go about logging information?
+
+229
+230
+00:16:38,010 --> 00:16:43,450
+Now, when you're writing your tests, you need to log as
+much information as you can because this is what's going
+
+230
+231
+00:16:43,450 --> 00:16:46,370
+to make it easy for you to diagnose any failures that occur.
+
+231
+232
+00:16:46,370 --> 00:16:53,060
+One of the most important things you need to log is
+when you start your test and when you end your test.
+
+232
+233
+00:16:53,060 --> 00:16:55,050
+And we've made this really simple.
+
+233
+234
+00:16:55,050 --> 00:17:02,120
+All you need to do is call UIALogger, logStart
+and the name of your test, write your test,
+
+234
+235
+00:17:02,120 --> 00:17:07,480
+and then ultimately at the end call
+logPass, assuming your test is passing;
+
+235
+236
+00:17:07,480 --> 00:17:10,470
+otherwise logFail for a test that's failing.
+
+236
+237
+00:17:10,470 --> 00:17:17,100
+So it's very easy just to mark off in your code
+exactly when a test is starting and when it ends.
+
+237
+238
+00:17:17,100 --> 00:17:18,010
+Of course, that's not everything.
+
+238
+239
+00:17:18,010 --> 00:17:22,810
+You really need to log as much as you can
+about what's going in your application.
+
+239
+240
+00:17:22,810 --> 00:17:28,130
+What we recommend is every time you interact
+with a control, log what you've done.
+
+240
+241
+00:17:28,130 --> 00:17:33,460
+That way when you go back to look at the log of your
+test, maybe when it fails, you can read through your log
+
+241
+242
+00:17:33,460 --> 00:17:35,620
+and see exactly the steps that have occurred.
+
+242
+243
+00:17:35,620 --> 00:17:40,390
+And that'll make it much easier to
+diagnose any failures that have happened.
+
+243
+244
+00:17:40,390 --> 00:17:46,200
+But logging is as simple as just
+calling logMessage and a text string.
+
+244
+245
+00:17:46,200 --> 00:17:52,970
+But they say a picture is worth a thousand words,
+and sometimes text is just not going to be enough.
+
+245
+246
+00:17:52,970 --> 00:17:54,670
+So you can go ahead and log a screenshot.
+
+246
+247
+00:17:54,670 --> 00:17:59,590
+And, in fact, that's how we've captured all
+of the screenshots in this presentation.
+
+247
+248
+00:17:59,590 --> 00:18:05,490
+All of the screenshots we've used were captured
+through UI Automation using code just like this.
+
+248
+249
+00:18:05,490 --> 00:18:10,000
+So you go ahead and call captureScreenshot,
+give it a name of the screenshot,
+
+249
+250
+00:18:10,000 --> 00:18:14,540
+and this gets saved back in Instruments as the file name.
+
+250
+251
+00:18:14,540 --> 00:18:21,880
+So, you know, a little more useful name than Screenshot 1 is
+probably a good idea; otherwise, you're never really going
+
+251
+252
+00:18:21,880 --> 00:18:23,910
+to know what your screenshots are until you look at them.
+
+252
+253
+00:18:23,910 --> 00:18:28,260
+This will make it easier for you to find them, do any
+post processing that you need to do, after the fact.
+
+253
+254
+00:18:28,260 --> 00:18:32,550
+So with that, we're going to hand it back over to Matt,
+
+254
+255
+00:18:32,550 --> 00:18:37,080
+who's going to show you how the script
+we've just written works in practice.
+
+255
+256
+00:18:37,080 --> 00:18:40,440
+>> Matt Dreisbach: So we've gone
+ahead and written this recipe script.
+
+256
+257
+00:18:40,440 --> 00:18:51,820
+You can see, just as Michael showed you, clicks the
+add button in the navigation bar and sets the text.
+
+257
+258
+00:18:51,820 --> 00:18:57,830
+We've added some other tests that enter the description
+information and the prep time of this recipe,
+
+258
+259
+00:18:57,830 --> 00:19:03,510
+adding some ingredients, just give you more
+examples of the type of testing you can do.
+
+259
+260
+00:19:03,510 --> 00:19:30,410
+[ Running test ]
+
+260
+261
+00:19:30,410 --> 00:19:37,960
+So this test is coming along well,
+but you'll notice that we're --
+
+261
+262
+00:19:37,960 --> 00:19:42,930
+left with the recipe of the night and it
+might be nice to implement a Delete test.
+
+262
+263
+00:19:42,930 --> 00:19:47,340
+So I'm going to go ahead and walk
+through implementing this Delete test.
+
+263
+264
+00:19:47,340 --> 00:19:50,870
+In order to delete this item, the
+first thing you're going to need
+
+264
+265
+00:19:50,870 --> 00:19:53,440
+to do is select the Edit button from the navigation bar.
+
+265
+266
+00:19:53,440 --> 00:19:58,920
+So we're going to have to isolate that, click that button.
+
+266
+267
+00:19:58,920 --> 00:20:06,770
+Then we're going to choose the switch to enter the Delete
+mode and then click the Confirmation Delete button.
+
+267
+268
+00:20:06,770 --> 00:20:14,120
+I want to exit Edit Mode again by tapping on that done
+button in the navigation bar, and then, once again,
+
+268
+269
+00:20:14,120 --> 00:20:18,050
+this time we'll want to verify
+that the recipe's been removed.
+
+269
+270
+00:20:18,050 --> 00:20:19,820
+So here's the last run we had on this test.
+
+270
+271
+00:20:19,820 --> 00:20:23,820
+You'll notice there's this Edit button next to the script.
+
+271
+272
+00:20:23,820 --> 00:20:27,100
+If you click that, that will go
+ahead and bring up that JavaScript
+
+272
+273
+00:20:27,100 --> 00:20:30,220
+in the editor that you have selected for JavaScript.
+
+273
+274
+00:20:30,220 --> 00:20:32,380
+In this case, we've -- we have Xcode set.
+
+274
+275
+00:20:32,380 --> 00:20:38,140
+And I'll just run you through this script quickly here.
+
+275
+276
+00:20:38,140 --> 00:20:45,880
+We've gone ahead and saved a reference to the local
+target here in this variable target, and the frontMost app
+
+276
+277
+00:20:45,880 --> 00:20:51,130
+and this Variable app, and then we've implemented a
+few convenience functions here that help us get back
+
+277
+278
+00:20:51,130 --> 00:20:55,390
+to the main list view because we know
+we're going to be doing that a lot.
+
+278
+279
+00:20:55,390 --> 00:21:00,750
+Let's see, just finds different tab bar
+and navigation bars and it goes ahead
+
+279
+280
+00:21:00,750 --> 00:21:04,730
+and selects those to make sure we're on the right mode.
+
+280
+281
+00:21:04,730 --> 00:21:09,180
+And you'll see at the bottom here, we're
+calling the various tests we've implemented --
+
+281
+282
+00:21:09,180 --> 00:21:12,950
+this is fairly simple script, you may
+want to add more complexity to yours,
+
+282
+283
+00:21:12,950 --> 00:21:15,300
+but I wanted to give you a simple example.
+
+283
+284
+00:21:15,300 --> 00:21:17,990
+And here's the Add Recipe test
+that Michael's been working on.
+
+284
+285
+00:21:17,990 --> 00:21:22,830
+So let's go ahead and add that Delete Recipe test.
+
+285
+286
+00:21:22,830 --> 00:21:28,800
+We're going to start out by just sort of framing
+this function here, function Delete Recipe.
+
+286
+287
+00:21:28,800 --> 00:21:34,790
+It's going to take one argument, the name of the
+recipe, and we're going to log the start of the test.
+
+287
+288
+00:21:34,790 --> 00:21:42,180
+And we're going to call this Return to Recipes
+continue function to get back to the list.
+
+288
+289
+00:21:42,180 --> 00:21:48,020
+And then, if you recall, the first thing we
+want to do is isolate that navigation bar
+
+289
+290
+00:21:48,020 --> 00:21:51,530
+and the -- the Edit button and the navigation bar.
+
+290
+291
+00:21:51,530 --> 00:22:05,060
+We're going to log what we're doing, and on the app Object,
+find the navigation bar, get the list of button elements,
+
+291
+292
+00:22:05,060 --> 00:22:10,560
+and select the Edit button, and click Tap.
+
+292
+293
+00:22:10,560 --> 00:22:15,390
+Now one of the things you'll notice with the
+automation is that we will patiently wait
+
+293
+294
+00:22:15,390 --> 00:22:18,820
+up to a certain timeout for elements to come on screen.
+
+294
+295
+00:22:18,820 --> 00:22:26,010
+One of the things that happens often in automation is
+that the thing that you're trying to target won't be --
+
+295
+296
+00:22:26,010 --> 00:22:30,850
+there'll be animations that won't be on screen right away,
+so in this case, we're actually getting the right button,
+
+296
+297
+00:22:30,850 --> 00:22:33,990
+and we're making sure its name has
+changed to Done before moving on.
+
+297
+298
+00:22:33,990 --> 00:22:39,480
+So now that we know we're in Edit mode,
+we're going to go ahead and scroll
+
+298
+299
+00:22:39,480 --> 00:22:42,290
+to the element using that scrollToElementWithPredicate.
+
+299
+300
+00:22:42,290 --> 00:22:49,430
+In this case, when we're in Edit mode, the
+name of that cell will be prefixWithDelete,
+
+300
+301
+00:22:49,430 --> 00:22:53,730
+so we're constructing this string
+Delete and the recipe name.
+
+301
+302
+00:22:56,750 --> 00:23:02,330
+We've saved a reference to that cell, and now we're
+going to look inside that cell for all of its switches.
+
+302
+303
+00:23:02,330 --> 00:23:04,080
+There'll only be one switch.
+
+303
+304
+00:23:04,080 --> 00:23:07,300
+We're going to get the first switch
+and set its value to one.
+
+304
+305
+00:23:07,300 --> 00:23:18,450
+Added some delays in here to make this
+run slower so you can see what's going on.
+
+305
+306
+00:23:18,450 --> 00:23:24,460
+Next, we look in that same cell, and we
+look for the Confirm Deletion button.
+
+306
+307
+00:23:24,460 --> 00:23:30,470
+So we're using Predicate again, nameBeginsWith
+"Confirm Deletion," and we're tapping that element.
+
+307
+308
+00:23:34,150 --> 00:23:39,680
+Then we want to exit the Edit mode by
+selecting the done button in the navigation bar.
+
+308
+309
+00:23:42,910 --> 00:23:51,520
+And we'll search the table to make sure
+that that element has been removed.
+
+309
+310
+00:23:51,520 --> 00:23:59,100
+And we're going to take a screenshot there to make sure
+that it's gone so we can confirm later if we need to.
+
+310
+311
+00:24:01,950 --> 00:24:11,400
+And then, finally, all we need to do is call
+our new delete function here at the end.
+
+311
+312
+00:24:11,400 --> 00:24:16,820
+Okay. So let's return to Instruments and let's see that run.
+
+312
+313
+00:24:16,820 --> 00:24:21,410
+Notice I don't need to refresh anything in Instruments,
+just hit Record again, it will pick up the changes.
+
+313
+314
+00:24:21,410 --> 00:24:26,510
+This time I'll let you watch it from the desktop side.
+
+314
+315
+00:24:26,510 --> 00:24:40,090
+[ Running test ]
+
+315
+316
+00:24:40,090 --> 00:24:44,810
+See how easy it is, once you have these tests
+to just iterate them over and over again.
+
+316
+317
+00:24:44,810 --> 00:24:52,120
+If you write them flexible enough, you can add several
+recipes to your, you know, app, and stress test your app.
+
+317
+318
+00:24:52,120 --> 00:24:56,810
+You can run this in conjunction with other instruments
+to maybe do some leak checking, as Michael mentioned.
+
+318
+319
+00:24:56,810 --> 00:25:01,510
+Here's our new test.
+
+319
+320
+00:25:01,510 --> 00:25:19,700
+[ Test running ]
+
+320
+321
+00:25:19,700 --> 00:25:26,490
+Okay. As you can see, we've passed the test, and we
+have the screenshot, we can see that it's been deleted.
+
+321
+322
+00:25:26,490 --> 00:25:31,440
+One of the things, though, it's all fine and
+dandy to know we have a test that passes.
+
+322
+323
+00:25:31,440 --> 00:25:35,510
+But what's really valuable is to
+know if we can catch a failure.
+
+323
+324
+00:25:35,510 --> 00:25:40,630
+So it's important when you're writing
+your tests to test that failure case.
+
+324
+325
+00:25:40,630 --> 00:25:49,790
+So let's go ahead and switch over to Xcode, and we're going
+
+325
+326
+00:25:49,790 --> 00:26:02,650
+to select the Delegate function here that's
+responsible for deleting this recipe from the list.
+
+326
+327
+00:26:02,650 --> 00:26:06,510
+I'm just going to go ahead and add a Return, simulate a bug.
+
+327
+328
+00:26:06,510 --> 00:26:19,750
+[ Writing code ]
+
+328
+329
+00:26:19,750 --> 00:26:20,510
+There we go.
+
+329
+330
+00:26:20,510 --> 00:26:28,710
+[ Background voices ]
+
+330
+331
+00:26:28,710 --> 00:26:29,510
+I'm missing...
+
+331
+332
+00:26:29,510 --> 00:26:57,360
+[ Writing code ]
+
+332
+333
+00:26:57,360 --> 00:26:59,510
+Okay. I'm not sure if I did what I wanted there.
+
+333
+334
+00:26:59,510 --> 00:28:09,190
+[ Writing code ]
+
+334
+335
+00:28:09,190 --> 00:28:15,510
+Okay. So you'll see we failed to delete and --
+
+335
+336
+00:28:15,510 --> 00:28:20,610
+[ Applause ]
+
+336
+337
+00:28:20,610 --> 00:28:22,820
+We got a test failure.
+
+337
+338
+00:28:22,820 --> 00:28:24,640
+So I'll go ahead and hand this back to Michael,
+
+338
+339
+00:28:24,640 --> 00:28:27,870
+and he can talk to you about some additional
+things you can do with the automation.
+
+339
+340
+00:28:27,870 --> 00:28:30,450
+>> Michael Creasy: So now you've seen how we can
+not only, you know, show that your test's a pass,
+
+340
+341
+00:28:30,450 --> 00:28:36,120
+but we can also catch a failure as well, so you
+know when something has failed in your application.
+
+341
+342
+00:28:36,120 --> 00:28:39,840
+So now I'm going to cover some of the more advanced topics,
+
+342
+343
+00:28:39,840 --> 00:28:44,500
+some of the more interesting things
+that you can do with UI Automation.
+
+343
+344
+00:28:44,500 --> 00:28:49,030
+So we'll start off with handling unexpected alerts.
+
+344
+345
+00:28:49,030 --> 00:28:54,600
+One of the traditional problems that
+User Interface Automation has had is what
+
+345
+346
+00:28:54,600 --> 00:28:56,880
+to do when something unexpected happens.
+
+346
+347
+00:28:56,880 --> 00:29:01,540
+When something like this pops up on screen,
+I mean, you are testing on a phone after all,
+
+347
+348
+00:29:01,540 --> 00:29:05,620
+what happens if you get a text message
+in the middle of your automation run?
+
+348
+349
+00:29:05,620 --> 00:29:10,030
+Well, traditionally, everything
+would now fail at this point.
+
+349
+350
+00:29:10,030 --> 00:29:15,040
+Your world, as far as the application is concerned,
+has changed; something has appeared on screen;
+
+350
+351
+00:29:15,040 --> 00:29:17,190
+your script wasn't expecting this to happen;
+
+351
+352
+00:29:17,190 --> 00:29:21,820
+it can't find the controls it's looking
+for; and everything just falls apart.
+
+352
+353
+00:29:21,820 --> 00:29:25,330
+And you end up looking at a whole load of failures,
+
+353
+354
+00:29:25,330 --> 00:29:31,010
+and you find out that Johnny sent you a text
+message and destroyed your automation run.
+
+354
+355
+00:29:31,010 --> 00:29:32,830
+So let's fix that.
+
+355
+356
+00:29:32,830 --> 00:29:35,950
+We can automatically dismiss these alerts.
+
+356
+357
+00:29:35,950 --> 00:29:37,410
+Let's have a look at how we do that.
+
+357
+358
+00:29:37,410 --> 00:29:41,930
+Well, create a function called onAlert.
+
+358
+359
+00:29:41,930 --> 00:29:44,730
+This is our Alert Handler function.
+
+359
+360
+00:29:44,730 --> 00:29:51,750
+And all I've done in this function is just log a
+message, just logging the fact that this alert happened.
+
+360
+361
+00:29:51,750 --> 00:29:53,730
+And then I return false.
+
+361
+362
+00:29:53,730 --> 00:29:58,090
+And what false is telling the system
+is that I, as a script writer,
+
+362
+363
+00:29:58,090 --> 00:30:02,380
+have not handled this alert, and I
+want you to get rid of it for me.
+
+363
+364
+00:30:02,380 --> 00:30:08,680
+And so what UI Automation is going to do is
+click that Close button, get rid of the alert,
+
+364
+365
+00:30:08,680 --> 00:30:12,210
+and your script continues running
+exactly where you left off.
+
+365
+366
+00:30:12,210 --> 00:30:15,900
+So whatever action you were doing previously,
+you go right back to where you were,
+
+366
+367
+00:30:15,900 --> 00:30:20,590
+and your script carries on as if nothing had ever happened.
+
+367
+368
+00:30:20,590 --> 00:30:23,650
+Now occasionally, of course, you're
+going to get expected alerts.
+
+368
+369
+00:30:23,650 --> 00:30:28,240
+You're going to get stuff pop up that
+is that is part of your application.
+
+369
+370
+00:30:28,240 --> 00:30:34,010
+Now, maybe, as in this case, you've
+got a confirmation dialog.
+
+370
+371
+00:30:34,010 --> 00:30:38,760
+Now obviously you don't want to dismiss this alert
+automatically because this is part of your application,
+
+371
+372
+00:30:38,760 --> 00:30:43,270
+and you want to be able to deal with
+this appropriately when the time comes.
+
+372
+373
+00:30:43,270 --> 00:30:45,860
+So let's have a look at our Alert Handler again.
+
+373
+374
+00:30:45,860 --> 00:30:51,530
+If we just run it as it is, we'd go ahead
+and probably click that Rename button,
+
+374
+375
+00:30:51,530 --> 00:30:55,640
+that is the default button, and
+that's not what you want to happen.
+
+375
+376
+00:30:55,640 --> 00:30:56,820
+So how do I deal with that?
+
+376
+377
+00:30:56,820 --> 00:31:04,450
+Well, I have this little code snippet here, that looks
+for this precise dialog box that's going to pop up,
+
+377
+378
+00:31:04,450 --> 00:31:10,610
+and when we find it, we're going to tap the Continue
+button instead of the Rename button and return true.
+
+378
+379
+00:31:10,610 --> 00:31:19,000
+And that way we're by-passing the Default Handler,
+which means that UI Automation is not going to deal
+
+379
+380
+00:31:19,000 --> 00:31:23,450
+with this alert, you've told the system,
+you know, "I've dealt with this alert.
+
+380
+381
+00:31:23,450 --> 00:31:25,200
+Don't handle it.
+
+381
+382
+00:31:25,200 --> 00:31:25,870
+It's all dealt with.
+
+382
+383
+00:31:25,870 --> 00:31:27,090
+It's all fine."
+
+383
+384
+00:31:27,090 --> 00:31:32,550
+And at this point, your script goes back
+exactly where it was and continues running.
+
+384
+385
+00:31:32,550 --> 00:31:38,510
+So you don't have to sort of try and write extra code
+all over the place to deal with alerts as they happen,
+
+385
+386
+00:31:38,510 --> 00:31:42,260
+you just have one function that deals
+with them no matter when they occur.
+
+386
+387
+00:31:42,260 --> 00:31:45,490
+And Multitasking.
+
+387
+388
+00:31:45,490 --> 00:31:48,910
+Huge new feature in iOS 4.0.
+
+388
+389
+00:31:48,910 --> 00:31:52,900
+Something we're very excited about,
+and everyone else is excited about it.
+
+389
+390
+00:31:52,900 --> 00:31:59,290
+You've probably already started implementing Multitasking
+in your application, and you want to be able to test that.
+
+390
+391
+00:31:59,290 --> 00:32:06,750
+So we try to make it as easy as possible to test
+Multitasking, and there's only one line of code you need
+
+391
+392
+00:32:06,750 --> 00:32:10,130
+to do to test Multitasking in your application.
+
+392
+393
+00:32:10,130 --> 00:32:16,620
+As you know, when a user exits your application by tapping
+the Home button or causing some other application to come
+
+393
+394
+00:32:16,620 --> 00:32:20,260
+to the foreground, your application gets suspended.
+
+394
+395
+00:32:20,260 --> 00:32:26,840
+So we've simulated this entire work
+flow just in this one line of code.
+
+395
+396
+00:32:26,840 --> 00:32:31,650
+We code deactivateAppForDuration, give
+it a time, in this case ten seconds,
+
+396
+397
+00:32:31,650 --> 00:32:36,890
+and what that's going to do is simulate a
+user tapping the Home button on your device,
+
+397
+398
+00:32:36,890 --> 00:32:42,010
+your application will get suspended, ten
+seconds later your application will resume,
+
+398
+399
+00:32:42,010 --> 00:32:47,040
+it will come back to the foreground exactly
+the same way that a user would do it,
+
+399
+400
+00:32:47,040 --> 00:32:52,920
+as if they'd brought up the app switch, or tapped
+your app's icon, brought it back to the foreground.
+
+400
+401
+00:32:52,920 --> 00:32:54,570
+And your script just continues running.
+
+401
+402
+00:32:54,570 --> 00:32:56,830
+You don't have to do anything else.
+
+402
+403
+00:32:56,830 --> 00:33:01,930
+That one line will simulate suspending
+your application and resuming it.
+
+403
+404
+00:33:01,930 --> 00:33:05,220
+It's that easy to implement and test Multitasking.
+
+404
+405
+00:33:05,220 --> 00:33:10,550
+So how do you deal with Orientation?
+
+405
+406
+00:33:10,550 --> 00:33:15,840
+All right, you've got your devices hooked
+up to your desk, it's running with your Mac,
+
+406
+407
+00:33:15,840 --> 00:33:21,440
+and you can tap on various things,
+but how do you simulate Orientation?
+
+407
+408
+00:33:21,440 --> 00:33:25,270
+We've not gone and built a robot
+that will rotate a device for you.
+
+408
+409
+00:33:25,270 --> 00:33:30,520
+That would have been awesome, but we
+kind of had to do it in software instead.
+
+409
+410
+00:33:30,520 --> 00:33:31,800
+So how do we go about doing that?
+
+410
+411
+00:33:31,800 --> 00:33:36,170
+Well, again, really, really simple.
+
+411
+412
+00:33:36,170 --> 00:33:38,840
+Just simulating that Device Orientation.
+
+412
+413
+00:33:38,840 --> 00:33:44,680
+And to do that we setDeviceOrientation
+with one of the constants that are defined,
+
+413
+414
+00:33:44,680 --> 00:33:48,390
+in this case Device_Orientation_Landscapeleft.
+
+414
+415
+00:33:48,390 --> 00:33:51,380
+This is what's going to rotate the device.
+
+415
+416
+00:33:51,380 --> 00:33:54,570
+That just simulates the rotation that's occurred.
+
+416
+417
+00:33:54,570 --> 00:34:01,670
+Now if you deal with raw accelerometer data in your
+application, this is not actually going to do what you want.
+
+417
+418
+00:34:01,670 --> 00:34:05,140
+This is just purely simulating that a rotation has occurred.
+
+418
+419
+00:34:05,140 --> 00:34:12,200
+So if you're using a UI device just to get notified when
+a rotation has occurred, this will do that work for you.
+
+419
+420
+00:34:12,200 --> 00:34:18,520
+Of course, once you've rotated,
+you do need to rotate back again.
+
+420
+421
+00:34:18,520 --> 00:34:27,700
+And what I recommend is if you're doing a test that
+involves changing the orientation of your device,
+
+421
+422
+00:34:27,700 --> 00:34:34,130
+that you set your rotation at the beginning of your test,
+and then set it back at the end of your test to Portrait.
+
+422
+423
+00:34:34,130 --> 00:34:40,800
+That way, no matter what happens, your next test
+that runs, it's always back in a known, good state,
+
+423
+424
+00:34:40,800 --> 00:34:46,340
+and you don't risk getting confused about not being in
+the right orientation for whatever tests are carrying on.
+
+424
+425
+00:34:46,340 --> 00:34:52,860
+So let's talk about some of the advanced
+touch interactions that you can do.
+
+425
+426
+00:34:52,860 --> 00:34:58,810
+What you've seen so far is how we can tap into
+individual controls and elements in a very simple fashion.
+
+426
+427
+00:34:58,810 --> 00:35:03,050
+But that might not be enough for your application.
+
+427
+428
+00:35:03,050 --> 00:35:05,380
+So there's a few things that I want to cover.
+
+428
+429
+00:35:05,380 --> 00:35:11,320
+We'll cover how you can do more advanced
+Taps, some Pinches, and Drags and Flicks.
+
+429
+430
+00:35:11,320 --> 00:35:14,730
+So let's have a look at, first of all, Taps.
+
+430
+431
+00:35:14,730 --> 00:35:20,880
+So you see from this first line of code, I'm just
+tapping at an arbitrary location on the screen.
+
+431
+432
+00:35:20,880 --> 00:35:26,230
+So I've set x and y coordinates, and that
+simulates a tap happening at that location.
+
+432
+433
+00:35:26,230 --> 00:35:30,760
+Doesn't matter what's at that location,
+it's just going to tap right there.
+
+433
+434
+00:35:30,760 --> 00:35:33,320
+Double Tap is exactly the same.
+
+434
+435
+00:35:33,320 --> 00:35:35,310
+And also a two finger tap.
+
+435
+436
+00:35:35,310 --> 00:35:45,510
+So think how, like in Maps, do a two finger tap to zoom
+out, and this is how you do that in a simulated environment.
+
+436
+437
+00:35:45,510 --> 00:35:52,570
+Pinches. So you can Pinch Open and Pinch Close,
+maybe to zoom in, zoom out, that kind of thing.
+
+437
+438
+00:35:52,570 --> 00:35:55,940
+And this is little bit more complex.
+
+438
+439
+00:35:55,940 --> 00:36:00,280
+Code pinchOpenFromToForDuration.
+
+439
+440
+00:36:00,280 --> 00:36:05,830
+And so again this is coordinates that's
+starting and ending the pinch and the duration,
+
+440
+441
+00:36:05,830 --> 00:36:09,680
+this is the time in seconds for that action to occur.
+
+441
+442
+00:36:09,680 --> 00:36:12,550
+So in this case, we're doing two seconds.
+
+442
+443
+00:36:12,550 --> 00:36:18,030
+Well, what that means is, for your application you
+may want to simulate a very slow pinch or a very fast.
+
+443
+444
+00:36:18,030 --> 00:36:22,490
+You have some flexibility in the
+timing of that action happening.
+
+444
+445
+00:36:22,490 --> 00:36:28,370
+Equally, Pinch Close does the exact opposite, zooming in.
+
+445
+446
+00:36:28,370 --> 00:36:31,490
+So Drag and Flick.
+
+446
+447
+00:36:31,490 --> 00:36:35,730
+Maybe you just need to scroll through a table
+really quickly, maybe you've got other elements
+
+447
+448
+00:36:35,730 --> 00:36:38,720
+that you just need to move around on screen.
+
+448
+449
+00:36:38,720 --> 00:36:47,420
+Call dragFromToForDuration, and this is our
+starting location, our ending location, and a time.
+
+449
+450
+00:36:47,420 --> 00:36:55,560
+So in this case, this is going to drag from 160 by
+200, to 160 by 400, over a period of one second.
+
+450
+451
+00:36:55,560 --> 00:36:58,920
+Again, you have the flexibility of specifying a time.
+
+451
+452
+00:36:58,920 --> 00:37:05,300
+Whether you want it to happen very quickly or very slowly,
+completely up to you and what your application needs to do.
+
+452
+453
+00:37:05,300 --> 00:37:07,900
+flickFromTo is a little bit different.
+
+453
+454
+00:37:07,900 --> 00:37:10,680
+A Flick is, by definition, a fast action.
+
+454
+455
+00:37:10,680 --> 00:37:15,600
+So there is no time on this because
+it has to happen quickly.
+
+455
+456
+00:37:15,600 --> 00:37:20,630
+But otherwise, code in much the same fashion.
+
+456
+457
+00:37:20,630 --> 00:37:25,420
+Timeout. As you see when Matt built up his script,
+
+457
+458
+00:37:25,420 --> 00:37:28,520
+occasionally you need to wait for
+an element to appear on screen.
+
+458
+459
+00:37:28,520 --> 00:37:34,600
+Maybe you've got some great animation or transition that is
+occurring in your application after you click the button,
+
+459
+460
+00:37:34,600 --> 00:37:41,210
+and you want to wait for that to happen before
+you start interacting with another control.
+
+460
+461
+00:37:41,210 --> 00:37:45,880
+So you want to wait for an element to appear
+on screen before you interact with it.
+
+461
+462
+00:37:45,880 --> 00:37:47,430
+How do we do that?
+
+462
+463
+00:37:47,430 --> 00:37:51,840
+Well, just try and access the element directly.
+
+463
+464
+00:37:51,840 --> 00:37:59,560
+And what this will do is keep trying to
+access that for a given amount of time.
+
+464
+465
+00:37:59,560 --> 00:38:06,600
+Once it finds that element, that line of code returns, and
+you can carry on doing whatever you need to do with it.
+
+465
+466
+00:38:06,600 --> 00:38:09,610
+By default will wait up to five seconds.
+
+466
+467
+00:38:09,610 --> 00:38:14,120
+If that element doesn't appear within that
+five second period, it will get an exception
+
+467
+468
+00:38:14,120 --> 00:38:18,590
+because clearly something has happened
+in your application that wasn't expected,
+
+468
+469
+00:38:18,590 --> 00:38:21,300
+and you need to deal with that in some other way.
+
+469
+470
+00:38:21,300 --> 00:38:25,790
+But maybe five seconds is too long or too short.
+
+470
+471
+00:38:25,790 --> 00:38:31,250
+Maybe you've got this fantastic animation that
+takes ten seconds to occur, but it's awesome,
+
+471
+472
+00:38:31,250 --> 00:38:34,780
+but you need to wait that amount of time.
+
+472
+473
+00:38:34,780 --> 00:38:38,520
+So much like a stack, just go ahead and push a timeout,
+
+473
+474
+00:38:38,520 --> 00:38:42,470
+in this case I'm pushing a two second
+timeout to the top of my stack.
+
+474
+475
+00:38:42,470 --> 00:38:47,960
+I write whatever code that I need that's going to access
+these elements whenever I want to wait two seconds
+
+475
+476
+00:38:47,960 --> 00:38:52,610
+to occur, and ultimately I pop the timeout.
+
+476
+477
+00:38:52,610 --> 00:38:58,190
+And the whole reason we have this timeout is so
+you don't have to pepper your script with delays.
+
+477
+478
+00:38:58,190 --> 00:39:01,070
+You might have seen that during Matt's
+run, that we had a few delays in there --
+
+478
+479
+00:39:01,070 --> 00:39:06,850
+that was purely to slow down the script to make it easier
+for you to see what was going on; otherwise it tends to run
+
+479
+480
+00:39:06,850 --> 00:39:09,870
+through stuff really quickly and
+makes it quite difficult to see.
+
+480
+481
+00:39:09,870 --> 00:39:17,970
+But using this, you end up with a robust script, waiting
+exactly the right amount of time for something to happen.
+
+481
+482
+00:39:17,970 --> 00:39:23,000
+So in summary, what you've seen today
+is how you can take UI Automation,
+
+482
+483
+00:39:23,000 --> 00:39:27,680
+how you can write scripts for your application very easily.
+
+483
+484
+00:39:27,680 --> 00:39:32,010
+It's going to cover as much testing as you
+can so that you don't need to spend a lot
+
+484
+485
+00:39:32,010 --> 00:39:35,550
+of time manually testing your application.
+
+485
+486
+00:39:35,550 --> 00:39:40,110
+You can have something do it for
+you while you focus on other things.
+
+486
+487
+00:39:40,110 --> 00:39:45,690
+There's another session a little later this afternoon on
+Accessibility, so if you want to know a little bit more
+
+487
+488
+00:39:45,690 --> 00:39:52,210
+about how you can name your elements and interact
+with them, a little later this afternoon go
+
+488
+489
+00:39:52,210 --> 00:39:54,040
+to this session, they'll tell you more about it.
+
+489
+490
+00:39:54,040 --> 00:39:56,450
+I've got a couple of resources up here.
+
+490
+491
+00:39:56,450 --> 00:40:03,280
+We've got some documentation that's great, it will
+cover all the elements we have and how to write scripts.
+
+491

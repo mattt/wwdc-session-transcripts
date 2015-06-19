@@ -1,0 +1,11339 @@
+﻿
+00:00:00,668 --> 00:00:09,442
+[ Silence ]
+
+1
+00:00:09,443 --> 00:00:11,978
+[ Silence ]
+
+2
+00:00:11,979 --> 00:00:14,297
+>> Hello, good afternoon,
+
+3
+00:00:11,979 --> 00:00:14,297
+welcome to session 505,
+
+4
+00:00:14,297 --> 00:00:16,615
+[ Silence ]
+
+5
+00:00:16,617 --> 00:00:18,251
+"Harnessing Metadata
+
+6
+00:00:16,617 --> 00:00:18,251
+in Audiovisual Media".
+
+7
+00:00:18,251 --> 00:00:19,885
+[ Silence ]
+
+8
+00:00:19,887 --> 00:00:21,304
+I've heard we are competing
+
+9
+00:00:19,887 --> 00:00:21,304
+with the "Intro to Swift" talk
+
+10
+00:00:21,304 --> 00:00:22,721
+[ Silence ]
+
+11
+00:00:22,723 --> 00:00:24,107
+so get intimate with
+
+12
+00:00:22,723 --> 00:00:24,107
+your neighbors here.
+
+13
+00:00:24,107 --> 00:00:25,491
+[ Silence ]
+
+14
+00:00:25,493 --> 00:00:26,927
+My name is Adam Sonnanstine.
+
+15
+00:00:26,927 --> 00:00:28,361
+[ Silence ]
+
+16
+00:00:28,362 --> 00:00:29,579
+I'm an engineer on
+
+17
+00:00:28,362 --> 00:00:29,579
+the AVFoundation team
+
+18
+00:00:29,579 --> 00:00:30,796
+[ Silence ]
+
+19
+00:00:30,798 --> 00:00:32,482
+and today we are going to talk
+
+20
+00:00:30,798 --> 00:00:32,482
+about, of course, metadata.
+
+21
+00:00:32,482 --> 00:00:34,166
+[ Silence ]
+
+22
+00:00:34,168 --> 00:00:35,018
+So what do I mean by metadata?
+
+23
+00:00:35,018 --> 00:00:35,868
+[ Silence ]
+
+24
+00:00:35,870 --> 00:00:37,087
+Well, for the purposes
+
+25
+00:00:35,870 --> 00:00:37,087
+of this talk we're going
+
+26
+00:00:37,087 --> 00:00:38,304
+[ Silence ]
+
+27
+00:00:38,305 --> 00:00:39,539
+to define metadata to mean
+
+28
+00:00:38,305 --> 00:00:39,539
+any data that is stored
+
+29
+00:00:39,539 --> 00:00:40,773
+[ Silence ]
+
+30
+00:00:40,775 --> 00:00:42,476
+in movie files, streaming
+
+31
+00:00:40,775 --> 00:00:42,476
+presentations, any other sort
+
+32
+00:00:42,476 --> 00:00:44,177
+[ Silence ]
+
+33
+00:00:44,178 --> 00:00:46,863
+of audiovisual presentation
+
+34
+00:00:44,178 --> 00:00:46,863
+that describes the primary data,
+
+35
+00:00:46,863 --> 00:00:49,548
+[ Silence ]
+
+36
+00:00:49,550 --> 00:00:50,667
+like the audio and video that
+
+37
+00:00:49,550 --> 00:00:50,667
+we think about when we think
+
+38
+00:00:50,667 --> 00:00:51,784
+[ Silence ]
+
+39
+00:00:51,786 --> 00:00:52,769
+of those sorts of presentations.
+
+40
+00:00:52,769 --> 00:00:53,752
+[ Silence ]
+
+41
+00:00:53,754 --> 00:00:55,005
+Some examples are
+
+42
+00:00:53,754 --> 00:00:55,005
+always helpful.
+
+43
+00:00:55,005 --> 00:00:56,256
+[ Silence ]
+
+44
+00:00:56,257 --> 00:00:57,774
+One you should be familiar
+
+45
+00:00:56,257 --> 00:00:57,774
+is iTunes metadata,
+
+46
+00:00:57,774 --> 00:00:59,291
+[ Silence ]
+
+47
+00:00:59,293 --> 00:01:00,877
+when you have this sort of
+
+48
+00:00:59,293 --> 00:01:00,877
+the song names and the artists
+
+49
+00:01:00,877 --> 00:01:02,461
+[ Silence ]
+
+50
+00:01:02,463 --> 00:01:04,147
+and the album artwork
+
+51
+00:01:02,463 --> 00:01:04,147
+in your iTunes library.
+
+52
+00:01:04,147 --> 00:01:05,831
+[ Silence ]
+
+53
+00:01:05,833 --> 00:01:07,033
+All these things are stored
+
+54
+00:01:05,833 --> 00:01:07,033
+as the sort of metadata
+
+55
+00:01:07,033 --> 00:01:08,233
+[ Silence ]
+
+56
+00:01:08,235 --> 00:01:09,269
+that I'm talking about
+
+57
+00:01:08,235 --> 00:01:09,269
+today in the files
+
+58
+00:01:09,269 --> 00:01:10,303
+[ Silence ]
+
+59
+00:01:10,304 --> 00:01:11,454
+in your iTunes library.
+
+60
+00:01:11,454 --> 00:01:12,604
+[ Silence ]
+
+61
+00:01:12,606 --> 00:01:13,940
+Besides iTunes metadata,
+
+62
+00:01:12,606 --> 00:01:13,940
+we also have things
+
+63
+00:01:13,940 --> 00:01:15,274
+[ Silence ]
+
+64
+00:01:15,276 --> 00:01:16,143
+like location information.
+
+65
+00:01:16,143 --> 00:01:17,010
+[ Silence ]
+
+66
+00:01:17,011 --> 00:01:18,445
+If you have a movie that
+
+67
+00:01:17,011 --> 00:01:18,445
+you took with your iPhone
+
+68
+00:01:18,445 --> 00:01:19,879
+[ Silence ]
+
+69
+00:01:19,880 --> 00:01:21,481
+or some other location-enabled
+
+70
+00:01:19,880 --> 00:01:21,481
+device and you played it
+
+71
+00:01:21,481 --> 00:01:23,082
+[ Silence ]
+
+72
+00:01:23,084 --> 00:01:24,585
+in QuickTime player, that will
+
+73
+00:01:23,084 --> 00:01:24,585
+show up in the info window
+
+74
+00:01:24,585 --> 00:01:26,086
+[ Silence ]
+
+75
+00:01:26,087 --> 00:01:27,654
+to tell you where you were
+
+76
+00:01:26,087 --> 00:01:27,654
+when you took that movie.
+
+77
+00:01:27,654 --> 00:01:29,221
+[ Silence ]
+
+78
+00:01:29,223 --> 00:01:30,157
+That's also stored as
+
+79
+00:01:29,223 --> 00:01:30,157
+the kind of metadata
+
+80
+00:01:30,157 --> 00:01:31,091
+[ Silence ]
+
+81
+00:01:31,092 --> 00:01:32,392
+that we are talking about today.
+
+82
+00:01:32,392 --> 00:01:33,692
+[ Silence ]
+
+83
+00:01:33,694 --> 00:01:35,262
+Some new features, we know that
+
+84
+00:01:33,694 --> 00:01:35,262
+you're not always standing still
+
+85
+00:01:35,262 --> 00:01:36,830
+[ Silence ]
+
+86
+00:01:36,831 --> 00:01:37,431
+when you are taking your videos.
+
+87
+00:01:37,431 --> 00:01:38,031
+[ Silence ]
+
+88
+00:01:38,032 --> 00:01:40,517
+So new in iOS 8 and OS X
+
+89
+00:01:38,032 --> 00:01:40,517
+Yosemite, we have features
+
+90
+00:01:40,517 --> 00:01:43,002
+[ Silence ]
+
+91
+00:01:43,003 --> 00:01:44,671
+that support things like dynamic
+
+92
+00:01:43,003 --> 00:01:44,671
+location, that's a location
+
+93
+00:01:44,671 --> 00:01:46,339
+[ Silence ]
+
+94
+00:01:46,340 --> 00:01:47,040
+that changes over time.
+
+95
+00:01:47,040 --> 00:01:47,740
+[ Silence ]
+
+96
+00:01:47,741 --> 00:01:48,541
+So these are some new features
+
+97
+00:01:47,741 --> 00:01:48,541
+that we are going to be talking
+
+98
+00:01:48,541 --> 00:01:49,341
+[ Silence ]
+
+99
+00:01:49,343 --> 00:01:51,328
+about later on that we are
+
+100
+00:01:49,343 --> 00:01:51,328
+pretty excited about and,
+
+101
+00:01:51,328 --> 00:01:53,313
+[ Silence ]
+
+102
+00:01:53,314 --> 00:01:55,332
+in addition to location, this
+
+103
+00:01:53,314 --> 00:01:55,332
+really applies to any sort
+
+104
+00:01:55,332 --> 00:01:57,350
+[ Silence ]
+
+105
+00:01:57,351 --> 00:01:58,685
+of metadata that you might
+
+106
+00:01:57,351 --> 00:01:58,685
+want to add that changes
+
+107
+00:01:58,685 --> 00:02:00,019
+[ Silence ]
+
+108
+00:02:00,020 --> 00:02:00,954
+over time in your movie.
+
+109
+00:02:00,954 --> 00:02:01,888
+[ Silence ]
+
+110
+00:02:01,889 --> 00:02:03,290
+This is a screen shot of a
+
+111
+00:02:01,889 --> 00:02:03,290
+demo app we'll show you later
+
+112
+00:02:03,290 --> 00:02:04,691
+[ Silence ]
+
+113
+00:02:04,692 --> 00:02:06,159
+but the circle and the
+
+114
+00:02:04,692 --> 00:02:06,159
+annotation text that's all
+
+115
+00:02:06,159 --> 00:02:07,626
+[ Silence ]
+
+116
+00:02:07,628 --> 00:02:10,313
+stored as the same sort of timed
+
+117
+00:02:07,628 --> 00:02:10,313
+metadata as a timed location.
+
+118
+00:02:10,313 --> 00:02:12,998
+[ Silence ]
+
+119
+00:02:13,000 --> 00:02:14,034
+So hopefully that whets
+
+120
+00:02:13,000 --> 00:02:14,034
+your appetite a little bit.
+
+121
+00:02:14,034 --> 00:02:15,068
+[ Silence ]
+
+122
+00:02:15,069 --> 00:02:16,219
+We'll talk about what
+
+123
+00:02:15,069 --> 00:02:16,219
+we're going to cover today,
+
+124
+00:02:16,219 --> 00:02:17,369
+[ Silence ]
+
+125
+00:02:17,371 --> 00:02:18,471
+we're going to start, I'm going
+
+126
+00:02:17,371 --> 00:02:18,471
+to give you an intro to metadata
+
+127
+00:02:18,471 --> 00:02:19,571
+[ Silence ]
+
+128
+00:02:19,573 --> 00:02:20,707
+and AVFoundation, some of
+
+129
+00:02:19,573 --> 00:02:20,707
+the classes that have been
+
+130
+00:02:20,707 --> 00:02:21,841
+[ Silence ]
+
+131
+00:02:21,842 --> 00:02:23,360
+around for a while for
+
+132
+00:02:21,842 --> 00:02:23,360
+describing all sorts
+
+133
+00:02:23,360 --> 00:02:24,878
+[ Silence ]
+
+134
+00:02:24,879 --> 00:02:26,263
+of metadata, how to inspect
+
+135
+00:02:24,879 --> 00:02:26,263
+that and how to author it.
+
+136
+00:02:26,263 --> 00:02:27,647
+[ Silence ]
+
+137
+00:02:27,648 --> 00:02:28,315
+We're going to talk more
+
+138
+00:02:28,315 --> 00:02:28,982
+[ Silence ]
+
+139
+00:02:28,983 --> 00:02:29,950
+about those new timed
+
+140
+00:02:28,983 --> 00:02:29,950
+metadata features
+
+141
+00:02:29,950 --> 00:02:30,917
+[ Silence ]
+
+142
+00:02:30,918 --> 00:02:33,019
+and then I'll give you some best
+
+143
+00:02:30,918 --> 00:02:33,019
+practices including some privacy
+
+144
+00:02:33,019 --> 00:02:35,120
+[ Silence ]
+
+145
+00:02:35,122 --> 00:02:36,923
+things to keep in mind and
+
+146
+00:02:35,122 --> 00:02:36,923
+some other best practices.
+
+147
+00:02:36,923 --> 00:02:38,724
+[ Silence ]
+
+148
+00:02:38,726 --> 00:02:40,310
+So our first topic: metadata
+
+149
+00:02:38,726 --> 00:02:40,310
+in AVFoundation..What kind
+
+150
+00:02:40,310 --> 00:02:41,894
+[ Silence ]
+
+151
+00:02:41,896 --> 00:02:43,563
+of classes are we going to be
+
+152
+00:02:41,896 --> 00:02:43,563
+using to describe our metadata?
+
+153
+00:02:43,563 --> 00:02:45,230
+[ Silence ]
+
+154
+00:02:45,232 --> 00:02:46,750
+Well our primary model
+
+155
+00:02:45,232 --> 00:02:46,750
+objects that we use
+
+156
+00:02:46,750 --> 00:02:48,268
+[ Silence ]
+
+157
+00:02:48,269 --> 00:02:51,571
+to describe both movie files
+
+158
+00:02:48,269 --> 00:02:51,571
+or HLS streams is AVAsset.
+
+159
+00:02:51,571 --> 00:02:54,873
+[ Silence ]
+
+160
+00:02:54,875 --> 00:02:57,544
+AVAsset can contain any
+
+161
+00:02:54,875 --> 00:02:57,544
+number of AV metadata objects
+
+162
+00:02:57,544 --> 00:03:00,213
+[ Silence ]
+
+163
+00:03:00,214 --> 00:03:02,849
+and each AVMetadataItem instance
+
+164
+00:03:00,214 --> 00:03:02,849
+represents a single piece
+
+165
+00:03:02,849 --> 00:03:05,484
+[ Silence ]
+
+166
+00:03:05,486 --> 00:03:07,153
+of metadata, either your
+
+167
+00:03:05,486 --> 00:03:07,153
+track name or your album mark,
+
+168
+00:03:07,153 --> 00:03:08,820
+[ Silence ]
+
+169
+00:03:08,822 --> 00:03:10,990
+even your location stuff that's
+
+170
+00:03:08,822 --> 00:03:10,990
+going to be separate pieces
+
+171
+00:03:10,990 --> 00:03:13,158
+[ Silence ]
+
+172
+00:03:13,160 --> 00:03:14,594
+of metadata in our
+
+173
+00:03:13,160 --> 00:03:14,594
+runtime environment.
+
+174
+00:03:14,594 --> 00:03:16,028
+[ Silence ]
+
+175
+00:03:16,030 --> 00:03:18,031
+So a closer look at
+
+176
+00:03:16,030 --> 00:03:18,031
+AVMetadataItem: at its core,
+
+177
+00:03:18,031 --> 00:03:20,032
+[ Silence ]
+
+178
+00:03:20,034 --> 00:03:20,984
+it has two properties.
+
+179
+00:03:20,984 --> 00:03:21,934
+[ Silence ]
+
+180
+00:03:21,936 --> 00:03:23,353
+The first is identifier, which
+
+181
+00:03:21,936 --> 00:03:23,353
+is actually a new property
+
+182
+00:03:23,353 --> 00:03:24,770
+[ Silence ]
+
+183
+00:03:24,772 --> 00:03:25,639
+and that is going
+
+184
+00:03:24,772 --> 00:03:25,639
+to describe the kind
+
+185
+00:03:25,639 --> 00:03:26,506
+[ Silence ]
+
+186
+00:03:26,507 --> 00:03:27,190
+of metadata that you have.
+
+187
+00:03:27,190 --> 00:03:27,873
+[ Silence ]
+
+188
+00:03:27,875 --> 00:03:29,676
+In this example we have the
+
+189
+00:03:27,875 --> 00:03:29,676
+song name and it's represented
+
+190
+00:03:29,676 --> 00:03:31,477
+[ Silence ]
+
+191
+00:03:31,478 --> 00:03:32,195
+by this long symbol name,
+
+192
+00:03:32,195 --> 00:03:32,912
+[ Silence ]
+
+193
+00:03:32,913 --> 00:03:34,898
+AVMetadataIdentifieriTunes
+
+194
+00:03:32,913 --> 00:03:34,898
+MetadataSongName,
+
+195
+00:03:34,898 --> 00:03:36,883
+[ Silence ]
+
+196
+00:03:36,884 --> 00:03:37,517
+and then you have the value
+
+197
+00:03:37,517 --> 00:03:38,150
+[ Silence ]
+
+198
+00:03:38,152 --> 00:03:39,236
+which is the actual payload
+
+199
+00:03:38,152 --> 00:03:39,236
+of the metadata item.
+
+200
+00:03:39,236 --> 00:03:40,320
+[ Silence ]
+
+201
+00:03:40,321 --> 00:03:42,539
+So for song name, it's the
+
+202
+00:03:40,321 --> 00:03:42,539
+name of the song as a string.
+
+203
+00:03:42,539 --> 00:03:44,757
+[ Silence ]
+
+204
+00:03:44,758 --> 00:03:46,042
+As an example for cover art,
+
+205
+00:03:46,042 --> 00:03:47,326
+[ Silence ]
+
+206
+00:03:47,328 --> 00:03:48,462
+you can see that the
+
+207
+00:03:47,328 --> 00:03:48,462
+value doesn't have
+
+208
+00:03:48,462 --> 00:03:49,596
+[ Silence ]
+
+209
+00:03:49,597 --> 00:03:51,498
+to be a string it can be an
+
+210
+00:03:49,597 --> 00:03:51,498
+image or any other object
+
+211
+00:03:51,498 --> 00:03:53,399
+[ Silence ]
+
+212
+00:03:53,400 --> 00:03:55,869
+that supports both the NSObject
+
+213
+00:03:53,400 --> 00:03:55,869
+and NSCopying protocols.
+
+214
+00:03:55,869 --> 00:03:58,338
+[ Silence ]
+
+215
+00:03:58,339 --> 00:03:59,422
+Now if you've used
+
+216
+00:03:58,339 --> 00:03:59,422
+AVMetadataItem
+
+217
+00:03:59,422 --> 00:04:00,505
+[ Silence ]
+
+218
+00:04:00,507 --> 00:04:01,841
+in the past you might
+
+219
+00:04:00,507 --> 00:04:01,841
+be familiar with the key
+
+220
+00:04:01,841 --> 00:04:03,175
+[ Silence ]
+
+221
+00:04:03,177 --> 00:04:04,094
+and key space properties.
+
+222
+00:04:04,094 --> 00:04:05,011
+[ Silence ]
+
+223
+00:04:05,012 --> 00:04:06,229
+Well the identifier I
+
+224
+00:04:05,012 --> 00:04:06,229
+mentioned that was new,
+
+225
+00:04:06,229 --> 00:04:07,446
+[ Silence ]
+
+226
+00:04:07,448 --> 00:04:08,298
+it's new because
+
+227
+00:04:07,448 --> 00:04:08,298
+it is a combination
+
+228
+00:04:08,298 --> 00:04:09,148
+[ Silence ]
+
+229
+00:04:09,149 --> 00:04:10,300
+of the old properties,
+
+230
+00:04:09,149 --> 00:04:10,300
+key and key space.
+
+231
+00:04:10,300 --> 00:04:11,451
+[ Silence ]
+
+232
+00:04:11,452 --> 00:04:12,752
+So I'm not going to talking much
+
+233
+00:04:11,452 --> 00:04:12,752
+about key and key space today
+
+234
+00:04:12,752 --> 00:04:14,052
+[ Silence ]
+
+235
+00:04:14,054 --> 00:04:15,471
+but mostly going to be talking
+
+236
+00:04:14,054 --> 00:04:15,471
+about identifier going forward
+
+237
+00:04:15,471 --> 00:04:16,888
+[ Silence ]
+
+238
+00:04:16,890 --> 00:04:18,591
+as the way to describe
+
+239
+00:04:16,890 --> 00:04:18,591
+your metadata.
+
+240
+00:04:18,591 --> 00:04:20,292
+[ Silence ]
+
+241
+00:04:20,294 --> 00:04:21,745
+Take a look at some of the
+
+242
+00:04:20,294 --> 00:04:21,745
+built-in identifiers we have;
+
+243
+00:04:21,745 --> 00:04:23,196
+[ Silence ]
+
+244
+00:04:23,197 --> 00:04:23,897
+this is just a tiny sampling.
+
+245
+00:04:23,897 --> 00:04:24,597
+[ Silence ]
+
+246
+00:04:24,598 --> 00:04:25,031
+There's a lot of them.
+
+247
+00:04:25,031 --> 00:04:25,464
+[ Silence ]
+
+248
+00:04:25,466 --> 00:04:26,149
+You can find them
+
+249
+00:04:26,149 --> 00:04:26,832
+[ Silence ]
+
+250
+00:04:26,834 --> 00:04:28,268
+in AVMetadataIdentifiers.h. I've
+
+251
+00:04:26,834 --> 00:04:28,268
+arranged them here according
+
+252
+00:04:28,268 --> 00:04:29,702
+[ Silence ]
+
+253
+00:04:29,703 --> 00:04:32,021
+roughly to the old notion of
+
+254
+00:04:29,703 --> 00:04:32,021
+key space so that's just sort
+
+255
+00:04:32,021 --> 00:04:34,339
+[ Silence ]
+
+256
+00:04:34,341 --> 00:04:35,859
+of a sampling of the kind of
+
+257
+00:04:34,341 --> 00:04:35,859
+metadata that we already know
+
+258
+00:04:35,859 --> 00:04:37,377
+[ Silence ]
+
+259
+00:04:37,378 --> 00:04:38,712
+that you might want
+
+260
+00:04:37,378 --> 00:04:38,712
+to represent.
+
+261
+00:04:38,712 --> 00:04:40,046
+[ Silence ]
+
+262
+00:04:40,047 --> 00:04:41,915
+Going back to the
+
+263
+00:04:40,047 --> 00:04:41,915
+metadata item itself,
+
+264
+00:04:41,915 --> 00:04:43,783
+[ Silence ]
+
+265
+00:04:43,784 --> 00:04:45,735
+we have a property that's
+
+266
+00:04:43,784 --> 00:04:45,735
+also new called dataType,
+
+267
+00:04:45,735 --> 00:04:47,686
+[ Silence ]
+
+268
+00:04:47,688 --> 00:04:48,788
+which describes the
+
+269
+00:04:47,688 --> 00:04:48,788
+native data type
+
+270
+00:04:48,788 --> 00:04:49,888
+[ Silence ]
+
+271
+00:04:49,890 --> 00:04:51,007
+that your metadata
+
+272
+00:04:49,890 --> 00:04:51,007
+is representing.
+
+273
+00:04:51,007 --> 00:04:52,124
+[ Silence ]
+
+274
+00:04:52,126 --> 00:04:53,476
+So for the case of our song
+
+275
+00:04:52,126 --> 00:04:53,476
+name it's stored as a string
+
+276
+00:04:53,476 --> 00:04:54,826
+[ Silence ]
+
+277
+00:04:54,828 --> 00:04:56,312
+so we see that the data
+
+278
+00:04:54,828 --> 00:04:56,312
+type is a UTF8 string;
+
+279
+00:04:56,312 --> 00:04:57,796
+[ Silence ]
+
+280
+00:04:57,798 --> 00:04:58,598
+and these string constants
+
+281
+00:04:58,598 --> 00:04:59,398
+[ Silence ]
+
+282
+00:04:59,400 --> 00:05:00,784
+that represent the different
+
+283
+00:04:59,400 --> 00:05:00,784
+data types are all defined
+
+284
+00:05:00,784 --> 00:05:02,168
+[ Silence ]
+
+285
+00:05:02,169 --> 00:05:04,971
+in CMMetadata.h. And besides
+
+286
+00:05:02,169 --> 00:05:04,971
+the data type property,
+
+287
+00:05:04,971 --> 00:05:07,773
+[ Silence ]
+
+288
+00:05:07,775 --> 00:05:09,476
+we also have several
+
+289
+00:05:07,775 --> 00:05:09,476
+type coercion properties
+
+290
+00:05:09,476 --> 00:05:11,177
+[ Silence ]
+
+291
+00:05:11,178 --> 00:05:12,679
+that you can use if you know
+
+292
+00:05:11,178 --> 00:05:12,679
+you want to get your payload
+
+293
+00:05:12,679 --> 00:05:14,180
+[ Silence ]
+
+294
+00:05:14,181 --> 00:05:15,782
+in the form of a certain
+
+295
+00:05:14,181 --> 00:05:15,782
+type of Objective C object.
+
+296
+00:05:15,782 --> 00:05:17,383
+[ Silence ]
+
+297
+00:05:17,384 --> 00:05:19,385
+So you have string value, number
+
+298
+00:05:17,384 --> 00:05:19,385
+value, date value and data value
+
+299
+00:05:19,385 --> 00:05:21,386
+[ Silence ]
+
+300
+00:05:21,388 --> 00:05:23,106
+and those are going to give
+
+301
+00:05:21,388 --> 00:05:23,106
+you exactly what you'd expect.
+
+302
+00:05:23,106 --> 00:05:24,824
+[ Silence ]
+
+303
+00:05:24,825 --> 00:05:26,810
+For the case of where our
+
+304
+00:05:24,825 --> 00:05:26,810
+native payload is a string,
+
+305
+00:05:26,810 --> 00:05:28,795
+[ Silence ]
+
+306
+00:05:28,796 --> 00:05:30,080
+only string value is going to
+
+307
+00:05:28,796 --> 00:05:30,080
+give you an interesting answer.
+
+308
+00:05:30,080 --> 00:05:31,364
+[ Silence ]
+
+309
+00:05:31,365 --> 00:05:32,215
+The rest will give you NULL.
+
+310
+00:05:32,215 --> 00:05:33,065
+[ Silence ]
+
+311
+00:05:33,067 --> 00:05:34,951
+For our artwork example where
+
+312
+00:05:33,067 --> 00:05:34,951
+the payload is a JPEG image,
+
+313
+00:05:34,951 --> 00:05:36,835
+[ Silence ]
+
+314
+00:05:36,837 --> 00:05:38,088
+the top three are
+
+315
+00:05:36,837 --> 00:05:38,088
+going to give you NULL
+
+316
+00:05:38,088 --> 00:05:39,339
+[ Silence ]
+
+317
+00:05:39,340 --> 00:05:40,740
+and the data value is going
+
+318
+00:05:39,340 --> 00:05:40,740
+to give you the NSData
+
+319
+00:05:40,740 --> 00:05:42,140
+[ Silence ]
+
+320
+00:05:42,142 --> 00:05:44,260
+that you're looking for to grab
+
+321
+00:05:42,142 --> 00:05:44,260
+the bytes of the JPEG image.
+
+322
+00:05:44,260 --> 00:05:46,378
+[ Silence ]
+
+323
+00:05:46,380 --> 00:05:47,514
+There are examples
+
+324
+00:05:46,380 --> 00:05:47,514
+where you can have more
+
+325
+00:05:47,514 --> 00:05:48,648
+[ Silence ]
+
+326
+00:05:48,649 --> 00:05:50,633
+than one non-nil
+
+327
+00:05:48,649 --> 00:05:50,633
+tech coercion method.
+
+328
+00:05:50,633 --> 00:05:52,617
+[ Silence ]
+
+329
+00:05:52,619 --> 00:05:54,737
+And one is creation date if
+
+330
+00:05:52,619 --> 00:05:54,737
+you have the date represented
+
+331
+00:05:54,737 --> 00:05:56,855
+[ Silence ]
+
+332
+00:05:56,857 --> 00:05:58,191
+as a standard string
+
+333
+00:05:56,857 --> 00:05:58,191
+format for dates.
+
+334
+00:05:58,191 --> 00:05:59,525
+[ Silence ]
+
+335
+00:05:59,526 --> 00:06:02,362
+You can either get the actual
+
+336
+00:05:59,526 --> 00:06:02,362
+string that was stored that way
+
+337
+00:06:02,362 --> 00:06:05,198
+[ Silence ]
+
+338
+00:06:05,199 --> 00:06:06,650
+or you can ask the metadata
+
+339
+00:06:05,199 --> 00:06:06,650
+item to give you an instance
+
+340
+00:06:06,650 --> 00:06:08,101
+[ Silence ]
+
+341
+00:06:08,102 --> 00:06:09,085
+of NSDate that describes
+
+342
+00:06:08,102 --> 00:06:09,085
+the same thing
+
+343
+00:06:09,085 --> 00:06:10,068
+[ Silence ]
+
+344
+00:06:10,070 --> 00:06:11,271
+in a more convenient
+
+345
+00:06:10,070 --> 00:06:11,271
+representation.
+
+346
+00:06:11,271 --> 00:06:12,472
+[ Silence ]
+
+347
+00:06:12,473 --> 00:06:13,924
+So that's your brief
+
+348
+00:06:12,473 --> 00:06:13,924
+intro to AVMetadataItem,
+
+349
+00:06:13,924 --> 00:06:15,375
+[ Silence ]
+
+350
+00:06:15,376 --> 00:06:16,560
+we're going to be talking a lot
+
+351
+00:06:15,376 --> 00:06:16,560
+about it throughout the talk.
+
+352
+00:06:16,560 --> 00:06:17,744
+[ Silence ]
+
+353
+00:06:17,745 --> 00:06:18,461
+Let's go back to AVAsset
+
+354
+00:06:18,461 --> 00:06:19,177
+[ Silence ]
+
+355
+00:06:19,179 --> 00:06:20,430
+so we can see how we actually
+
+356
+00:06:19,179 --> 00:06:20,430
+get these metadata items.
+
+357
+00:06:20,430 --> 00:06:21,681
+[ Silence ]
+
+358
+00:06:21,682 --> 00:06:23,566
+So the easiest way is just to
+
+359
+00:06:21,682 --> 00:06:23,566
+ask for all of the metadata
+
+360
+00:06:23,566 --> 00:06:25,450
+[ Silence ]
+
+361
+00:06:25,452 --> 00:06:26,452
+that applies to the
+
+362
+00:06:25,452 --> 00:06:26,452
+entire asset.
+
+363
+00:06:26,452 --> 00:06:27,452
+[ Silence ]
+
+364
+00:06:27,454 --> 00:06:29,005
+There are types of metadata that
+
+365
+00:06:27,454 --> 00:06:29,005
+apply to just parts of the asset
+
+366
+00:06:29,005 --> 00:06:30,556
+[ Silence ]
+
+367
+00:06:30,557 --> 00:06:32,041
+but this is how you get the
+
+368
+00:06:30,557 --> 00:06:32,041
+metadata to, like, the location
+
+369
+00:06:32,041 --> 00:06:33,525
+[ Silence ]
+
+370
+00:06:33,527 --> 00:06:35,028
+and the song title that
+
+371
+00:06:33,527 --> 00:06:35,028
+applies to the entire asset.
+
+372
+00:06:35,028 --> 00:06:36,529
+[ Silence ]
+
+373
+00:06:36,530 --> 00:06:38,481
+There's also a way to get
+
+374
+00:06:36,530 --> 00:06:38,481
+just a subset of the metadata.
+
+375
+00:06:38,481 --> 00:06:40,432
+[ Silence ]
+
+376
+00:06:40,434 --> 00:06:41,601
+We have this notion of metadata
+
+377
+00:06:40,434 --> 00:06:41,601
+format but I'm not going
+
+378
+00:06:41,601 --> 00:06:42,768
+[ Silence ]
+
+379
+00:06:42,770 --> 00:06:44,054
+to be talking about too much
+
+380
+00:06:42,770 --> 00:06:44,054
+today but you can use it
+
+381
+00:06:44,054 --> 00:06:45,338
+[ Silence ]
+
+382
+00:06:45,339 --> 00:06:46,623
+to get just that
+
+383
+00:06:45,339 --> 00:06:46,623
+subset of the metadata.
+
+384
+00:06:46,623 --> 00:06:47,907
+[ Silence ]
+
+385
+00:06:47,908 --> 00:06:49,359
+So for our example, when we
+
+386
+00:06:47,908 --> 00:06:49,359
+are getting iTunes metadata,
+
+387
+00:06:49,359 --> 00:06:50,810
+[ Silence ]
+
+388
+00:06:50,811 --> 00:06:52,545
+we're going to use that
+
+389
+00:06:50,811 --> 00:06:52,545
+AVMetadataFormatiTunesMetadata
+
+390
+00:06:52,545 --> 00:06:54,279
+[ Silence ]
+
+391
+00:06:54,281 --> 00:06:56,566
+and grab all of that using
+
+392
+00:06:54,281 --> 00:06:56,566
+the metadataForFormat method.
+
+393
+00:06:56,566 --> 00:06:58,851
+[ Silence ]
+
+394
+00:06:58,852 --> 00:07:00,403
+And then from there we can
+
+395
+00:06:58,852 --> 00:07:00,403
+use this filtering method,
+
+396
+00:07:00,403 --> 00:07:01,954
+[ Silence ]
+
+397
+00:07:01,955 --> 00:07:03,206
+metadataItemsFromArray,
+
+398
+00:07:01,955 --> 00:07:03,206
+filtered by an identifier
+
+399
+00:07:03,206 --> 00:07:04,457
+[ Silence ]
+
+400
+00:07:04,458 --> 00:07:05,809
+to get just the items
+
+401
+00:07:04,458 --> 00:07:05,809
+that correspond
+
+402
+00:07:05,809 --> 00:07:07,160
+[ Silence ]
+
+403
+00:07:07,161 --> 00:07:08,061
+to the song name identifier.
+
+404
+00:07:08,061 --> 00:07:08,961
+[ Silence ]
+
+405
+00:07:08,962 --> 00:07:09,896
+You might be wondering
+
+406
+00:07:08,962 --> 00:07:09,896
+why you can have more
+
+407
+00:07:09,896 --> 00:07:10,830
+[ Silence ]
+
+408
+00:07:10,831 --> 00:07:11,998
+than one song name
+
+409
+00:07:10,831 --> 00:07:11,998
+in a single asset?
+
+410
+00:07:11,998 --> 00:07:13,165
+[ Silence ]
+
+411
+00:07:13,167 --> 00:07:14,434
+We'll get back to that in just
+
+412
+00:07:13,167 --> 00:07:14,434
+a little bit but first I want
+
+413
+00:07:14,434 --> 00:07:15,701
+[ Silence ]
+
+414
+00:07:15,702 --> 00:07:17,937
+to talk about how you load the
+
+415
+00:07:15,702 --> 00:07:17,937
+payload of your metadata items.
+
+416
+00:07:17,937 --> 00:07:20,172
+[ Silence ]
+
+417
+00:07:20,174 --> 00:07:21,591
+AVMetadataItem conforms
+
+418
+00:07:21,591 --> 00:07:23,008
+[ Silence ]
+
+419
+00:07:23,010 --> 00:07:24,027
+to the
+
+420
+00:07:23,010 --> 00:07:24,027
+AVAsynchronousKeyValueLoading.h
+
+421
+00:07:24,027 --> 00:07:25,044
+[ Silence ]
+
+422
+00:07:25,045 --> 00:07:25,695
+protocol.
+
+423
+00:07:25,695 --> 00:07:26,345
+[ Silence ]
+
+424
+00:07:26,346 --> 00:07:27,480
+This is a protocol we define
+
+425
+00:07:26,346 --> 00:07:27,480
+ourselves in AVFoundation
+
+426
+00:07:27,480 --> 00:07:28,614
+[ Silence ]
+
+427
+00:07:28,615 --> 00:07:30,500
+and a lot of our core
+
+428
+00:07:28,615 --> 00:07:30,500
+model objects conform to it
+
+429
+00:07:30,500 --> 00:07:32,385
+[ Silence ]
+
+430
+00:07:32,386 --> 00:07:33,953
+because a lot of times
+
+431
+00:07:32,386 --> 00:07:33,953
+when you get an AVAsset
+
+432
+00:07:33,953 --> 00:07:35,520
+[ Silence ]
+
+433
+00:07:35,522 --> 00:07:37,023
+or an AVMetadataItem we haven't
+
+434
+00:07:35,522 --> 00:07:37,023
+actually loaded the data behind
+
+435
+00:07:37,023 --> 00:07:38,524
+[ Silence ]
+
+436
+00:07:38,525 --> 00:07:39,225
+it yet.
+
+437
+00:07:39,225 --> 00:07:39,925
+[ Silence ]
+
+438
+00:07:39,927 --> 00:07:41,795
+So you can use this method, load
+
+439
+00:07:39,927 --> 00:07:41,795
+values asynchronously for keys
+
+440
+00:07:41,795 --> 00:07:43,663
+[ Silence ]
+
+441
+00:07:43,664 --> 00:07:44,914
+to load the specific values
+
+442
+00:07:43,664 --> 00:07:44,914
+you want and they'll do
+
+443
+00:07:44,914 --> 00:07:46,164
+[ Silence ]
+
+444
+00:07:46,166 --> 00:07:47,617
+that asynchronously so you're
+
+445
+00:07:46,166 --> 00:07:47,617
+not blocking your main thread
+
+446
+00:07:47,617 --> 00:07:49,068
+[ Silence ]
+
+447
+00:07:49,069 --> 00:07:50,670
+with some sort of synchronous
+
+448
+00:07:49,069 --> 00:07:50,670
+I/O or something like that.
+
+449
+00:07:50,670 --> 00:07:52,271
+[ Silence ]
+
+450
+00:07:52,272 --> 00:07:53,456
+So for this case we
+
+451
+00:07:52,272 --> 00:07:53,456
+have our metadata item.
+
+452
+00:07:53,456 --> 00:07:54,640
+[ Silence ]
+
+453
+00:07:54,641 --> 00:07:56,359
+We're looking for the value so
+
+454
+00:07:54,641 --> 00:07:56,359
+we just load the key value and,
+
+455
+00:07:56,359 --> 00:07:58,077
+[ Silence ]
+
+456
+00:07:58,078 --> 00:07:58,895
+when we get our completion
+
+457
+00:07:58,078 --> 00:07:58,895
+handler,
+
+458
+00:07:58,895 --> 00:07:59,712
+[ Silence ]
+
+459
+00:07:59,713 --> 00:08:00,530
+we're going to check
+
+460
+00:07:59,713 --> 00:08:00,530
+the status to make sure
+
+461
+00:08:00,530 --> 00:08:01,347
+[ Silence ]
+
+462
+00:08:01,348 --> 00:08:02,765
+that that loading succeeded
+
+463
+00:08:01,348 --> 00:08:02,765
+and, assuming that we did,
+
+464
+00:08:02,765 --> 00:08:04,182
+[ Silence ]
+
+465
+00:08:04,184 --> 00:08:05,184
+we can then just go
+
+466
+00:08:04,184 --> 00:08:05,184
+ahead and grab the value
+
+467
+00:08:05,184 --> 00:08:06,184
+[ Silence ]
+
+468
+00:08:06,186 --> 00:08:07,270
+and use it however we see fit.
+
+469
+00:08:07,270 --> 00:08:08,354
+[ Silence ]
+
+470
+00:08:08,355 --> 00:08:10,506
+So back to that whole multiple
+
+471
+00:08:08,355 --> 00:08:10,506
+titles in one asset string.
+
+472
+00:08:10,506 --> 00:08:12,657
+[ Silence ]
+
+473
+00:08:12,659 --> 00:08:14,460
+Well, one reason we
+
+474
+00:08:12,659 --> 00:08:14,460
+might have that is
+
+475
+00:08:14,460 --> 00:08:16,261
+[ Silence ]
+
+476
+00:08:16,263 --> 00:08:18,047
+if we have the asset localized
+
+477
+00:08:16,263 --> 00:08:18,047
+in multiple languages.
+
+478
+00:08:18,047 --> 00:08:19,831
+[ Silence ]
+
+479
+00:08:19,833 --> 00:08:21,250
+So an asset can have
+
+480
+00:08:19,833 --> 00:08:21,250
+the same metadata items
+
+481
+00:08:21,250 --> 00:08:22,667
+[ Silence ]
+
+482
+00:08:22,669 --> 00:08:23,453
+in multiple languages.
+
+483
+00:08:23,453 --> 00:08:24,237
+[ Silence ]
+
+484
+00:08:24,238 --> 00:08:24,954
+The example that
+
+485
+00:08:24,238 --> 00:08:24,954
+we're going to talk
+
+486
+00:08:24,954 --> 00:08:25,670
+[ Silence ]
+
+487
+00:08:25,672 --> 00:08:27,140
+about is
+
+488
+00:08:25,672 --> 00:08:27,140
+QuickTimeUserDataFullName
+
+489
+00:08:27,140 --> 00:08:28,608
+[ Silence ]
+
+490
+00:08:28,609 --> 00:08:29,192
+dat identifier.
+
+491
+00:08:29,192 --> 00:08:29,775
+[ Silence ]
+
+492
+00:08:29,776 --> 00:08:31,010
+If you use this identifier
+
+493
+00:08:29,776 --> 00:08:31,010
+in your files,
+
+494
+00:08:31,010 --> 00:08:32,244
+[ Silence ]
+
+495
+00:08:32,246 --> 00:08:33,813
+then QuickTime Player, for
+
+496
+00:08:32,246 --> 00:08:33,813
+example, can pick up the title
+
+497
+00:08:33,813 --> 00:08:35,380
+[ Silence ]
+
+498
+00:08:35,382 --> 00:08:36,049
+and display it in the title bar.
+
+499
+00:08:36,049 --> 00:08:36,716
+[ Silence ]
+
+500
+00:08:36,717 --> 00:08:37,884
+So this is just yet
+
+501
+00:08:36,717 --> 00:08:37,884
+another example
+
+502
+00:08:37,884 --> 00:08:39,051
+[ Silence ]
+
+503
+00:08:39,052 --> 00:08:40,703
+of how metadata is used
+
+504
+00:08:39,052 --> 00:08:40,703
+in our applications.
+
+505
+00:08:40,703 --> 00:08:42,354
+[ Silence ]
+
+506
+00:08:42,356 --> 00:08:43,389
+This particular example
+
+507
+00:08:43,389 --> 00:08:44,422
+[ Silence ]
+
+508
+00:08:44,424 --> 00:08:46,726
+of the movie actually has the
+
+509
+00:08:44,424 --> 00:08:46,726
+title available in both English
+
+510
+00:08:46,726 --> 00:08:49,028
+[ Silence ]
+
+511
+00:08:49,029 --> 00:08:51,164
+and Spanish so here we have the
+
+512
+00:08:49,029 --> 00:08:51,164
+English as the system language
+
+513
+00:08:51,164 --> 00:08:53,299
+[ Silence ]
+
+514
+00:08:53,300 --> 00:08:54,817
+so QuickTime Player picks that
+
+515
+00:08:53,300 --> 00:08:54,817
+up, picks up the English title
+
+516
+00:08:54,817 --> 00:08:56,334
+[ Silence ]
+
+517
+00:08:56,336 --> 00:08:58,004
+but if we set our system
+
+518
+00:08:56,336 --> 00:08:58,004
+language to Spanish it will pick
+
+519
+00:08:58,004 --> 00:08:59,672
+[ Silence ]
+
+520
+00:08:59,673 --> 00:09:01,107
+up the Spanish localization
+
+521
+00:08:59,673 --> 00:09:01,107
+of that title instead.
+
+522
+00:09:01,107 --> 00:09:02,541
+[ Silence ]
+
+523
+00:09:02,543 --> 00:09:04,661
+These are represented as two
+
+524
+00:09:02,543 --> 00:09:04,661
+distinct pieces of metadata
+
+525
+00:09:04,661 --> 00:09:06,779
+[ Silence ]
+
+526
+00:09:06,780 --> 00:09:08,514
+within the file and the way that
+
+527
+00:09:06,780 --> 00:09:08,514
+you distinguish between them is
+
+528
+00:09:08,514 --> 00:09:10,248
+[ Silence ]
+
+529
+00:09:10,250 --> 00:09:10,883
+that they'll have
+
+530
+00:09:10,250 --> 00:09:10,883
+different values
+
+531
+00:09:10,883 --> 00:09:11,516
+[ Silence ]
+
+532
+00:09:11,518 --> 00:09:13,219
+for these final two properties
+
+533
+00:09:11,518 --> 00:09:13,219
+of AVMetadataItem locale
+
+534
+00:09:13,219 --> 00:09:14,920
+[ Silence ]
+
+535
+00:09:14,922 --> 00:09:15,922
+and extendedLanguageTag.
+
+536
+00:09:15,922 --> 00:09:16,922
+[ Silence ]
+
+537
+00:09:16,924 --> 00:09:18,224
+ExtendedLanguageTag is
+
+538
+00:09:16,924 --> 00:09:18,224
+new in this release.
+
+539
+00:09:18,224 --> 00:09:19,524
+[ Silence ]
+
+540
+00:09:19,526 --> 00:09:21,244
+It's a BCP 47 language tag
+
+541
+00:09:19,526 --> 00:09:21,244
+and it's particularly useful
+
+542
+00:09:21,244 --> 00:09:22,962
+[ Silence ]
+
+543
+00:09:22,963 --> 00:09:24,197
+when you want to
+
+544
+00:09:22,963 --> 00:09:24,197
+distinguish written languages.
+
+545
+00:09:24,197 --> 00:09:25,431
+[ Silence ]
+
+546
+00:09:25,432 --> 00:09:27,417
+So that's one reason
+
+547
+00:09:25,432 --> 00:09:27,417
+why you might have more
+
+548
+00:09:27,417 --> 00:09:29,402
+[ Silence ]
+
+549
+00:09:29,403 --> 00:09:30,770
+than one metadata item
+
+550
+00:09:29,403 --> 00:09:30,770
+with the same identifier.
+
+551
+00:09:30,770 --> 00:09:32,137
+[ Silence ]
+
+552
+00:09:32,139 --> 00:09:34,507
+So I mentioned before that
+
+553
+00:09:32,139 --> 00:09:34,507
+not all metadata applies
+
+554
+00:09:34,507 --> 00:09:36,875
+[ Silence ]
+
+555
+00:09:36,877 --> 00:09:38,711
+to the entire asset, well one
+
+556
+00:09:36,877 --> 00:09:38,711
+example of that is metadata
+
+557
+00:09:38,711 --> 00:09:40,545
+[ Silence ]
+
+558
+00:09:40,547 --> 00:09:41,514
+that only applies to
+
+559
+00:09:40,547 --> 00:09:41,514
+a particular track,
+
+560
+00:09:41,514 --> 00:09:42,481
+[ Silence ]
+
+561
+00:09:42,482 --> 00:09:44,150
+so for this example we have
+
+562
+00:09:42,482 --> 00:09:44,150
+a special label attached
+
+563
+00:09:44,150 --> 00:09:45,818
+[ Silence ]
+
+564
+00:09:45,819 --> 00:09:47,587
+to our subtitle track called
+
+565
+00:09:45,819 --> 00:09:47,587
+SDH, that stands for Subtitles
+
+566
+00:09:47,587 --> 00:09:49,355
+[ Silence ]
+
+567
+00:09:49,356 --> 00:09:50,523
+for the Deaf or Hard of Hearing
+
+568
+00:09:50,523 --> 00:09:51,690
+[ Silence ]
+
+569
+00:09:51,692 --> 00:09:54,360
+and that's basically just a
+
+570
+00:09:51,692 --> 00:09:54,360
+more rich form of subtitles
+
+571
+00:09:54,360 --> 00:09:57,028
+[ Silence ]
+
+572
+00:09:57,030 --> 00:09:58,531
+that includes things like
+
+573
+00:09:57,030 --> 00:09:58,531
+labeling who's talking
+
+574
+00:09:58,531 --> 00:10:00,032
+[ Silence ]
+
+575
+00:10:00,033 --> 00:10:00,917
+and mentioning sound effects
+
+576
+00:10:00,917 --> 00:10:01,801
+[ Silence ]
+
+577
+00:10:01,802 --> 00:10:02,852
+that are vital to
+
+578
+00:10:01,802 --> 00:10:02,852
+the understanding.
+
+579
+00:10:02,852 --> 00:10:03,902
+[ Silence ]
+
+580
+00:10:03,904 --> 00:10:06,589
+We talked a little bit more
+
+581
+00:10:03,904 --> 00:10:06,589
+about SDH and accessibility
+
+582
+00:10:06,589 --> 00:10:09,274
+[ Silence ]
+
+583
+00:10:09,276 --> 00:10:10,543
+in general last year in our
+
+584
+00:10:09,276 --> 00:10:10,543
+"Preparing and Presenting Media
+
+585
+00:10:10,543 --> 00:10:11,810
+[ Silence ]
+
+586
+00:10:11,812 --> 00:10:13,213
+for Accessibility" talk so check
+
+587
+00:10:11,812 --> 00:10:13,213
+that one out for more details.
+
+588
+00:10:13,213 --> 00:10:14,614
+[ Silence ]
+
+589
+00:10:14,615 --> 00:10:15,448
+For the purposes of this talk,
+
+590
+00:10:15,448 --> 00:10:16,281
+[ Silence ]
+
+591
+00:10:16,283 --> 00:10:17,634
+just know that to get
+
+592
+00:10:16,283 --> 00:10:17,634
+this SDH label here,
+
+593
+00:10:17,634 --> 00:10:18,985
+[ Silence ]
+
+594
+00:10:18,986 --> 00:10:20,403
+it involves setting
+
+595
+00:10:18,986 --> 00:10:20,403
+track-specific metadata.
+
+596
+00:10:20,403 --> 00:10:21,820
+[ Silence ]
+
+597
+00:10:21,822 --> 00:10:22,755
+So let's talk about
+
+598
+00:10:21,822 --> 00:10:22,755
+how you actually find
+
+599
+00:10:22,755 --> 00:10:23,688
+[ Silence ]
+
+600
+00:10:23,690 --> 00:10:24,957
+out if your track has
+
+601
+00:10:23,690 --> 00:10:24,957
+this metadata in it,
+
+602
+00:10:24,957 --> 00:10:26,224
+[ Silence ]
+
+603
+00:10:26,226 --> 00:10:27,777
+well you're going
+
+604
+00:10:26,226 --> 00:10:27,777
+to use AVAsset track
+
+605
+00:10:27,777 --> 00:10:29,328
+[ Silence ]
+
+606
+00:10:29,329 --> 00:10:30,396
+and it has pretty much
+
+607
+00:10:29,329 --> 00:10:30,396
+the exact same API
+
+608
+00:10:30,396 --> 00:10:31,463
+[ Silence ]
+
+609
+00:10:31,465 --> 00:10:32,265
+as AVAsset for reading metadata.
+
+610
+00:10:32,265 --> 00:10:33,065
+[ Silence ]
+
+611
+00:10:33,066 --> 00:10:34,417
+You have your metadata property;
+
+612
+00:10:34,417 --> 00:10:35,768
+[ Silence ]
+
+613
+00:10:35,769 --> 00:10:37,704
+you have your metadataForFormat
+
+614
+00:10:35,769 --> 00:10:37,704
+method and so if we want
+
+615
+00:10:37,704 --> 00:10:39,639
+[ Silence ]
+
+616
+00:10:39,640 --> 00:10:41,107
+to find all the tagged
+
+617
+00:10:39,640 --> 00:10:41,107
+characteristics that are
+
+618
+00:10:41,107 --> 00:10:42,574
+[ Silence ]
+
+619
+00:10:42,576 --> 00:10:44,494
+in an asset track, we're
+
+620
+00:10:42,576 --> 00:10:44,494
+going to ask the track
+
+621
+00:10:44,494 --> 00:10:46,412
+[ Silence ]
+
+622
+00:10:46,413 --> 00:10:48,081
+for its metadata for the
+
+623
+00:10:46,413 --> 00:10:48,081
+FormatQuickTimeUserData.
+
+624
+00:10:48,081 --> 00:10:49,749
+[ Silence ]
+
+625
+00:10:49,750 --> 00:10:50,450
+Once we have that we use
+
+626
+00:10:50,450 --> 00:10:51,150
+[ Silence ]
+
+627
+00:10:51,151 --> 00:10:52,802
+that same filtering method we
+
+628
+00:10:51,151 --> 00:10:52,802
+saw before in order to get all
+
+629
+00:10:52,802 --> 00:10:54,453
+[ Silence ]
+
+630
+00:10:54,454 --> 00:10:56,439
+of the items that
+
+631
+00:10:54,454 --> 00:10:56,439
+have the identifier,
+
+632
+00:10:56,439 --> 00:10:58,424
+[ Silence ]
+
+633
+00:10:58,425 --> 00:10:59,592
+QuickTimeUserDataTagged
+
+634
+00:10:58,425 --> 00:10:59,592
+Characteristic.
+
+635
+00:10:59,592 --> 00:11:00,759
+[ Silence ]
+
+636
+00:11:00,761 --> 00:11:02,929
+So this is one example of tagged
+
+637
+00:11:00,761 --> 00:11:02,929
+characteristics is the SDH
+
+638
+00:11:02,929 --> 00:11:05,097
+[ Silence ]
+
+639
+00:11:05,098 --> 00:11:06,332
+that I just talked about
+
+640
+00:11:05,098 --> 00:11:06,332
+and it's the payload
+
+641
+00:11:06,332 --> 00:11:07,566
+[ Silence ]
+
+642
+00:11:07,567 --> 00:11:08,701
+of the metadata items
+
+643
+00:11:07,567 --> 00:11:08,701
+that tells you what kind
+
+644
+00:11:08,701 --> 00:11:09,835
+[ Silence ]
+
+645
+00:11:09,836 --> 00:11:11,203
+of tagged characteristic
+
+646
+00:11:09,836 --> 00:11:11,203
+you're dealing with.
+
+647
+00:11:11,203 --> 00:11:12,570
+[ Silence ]
+
+648
+00:11:12,572 --> 00:11:13,572
+We'll talk a little bit
+
+649
+00:11:12,572 --> 00:11:13,572
+more detail about SDH
+
+650
+00:11:13,572 --> 00:11:14,572
+[ Silence ]
+
+651
+00:11:14,574 --> 00:11:16,509
+and how you author it
+
+652
+00:11:14,574 --> 00:11:16,509
+in just a little bit.
+
+653
+00:11:16,509 --> 00:11:18,444
+[ Silence ]
+
+654
+00:11:18,445 --> 00:11:19,312
+So going back to our list
+
+655
+00:11:19,312 --> 00:11:20,179
+[ Silence ]
+
+656
+00:11:20,180 --> 00:11:21,781
+of identifiers you might
+
+657
+00:11:20,180 --> 00:11:21,781
+have noticed some patterns
+
+658
+00:11:21,781 --> 00:11:23,382
+[ Silence ]
+
+659
+00:11:23,383 --> 00:11:24,550
+if you were looking closely.
+
+660
+00:11:24,550 --> 00:11:25,717
+[ Silence ]
+
+661
+00:11:25,719 --> 00:11:27,687
+Each of these groups has
+
+662
+00:11:25,719 --> 00:11:27,687
+their own version of a title
+
+663
+00:11:27,687 --> 00:11:29,655
+[ Silence ]
+
+664
+00:11:29,656 --> 00:11:30,823
+or a song name or
+
+665
+00:11:29,656 --> 00:11:30,823
+something like that.
+
+666
+00:11:30,823 --> 00:11:31,990
+[ Silence ]
+
+667
+00:11:31,992 --> 00:11:33,960
+We noticed that and come up
+
+668
+00:11:31,992 --> 00:11:33,960
+with our own special kind
+
+669
+00:11:33,960 --> 00:11:35,928
+[ Silence ]
+
+670
+00:11:35,929 --> 00:11:37,296
+of identifier called
+
+671
+00:11:35,929 --> 00:11:37,296
+a CommonIdentifier
+
+672
+00:11:37,296 --> 00:11:38,663
+[ Silence ]
+
+673
+00:11:38,665 --> 00:11:39,916
+which can be used when
+
+674
+00:11:38,665 --> 00:11:39,916
+you want to look up, say,
+
+675
+00:11:39,916 --> 00:11:41,167
+[ Silence ]
+
+676
+00:11:41,168 --> 00:11:43,152
+for this example a title without
+
+677
+00:11:41,168 --> 00:11:43,152
+caring exactly how it's stored
+
+678
+00:11:43,152 --> 00:11:45,136
+[ Silence ]
+
+679
+00:11:45,138 --> 00:11:45,821
+in your file.
+
+680
+00:11:45,821 --> 00:11:46,504
+[ Silence ]
+
+681
+00:11:46,506 --> 00:11:48,174
+Same for copyright here; we
+
+682
+00:11:46,506 --> 00:11:48,174
+also have a common identifier
+
+683
+00:11:48,174 --> 00:11:49,842
+[ Silence ]
+
+684
+00:11:49,843 --> 00:11:50,743
+that represents copyright.
+
+685
+00:11:50,743 --> 00:11:51,643
+[ Silence ]
+
+686
+00:11:51,645 --> 00:11:52,595
+These are not the only
+
+687
+00:11:51,645 --> 00:11:52,595
+common identifiers;
+
+688
+00:11:52,595 --> 00:11:53,545
+[ Silence ]
+
+689
+00:11:53,547 --> 00:11:55,348
+there's a whole list of them
+
+690
+00:11:53,547 --> 00:11:55,348
+but these are just two examples.
+
+691
+00:11:55,348 --> 00:11:57,149
+[ Silence ]
+
+692
+00:11:57,150 --> 00:11:58,200
+So if we go back to our
+
+693
+00:11:57,150 --> 00:11:58,200
+example where we're looking
+
+694
+00:11:58,200 --> 00:11:59,250
+[ Silence ]
+
+695
+00:11:59,252 --> 00:12:00,803
+for our iTunes song name,
+
+696
+00:11:59,252 --> 00:12:00,803
+if we don't actually care
+
+697
+00:12:00,803 --> 00:12:02,354
+[ Silence ]
+
+698
+00:12:02,355 --> 00:12:04,340
+that the title of our asset
+
+699
+00:12:02,355 --> 00:12:04,340
+is stored as iTunes metadata
+
+700
+00:12:04,340 --> 00:12:06,325
+[ Silence ]
+
+701
+00:12:06,326 --> 00:12:07,910
+and we just want a title so
+
+702
+00:12:06,326 --> 00:12:07,910
+we can display it somewhere,
+
+703
+00:12:07,910 --> 00:12:09,494
+[ Silence ]
+
+704
+00:12:09,496 --> 00:12:10,980
+you can ask the asset for
+
+705
+00:12:09,496 --> 00:12:10,980
+its array of commonMetadata
+
+706
+00:12:10,980 --> 00:12:12,464
+[ Silence ]
+
+707
+00:12:12,466 --> 00:12:13,433
+and this is all the
+
+708
+00:12:12,466 --> 00:12:13,433
+metadata items
+
+709
+00:12:13,433 --> 00:12:14,400
+[ Silence ]
+
+710
+00:12:14,401 --> 00:12:16,769
+that can be represented
+
+711
+00:12:14,401 --> 00:12:16,769
+using a common identifier.
+
+712
+00:12:16,769 --> 00:12:19,137
+[ Silence ]
+
+713
+00:12:19,139 --> 00:12:20,590
+Then you use that same filtering
+
+714
+00:12:19,139 --> 00:12:20,590
+method we've been using
+
+715
+00:12:20,590 --> 00:12:22,041
+[ Silence ]
+
+716
+00:12:22,042 --> 00:12:22,925
+to filter down to just the ones
+
+717
+00:12:22,925 --> 00:12:23,808
+[ Silence ]
+
+718
+00:12:23,810 --> 00:12:24,877
+that have the
+
+719
+00:12:23,810 --> 00:12:24,877
+CommonIdentifierTitle
+
+720
+00:12:24,877 --> 00:12:25,944
+[ Silence ]
+
+721
+00:12:25,946 --> 00:12:27,397
+and you can go from
+
+722
+00:12:25,946 --> 00:12:27,397
+there with your title.
+
+723
+00:12:27,397 --> 00:12:28,848
+[ Silence ]
+
+724
+00:12:28,849 --> 00:12:29,515
+Also worth noting is
+
+725
+00:12:29,515 --> 00:12:30,181
+[ Silence ]
+
+726
+00:12:30,183 --> 00:12:32,518
+that AVAssetTrack has the
+
+727
+00:12:30,183 --> 00:12:32,518
+same property, commonMetadata,
+
+728
+00:12:32,518 --> 00:12:34,853
+[ Silence ]
+
+729
+00:12:34,855 --> 00:12:36,072
+so you can do the same
+
+730
+00:12:34,855 --> 00:12:36,072
+thing over there as well.
+
+731
+00:12:36,072 --> 00:12:37,289
+[ Silence ]
+
+732
+00:12:37,290 --> 00:12:39,008
+So that is your brief
+
+733
+00:12:37,290 --> 00:12:39,008
+introduction
+
+734
+00:12:39,008 --> 00:12:40,726
+[ Silence ]
+
+735
+00:12:40,727 --> 00:12:41,961
+to inspecting metadata
+
+736
+00:12:40,727 --> 00:12:41,961
+with AVFoundation.
+
+737
+00:12:41,961 --> 00:12:43,195
+[ Silence ]
+
+738
+00:12:43,196 --> 00:12:44,130
+Let's talk a little
+
+739
+00:12:43,196 --> 00:12:44,130
+bit about authoring.
+
+740
+00:12:44,130 --> 00:12:45,064
+[ Silence ]
+
+741
+00:12:45,065 --> 00:12:46,516
+If you want to make your own
+
+742
+00:12:45,065 --> 00:12:46,516
+files that have say location
+
+743
+00:12:46,516 --> 00:12:47,967
+[ Silence ]
+
+744
+00:12:47,968 --> 00:12:50,002
+or iTunes metadata in them, we
+
+745
+00:12:47,968 --> 00:12:50,002
+have several different classes
+
+746
+00:12:50,002 --> 00:12:52,036
+[ Silence ]
+
+747
+00:12:52,038 --> 00:12:53,839
+that can write movie
+
+748
+00:12:52,038 --> 00:12:53,839
+files, AVAssetExportSession,
+
+749
+00:12:53,839 --> 00:12:55,640
+[ Silence ]
+
+750
+00:12:55,642 --> 00:12:57,493
+AVAssetWriter and the capture
+
+751
+00:12:55,642 --> 00:12:57,493
+movie and audio files outputs
+
+752
+00:12:57,493 --> 00:12:59,344
+[ Silence ]
+
+753
+00:12:59,346 --> 00:13:00,880
+and these all have the exact
+
+754
+00:12:59,346 --> 00:13:00,880
+same redirect property called
+
+755
+00:13:00,880 --> 00:13:02,414
+[ Silence ]
+
+756
+00:13:02,415 --> 00:13:02,982
+simply, metadata.
+
+757
+00:13:02,982 --> 00:13:03,549
+[ Silence ]
+
+758
+00:13:03,550 --> 00:13:04,750
+So you give an array of
+
+759
+00:13:03,550 --> 00:13:04,750
+metadata items and then
+
+760
+00:13:04,750 --> 00:13:05,950
+[ Silence ]
+
+761
+00:13:05,952 --> 00:13:07,136
+that will be written
+
+762
+00:13:05,952 --> 00:13:07,136
+out to the file.
+
+763
+00:13:07,136 --> 00:13:08,320
+[ Silence ]
+
+764
+00:13:08,321 --> 00:13:09,705
+Similarly for track-specific
+
+765
+00:13:08,321 --> 00:13:09,705
+metadata
+
+766
+00:13:09,705 --> 00:13:11,089
+[ Silence ]
+
+767
+00:13:11,091 --> 00:13:12,058
+like those tagged
+
+768
+00:13:11,091 --> 00:13:12,058
+characteristics,
+
+769
+00:13:12,058 --> 00:13:13,025
+[ Silence ]
+
+770
+00:13:13,026 --> 00:13:14,260
+you can use an AVAssetWriter
+
+771
+00:13:13,026 --> 00:13:14,260
+input
+
+772
+00:13:14,260 --> 00:13:15,494
+[ Silence ]
+
+773
+00:13:15,495 --> 00:13:17,246
+which also has the
+
+774
+00:13:15,495 --> 00:13:17,246
+exact same property.
+
+775
+00:13:17,246 --> 00:13:18,997
+[ Silence ]
+
+776
+00:13:18,999 --> 00:13:21,267
+Now you are not limited to
+
+777
+00:13:18,999 --> 00:13:21,267
+just writing out metadata
+
+778
+00:13:21,267 --> 00:13:23,535
+[ Silence ]
+
+779
+00:13:23,537 --> 00:13:24,520
+that you got from somewhere
+
+780
+00:13:23,537 --> 00:13:24,520
+else, like another file
+
+781
+00:13:24,520 --> 00:13:25,503
+[ Silence ]
+
+782
+00:13:25,505 --> 00:13:26,372
+through the APIs
+
+783
+00:13:25,505 --> 00:13:26,372
+we've been looking at.
+
+784
+00:13:26,372 --> 00:13:27,239
+[ Silence ]
+
+785
+00:13:27,240 --> 00:13:28,224
+You can also create
+
+786
+00:13:27,240 --> 00:13:28,224
+your own metadata items
+
+787
+00:13:28,224 --> 00:13:29,208
+[ Silence ]
+
+788
+00:13:29,209 --> 00:13:30,710
+with a mutable subclass
+
+789
+00:13:29,209 --> 00:13:30,710
+of metadataItem.
+
+790
+00:13:30,710 --> 00:13:32,211
+[ Silence ]
+
+791
+00:13:32,212 --> 00:13:33,529
+And as you might expect, this
+
+792
+00:13:32,212 --> 00:13:33,529
+just has read/write properties
+
+793
+00:13:33,529 --> 00:13:34,846
+[ Silence ]
+
+794
+00:13:34,848 --> 00:13:36,883
+for all of the properties
+
+795
+00:13:34,848 --> 00:13:36,883
+in AVMetadataItem.
+
+796
+00:13:36,883 --> 00:13:38,918
+[ Silence ]
+
+797
+00:13:38,919 --> 00:13:40,670
+So if we use an example of
+
+798
+00:13:38,919 --> 00:13:40,670
+writing a subtitle track
+
+799
+00:13:40,670 --> 00:13:42,421
+[ Silence ]
+
+800
+00:13:42,422 --> 00:13:44,473
+that is marked as SDH, well
+
+801
+00:13:42,422 --> 00:13:44,473
+it's actually two different tag
+
+802
+00:13:44,473 --> 00:13:46,524
+[ Silence ]
+
+803
+00:13:46,526 --> 00:13:47,393
+characteristics that
+
+804
+00:13:46,526 --> 00:13:47,393
+you have to use
+
+805
+00:13:47,393 --> 00:13:48,260
+[ Silence ]
+
+806
+00:13:48,261 --> 00:13:49,545
+and so we'll create two
+
+807
+00:13:48,261 --> 00:13:49,545
+different metadata items,
+
+808
+00:13:49,545 --> 00:13:50,829
+[ Silence ]
+
+809
+00:13:50,831 --> 00:13:53,249
+set both of their identifiers
+
+810
+00:13:50,831 --> 00:13:53,249
+to the identifier we just saw,
+
+811
+00:13:53,249 --> 00:13:55,667
+[ Silence ]
+
+812
+00:13:55,669 --> 00:13:57,086
+the QuickTimeUserData
+
+813
+00:13:55,669 --> 00:13:57,086
+tag characteristic,
+
+814
+00:13:57,086 --> 00:13:58,503
+[ Silence ]
+
+815
+00:13:58,505 --> 00:13:59,272
+but one of them will
+
+816
+00:13:58,505 --> 00:13:59,272
+set the value
+
+817
+00:13:59,272 --> 00:14:00,039
+[ Silence ]
+
+818
+00:14:00,040 --> 00:14:01,340
+to TranscribesSpokenDialogue
+
+819
+00:14:00,040 --> 00:14:01,340
+ForAccessibility
+
+820
+00:14:01,340 --> 00:14:02,640
+[ Silence ]
+
+821
+00:14:02,642 --> 00:14:03,793
+and the other will be
+
+822
+00:14:02,642 --> 00:14:03,793
+DescribesMusicAndSound
+
+823
+00:14:03,793 --> 00:14:04,944
+[ Silence ]
+
+824
+00:14:04,945 --> 00:14:05,628
+ForAccessibility.
+
+825
+00:14:05,628 --> 00:14:06,311
+[ Silence ]
+
+826
+00:14:06,313 --> 00:14:07,847
+Then we get the subtitle
+
+827
+00:14:06,313 --> 00:14:07,847
+AssetWriterInputthat's going
+
+828
+00:14:07,847 --> 00:14:09,381
+[ Silence ]
+
+829
+00:14:09,382 --> 00:14:11,350
+to write our subtitle track and
+
+830
+00:14:09,382 --> 00:14:11,350
+set that array of the two items
+
+831
+00:14:11,350 --> 00:14:13,318
+[ Silence ]
+
+832
+00:14:13,320 --> 00:14:14,253
+on our asset writer input.
+
+833
+00:14:14,253 --> 00:14:15,186
+[ Silence ]
+
+834
+00:14:15,188 --> 00:14:16,806
+So that's how you would
+
+835
+00:14:15,188 --> 00:14:16,806
+author a subtitle track
+
+836
+00:14:16,806 --> 00:14:18,424
+[ Silence ]
+
+837
+00:14:18,425 --> 00:14:19,392
+that is marked as SDH.
+
+838
+00:14:19,392 --> 00:14:20,359
+[ Silence ]
+
+839
+00:14:20,360 --> 00:14:21,994
+Just one example of
+
+840
+00:14:20,360 --> 00:14:21,994
+using tag characteristics
+
+841
+00:14:21,994 --> 00:14:23,628
+[ Silence ]
+
+842
+00:14:23,630 --> 00:14:24,797
+in AVMutableMetadataItem.
+
+843
+00:14:24,797 --> 00:14:25,964
+[ Silence ]
+
+844
+00:14:25,966 --> 00:14:28,301
+Special note about
+
+845
+00:14:25,966 --> 00:14:28,301
+AVAssetExportSession:
+
+846
+00:14:28,301 --> 00:14:30,636
+[ Silence ]
+
+847
+00:14:30,637 --> 00:14:32,188
+by default the ExportSession
+
+848
+00:14:30,637 --> 00:14:32,188
+is actually going to take any
+
+849
+00:14:32,188 --> 00:14:33,739
+[ Silence ]
+
+850
+00:14:33,740 --> 00:14:35,308
+of the metadata that's
+
+851
+00:14:33,740 --> 00:14:35,308
+in the source asset
+
+852
+00:14:35,308 --> 00:14:36,876
+[ Silence ]
+
+853
+00:14:36,877 --> 00:14:37,493
+that you're exporting.
+
+854
+00:14:37,493 --> 00:14:38,109
+[ Silence ]
+
+855
+00:14:38,111 --> 00:14:39,645
+It's going to copy that
+
+856
+00:14:38,111 --> 00:14:39,645
+over to the output file.
+
+857
+00:14:39,645 --> 00:14:41,179
+[ Silence ]
+
+858
+00:14:41,181 --> 00:14:42,348
+Now that's not the case
+
+859
+00:14:41,181 --> 00:14:42,348
+if you set metadata
+
+860
+00:14:42,348 --> 00:14:43,515
+[ Silence ]
+
+861
+00:14:43,516 --> 00:14:44,383
+on its metadata property.
+
+862
+00:14:44,383 --> 00:14:45,250
+[ Silence ]
+
+863
+00:14:45,252 --> 00:14:46,252
+That will be the signal
+
+864
+00:14:45,252 --> 00:14:46,252
+to tell the ExportSession
+
+865
+00:14:46,252 --> 00:14:47,252
+[ Silence ]
+
+866
+00:14:47,254 --> 00:14:48,421
+to ignore the metadata
+
+867
+00:14:47,254 --> 00:14:48,421
+in the source file
+
+868
+00:14:48,421 --> 00:14:49,588
+[ Silence ]
+
+869
+00:14:49,589 --> 00:14:51,207
+and instead write just what
+
+870
+00:14:49,589 --> 00:14:51,207
+you put on the property.
+
+871
+00:14:51,207 --> 00:14:52,825
+[ Silence ]
+
+872
+00:14:52,826 --> 00:14:54,277
+So if you want to do
+
+873
+00:14:52,826 --> 00:14:54,277
+augmentation of the metadata
+
+874
+00:14:54,277 --> 00:14:55,728
+[ Silence ]
+
+875
+00:14:55,729 --> 00:14:57,380
+or some other sort of
+
+876
+00:14:55,729 --> 00:14:57,380
+modification you'll want to grab
+
+877
+00:14:57,380 --> 00:14:59,031
+[ Silence ]
+
+878
+00:14:59,032 --> 00:15:00,383
+that array of metadata,
+
+879
+00:14:59,032 --> 00:15:00,383
+make a mutable copy
+
+880
+00:15:00,383 --> 00:15:01,734
+[ Silence ]
+
+881
+00:15:01,735 --> 00:15:02,885
+and do any adjustments
+
+882
+00:15:01,735 --> 00:15:02,885
+that you want and then set
+
+883
+00:15:02,885 --> 00:15:04,035
+[ Silence ]
+
+884
+00:15:04,037 --> 00:15:04,954
+that on the metadata property.
+
+885
+00:15:04,954 --> 00:15:05,871
+[ Silence ]
+
+886
+00:15:05,872 --> 00:15:07,189
+So that's just a quick
+
+887
+00:15:05,872 --> 00:15:07,189
+note about ExportSession.
+
+888
+00:15:07,189 --> 00:15:08,506
+[ Silence ]
+
+889
+00:15:08,508 --> 00:15:10,443
+The last note about authoring
+
+890
+00:15:08,508 --> 00:15:10,443
+metadata is HTTP Live Streaming,
+
+891
+00:15:10,443 --> 00:15:12,378
+[ Silence ]
+
+892
+00:15:12,379 --> 00:15:14,147
+this is actually a new
+
+893
+00:15:12,379 --> 00:15:14,147
+feature in iOS 8, OS X Yosemite
+
+894
+00:15:14,147 --> 00:15:15,915
+[ Silence ]
+
+895
+00:15:15,916 --> 00:15:18,117
+and you can use a new tag
+
+896
+00:15:15,916 --> 00:15:18,117
+called session-data tag
+
+897
+00:15:18,117 --> 00:15:20,318
+[ Silence ]
+
+898
+00:15:20,320 --> 00:15:21,787
+in your playlist, which
+
+899
+00:15:20,320 --> 00:15:21,787
+has two required fields:
+
+900
+00:15:21,787 --> 00:15:23,254
+[ Silence ]
+
+901
+00:15:23,256 --> 00:15:24,657
+the data ID which is a
+
+902
+00:15:23,256 --> 00:15:24,657
+lot like our identifiers
+
+903
+00:15:24,657 --> 00:15:26,058
+[ Silence ]
+
+904
+00:15:26,059 --> 00:15:27,910
+that we're talking about, a URI
+
+905
+00:15:26,059 --> 00:15:27,910
+which can point to the payload
+
+906
+00:15:27,910 --> 00:15:29,761
+[ Silence ]
+
+907
+00:15:29,763 --> 00:15:31,581
+or a value which directly
+
+908
+00:15:29,763 --> 00:15:31,581
+specifies the payload and,
+
+909
+00:15:31,581 --> 00:15:33,399
+[ Silence ]
+
+910
+00:15:33,400 --> 00:15:34,267
+optionally, some
+
+911
+00:15:33,400 --> 00:15:34,267
+language information.
+
+912
+00:15:34,267 --> 00:15:35,134
+[ Silence ]
+
+913
+00:15:35,135 --> 00:15:36,152
+So here's an example
+
+914
+00:15:35,135 --> 00:15:36,152
+that shows very similar
+
+915
+00:15:36,152 --> 00:15:37,169
+[ Silence ]
+
+916
+00:15:37,170 --> 00:15:38,003
+to what we saw before
+
+917
+00:15:37,170 --> 00:15:38,003
+with the titles
+
+918
+00:15:38,003 --> 00:15:38,836
+[ Silence ]
+
+919
+00:15:38,838 --> 00:15:40,506
+in two different languages but
+
+920
+00:15:38,838 --> 00:15:40,506
+this is the markup you'd use
+
+921
+00:15:40,506 --> 00:15:42,174
+[ Silence ]
+
+922
+00:15:42,175 --> 00:15:43,459
+for HTTP Live Streaming.
+
+923
+00:15:43,459 --> 00:15:44,743
+[ Silence ]
+
+924
+00:15:44,744 --> 00:15:46,095
+So for more information
+
+925
+00:15:44,744 --> 00:15:46,095
+on reading
+
+926
+00:15:46,095 --> 00:15:47,446
+[ Silence ]
+
+927
+00:15:47,447 --> 00:15:48,714
+and writing metadata we
+
+928
+00:15:47,447 --> 00:15:48,714
+do have some sample code,
+
+929
+00:15:48,714 --> 00:15:49,981
+[ Silence ]
+
+930
+00:15:49,983 --> 00:15:51,834
+it's called AVmetadataeditor
+
+931
+00:15:49,983 --> 00:15:51,834
+and for more information
+
+932
+00:15:51,834 --> 00:15:53,685
+[ Silence ]
+
+933
+00:15:53,687 --> 00:15:55,988
+about the details of writing
+
+934
+00:15:53,687 --> 00:15:55,988
+HTTP Live Streaming metadata see
+
+935
+00:15:55,988 --> 00:15:58,289
+[ Silence ]
+
+936
+00:15:58,291 --> 00:15:59,275
+the documents at this URL.
+
+937
+00:15:59,275 --> 00:16:00,259
+[ Silence ]
+
+938
+00:16:00,260 --> 00:16:01,761
+All right so that is your
+
+939
+00:16:00,260 --> 00:16:01,761
+crash course in metadata
+
+940
+00:16:01,761 --> 00:16:03,262
+[ Silence ]
+
+941
+00:16:03,263 --> 00:16:05,564
+in AVFoundation, our next
+
+942
+00:16:03,263 --> 00:16:05,564
+topic is timed metadata.
+
+943
+00:16:05,564 --> 00:16:07,865
+[ Silence ]
+
+944
+00:16:07,867 --> 00:16:09,201
+So timed metadata, although I
+
+945
+00:16:07,867 --> 00:16:09,201
+mentioned we have new features,
+
+946
+00:16:09,201 --> 00:16:10,535
+[ Silence ]
+
+947
+00:16:10,537 --> 00:16:11,587
+it is not a new concept.
+
+948
+00:16:11,587 --> 00:16:12,637
+[ Silence ]
+
+949
+00:16:12,639 --> 00:16:14,090
+We supported the notion of
+
+950
+00:16:12,639 --> 00:16:14,090
+chapters for quite some time
+
+951
+00:16:14,090 --> 00:16:15,541
+[ Silence ]
+
+952
+00:16:15,542 --> 00:16:16,759
+and conceptually chapters
+
+953
+00:16:15,542 --> 00:16:16,759
+are just an example
+
+954
+00:16:16,759 --> 00:16:17,976
+[ Silence ]
+
+955
+00:16:17,978 --> 00:16:18,661
+of times metadata.
+
+956
+00:16:18,661 --> 00:16:19,344
+[ Silence ]
+
+957
+00:16:19,346 --> 00:16:21,030
+Each of these chapter markers
+
+958
+00:16:19,346 --> 00:16:21,030
+is just a piece of metadata
+
+959
+00:16:21,030 --> 00:16:22,714
+[ Silence ]
+
+960
+00:16:22,716 --> 00:16:24,500
+that is describing
+
+961
+00:16:22,716 --> 00:16:24,500
+a particular range
+
+962
+00:16:24,500 --> 00:16:26,284
+[ Silence ]
+
+963
+00:16:26,286 --> 00:16:27,303
+of the timeline of the movie.
+
+964
+00:16:27,303 --> 00:16:28,320
+[ Silence ]
+
+965
+00:16:28,321 --> 00:16:29,655
+That's all that timed
+
+966
+00:16:28,321 --> 00:16:29,655
+metadata is,
+
+967
+00:16:29,655 --> 00:16:30,989
+[ Silence ]
+
+968
+00:16:30,991 --> 00:16:32,859
+it's just metadata associated
+
+969
+00:16:30,991 --> 00:16:32,859
+with a range of time.
+
+970
+00:16:32,859 --> 00:16:34,727
+[ Silence ]
+
+971
+00:16:34,728 --> 00:16:37,580
+So similarly, with our
+
+972
+00:16:34,728 --> 00:16:37,580
+dynamic location example,
+
+973
+00:16:37,580 --> 00:16:40,432
+[ Silence ]
+
+974
+00:16:40,433 --> 00:16:41,817
+we have the path that's drawn
+
+975
+00:16:40,433 --> 00:16:41,817
+here that's really just composed
+
+976
+00:16:41,817 --> 00:16:43,201
+[ Silence ]
+
+977
+00:16:43,203 --> 00:16:44,136
+of a number of pieces
+
+978
+00:16:44,136 --> 00:16:45,069
+[ Silence ]
+
+979
+00:16:45,071 --> 00:16:46,622
+of metadata indicating
+
+980
+00:16:45,071 --> 00:16:46,622
+the current location,
+
+981
+00:16:46,622 --> 00:16:48,173
+[ Silence ]
+
+982
+00:16:48,174 --> 00:16:49,491
+each one of them associated
+
+983
+00:16:48,174 --> 00:16:49,491
+with a particular time
+
+984
+00:16:49,491 --> 00:16:50,808
+[ Silence ]
+
+985
+00:16:50,810 --> 00:16:51,393
+in the movie's timeline.
+
+986
+00:16:51,393 --> 00:16:51,976
+[ Silence ]
+
+987
+00:16:51,978 --> 00:16:53,662
+So to demonstrate
+
+988
+00:16:51,978 --> 00:16:53,662
+QuickTime Player's features
+
+989
+00:16:53,662 --> 00:16:55,346
+[ Silence ]
+
+990
+00:16:55,348 --> 00:16:56,549
+with dynamic location
+
+991
+00:16:55,348 --> 00:16:56,549
+in Yosemite,
+
+992
+00:16:56,549 --> 00:16:57,750
+[ Silence ]
+
+993
+00:16:57,751 --> 00:16:58,534
+I want to bring my
+
+994
+00:16:57,751 --> 00:16:58,534
+colleague, Shalini,
+
+995
+00:16:58,534 --> 00:16:59,317
+[ Silence ]
+
+996
+00:16:59,319 --> 00:17:00,336
+up to the stage for a demo.
+
+997
+00:17:00,336 --> 00:17:01,353
+[ Silence ]
+
+998
+00:17:01,354 --> 00:17:02,705
+>> Hi, I'm here to
+
+999
+00:17:01,354 --> 00:17:02,705
+demonstrate how to read
+
+1000
+00:17:02,705 --> 00:17:04,056
+[ Silence ]
+
+1001
+00:17:04,057 --> 00:17:05,875
+and play back metadata
+
+1002
+00:17:04,057 --> 00:17:05,875
+using QuickTime Player.
+
+1003
+00:17:05,875 --> 00:17:07,693
+[ Silence ]
+
+1004
+00:17:07,694 --> 00:17:09,578
+Here I have a movie file
+
+1005
+00:17:07,694 --> 00:17:09,578
+which has both audio and video
+
+1006
+00:17:09,578 --> 00:17:11,462
+[ Silence ]
+
+1007
+00:17:11,464 --> 00:17:13,482
+and timed locations data
+
+1008
+00:17:11,464 --> 00:17:13,482
+stored in a different track.
+
+1009
+00:17:13,482 --> 00:17:15,500
+[ Silence ]
+
+1010
+00:17:15,502 --> 00:17:17,236
+So now if I bring this
+
+1011
+00:17:15,502 --> 00:17:17,236
+up in QuickTime Player,
+
+1012
+00:17:17,236 --> 00:17:18,970
+[ Silence ]
+
+1013
+00:17:18,972 --> 00:17:20,506
+this is the usual UI
+
+1014
+00:17:18,972 --> 00:17:20,506
+for audio and video.
+
+1015
+00:17:20,506 --> 00:17:22,040
+[ Silence ]
+
+1016
+00:17:22,042 --> 00:17:23,075
+New in OS X Yosemite:
+
+1017
+00:17:23,075 --> 00:17:24,108
+[ Silence ]
+
+1018
+00:17:24,110 --> 00:17:26,428
+in the Movie Inspector
+
+1019
+00:17:24,110 --> 00:17:26,428
+you can see a map view
+
+1020
+00:17:26,428 --> 00:17:28,746
+[ Silence ]
+
+1021
+00:17:28,748 --> 00:17:29,899
+if your movie file
+
+1022
+00:17:28,748 --> 00:17:29,899
+has location data.
+
+1023
+00:17:29,899 --> 00:17:31,050
+[ Silence ]
+
+1024
+00:17:31,051 --> 00:17:32,718
+Your map view is presented
+
+1025
+00:17:31,051 --> 00:17:32,718
+along with the route
+
+1026
+00:17:32,718 --> 00:17:34,385
+[ Silence ]
+
+1027
+00:17:34,387 --> 00:17:35,704
+where you have recorded
+
+1028
+00:17:34,387 --> 00:17:35,704
+this video.
+
+1029
+00:17:35,704 --> 00:17:37,021
+[ Silence ]
+
+1030
+00:17:37,023 --> 00:17:38,290
+So here the blue line
+
+1031
+00:17:37,023 --> 00:17:38,290
+indicates the path
+
+1032
+00:17:38,290 --> 00:17:39,557
+[ Silence ]
+
+1033
+00:17:39,559 --> 00:17:41,477
+where we recorded the video and
+
+1034
+00:17:39,559 --> 00:17:41,477
+the red pin is an indication
+
+1035
+00:17:41,477 --> 00:17:43,395
+[ Silence ]
+
+1036
+00:17:43,396 --> 00:17:44,697
+of the current location
+
+1037
+00:17:43,396 --> 00:17:44,697
+or the location
+
+1038
+00:17:44,697 --> 00:17:45,998
+[ Silence ]
+
+1039
+00:17:45,999 --> 00:17:47,967
+on the timeline of the movie.
+
+1040
+00:17:47,967 --> 00:17:49,935
+[ Silence ]
+
+1041
+00:17:49,936 --> 00:17:51,353
+So if I zoom in a little
+
+1042
+00:17:49,936 --> 00:17:51,353
+bit and start play,
+
+1043
+00:17:51,353 --> 00:17:52,770
+[ Silence ]
+
+1044
+00:17:52,772 --> 00:17:55,307
+you can see as the movie
+
+1045
+00:17:52,772 --> 00:17:55,307
+progresses the pin's location is
+
+1046
+00:17:55,307 --> 00:17:57,842
+[ Silence ]
+
+1047
+00:17:57,844 --> 00:17:59,612
+being updated to be in
+
+1048
+00:17:57,844 --> 00:17:59,612
+sync with the video.
+
+1049
+00:17:59,612 --> 00:18:01,380
+[ Silence ]
+
+1050
+00:18:01,381 --> 00:18:03,632
+I can drag the scrubber around
+
+1051
+00:18:03,632 --> 00:18:05,883
+[ Silence ]
+
+1052
+00:18:05,885 --> 00:18:07,569
+and you can see the pin
+
+1053
+00:18:05,885 --> 00:18:07,569
+moving back and forth.
+
+1054
+00:18:07,569 --> 00:18:09,253
+[ Silence ]
+
+1055
+00:18:09,255 --> 00:18:12,174
+I can also go and click
+
+1056
+00:18:09,255 --> 00:18:12,174
+at any point in the map
+
+1057
+00:18:12,174 --> 00:18:15,093
+[ Silence ]
+
+1058
+00:18:15,095 --> 00:18:16,679
+and you see the video seek
+
+1059
+00:18:15,095 --> 00:18:16,679
+to that location to present
+
+1060
+00:18:16,679 --> 00:18:18,263
+[ Silence ]
+
+1061
+00:18:18,264 --> 00:18:20,482
+where your video was when
+
+1062
+00:18:18,264 --> 00:18:20,482
+you were at that location.
+
+1063
+00:18:20,482 --> 00:18:22,700
+[ Silence ]
+
+1064
+00:18:22,702 --> 00:18:25,187
+This is map view in QuickTime
+
+1065
+00:18:22,702 --> 00:18:25,187
+Player on OS X Yosemite.
+
+1066
+00:18:25,187 --> 00:18:27,672
+[ Silence ]
+
+1067
+00:18:27,674 --> 00:18:28,374
+>> Thank you, Shalini.
+
+1068
+00:18:28,374 --> 00:18:29,074
+[ Silence ]
+
+1069
+00:18:29,075 --> 00:18:30,576
+So let's talk about
+
+1070
+00:18:29,075 --> 00:18:30,576
+what we just saw there.
+
+1071
+00:18:30,576 --> 00:18:32,077
+[ Silence ]
+
+1072
+00:18:32,078 --> 00:18:33,796
+So that location information
+
+1073
+00:18:32,078 --> 00:18:33,796
+was stored as timed metadata
+
+1074
+00:18:33,796 --> 00:18:35,514
+[ Silence ]
+
+1075
+00:18:35,515 --> 00:18:37,099
+in the file and in order to
+
+1076
+00:18:35,515 --> 00:18:37,099
+have QuickTime Player draw
+
+1077
+00:18:37,099 --> 00:18:38,683
+[ Silence ]
+
+1078
+00:18:38,685 --> 00:18:40,986
+that information on the map, we
+
+1079
+00:18:38,685 --> 00:18:40,986
+use AVAssetReader to read all
+
+1080
+00:18:40,986 --> 00:18:43,287
+[ Silence ]
+
+1081
+00:18:43,289 --> 00:18:45,023
+of the location information
+
+1082
+00:18:43,289 --> 00:18:45,023
+from that asset.
+
+1083
+00:18:45,023 --> 00:18:46,757
+[ Silence ]
+
+1084
+00:18:46,759 --> 00:18:48,677
+And because timed metadata
+
+1085
+00:18:46,759 --> 00:18:48,677
+is stored in its own track,
+
+1086
+00:18:48,677 --> 00:18:50,595
+[ Silence ]
+
+1087
+00:18:50,597 --> 00:18:51,947
+we use an
+
+1088
+00:18:50,597 --> 00:18:51,947
+AVAssetReaderTrackOutput to read
+
+1089
+00:18:51,947 --> 00:18:53,297
+[ Silence ]
+
+1090
+00:18:53,299 --> 00:18:55,000
+that data and we use a new
+
+1091
+00:18:53,299 --> 00:18:55,000
+class called AVAssetReaderOutput
+
+1092
+00:18:55,000 --> 00:18:56,701
+[ Silence ]
+
+1093
+00:18:56,703 --> 00:18:58,304
+MetadataAdaptor that knows how
+
+1094
+00:18:56,703 --> 00:18:58,304
+to give us that data in the
+
+1095
+00:18:58,304 --> 00:18:59,905
+[ Silence ]
+
+1096
+00:18:59,906 --> 00:19:01,524
+from of a class called
+
+1097
+00:18:59,906 --> 00:19:01,524
+AVTimedMetadataGroup.
+
+1098
+00:19:01,524 --> 00:19:03,142
+[ Silence ]
+
+1099
+00:19:03,143 --> 00:19:04,293
+Then from there we
+
+1100
+00:19:03,143 --> 00:19:04,293
+can grab each location
+
+1101
+00:19:04,293 --> 00:19:05,443
+[ Silence ]
+
+1102
+00:19:05,445 --> 00:19:06,679
+and draw that path on the map.
+
+1103
+00:19:06,679 --> 00:19:07,913
+[ Silence ]
+
+1104
+00:19:07,914 --> 00:19:09,732
+So AVTimedMetadataGroup
+
+1105
+00:19:07,914 --> 00:19:09,732
+is a very simple class.
+
+1106
+00:19:09,732 --> 00:19:11,550
+[ Silence ]
+
+1107
+00:19:11,551 --> 00:19:12,418
+It's really just
+
+1108
+00:19:11,551 --> 00:19:12,418
+these two properties:
+
+1109
+00:19:12,418 --> 00:19:13,285
+[ Silence ]
+
+1110
+00:19:13,286 --> 00:19:14,954
+an array of metadata items
+
+1111
+00:19:13,286 --> 00:19:14,954
+combined with a time range
+
+1112
+00:19:14,954 --> 00:19:16,622
+[ Silence ]
+
+1113
+00:19:16,623 --> 00:19:18,541
+that describes where in the
+
+1114
+00:19:16,623 --> 00:19:18,541
+movie that data applies.
+
+1115
+00:19:18,541 --> 00:19:20,459
+[ Silence ]
+
+1116
+00:19:20,460 --> 00:19:22,645
+So to see a little bit of
+
+1117
+00:19:20,460 --> 00:19:22,645
+code for using AssetReader
+
+1118
+00:19:22,645 --> 00:19:24,830
+[ Silence ]
+
+1119
+00:19:24,831 --> 00:19:25,831
+for this purpose, the
+
+1120
+00:19:24,831 --> 00:19:25,831
+first thing you want
+
+1121
+00:19:25,831 --> 00:19:26,831
+[ Silence ]
+
+1122
+00:19:26,833 --> 00:19:27,516
+to do is find the track
+
+1123
+00:19:27,516 --> 00:19:28,199
+[ Silence ]
+
+1124
+00:19:28,201 --> 00:19:29,818
+that contains your location
+
+1125
+00:19:28,201 --> 00:19:29,818
+information and we'll talk more
+
+1126
+00:19:29,818 --> 00:19:31,435
+[ Silence ]
+
+1127
+00:19:31,437 --> 00:19:32,471
+about how to do that
+
+1128
+00:19:31,437 --> 00:19:32,471
+in just a second.
+
+1129
+00:19:32,471 --> 00:19:33,505
+[ Silence ]
+
+1130
+00:19:33,506 --> 00:19:35,741
+Then you use that track to
+
+1131
+00:19:33,506 --> 00:19:35,741
+create an AssetReaderTrackOutput
+
+1132
+00:19:35,741 --> 00:19:37,976
+[ Silence ]
+
+1133
+00:19:37,977 --> 00:19:39,044
+and you use nil output settings
+
+1134
+00:19:39,044 --> 00:19:40,111
+[ Silence ]
+
+1135
+00:19:40,113 --> 00:19:41,363
+and then you'll create
+
+1136
+00:19:40,113 --> 00:19:41,363
+your metadataAdaptor
+
+1137
+00:19:41,363 --> 00:19:42,613
+[ Silence ]
+
+1138
+00:19:42,615 --> 00:19:43,532
+with that trackOutput.
+
+1139
+00:19:43,532 --> 00:19:44,449
+[ Silence ]
+
+1140
+00:19:44,450 --> 00:19:46,018
+And then, in a loop we just
+
+1141
+00:19:44,450 --> 00:19:46,018
+take your metadataAdaptor
+
+1142
+00:19:46,018 --> 00:19:47,586
+[ Silence ]
+
+1143
+00:19:47,587 --> 00:19:49,288
+and call the
+
+1144
+00:19:47,587 --> 00:19:49,288
+nextTimedMetadataGroup method
+
+1145
+00:19:49,288 --> 00:19:50,989
+[ Silence ]
+
+1146
+00:19:50,990 --> 00:19:52,224
+over and over again, doing
+
+1147
+00:19:50,990 --> 00:19:52,224
+something with each piece
+
+1148
+00:19:52,224 --> 00:19:53,458
+[ Silence ]
+
+1149
+00:19:53,459 --> 00:19:54,476
+of data, like drawing
+
+1150
+00:19:53,459 --> 00:19:54,476
+it on the map
+
+1151
+00:19:54,476 --> 00:19:55,493
+[ Silence ]
+
+1152
+00:19:55,495 --> 00:19:56,395
+until that method returns nil.
+
+1153
+00:19:56,395 --> 00:19:57,295
+[ Silence ]
+
+1154
+00:19:57,297 --> 00:19:58,047
+Then you know there's
+
+1155
+00:19:57,297 --> 00:19:58,047
+no more data to draw.
+
+1156
+00:19:58,047 --> 00:19:58,797
+[ Silence ]
+
+1157
+00:19:58,798 --> 00:20:00,866
+So in terms of finding
+
+1158
+00:19:58,798 --> 00:20:00,866
+the right track to read,
+
+1159
+00:20:00,866 --> 00:20:02,934
+[ Silence ]
+
+1160
+00:20:02,936 --> 00:20:04,203
+the way you're going to do
+
+1161
+00:20:02,936 --> 00:20:04,203
+that is by examining the tracks
+
+1162
+00:20:04,203 --> 00:20:05,470
+[ Silence ]
+
+1163
+00:20:05,471 --> 00:20:06,805
+in your asset and looking
+
+1164
+00:20:05,471 --> 00:20:06,805
+through the format description
+
+1165
+00:20:06,805 --> 00:20:08,139
+[ Silence ]
+
+1166
+00:20:08,141 --> 00:20:09,441
+of each track to find the
+
+1167
+00:20:08,141 --> 00:20:09,441
+identifiers you're looking for.
+
+1168
+00:20:09,441 --> 00:20:10,741
+[ Silence ]
+
+1169
+00:20:10,743 --> 00:20:12,110
+So you first start
+
+1170
+00:20:10,743 --> 00:20:12,110
+by getting the tracks
+
+1171
+00:20:12,110 --> 00:20:13,477
+[ Silence ]
+
+1172
+00:20:13,479 --> 00:20:14,580
+with the MediaTypeMetadata
+
+1173
+00:20:13,479 --> 00:20:14,580
+and then for each
+
+1174
+00:20:14,580 --> 00:20:15,681
+[ Silence ]
+
+1175
+00:20:15,682 --> 00:20:16,682
+of those tracks you're
+
+1176
+00:20:15,682 --> 00:20:16,682
+going to loop through all
+
+1177
+00:20:16,682 --> 00:20:17,682
+[ Silence ]
+
+1178
+00:20:17,684 --> 00:20:19,435
+of its format descriptions,
+
+1179
+00:20:17,684 --> 00:20:19,435
+usually there's only one
+
+1180
+00:20:19,435 --> 00:20:21,186
+[ Silence ]
+
+1181
+00:20:21,187 --> 00:20:22,538
+and for each format description
+
+1182
+00:20:21,187 --> 00:20:22,538
+you're going to grab its list
+
+1183
+00:20:22,538 --> 00:20:23,889
+[ Silence ]
+
+1184
+00:20:23,890 --> 00:20:25,341
+of identifiers using this
+
+1185
+00:20:23,890 --> 00:20:25,341
+function and check whether
+
+1186
+00:20:25,341 --> 00:20:26,792
+[ Silence ]
+
+1187
+00:20:26,793 --> 00:20:27,626
+that identifier array
+
+1188
+00:20:26,793 --> 00:20:27,626
+contains the identifier you're
+
+1189
+00:20:27,626 --> 00:20:28,459
+[ Silence ]
+
+1190
+00:20:28,461 --> 00:20:28,844
+looking for.
+
+1191
+00:20:28,844 --> 00:20:29,227
+[ Silence ]
+
+1192
+00:20:29,229 --> 00:20:29,712
+In this case we're looking
+
+1193
+00:20:29,712 --> 00:20:30,195
+[ Silence ]
+
+1194
+00:20:30,196 --> 00:20:32,514
+for the location
+
+1195
+00:20:30,196 --> 00:20:32,514
+ISO 6709 identifier.
+
+1196
+00:20:32,514 --> 00:20:34,832
+[ Silence ]
+
+1197
+00:20:34,834 --> 00:20:36,118
+So once we've found it we're
+
+1198
+00:20:34,834 --> 00:20:36,118
+good to go and we can resume
+
+1199
+00:20:36,118 --> 00:20:37,402
+[ Silence ]
+
+1200
+00:20:37,403 --> 00:20:38,420
+with the code on
+
+1201
+00:20:37,403 --> 00:20:38,420
+the previous slide.
+
+1202
+00:20:38,420 --> 00:20:39,437
+[ Silence ]
+
+1203
+00:20:39,439 --> 00:20:40,806
+So that's how QuickTime
+
+1204
+00:20:39,439 --> 00:20:40,806
+Player is drawing the map
+
+1205
+00:20:40,806 --> 00:20:42,173
+[ Silence ]
+
+1206
+00:20:42,175 --> 00:20:43,876
+or drawing the path on the
+
+1207
+00:20:42,175 --> 00:20:43,876
+map before you start playback.
+
+1208
+00:20:43,876 --> 00:20:45,577
+[ Silence ]
+
+1209
+00:20:45,578 --> 00:20:46,862
+The other thing that QuickTime
+
+1210
+00:20:45,578 --> 00:20:46,862
+Player does, as you saw,
+
+1211
+00:20:46,862 --> 00:20:48,146
+[ Silence ]
+
+1212
+00:20:48,147 --> 00:20:49,464
+is it can update the current
+
+1213
+00:20:48,147 --> 00:20:49,464
+location while you're doing
+
+1214
+00:20:49,464 --> 00:20:50,781
+[ Silence ]
+
+1215
+00:20:50,783 --> 00:20:52,100
+playback or even scrubbing
+
+1216
+00:20:50,783 --> 00:20:52,100
+around and the way it does
+
+1217
+00:20:52,100 --> 00:20:53,417
+[ Silence ]
+
+1218
+00:20:53,419 --> 00:20:55,437
+that while it's already playing
+
+1219
+00:20:53,419 --> 00:20:55,437
+the asset using an AVPlayerItem
+
+1220
+00:20:55,437 --> 00:20:57,455
+[ Silence ]
+
+1221
+00:20:57,457 --> 00:20:58,457
+and we're going to
+
+1222
+00:20:57,457 --> 00:20:58,457
+use a new class called
+
+1223
+00:20:58,457 --> 00:20:59,457
+[ Silence ]
+
+1224
+00:20:59,459 --> 00:21:01,527
+AVPlayerItemMetadataOutput that
+
+1225
+00:20:59,459 --> 00:21:01,527
+you attach to your PlayerItem,
+
+1226
+00:21:01,527 --> 00:21:03,595
+[ Silence ]
+
+1227
+00:21:03,596 --> 00:21:04,813
+which also notes how to
+
+1228
+00:21:03,596 --> 00:21:04,813
+vend this data in the form
+
+1229
+00:21:04,813 --> 00:21:06,030
+[ Silence ]
+
+1230
+00:21:06,032 --> 00:21:06,799
+of TimedMetadataGroups.
+
+1231
+00:21:06,799 --> 00:21:07,566
+[ Silence ]
+
+1232
+00:21:07,567 --> 00:21:08,934
+But unlike the asset reader,
+
+1233
+00:21:07,567 --> 00:21:08,934
+instead of getting all the data
+
+1234
+00:21:08,934 --> 00:21:10,301
+[ Silence ]
+
+1235
+00:21:10,303 --> 00:21:11,170
+up front you're going
+
+1236
+00:21:10,303 --> 00:21:11,170
+to be getting it piece
+
+1237
+00:21:11,170 --> 00:21:12,037
+[ Silence ]
+
+1238
+00:21:12,038 --> 00:21:13,172
+by piece as the movie plays.
+
+1239
+00:21:13,172 --> 00:21:14,306
+[ Silence ]
+
+1240
+00:21:14,307 --> 00:21:15,491
+So a little bit of code,
+
+1241
+00:21:15,491 --> 00:21:16,675
+[ Silence ]
+
+1242
+00:21:16,676 --> 00:21:17,693
+you first create your
+
+1243
+00:21:16,676 --> 00:21:17,693
+metadata output using the
+
+1244
+00:21:17,693 --> 00:21:18,710
+[ Silence ]
+
+1245
+00:21:18,711 --> 00:21:19,578
+initWithIdentifiers method
+
+1246
+00:21:19,578 --> 00:21:20,445
+[ Silence ]
+
+1247
+00:21:20,446 --> 00:21:22,130
+and in this case we're only
+
+1248
+00:21:20,446 --> 00:21:22,130
+interested in metadata that has
+
+1249
+00:21:22,130 --> 00:21:23,814
+[ Silence ]
+
+1250
+00:21:23,816 --> 00:21:25,384
+that location identifier so
+
+1251
+00:21:23,816 --> 00:21:25,384
+that's all we're going to get
+
+1252
+00:21:25,384 --> 00:21:26,952
+[ Silence ]
+
+1253
+00:21:26,953 --> 00:21:27,953
+by opting into this way.
+
+1254
+00:21:27,953 --> 00:21:28,953
+[ Silence ]
+
+1255
+00:21:28,955 --> 00:21:30,372
+Then you create a
+
+1256
+00:21:28,955 --> 00:21:30,372
+delegate that you define
+
+1257
+00:21:30,372 --> 00:21:31,789
+[ Silence ]
+
+1258
+00:21:31,791 --> 00:21:32,408
+and that's what's going
+
+1259
+00:21:32,408 --> 00:21:33,025
+[ Silence ]
+
+1260
+00:21:33,026 --> 00:21:34,160
+to receive the metadata
+
+1261
+00:21:33,026 --> 00:21:34,160
+during playback and you set
+
+1262
+00:21:34,160 --> 00:21:35,294
+[ Silence ]
+
+1263
+00:21:35,295 --> 00:21:35,911
+that delegate on your output
+
+1264
+00:21:35,911 --> 00:21:36,527
+[ Silence ]
+
+1265
+00:21:36,529 --> 00:21:38,947
+and tell us what cue you
+
+1266
+00:21:36,529 --> 00:21:38,947
+want us to send the data on.
+
+1267
+00:21:38,947 --> 00:21:41,365
+[ Silence ]
+
+1268
+00:21:41,367 --> 00:21:43,318
+Then you create or grab your
+
+1269
+00:21:41,367 --> 00:21:43,318
+AVPlayerItem and call addOutput
+
+1270
+00:21:43,318 --> 00:21:45,269
+[ Silence ]
+
+1271
+00:21:45,271 --> 00:21:46,805
+to attach your output, to attach
+
+1272
+00:21:45,271 --> 00:21:46,805
+your output to the playerItem
+
+1273
+00:21:46,805 --> 00:21:48,339
+[ Silence ]
+
+1274
+00:21:48,341 --> 00:21:50,459
+and finally make your player
+
+1275
+00:21:48,341 --> 00:21:50,459
+and associate your item
+
+1276
+00:21:50,459 --> 00:21:52,577
+[ Silence ]
+
+1277
+00:21:52,578 --> 00:21:54,029
+with the player as the current
+
+1278
+00:21:52,578 --> 00:21:54,029
+item and start playback.
+
+1279
+00:21:54,029 --> 00:21:55,480
+[ Silence ]
+
+1280
+00:21:55,481 --> 00:21:56,748
+It's important to get the
+
+1281
+00:21:55,481 --> 00:21:56,748
+smoothest playback experience
+
+1282
+00:21:56,748 --> 00:21:58,015
+[ Silence ]
+
+1283
+00:21:58,017 --> 00:21:59,484
+possible, we highly recommend
+
+1284
+00:21:58,017 --> 00:21:59,484
+that you do all of this sort
+
+1285
+00:21:59,484 --> 00:22:00,951
+[ Silence ]
+
+1286
+00:22:00,953 --> 00:22:02,120
+of setup work before
+
+1287
+00:22:00,953 --> 00:22:02,120
+you start playback
+
+1288
+00:22:02,120 --> 00:22:03,287
+[ Silence ]
+
+1289
+00:22:03,289 --> 00:22:04,656
+or even attach the
+
+1290
+00:22:03,289 --> 00:22:04,656
+item to the player.
+
+1291
+00:22:04,656 --> 00:22:06,023
+[ Silence ]
+
+1292
+00:22:06,025 --> 00:22:09,061
+So a little bit of look at
+
+1293
+00:22:06,025 --> 00:22:09,061
+what your delegate method might
+
+1294
+00:22:09,061 --> 00:22:12,097
+[ Silence ]
+
+1295
+00:22:12,098 --> 00:22:12,765
+look like.
+
+1296
+00:22:12,765 --> 00:22:13,432
+[ Silence ]
+
+1297
+00:22:13,433 --> 00:22:14,617
+There's only one delegate
+
+1298
+00:22:13,433 --> 00:22:14,617
+method; it's the metadataOutput,
+
+1299
+00:22:14,617 --> 00:22:15,801
+[ Silence ]
+
+1300
+00:22:15,802 --> 00:22:17,419
+didOutputTimedMetadataGroups,
+
+1301
+00:22:15,802 --> 00:22:17,419
+fromPlayerItemTrack method.
+
+1302
+00:22:17,419 --> 00:22:19,036
+[ Silence ]
+
+1303
+00:22:19,038 --> 00:22:20,222
+And the first thing you
+
+1304
+00:22:19,038 --> 00:22:20,222
+want to do is grab an item
+
+1305
+00:22:20,222 --> 00:22:21,406
+[ Silence ]
+
+1306
+00:22:21,407 --> 00:22:22,457
+that you can get your
+
+1307
+00:22:21,407 --> 00:22:22,457
+payload data from.
+
+1308
+00:22:22,457 --> 00:22:23,507
+[ Silence ]
+
+1309
+00:22:23,509 --> 00:22:24,209
+In this case, to
+
+1310
+00:22:23,509 --> 00:22:24,209
+keep things simple,
+
+1311
+00:22:24,209 --> 00:22:24,909
+[ Silence ]
+
+1312
+00:22:24,911 --> 00:22:26,362
+I'm just grabbing the first item
+
+1313
+00:22:24,911 --> 00:22:26,362
+from the first group but keep
+
+1314
+00:22:26,362 --> 00:22:27,813
+[ Silence ]
+
+1315
+00:22:27,814 --> 00:22:28,664
+in mind there could
+
+1316
+00:22:27,814 --> 00:22:28,664
+be multiple items,
+
+1317
+00:22:28,664 --> 00:22:29,514
+[ Silence ]
+
+1318
+00:22:29,515 --> 00:22:30,399
+there could even
+
+1319
+00:22:29,515 --> 00:22:30,399
+be multiple groups.
+
+1320
+00:22:30,399 --> 00:22:31,283
+[ Silence ]
+
+1321
+00:22:31,284 --> 00:22:32,301
+One reason there could
+
+1322
+00:22:31,284 --> 00:22:32,301
+be multiple groups given
+
+1323
+00:22:32,301 --> 00:22:33,318
+[ Silence ]
+
+1324
+00:22:33,319 --> 00:22:35,821
+to this method is that the
+
+1325
+00:22:33,319 --> 00:22:35,821
+metadata output will keep track
+
+1326
+00:22:35,821 --> 00:22:38,323
+[ Silence ]
+
+1327
+00:22:38,324 --> 00:22:39,708
+of whether the metadata
+
+1328
+00:22:38,324 --> 00:22:39,708
+is coming faster
+
+1329
+00:22:39,708 --> 00:22:41,092
+[ Silence ]
+
+1330
+00:22:41,094 --> 00:22:42,361
+than you're processing it and,
+
+1331
+00:22:41,094 --> 00:22:42,361
+if it is, it will start to batch
+
+1332
+00:22:42,361 --> 00:22:43,628
+[ Silence ]
+
+1333
+00:22:43,629 --> 00:22:45,113
+that up and give you
+
+1334
+00:22:43,629 --> 00:22:45,113
+the metadata in batches
+
+1335
+00:22:45,113 --> 00:22:46,597
+[ Silence ]
+
+1336
+00:22:46,599 --> 00:22:47,900
+when you're done with the
+
+1337
+00:22:46,599 --> 00:22:47,900
+previous batch of metadata.
+
+1338
+00:22:47,900 --> 00:22:49,201
+[ Silence ]
+
+1339
+00:22:49,202 --> 00:22:50,502
+So moving on with your
+
+1340
+00:22:49,202 --> 00:22:50,502
+item; you're going
+
+1341
+00:22:50,502 --> 00:22:51,802
+[ Silence ]
+
+1342
+00:22:51,804 --> 00:22:53,405
+to do this
+
+1343
+00:22:51,804 --> 00:22:53,405
+LoadValueAsynchronouslyForKeys
+
+1344
+00:22:53,405 --> 00:22:55,006
+[ Silence ]
+
+1345
+00:22:55,007 --> 00:22:55,841
+dance that we talked
+
+1346
+00:22:55,007 --> 00:22:55,841
+about before.
+
+1347
+00:22:55,841 --> 00:22:56,675
+[ Silence ]
+
+1348
+00:22:56,676 --> 00:22:58,193
+In this case, we're
+
+1349
+00:22:56,676 --> 00:22:58,193
+interested in the value
+
+1350
+00:22:58,193 --> 00:22:59,710
+[ Silence ]
+
+1351
+00:22:59,712 --> 00:23:00,462
+and data type properties
+
+1352
+00:22:59,712 --> 00:23:00,462
+so we're going
+
+1353
+00:23:00,462 --> 00:23:01,212
+[ Silence ]
+
+1354
+00:23:01,214 --> 00:23:01,880
+to load both of those.
+
+1355
+00:23:01,880 --> 00:23:02,546
+[ Silence ]
+
+1356
+00:23:02,548 --> 00:23:03,865
+I've admitted the error
+
+1357
+00:23:02,548 --> 00:23:03,865
+checking for brevity here
+
+1358
+00:23:03,865 --> 00:23:05,182
+[ Silence ]
+
+1359
+00:23:05,184 --> 00:23:06,168
+which you'll probably want
+
+1360
+00:23:05,184 --> 00:23:06,168
+to do that error checking
+
+1361
+00:23:06,168 --> 00:23:07,152
+[ Silence ]
+
+1362
+00:23:07,153 --> 00:23:08,053
+like we had in the other slide.
+
+1363
+00:23:08,053 --> 00:23:08,953
+[ Silence ]
+
+1364
+00:23:08,955 --> 00:23:10,873
+And once we have the completion
+
+1365
+00:23:08,955 --> 00:23:10,873
+handler we can ask the item
+
+1366
+00:23:10,873 --> 00:23:12,791
+[ Silence ]
+
+1367
+00:23:12,792 --> 00:23:14,460
+for its data type and make
+
+1368
+00:23:12,792 --> 00:23:14,460
+sure that's the data type we're
+
+1369
+00:23:14,460 --> 00:23:16,128
+[ Silence ]
+
+1370
+00:23:16,129 --> 00:23:17,396
+prepared to handle, in this
+
+1371
+00:23:16,129 --> 00:23:17,396
+case my code only knows how
+
+1372
+00:23:17,396 --> 00:23:18,663
+[ Silence ]
+
+1373
+00:23:18,664 --> 00:23:20,799
+to handle location information
+
+1374
+00:23:18,664 --> 00:23:20,799
+in ISO 6709 format so we got
+
+1375
+00:23:20,799 --> 00:23:22,934
+[ Silence ]
+
+1376
+00:23:22,935 --> 00:23:24,603
+to make sure that's the right
+
+1377
+00:23:22,935 --> 00:23:24,603
+data type and from there we go
+
+1378
+00:23:24,603 --> 00:23:26,271
+[ Silence ]
+
+1379
+00:23:26,272 --> 00:23:27,139
+and dispatch our code
+
+1380
+00:23:26,272 --> 00:23:27,139
+to the main thread
+
+1381
+00:23:27,139 --> 00:23:28,006
+[ Silence ]
+
+1382
+00:23:28,007 --> 00:23:28,857
+that will update our UI.
+
+1383
+00:23:28,857 --> 00:23:29,707
+[ Silence ]
+
+1384
+00:23:29,709 --> 00:23:32,478
+So that's how QuickTime Player
+
+1385
+00:23:29,709 --> 00:23:32,478
+is updating the location
+
+1386
+00:23:32,478 --> 00:23:35,247
+[ Silence ]
+
+1387
+00:23:35,248 --> 00:23:36,231
+metadata during playback.
+
+1388
+00:23:36,231 --> 00:23:37,214
+[ Silence ]
+
+1389
+00:23:37,216 --> 00:23:38,800
+Of course this is not the
+
+1390
+00:23:37,216 --> 00:23:38,800
+first API that we have offered
+
+1391
+00:23:38,800 --> 00:23:40,384
+[ Silence ]
+
+1392
+00:23:40,386 --> 00:23:41,720
+for reading timed
+
+1393
+00:23:40,386 --> 00:23:41,720
+metadata during playback.
+
+1394
+00:23:41,720 --> 00:23:43,054
+[ Silence ]
+
+1395
+00:23:43,055 --> 00:23:44,506
+There is an existing
+
+1396
+00:23:43,055 --> 00:23:44,506
+property called timedMetadata
+
+1397
+00:23:44,506 --> 00:23:45,957
+[ Silence ]
+
+1398
+00:23:45,958 --> 00:23:47,175
+on AVPlayerItem but
+
+1399
+00:23:45,958 --> 00:23:47,175
+I'm here to say
+
+1400
+00:23:47,175 --> 00:23:48,392
+[ Silence ]
+
+1401
+00:23:48,394 --> 00:23:49,278
+that the
+
+1402
+00:23:48,394 --> 00:23:49,278
+AVPlayerItemMetadataOutput
+
+1403
+00:23:49,278 --> 00:23:50,162
+[ Silence ]
+
+1404
+00:23:50,163 --> 00:23:52,715
+replaces that property for
+
+1405
+00:23:50,163 --> 00:23:52,715
+all of these use cases.
+
+1406
+00:23:52,715 --> 00:23:55,267
+[ Silence ]
+
+1407
+00:23:55,268 --> 00:23:56,552
+Now we're not deprecating
+
+1408
+00:23:55,268 --> 00:23:56,552
+the property yet
+
+1409
+00:23:56,552 --> 00:23:57,836
+[ Silence ]
+
+1410
+00:23:57,837 --> 00:23:59,354
+but we do recommend, if
+
+1411
+00:23:57,837 --> 00:23:59,354
+you're new to timed metadata,
+
+1412
+00:23:59,354 --> 00:24:00,871
+[ Silence ]
+
+1413
+00:24:00,873 --> 00:24:02,024
+just adopt the metadataOutput
+
+1414
+00:24:02,024 --> 00:24:03,175
+[ Silence ]
+
+1415
+00:24:03,176 --> 00:24:04,059
+and not worry about
+
+1416
+00:24:03,176 --> 00:24:04,059
+the property.
+
+1417
+00:24:04,059 --> 00:24:04,942
+[ Silence ]
+
+1418
+00:24:04,944 --> 00:24:06,912
+If you're already using the
+
+1419
+00:24:04,944 --> 00:24:06,912
+property version we do recommend
+
+1420
+00:24:06,912 --> 00:24:08,880
+[ Silence ]
+
+1421
+00:24:08,881 --> 00:24:10,716
+that you move over but just you
+
+1422
+00:24:08,881 --> 00:24:10,716
+know that you should make sure
+
+1423
+00:24:10,716 --> 00:24:12,551
+[ Silence ]
+
+1424
+00:24:12,552 --> 00:24:14,420
+that your code is working
+
+1425
+00:24:12,552 --> 00:24:14,420
+properly after that transition,
+
+1426
+00:24:14,420 --> 00:24:16,288
+[ Silence ]
+
+1427
+00:24:16,289 --> 00:24:16,972
+in particular I'll point
+
+1428
+00:24:16,972 --> 00:24:17,655
+[ Silence ]
+
+1429
+00:24:17,657 --> 00:24:19,541
+out that the metadataOutput
+
+1430
+00:24:17,657 --> 00:24:19,541
+will give you, for certain kinds
+
+1431
+00:24:19,541 --> 00:24:21,425
+[ Silence ]
+
+1432
+00:24:21,427 --> 00:24:23,812
+of HLS content, will give
+
+1433
+00:24:21,427 --> 00:24:23,812
+more specific identifiers
+
+1434
+00:24:23,812 --> 00:24:26,197
+[ Silence ]
+
+1435
+00:24:26,199 --> 00:24:26,982
+than the old property did.
+
+1436
+00:24:26,982 --> 00:24:27,765
+[ Silence ]
+
+1437
+00:24:27,767 --> 00:24:29,501
+So just make sure your code
+
+1438
+00:24:27,767 --> 00:24:29,501
+is prepared to handle that.
+
+1439
+00:24:29,501 --> 00:24:31,235
+[ Silence ]
+
+1440
+00:24:31,237 --> 00:24:33,572
+The last topic on reading
+
+1441
+00:24:31,237 --> 00:24:33,572
+timed metadata is Chapters.
+
+1442
+00:24:33,572 --> 00:24:35,907
+[ Silence ]
+
+1443
+00:24:35,908 --> 00:24:37,075
+Chapters, like I said, have
+
+1444
+00:24:35,908 --> 00:24:37,075
+been supported for some time;
+
+1445
+00:24:37,075 --> 00:24:38,242
+[ Silence ]
+
+1446
+00:24:38,244 --> 00:24:39,228
+they even have their own API:
+
+1447
+00:24:39,228 --> 00:24:40,212
+[ Silence ]
+
+1448
+00:24:40,213 --> 00:24:41,613
+chapterMetadataGroupsBest
+
+1449
+00:24:40,213 --> 00:24:41,613
+MatchingPreferredLanguages.
+
+1450
+00:24:41,613 --> 00:24:43,013
+[ Silence ]
+
+1451
+00:24:43,015 --> 00:24:44,266
+This is on AVAsset.
+
+1452
+00:24:44,266 --> 00:24:45,517
+[ Silence ]
+
+1453
+00:24:45,518 --> 00:24:47,336
+This will give you an array
+
+1454
+00:24:45,518 --> 00:24:47,336
+of timed metadata groups
+
+1455
+00:24:47,336 --> 00:24:49,154
+[ Silence ]
+
+1456
+00:24:49,155 --> 00:24:50,656
+that contain items
+
+1457
+00:24:49,155 --> 00:24:50,656
+with the identifier,
+
+1458
+00:24:50,656 --> 00:24:52,157
+[ Silence ]
+
+1459
+00:24:52,158 --> 00:24:53,892
+QuickTimeUserDataChapter,
+
+1460
+00:24:52,158 --> 00:24:53,892
+and we've supported this
+
+1461
+00:24:53,892 --> 00:24:55,626
+[ Silence ]
+
+1462
+00:24:55,628 --> 00:24:57,596
+for some time for QuickTime
+
+1463
+00:24:55,628 --> 00:24:57,596
+movie files and M4Vs and,
+
+1464
+00:24:57,596 --> 00:24:59,564
+[ Silence ]
+
+1465
+00:24:59,565 --> 00:25:02,584
+new in iOS 8 is the-and OS X
+
+1466
+00:24:59,565 --> 00:25:02,584
+Yosemite-is support for chapters
+
+1467
+00:25:02,584 --> 00:25:05,603
+[ Silence ]
+
+1468
+00:25:05,605 --> 00:25:07,306
+in HTTP Live Streams
+
+1469
+00:25:05,605 --> 00:25:07,306
+as well as MP3 files.
+
+1470
+00:25:07,306 --> 00:25:09,007
+[ Silence ]
+
+1471
+00:25:09,008 --> 00:25:09,625
+And I'll tell you more about how
+
+1472
+00:25:09,625 --> 00:25:10,242
+[ Silence ]
+
+1473
+00:25:10,243 --> 00:25:12,311
+to author those HLS chapters
+
+1474
+00:25:10,243 --> 00:25:12,311
+in just a little bit.
+
+1475
+00:25:12,311 --> 00:25:14,379
+[ Silence ]
+
+1476
+00:25:14,380 --> 00:25:15,864
+So for more information,
+
+1477
+00:25:14,380 --> 00:25:15,864
+we have some sample code
+
+1478
+00:25:15,864 --> 00:25:17,348
+[ Silence ]
+
+1479
+00:25:17,350 --> 00:25:19,301
+that does approximately what
+
+1480
+00:25:17,350 --> 00:25:19,301
+QuickTime Player is doing,
+
+1481
+00:25:19,301 --> 00:25:21,252
+[ Silence ]
+
+1482
+00:25:21,254 --> 00:25:22,921
+where it can show your
+
+1483
+00:25:21,254 --> 00:25:22,921
+location during play back.
+
+1484
+00:25:22,921 --> 00:25:24,588
+[ Silence ]
+
+1485
+00:25:24,590 --> 00:25:26,575
+We also have a previous session
+
+1486
+00:25:24,590 --> 00:25:26,575
+about AssetReader that goes
+
+1487
+00:25:26,575 --> 00:25:28,560
+[ Silence ]
+
+1488
+00:25:28,561 --> 00:25:30,078
+into much more detail than I did
+
+1489
+00:25:28,561 --> 00:25:30,078
+here, called "Working with Media
+
+1490
+00:25:30,078 --> 00:25:31,595
+[ Silence ]
+
+1491
+00:25:31,597 --> 00:25:32,981
+in AVFoundation" from 2011.
+
+1492
+00:25:32,981 --> 00:25:34,365
+[ Silence ]
+
+1493
+00:25:34,367 --> 00:25:35,934
+So that's how you read and
+
+1494
+00:25:34,367 --> 00:25:35,934
+play back timed metadata.
+
+1495
+00:25:35,934 --> 00:25:37,501
+[ Silence ]
+
+1496
+00:25:37,503 --> 00:25:39,071
+Our next timed metadata topic
+
+1497
+00:25:37,503 --> 00:25:39,071
+is how you can create your own
+
+1498
+00:25:39,071 --> 00:25:40,639
+[ Silence ]
+
+1499
+00:25:40,640 --> 00:25:41,807
+movies that contain
+
+1500
+00:25:40,640 --> 00:25:41,807
+timed metadata.
+
+1501
+00:25:41,807 --> 00:25:42,974
+[ Silence ]
+
+1502
+00:25:42,975 --> 00:25:43,975
+We saw the screenshot
+
+1503
+00:25:42,975 --> 00:25:43,975
+before and I mentioned
+
+1504
+00:25:43,975 --> 00:25:44,975
+[ Silence ]
+
+1505
+00:25:44,977 --> 00:25:46,862
+that these annotations are
+
+1506
+00:25:44,977 --> 00:25:46,862
+stored as timed metadata and,
+
+1507
+00:25:46,862 --> 00:25:48,747
+[ Silence ]
+
+1508
+00:25:48,748 --> 00:25:50,149
+to show you this demo app, I'd
+
+1509
+00:25:48,748 --> 00:25:50,149
+like to invite Shalini back
+
+1510
+00:25:50,149 --> 00:25:51,550
+[ Silence ]
+
+1511
+00:25:51,551 --> 00:25:52,818
+up on stage to demo it.
+
+1512
+00:25:52,818 --> 00:25:54,085
+[ Silence ]
+
+1513
+00:25:54,086 --> 00:25:55,170
+>> This time let's
+
+1514
+00:25:54,086 --> 00:25:55,170
+look at an app on how
+
+1515
+00:25:55,170 --> 00:25:56,254
+[ Silence ]
+
+1516
+00:25:56,255 --> 00:25:58,206
+to author your own custom
+
+1517
+00:25:56,255 --> 00:25:58,206
+metadata movie files.
+
+1518
+00:25:58,206 --> 00:26:00,157
+[ Silence ]
+
+1519
+00:26:00,159 --> 00:26:02,227
+Here I have a video and if I
+
+1520
+00:26:00,159 --> 00:26:02,227
+would like to share some notes
+
+1521
+00:26:02,227 --> 00:26:04,295
+[ Silence ]
+
+1522
+00:26:04,297 --> 00:26:06,031
+with my friend, who is good
+
+1523
+00:26:04,297 --> 00:26:06,031
+at fixing colors in a movie,
+
+1524
+00:26:06,031 --> 00:26:07,765
+[ Silence ]
+
+1525
+00:26:07,767 --> 00:26:09,551
+I can now do that
+
+1526
+00:26:07,767 --> 00:26:09,551
+within the app.
+
+1527
+00:26:09,551 --> 00:26:11,335
+[ Silence ]
+
+1528
+00:26:11,337 --> 00:26:13,238
+To add annotations, I
+
+1529
+00:26:11,337 --> 00:26:13,238
+use a two-finger gesture,
+
+1530
+00:26:13,238 --> 00:26:15,139
+[ Silence ]
+
+1531
+00:26:15,141 --> 00:26:19,061
+I can use a pinch gesture to
+
+1532
+00:26:15,141 --> 00:26:19,061
+resize and then add a comment
+
+1533
+00:26:19,061 --> 00:26:22,981
+[ Silence ]
+
+1534
+00:26:22,982 --> 00:26:24,249
+[ Silence ]
+
+1535
+00:26:24,250 --> 00:26:26,234
+which is enough for my whoever
+
+1536
+00:26:24,250 --> 00:26:26,234
+looks at the video later
+
+1537
+00:26:26,234 --> 00:26:28,218
+[ Silence ]
+
+1538
+00:26:28,220 --> 00:26:30,672
+to fix the colors there
+
+1539
+00:26:28,220 --> 00:26:30,672
+and then I begin playback.
+
+1540
+00:26:30,672 --> 00:26:33,124
+[ Silence ]
+
+1541
+00:26:33,125 --> 00:26:35,043
+And as playback progresses,
+
+1542
+00:26:33,125 --> 00:26:35,043
+I track the circle
+
+1543
+00:26:35,043 --> 00:26:36,961
+[ Silence ]
+
+1544
+00:26:36,963 --> 00:26:38,363
+to where I want this
+
+1545
+00:26:36,963 --> 00:26:38,363
+to be fixed.
+
+1546
+00:26:38,363 --> 00:26:39,763
+[ Silence ]
+
+1547
+00:26:39,765 --> 00:26:41,416
+And now that I have this
+
+1548
+00:26:39,765 --> 00:26:41,416
+annotation and I can write it
+
+1549
+00:26:41,416 --> 00:26:43,067
+[ Silence ]
+
+1550
+00:26:43,069 --> 00:26:45,454
+out along with the audio and
+
+1551
+00:26:43,069 --> 00:26:45,454
+video to do that, I hit "export"
+
+1552
+00:26:45,454 --> 00:26:47,839
+[ Silence ]
+
+1553
+00:26:47,840 --> 00:26:49,391
+and now we see an AV
+
+1554
+00:26:47,840 --> 00:26:49,391
+player view controller
+
+1555
+00:26:49,391 --> 00:26:50,942
+[ Silence ]
+
+1556
+00:26:50,943 --> 00:26:52,527
+which shows the exported
+
+1557
+00:26:50,943 --> 00:26:52,527
+movie along with the metadata
+
+1558
+00:26:52,527 --> 00:26:54,111
+[ Silence ]
+
+1559
+00:26:54,113 --> 00:26:54,813
+which was written to it.
+
+1560
+00:26:54,813 --> 00:26:55,513
+[ Silence ]
+
+1561
+00:26:55,514 --> 00:26:57,933
+So if I start playback you see
+
+1562
+00:26:55,514 --> 00:26:57,933
+the annotation is moving along
+
+1563
+00:26:57,933 --> 00:27:00,352
+[ Silence ]
+
+1564
+00:27:00,353 --> 00:27:02,538
+the timeline in the
+
+1565
+00:27:00,353 --> 00:27:02,538
+part in which I traced.
+
+1566
+00:27:02,538 --> 00:27:04,723
+[ Silence ]
+
+1567
+00:27:04,724 --> 00:27:07,442
+So if I scrub back in time you
+
+1568
+00:27:04,724 --> 00:27:07,442
+can see the annotation moving.
+
+1569
+00:27:07,442 --> 00:27:10,160
+[ Silence ]
+
+1570
+00:27:10,162 --> 00:27:11,313
+You might wonder that
+
+1571
+00:27:10,162 --> 00:27:11,313
+the annotation is baked
+
+1572
+00:27:11,313 --> 00:27:12,464
+[ Silence ]
+
+1573
+00:27:12,465 --> 00:27:13,815
+into the video frame; it is not.
+
+1574
+00:27:13,815 --> 00:27:15,165
+[ Silence ]
+
+1575
+00:27:15,167 --> 00:27:17,435
+It is being rendered real-time
+
+1576
+00:27:15,167 --> 00:27:17,435
+using AVPlayerItemMetadataOutput
+
+1577
+00:27:17,435 --> 00:27:19,703
+[ Silence ]
+
+1578
+00:27:19,705 --> 00:27:21,773
+and you can change the color
+
+1579
+00:27:19,705 --> 00:27:21,773
+or the font of the annotation.
+
+1580
+00:27:21,773 --> 00:27:23,841
+[ Silence ]
+
+1581
+00:27:23,843 --> 00:27:25,510
+So if I begin playback, you
+
+1582
+00:27:23,843 --> 00:27:25,510
+see the rendering is happening
+
+1583
+00:27:25,510 --> 00:27:27,177
+[ Silence ]
+
+1584
+00:27:27,179 --> 00:27:29,130
+in real time.
+
+1585
+00:27:29,130 --> 00:27:31,081
+[ Silence ]
+
+1586
+00:27:31,083 --> 00:27:32,784
+That's AVTimedAnnotationWriter,
+
+1587
+00:27:31,083 --> 00:27:32,784
+we have this available
+
+1588
+00:27:32,784 --> 00:27:34,485
+[ Silence ]
+
+1589
+00:27:34,487 --> 00:27:35,587
+as a sample code
+
+1590
+00:27:34,487 --> 00:27:35,587
+as well, thank you.
+
+1591
+00:27:35,587 --> 00:27:36,687
+[ Silence ]
+
+1592
+00:27:36,689 --> 00:27:37,739
+>> So that was a
+
+1593
+00:27:36,689 --> 00:27:37,739
+great demonstration
+
+1594
+00:27:37,739 --> 00:27:38,789
+[ Silence ]
+
+1595
+00:27:38,791 --> 00:27:40,742
+of not only the playback part
+
+1596
+00:27:38,791 --> 00:27:40,742
+of it but also how to write
+
+1597
+00:27:40,742 --> 00:27:42,693
+[ Silence ]
+
+1598
+00:27:42,695 --> 00:27:43,879
+that data into the file,
+
+1599
+00:27:42,695 --> 00:27:43,879
+so let's take a look at how
+
+1600
+00:27:43,879 --> 00:27:45,063
+[ Silence ]
+
+1601
+00:27:45,064 --> 00:27:45,697
+that was accomplished.
+
+1602
+00:27:45,697 --> 00:27:46,330
+[ Silence ]
+
+1603
+00:27:46,332 --> 00:27:48,400
+So we're going to use an
+
+1604
+00:27:46,332 --> 00:27:48,400
+AVAssetWriter to write the file
+
+1605
+00:27:48,400 --> 00:27:50,468
+[ Silence ]
+
+1606
+00:27:50,469 --> 00:27:51,953
+and we're going to use an
+
+1607
+00:27:50,469 --> 00:27:51,953
+AVAssetWriterInput in order
+
+1608
+00:27:51,953 --> 00:27:53,437
+[ Silence ]
+
+1609
+00:27:53,439 --> 00:27:54,556
+to write that metadata
+
+1610
+00:27:53,439 --> 00:27:54,556
+track to the file.
+
+1611
+00:27:54,556 --> 00:27:55,673
+[ Silence ]
+
+1612
+00:27:55,675 --> 00:27:56,942
+Just like the reader side,
+
+1613
+00:27:56,942 --> 00:27:58,209
+[ Silence ]
+
+1614
+00:27:58,210 --> 00:28:00,128
+the writer has a new class
+
+1615
+00:27:58,210 --> 00:28:00,128
+that's a metadataAdaptor
+
+1616
+00:28:00,128 --> 00:28:02,046
+[ Silence ]
+
+1617
+00:28:02,048 --> 00:28:03,415
+and that class knows how
+
+1618
+00:28:02,048 --> 00:28:03,415
+to interpret instances
+
+1619
+00:28:03,415 --> 00:28:04,782
+[ Silence ]
+
+1620
+00:28:04,784 --> 00:28:06,435
+of AVTimedMetadataGroup and
+
+1621
+00:28:04,784 --> 00:28:06,435
+write that into the file.
+
+1622
+00:28:06,435 --> 00:28:08,086
+[ Silence ]
+
+1623
+00:28:08,087 --> 00:28:10,372
+See a little bit of code;
+
+1624
+00:28:08,087 --> 00:28:10,372
+first thing we're going
+
+1625
+00:28:10,372 --> 00:28:12,657
+[ Silence ]
+
+1626
+00:28:12,658 --> 00:28:14,059
+to do is create our
+
+1627
+00:28:12,658 --> 00:28:14,059
+AssetWriter Input.
+
+1628
+00:28:14,059 --> 00:28:15,460
+[ Silence ]
+
+1629
+00:28:15,461 --> 00:28:17,779
+We're going to use the media
+
+1630
+00:28:15,461 --> 00:28:17,779
+type AVMediaTypeMetadata,
+
+1631
+00:28:17,779 --> 00:28:20,097
+[ Silence ]
+
+1632
+00:28:20,099 --> 00:28:21,466
+once again nil outputSettings
+
+1633
+00:28:20,099 --> 00:28:21,466
+and we're going to have
+
+1634
+00:28:21,466 --> 00:28:22,833
+[ Silence ]
+
+1635
+00:28:22,835 --> 00:28:24,519
+to provide a clue to
+
+1636
+00:28:22,835 --> 00:28:24,519
+the source format, well,
+
+1637
+00:28:24,519 --> 00:28:26,203
+[ Silence ]
+
+1638
+00:28:26,205 --> 00:28:27,255
+the format of the data that
+
+1639
+00:28:26,205 --> 00:28:27,255
+we're going to be appending.
+
+1640
+00:28:27,255 --> 00:28:28,305
+[ Silence ]
+
+1641
+00:28:28,307 --> 00:28:29,157
+We'll talk more about this
+
+1642
+00:28:29,157 --> 00:28:30,007
+[ Silence ]
+
+1643
+00:28:30,009 --> 00:28:31,293
+and why it's required
+
+1644
+00:28:30,009 --> 00:28:31,293
+on the next slide.
+
+1645
+00:28:31,293 --> 00:28:32,577
+[ Silence ]
+
+1646
+00:28:32,578 --> 00:28:33,545
+Then you simply create
+
+1647
+00:28:32,578 --> 00:28:33,545
+your metadataAdaptor
+
+1648
+00:28:33,545 --> 00:28:34,512
+[ Silence ]
+
+1649
+00:28:34,513 --> 00:28:36,431
+with the reference to that
+
+1650
+00:28:34,513 --> 00:28:36,431
+input and, as you generate
+
+1651
+00:28:36,431 --> 00:28:38,349
+[ Silence ]
+
+1652
+00:28:38,350 --> 00:28:39,551
+or receive your timed
+
+1653
+00:28:38,350 --> 00:28:39,551
+metadata groups,
+
+1654
+00:28:39,551 --> 00:28:40,752
+[ Silence ]
+
+1655
+00:28:40,753 --> 00:28:42,254
+you simply use the
+
+1656
+00:28:40,753 --> 00:28:42,254
+appendTimedMetadataGroup method
+
+1657
+00:28:42,254 --> 00:28:43,755
+[ Silence ]
+
+1658
+00:28:43,756 --> 00:28:45,624
+to continue to append those
+
+1659
+00:28:43,756 --> 00:28:45,624
+and write them to the file.
+
+1660
+00:28:45,624 --> 00:28:47,492
+[ Silence ]
+
+1661
+00:28:47,493 --> 00:28:49,094
+So what's the deal with
+
+1662
+00:28:47,493 --> 00:28:49,094
+that source format thing.
+
+1663
+00:28:49,094 --> 00:28:50,695
+[ Silence ]
+
+1664
+00:28:50,696 --> 00:28:53,014
+Well, it turns out in order
+
+1665
+00:28:50,696 --> 00:28:53,014
+for AVAssetWriter to be able
+
+1666
+00:28:53,014 --> 00:28:55,332
+[ Silence ]
+
+1667
+00:28:55,334 --> 00:28:57,185
+to write your metadata in the
+
+1668
+00:28:55,334 --> 00:28:57,185
+most efficient way possible,
+
+1669
+00:28:57,185 --> 00:28:59,036
+[ Silence ]
+
+1670
+00:28:59,038 --> 00:29:00,188
+it needs to know up
+
+1671
+00:28:59,038 --> 00:29:00,188
+front exactly what kind
+
+1672
+00:29:00,188 --> 00:29:01,338
+[ Silence ]
+
+1673
+00:29:01,340 --> 00:29:02,440
+of metadata it is
+
+1674
+00:29:01,340 --> 00:29:02,440
+going to be writing.
+
+1675
+00:29:02,440 --> 00:29:03,540
+[ Silence ]
+
+1676
+00:29:03,542 --> 00:29:05,944
+This will result in the most
+
+1677
+00:29:03,542 --> 00:29:05,944
+lowest storage overhead in terms
+
+1678
+00:29:05,944 --> 00:29:08,346
+[ Silence ]
+
+1679
+00:29:08,347 --> 00:29:09,164
+of the number of bytes
+
+1680
+00:29:08,347 --> 00:29:09,164
+your file takes up
+
+1681
+00:29:09,164 --> 00:29:09,981
+[ Silence ]
+
+1682
+00:29:09,982 --> 00:29:11,583
+and it also has a effect
+
+1683
+00:29:09,982 --> 00:29:11,583
+on how efficient it is
+
+1684
+00:29:11,583 --> 00:29:13,184
+[ Silence ]
+
+1685
+00:29:13,185 --> 00:29:14,269
+to play back this
+
+1686
+00:29:13,185 --> 00:29:14,269
+kind of contents.
+
+1687
+00:29:14,269 --> 00:29:15,353
+[ Silence ]
+
+1688
+00:29:15,354 --> 00:29:16,288
+You don't want to be
+
+1689
+00:29:15,354 --> 00:29:16,288
+using too much power
+
+1690
+00:29:16,288 --> 00:29:17,222
+[ Silence ]
+
+1691
+00:29:17,223 --> 00:29:18,323
+when you're playing this
+
+1692
+00:29:17,223 --> 00:29:18,323
+kind of content back.
+
+1693
+00:29:18,323 --> 00:29:19,423
+[ Silence ]
+
+1694
+00:29:19,425 --> 00:29:20,358
+So you do have some
+
+1695
+00:29:19,425 --> 00:29:20,358
+options in terms
+
+1696
+00:29:20,358 --> 00:29:21,291
+[ Silence ]
+
+1697
+00:29:21,293 --> 00:29:22,944
+of how you actually construct
+
+1698
+00:29:21,293 --> 00:29:22,944
+one of these format hits.
+
+1699
+00:29:22,944 --> 00:29:24,595
+[ Silence ]
+
+1700
+00:29:24,597 --> 00:29:25,197
+If you're reading
+
+1701
+00:29:25,197 --> 00:29:25,797
+[ Silence ]
+
+1702
+00:29:25,798 --> 00:29:27,082
+from AVAssetReader you
+
+1703
+00:29:25,798 --> 00:29:27,082
+can actually ask the track
+
+1704
+00:29:27,082 --> 00:29:28,366
+[ Silence ]
+
+1705
+00:29:28,367 --> 00:29:29,251
+that you are reading
+
+1706
+00:29:28,367 --> 00:29:29,251
+from to give you its list
+
+1707
+00:29:29,251 --> 00:29:30,135
+[ Silence ]
+
+1708
+00:29:30,136 --> 00:29:31,954
+of format descriptions
+
+1709
+00:29:30,136 --> 00:29:31,954
+and use one of those.
+
+1710
+00:29:31,954 --> 00:29:33,772
+[ Silence ]
+
+1711
+00:29:33,773 --> 00:29:35,207
+If you're creating the metadata
+
+1712
+00:29:33,773 --> 00:29:35,207
+group yourself or getting it
+
+1713
+00:29:35,207 --> 00:29:36,641
+[ Silence ]
+
+1714
+00:29:36,642 --> 00:29:38,426
+from some other source then
+
+1715
+00:29:36,642 --> 00:29:38,426
+you can use a new method called
+
+1716
+00:29:38,426 --> 00:29:40,210
+[ Silence ]
+
+1717
+00:29:40,212 --> 00:29:41,746
+copyFormatDescription that
+
+1718
+00:29:40,212 --> 00:29:41,746
+will give you back an instance
+
+1719
+00:29:41,746 --> 00:29:43,280
+[ Silence ]
+
+1720
+00:29:43,282 --> 00:29:44,950
+of CM format description that
+
+1721
+00:29:43,282 --> 00:29:44,950
+will do this job for you.
+
+1722
+00:29:44,950 --> 00:29:46,618
+[ Silence ]
+
+1723
+00:29:46,619 --> 00:29:47,769
+It's important to note that
+
+1724
+00:29:46,619 --> 00:29:47,769
+if you go this route you need
+
+1725
+00:29:47,769 --> 00:29:48,919
+[ Silence ]
+
+1726
+00:29:48,921 --> 00:29:49,571
+to make sure that the contents
+
+1727
+00:29:49,571 --> 00:29:50,221
+[ Silence ]
+
+1728
+00:29:50,222 --> 00:29:51,673
+of your metadata group
+
+1729
+00:29:50,222 --> 00:29:51,673
+are comprehensive in terms
+
+1730
+00:29:51,673 --> 00:29:53,124
+[ Silence ]
+
+1731
+00:29:53,125 --> 00:29:54,359
+of it containing
+
+1732
+00:29:53,125 --> 00:29:54,359
+every combination
+
+1733
+00:29:54,359 --> 00:29:55,593
+[ Silence ]
+
+1734
+00:29:55,594 --> 00:29:57,178
+of identifier data
+
+1735
+00:29:55,594 --> 00:29:57,178
+type and language tag
+
+1736
+00:29:57,178 --> 00:29:58,762
+[ Silence ]
+
+1737
+00:29:58,764 --> 00:29:59,681
+that you are going
+
+1738
+00:29:58,764 --> 00:29:59,681
+to be appending.
+
+1739
+00:29:59,681 --> 00:30:00,598
+[ Silence ]
+
+1740
+00:30:00,599 --> 00:30:02,534
+That is, it contains an item
+
+1741
+00:30:00,599 --> 00:30:02,534
+with each of those combinations.
+
+1742
+00:30:02,534 --> 00:30:04,469
+[ Silence ]
+
+1743
+00:30:04,470 --> 00:30:06,288
+Of course, since the CM format
+
+1744
+00:30:04,470 --> 00:30:06,288
+description is a CF type,
+
+1745
+00:30:06,288 --> 00:30:08,106
+[ Silence ]
+
+1746
+00:30:08,107 --> 00:30:09,357
+you'll need a CFRelease
+
+1747
+00:30:08,107 --> 00:30:09,357
+app when you're done.
+
+1748
+00:30:09,357 --> 00:30:10,607
+[ Silence ]
+
+1749
+00:30:10,609 --> 00:30:11,659
+Of course, there's one
+
+1750
+00:30:10,609 --> 00:30:11,659
+more way you can do this:
+
+1751
+00:30:11,659 --> 00:30:12,709
+[ Silence ]
+
+1752
+00:30:12,711 --> 00:30:13,862
+you can create the format
+
+1753
+00:30:12,711 --> 00:30:13,862
+description directly using
+
+1754
+00:30:13,862 --> 00:30:15,013
+[ Silence ]
+
+1755
+00:30:15,014 --> 00:30:15,764
+CoreMedia APIs.
+
+1756
+00:30:15,764 --> 00:30:16,514
+[ Silence ]
+
+1757
+00:30:16,515 --> 00:30:18,700
+And here you use this long name
+
+1758
+00:30:16,515 --> 00:30:18,700
+CMMetadataFormatDescription
+
+1759
+00:30:18,700 --> 00:30:20,885
+[ Silence ]
+
+1760
+00:30:20,886 --> 00:30:22,153
+CreateWith
+
+1761
+00:30:20,886 --> 00:30:22,153
+MetadataSpecifications function.
+
+1762
+00:30:22,153 --> 00:30:23,420
+[ Silence ]
+
+1763
+00:30:23,422 --> 00:30:24,839
+You're going to pass in
+
+1764
+00:30:23,422 --> 00:30:24,839
+the metadataType box.
+
+1765
+00:30:24,839 --> 00:30:26,256
+[ Silence ]
+
+1766
+00:30:26,258 --> 00:30:27,108
+That's the sort of
+
+1767
+00:30:26,258 --> 00:30:27,108
+metadata we've been talking
+
+1768
+00:30:27,108 --> 00:30:27,958
+[ Silence ]
+
+1769
+00:30:27,960 --> 00:30:29,444
+about this whole time
+
+1770
+00:30:27,960 --> 00:30:29,444
+with timed metadata.
+
+1771
+00:30:29,444 --> 00:30:30,928
+[ Silence ]
+
+1772
+00:30:30,930 --> 00:30:32,414
+And these metadata
+
+1773
+00:30:30,930 --> 00:30:32,414
+specifications it's just an
+
+1774
+00:30:32,414 --> 00:30:33,898
+[ Silence ]
+
+1775
+00:30:33,899 --> 00:30:34,682
+array of dictionaries.
+
+1776
+00:30:34,682 --> 00:30:35,465
+[ Silence ]
+
+1777
+00:30:35,467 --> 00:30:36,985
+Each dictionary contains those
+
+1778
+00:30:35,467 --> 00:30:36,985
+combinations I was talking
+
+1779
+00:30:36,985 --> 00:30:38,503
+[ Silence ]
+
+1780
+00:30:38,504 --> 00:30:39,187
+about before.
+
+1781
+00:30:39,187 --> 00:30:39,870
+[ Silence ]
+
+1782
+00:30:39,872 --> 00:30:41,640
+The identifier dataType and
+
+1783
+00:30:39,872 --> 00:30:41,640
+optionally extended language tag
+
+1784
+00:30:41,640 --> 00:30:43,408
+[ Silence ]
+
+1785
+00:30:43,409 --> 00:30:45,026
+so you want to make one of
+
+1786
+00:30:43,409 --> 00:30:45,026
+these metadata specifications
+
+1787
+00:30:45,026 --> 00:30:46,643
+[ Silence ]
+
+1788
+00:30:46,645 --> 00:30:48,546
+dictionaries for each
+
+1789
+00:30:46,645 --> 00:30:48,546
+combination you plan to append.
+
+1790
+00:30:48,546 --> 00:30:50,447
+[ Silence ]
+
+1791
+00:30:50,449 --> 00:30:52,300
+So the one thing that was not
+
+1792
+00:30:50,449 --> 00:30:52,300
+obvious about that demo is
+
+1793
+00:30:52,300 --> 00:30:54,151
+[ Silence ]
+
+1794
+00:30:54,153 --> 00:30:56,037
+that we're actually writing
+
+1795
+00:30:54,153 --> 00:30:56,037
+metadata timed metadata
+
+1796
+00:30:56,037 --> 00:30:57,921
+[ Silence ]
+
+1797
+00:30:57,923 --> 00:30:59,441
+that describes one
+
+1798
+00:30:57,923 --> 00:30:59,441
+particular other track.
+
+1799
+00:30:59,441 --> 00:31:00,959
+[ Silence ]
+
+1800
+00:31:00,960 --> 00:31:01,960
+So for the example
+
+1801
+00:31:00,960 --> 00:31:01,960
+of these annotations,
+
+1802
+00:31:01,960 --> 00:31:02,960
+[ Silence ]
+
+1803
+00:31:02,962 --> 00:31:04,446
+we're really just talking about
+
+1804
+00:31:02,962 --> 00:31:04,446
+the video track of the movie
+
+1805
+00:31:04,446 --> 00:31:05,930
+[ Silence ]
+
+1806
+00:31:05,931 --> 00:31:07,248
+and not the sound or
+
+1807
+00:31:05,931 --> 00:31:07,248
+anything else like that.
+
+1808
+00:31:07,248 --> 00:31:08,565
+[ Silence ]
+
+1809
+00:31:08,567 --> 00:31:11,086
+So just like we had a way of
+
+1810
+00:31:08,567 --> 00:31:11,086
+making track-specific metadata
+
+1811
+00:31:11,086 --> 00:31:13,605
+[ Silence ]
+
+1812
+00:31:13,606 --> 00:31:14,356
+that applied to the
+
+1813
+00:31:13,606 --> 00:31:14,356
+entire track,
+
+1814
+00:31:14,356 --> 00:31:15,106
+[ Silence ]
+
+1815
+00:31:15,107 --> 00:31:15,740
+with those tagged
+
+1816
+00:31:15,107 --> 00:31:15,740
+characteristics
+
+1817
+00:31:15,740 --> 00:31:16,373
+[ Silence ]
+
+1818
+00:31:16,375 --> 00:31:17,525
+that we saw before, you
+
+1819
+00:31:16,375 --> 00:31:17,525
+also have the ability
+
+1820
+00:31:17,525 --> 00:31:18,675
+[ Silence ]
+
+1821
+00:31:18,677 --> 00:31:20,111
+to formerly mark
+
+1822
+00:31:18,677 --> 00:31:20,111
+your metadata track
+
+1823
+00:31:20,111 --> 00:31:21,545
+[ Silence ]
+
+1824
+00:31:21,547 --> 00:31:23,048
+as describing one
+
+1825
+00:31:21,547 --> 00:31:23,048
+particular other track.
+
+1826
+00:31:23,048 --> 00:31:24,549
+[ Silence ]
+
+1827
+00:31:24,550 --> 00:31:25,834
+You do that with the
+
+1828
+00:31:24,550 --> 00:31:25,834
+addTrackAssociationWith
+
+1829
+00:31:25,834 --> 00:31:27,118
+[ Silence ]
+
+1830
+00:31:27,119 --> 00:31:29,154
+TrackOfInput method using as the
+
+1831
+00:31:27,119 --> 00:31:29,154
+parameter the AssetWriterInput
+
+1832
+00:31:29,154 --> 00:31:31,189
+[ Silence ]
+
+1833
+00:31:31,190 --> 00:31:32,140
+that you are using to
+
+1834
+00:31:31,190 --> 00:31:32,140
+write your video track.
+
+1835
+00:31:32,140 --> 00:31:33,090
+[ Silence ]
+
+1836
+00:31:33,092 --> 00:31:34,192
+And your receiver is the
+
+1837
+00:31:33,092 --> 00:31:34,192
+input that you are using
+
+1838
+00:31:34,192 --> 00:31:35,292
+[ Silence ]
+
+1839
+00:31:35,294 --> 00:31:36,061
+to write your metadata track.
+
+1840
+00:31:36,061 --> 00:31:36,828
+[ Silence ]
+
+1841
+00:31:36,829 --> 00:31:38,313
+You use the
+
+1842
+00:31:36,829 --> 00:31:38,313
+AssociationTypeMetadataReferent.
+
+1843
+00:31:38,313 --> 00:31:39,797
+[ Silence ]
+
+1844
+00:31:39,798 --> 00:31:41,432
+So that's how your create
+
+1845
+00:31:39,798 --> 00:31:41,432
+metadata that's timed
+
+1846
+00:31:41,432 --> 00:31:43,066
+[ Silence ]
+
+1847
+00:31:43,068 --> 00:31:44,519
+but also specific to
+
+1848
+00:31:43,068 --> 00:31:44,519
+a particular track.
+
+1849
+00:31:44,519 --> 00:31:45,970
+[ Silence ]
+
+1850
+00:31:45,971 --> 00:31:47,589
+The next thing we did that was
+
+1851
+00:31:45,971 --> 00:31:47,589
+interesting in that demo is
+
+1852
+00:31:47,589 --> 00:31:49,207
+[ Silence ]
+
+1853
+00:31:49,208 --> 00:31:50,408
+that we actually used our
+
+1854
+00:31:49,208 --> 00:31:50,408
+own custom identifiers.
+
+1855
+00:31:50,408 --> 00:31:51,608
+[ Silence ]
+
+1856
+00:31:51,610 --> 00:31:52,877
+So we had that big list
+
+1857
+00:31:51,610 --> 00:31:52,877
+of built in identifiers.
+
+1858
+00:31:52,877 --> 00:31:54,144
+[ Silence ]
+
+1859
+00:31:54,146 --> 00:31:54,729
+Well, you don't have
+
+1860
+00:31:54,146 --> 00:31:54,729
+to use those;
+
+1861
+00:31:54,729 --> 00:31:55,312
+[ Silence ]
+
+1862
+00:31:55,314 --> 00:31:56,131
+you can actually build your own
+
+1863
+00:31:56,131 --> 00:31:56,948
+[ Silence ]
+
+1864
+00:31:56,949 --> 00:31:58,350
+and as I mentioned before an
+
+1865
+00:31:56,949 --> 00:31:58,350
+identifier is just a combination
+
+1866
+00:31:58,350 --> 00:31:59,751
+[ Silence ]
+
+1867
+00:31:59,752 --> 00:32:01,219
+of key space and key and
+
+1868
+00:31:59,752 --> 00:32:01,219
+it has a particular format:
+
+1869
+00:32:01,219 --> 00:32:02,686
+[ Silence ]
+
+1870
+00:32:02,688 --> 00:32:03,888
+it's just a string but it
+
+1871
+00:32:02,688 --> 00:32:03,888
+is in a particular format
+
+1872
+00:32:03,888 --> 00:32:05,088
+[ Silence ]
+
+1873
+00:32:05,090 --> 00:32:06,140
+so to help you make your
+
+1874
+00:32:05,090 --> 00:32:06,140
+own custom identifiers,
+
+1875
+00:32:06,140 --> 00:32:07,190
+[ Silence ]
+
+1876
+00:32:07,192 --> 00:32:08,676
+we have this method,
+
+1877
+00:32:07,192 --> 00:32:08,676
+identifierFor Key, and keySpace,
+
+1878
+00:32:08,676 --> 00:32:10,160
+[ Silence ]
+
+1879
+00:32:10,162 --> 00:32:12,047
+it's a class method
+
+1880
+00:32:10,162 --> 00:32:12,047
+on AVMetadataItem.
+
+1881
+00:32:12,047 --> 00:32:13,932
+[ Silence ]
+
+1882
+00:32:13,933 --> 00:32:15,634
+There are some rules to
+
+1883
+00:32:13,933 --> 00:32:15,634
+follow: your key space needs
+
+1884
+00:32:15,634 --> 00:32:17,335
+[ Silence ]
+
+1885
+00:32:17,336 --> 00:32:18,253
+to be four characters
+
+1886
+00:32:17,336 --> 00:32:18,253
+long if you want to use it
+
+1887
+00:32:18,253 --> 00:32:19,170
+[ Silence ]
+
+1888
+00:32:19,171 --> 00:32:19,854
+for timed metadata
+
+1889
+00:32:19,854 --> 00:32:20,537
+[ Silence ]
+
+1890
+00:32:20,539 --> 00:32:21,756
+so we actually recommend you
+
+1891
+00:32:20,539 --> 00:32:21,756
+use our built-in key space,
+
+1892
+00:32:21,756 --> 00:32:22,973
+[ Silence ]
+
+1893
+00:32:22,975 --> 00:32:24,109
+the QuickTimeMetadata keySpace.
+
+1894
+00:32:24,109 --> 00:32:25,243
+[ Silence ]
+
+1895
+00:32:25,244 --> 00:32:26,962
+We also highly recommend
+
+1896
+00:32:25,244 --> 00:32:26,962
+you use reverse DNS notation
+
+1897
+00:32:26,962 --> 00:32:28,680
+[ Silence ]
+
+1898
+00:32:28,681 --> 00:32:29,781
+for your custom keys
+
+1899
+00:32:28,681 --> 00:32:29,781
+to avoid collisions
+
+1900
+00:32:29,781 --> 00:32:30,881
+[ Silence ]
+
+1901
+00:32:30,883 --> 00:32:31,783
+with other kinds of metadata.
+
+1902
+00:32:31,783 --> 00:32:32,683
+[ Silence ]
+
+1903
+00:32:32,685 --> 00:32:34,402
+So a brief code snippet you
+
+1904
+00:32:32,685 --> 00:32:34,402
+can see you can simply use this
+
+1905
+00:32:34,402 --> 00:32:36,119
+[ Silence ]
+
+1906
+00:32:36,121 --> 00:32:37,822
+method to make your custom
+
+1907
+00:32:36,121 --> 00:32:37,822
+identifier and then set
+
+1908
+00:32:37,822 --> 00:32:39,523
+[ Silence ]
+
+1909
+00:32:39,525 --> 00:32:41,176
+that on the identifier property
+
+1910
+00:32:39,525 --> 00:32:41,176
+of your mutableMetadataItem.
+
+1911
+00:32:41,176 --> 00:32:42,827
+[ Silence ]
+
+1912
+00:32:42,828 --> 00:32:44,829
+So in addition to custom
+
+1913
+00:32:42,828 --> 00:32:44,829
+identifiers you can also create
+
+1914
+00:32:44,829 --> 00:32:46,830
+[ Silence ]
+
+1915
+00:32:46,832 --> 00:32:48,333
+your own custom data types.
+
+1916
+00:32:48,333 --> 00:32:49,834
+[ Silence ]
+
+1917
+00:32:49,835 --> 00:32:51,236
+So we're all familiar by now,
+
+1918
+00:32:49,835 --> 00:32:51,236
+through this presentation,
+
+1919
+00:32:51,236 --> 00:32:52,637
+[ Silence ]
+
+1920
+00:32:52,638 --> 00:32:53,888
+with some of the built-in
+
+1921
+00:32:52,638 --> 00:32:53,888
+data types that we defined;
+
+1922
+00:32:53,888 --> 00:32:55,138
+[ Silence ]
+
+1923
+00:32:55,140 --> 00:32:55,740
+there's a lot more than these
+
+1924
+00:32:55,740 --> 00:32:56,340
+[ Silence ]
+
+1925
+00:32:56,342 --> 00:32:57,242
+but we've been using these
+
+1926
+00:32:56,342 --> 00:32:57,242
+quite heavily already.
+
+1927
+00:32:57,242 --> 00:32:58,142
+[ Silence ]
+
+1928
+00:32:58,143 --> 00:32:59,110
+These are really useful
+
+1929
+00:32:59,110 --> 00:33:00,077
+[ Silence ]
+
+1930
+00:33:00,079 --> 00:33:01,279
+but sometimes you want
+
+1931
+00:33:00,079 --> 00:33:01,279
+your data type information
+
+1932
+00:33:01,279 --> 00:33:02,479
+[ Silence ]
+
+1933
+00:33:02,481 --> 00:33:04,466
+to express more, maybe about
+
+1934
+00:33:02,481 --> 00:33:04,466
+the domain you're working in,
+
+1935
+00:33:04,466 --> 00:33:06,451
+[ Silence ]
+
+1936
+00:33:06,452 --> 00:33:07,619
+so if you are doing a serial
+
+1937
+00:33:06,452 --> 00:33:07,619
+number or a bar code kind
+
+1938
+00:33:07,619 --> 00:33:08,786
+[ Silence ]
+
+1939
+00:33:08,787 --> 00:33:09,437
+of thing you might want
+
+1940
+00:33:09,437 --> 00:33:10,087
+[ Silence ]
+
+1941
+00:33:10,089 --> 00:33:11,590
+to define a data type that's
+
+1942
+00:33:10,089 --> 00:33:11,590
+this sort of serial number
+
+1943
+00:33:11,590 --> 00:33:13,091
+[ Silence ]
+
+1944
+00:33:13,092 --> 00:33:15,126
+as string data type or
+
+1945
+00:33:13,092 --> 00:33:15,126
+barcode image as JPEG data type
+
+1946
+00:33:15,126 --> 00:33:17,160
+[ Silence ]
+
+1947
+00:33:17,162 --> 00:33:18,029
+so you have more
+
+1948
+00:33:17,162 --> 00:33:18,029
+specific information
+
+1949
+00:33:18,029 --> 00:33:18,896
+[ Silence ]
+
+1950
+00:33:18,897 --> 00:33:20,164
+about what your metadata
+
+1951
+00:33:18,897 --> 00:33:20,164
+actually contains.
+
+1952
+00:33:20,164 --> 00:33:21,431
+[ Silence ]
+
+1953
+00:33:21,433 --> 00:33:23,718
+The way that this works is,
+
+1954
+00:33:21,433 --> 00:33:23,718
+you have to tell us exactly how
+
+1955
+00:33:23,718 --> 00:33:26,003
+[ Silence ]
+
+1956
+00:33:26,005 --> 00:33:28,223
+to serialize that custom
+
+1957
+00:33:26,005 --> 00:33:28,223
+data type and the way you do
+
+1958
+00:33:28,223 --> 00:33:30,441
+[ Silence ]
+
+1959
+00:33:30,442 --> 00:33:31,910
+that is you tell us that your
+
+1960
+00:33:30,442 --> 00:33:31,910
+custom data type conforms to one
+
+1961
+00:33:31,910 --> 00:33:33,378
+[ Silence ]
+
+1962
+00:33:33,379 --> 00:33:34,296
+of our built-in data types.
+
+1963
+00:33:34,296 --> 00:33:35,213
+[ Silence ]
+
+1964
+00:33:35,214 --> 00:33:36,464
+So in this case the
+
+1965
+00:33:35,214 --> 00:33:36,464
+serial number conforms
+
+1966
+00:33:36,464 --> 00:33:37,714
+[ Silence ]
+
+1967
+00:33:37,716 --> 00:33:39,667
+to the UTF8 data type so under
+
+1968
+00:33:37,716 --> 00:33:39,667
+the hood it's UTF8 string,
+
+1969
+00:33:39,667 --> 00:33:41,618
+[ Silence ]
+
+1970
+00:33:41,620 --> 00:33:43,388
+but we know that it really
+
+1971
+00:33:41,620 --> 00:33:43,388
+represents a serial number
+
+1972
+00:33:43,388 --> 00:33:45,156
+[ Silence ]
+
+1973
+00:33:45,157 --> 00:33:46,074
+and the same with
+
+1974
+00:33:45,157 --> 00:33:46,074
+the barcode image.
+
+1975
+00:33:46,074 --> 00:33:46,991
+[ Silence ]
+
+1976
+00:33:46,992 --> 00:33:48,393
+The way that you do this is you
+
+1977
+00:33:46,992 --> 00:33:48,393
+register your data type using
+
+1978
+00:33:48,393 --> 00:33:49,794
+[ Silence ]
+
+1979
+00:33:49,795 --> 00:33:51,963
+the CMMetadataDataTypeRegistry
+
+1980
+00:33:49,795 --> 00:33:51,963
+RegisterDataType function that's
+
+1981
+00:33:51,963 --> 00:33:54,131
+[ Silence ]
+
+1982
+00:33:54,133 --> 00:33:54,899
+defined in Core Media.
+
+1983
+00:33:54,899 --> 00:33:55,665
+[ Silence ]
+
+1984
+00:33:55,667 --> 00:33:57,385
+You can't create your
+
+1985
+00:33:55,667 --> 00:33:57,385
+own custom base types
+
+1986
+00:33:57,385 --> 00:33:59,103
+[ Silence ]
+
+1987
+00:33:59,104 --> 00:34:01,372
+but you can create your own
+
+1988
+00:33:59,104 --> 00:34:01,372
+custom type that conforms
+
+1989
+00:34:01,372 --> 00:34:03,640
+[ Silence ]
+
+1990
+00:34:03,642 --> 00:34:05,009
+to our raw data built-in type
+
+1991
+00:34:05,009 --> 00:34:06,376
+[ Silence ]
+
+1992
+00:34:06,378 --> 00:34:08,796
+if your data type really is
+
+1993
+00:34:06,378 --> 00:34:08,796
+just a custom sequence of bytes.
+
+1994
+00:34:08,796 --> 00:34:11,214
+[ Silence ]
+
+1995
+00:34:11,216 --> 00:34:12,717
+So there are some rules
+
+1996
+00:34:11,216 --> 00:34:12,717
+to using AVAssetWriter
+
+1997
+00:34:12,717 --> 00:34:14,218
+[ Silence ]
+
+1998
+00:34:14,219 --> 00:34:15,553
+for writing timed metadata.
+
+1999
+00:34:15,553 --> 00:34:16,887
+[ Silence ]
+
+2000
+00:34:16,889 --> 00:34:18,740
+Most importantly, every metadata
+
+2001
+00:34:16,889 --> 00:34:18,740
+item that you append has
+
+2002
+00:34:18,740 --> 00:34:20,591
+[ Silence ]
+
+2003
+00:34:20,592 --> 00:34:22,327
+to have non-nil values for
+
+2004
+00:34:20,592 --> 00:34:22,327
+identifier, data type and value.
+
+2005
+00:34:22,327 --> 00:34:24,062
+[ Silence ]
+
+2006
+00:34:24,063 --> 00:34:26,381
+Your identifier has to conform
+
+2007
+00:34:24,063 --> 00:34:26,381
+to the format that we specify,
+
+2008
+00:34:26,381 --> 00:34:28,699
+[ Silence ]
+
+2009
+00:34:28,700 --> 00:34:29,817
+so we highly recommend
+
+2010
+00:34:28,700 --> 00:34:29,817
+using that utility method
+
+2011
+00:34:29,817 --> 00:34:30,934
+[ Silence ]
+
+2012
+00:34:30,936 --> 00:34:31,719
+that we just talked about.
+
+2013
+00:34:31,719 --> 00:34:32,502
+[ Silence ]
+
+2014
+00:34:32,504 --> 00:34:33,705
+The value has to be
+
+2015
+00:34:32,504 --> 00:34:33,705
+compatible with the data type
+
+2016
+00:34:33,705 --> 00:34:34,906
+[ Silence ]
+
+2017
+00:34:34,907 --> 00:34:37,075
+so you can tell us that your
+
+2018
+00:34:34,907 --> 00:34:37,075
+NSString value is an UTF8 string
+
+2019
+00:34:37,075 --> 00:34:39,243
+[ Silence ]
+
+2020
+00:34:39,244 --> 00:34:39,944
+but don't try telling us
+
+2021
+00:34:39,944 --> 00:34:40,644
+[ Silence ]
+
+2022
+00:34:40,646 --> 00:34:42,163
+that your custom class is a UTF8
+
+2023
+00:34:40,646 --> 00:34:42,163
+string because we won't know how
+
+2024
+00:34:42,163 --> 00:34:43,680
+[ Silence ]
+
+2025
+00:34:43,682 --> 00:34:45,533
+to serialize that properly
+
+2026
+00:34:43,682 --> 00:34:45,533
+and the AssetWriter will fail.
+
+2027
+00:34:45,533 --> 00:34:47,384
+[ Silence ]
+
+2028
+00:34:47,386 --> 00:34:49,003
+As I mentioned before, you have
+
+2029
+00:34:47,386 --> 00:34:49,003
+to create your AssetWriterInput
+
+2030
+00:34:49,003 --> 00:34:50,620
+[ Silence ]
+
+2031
+00:34:50,622 --> 00:34:51,956
+with a format hint and
+
+2032
+00:34:50,622 --> 00:34:51,956
+that must be comprehensive
+
+2033
+00:34:51,956 --> 00:34:53,290
+[ Silence ]
+
+2034
+00:34:53,292 --> 00:34:53,958
+and we described that before.
+
+2035
+00:34:53,958 --> 00:34:54,624
+[ Silence ]
+
+2036
+00:34:54,626 --> 00:34:56,077
+So the last topic
+
+2037
+00:34:54,626 --> 00:34:56,077
+about AssetWriter
+
+2038
+00:34:56,077 --> 00:34:57,528
+[ Silence ]
+
+2039
+00:34:57,529 --> 00:34:59,747
+and timed metadata is a recipe
+
+2040
+00:34:57,529 --> 00:34:59,747
+for creating your own movies
+
+2041
+00:34:59,747 --> 00:35:01,965
+[ Silence ]
+
+2042
+00:35:01,967 --> 00:35:03,001
+that have the same sort
+
+2043
+00:35:01,967 --> 00:35:03,001
+of dynamic location
+
+2044
+00:35:03,001 --> 00:35:04,035
+[ Silence ]
+
+2045
+00:35:04,036 --> 00:35:05,286
+that we've seen a
+
+2046
+00:35:04,036 --> 00:35:05,286
+couple of times already.
+
+2047
+00:35:05,286 --> 00:35:06,536
+[ Silence ]
+
+2048
+00:35:06,538 --> 00:35:08,039
+To do this, you can
+
+2049
+00:35:06,538 --> 00:35:08,039
+use AVCapture audio
+
+2050
+00:35:08,039 --> 00:35:09,540
+[ Silence ]
+
+2051
+00:35:09,541 --> 00:35:10,908
+and video data outputs
+
+2052
+00:35:09,541 --> 00:35:10,908
+and target that data
+
+2053
+00:35:10,908 --> 00:35:12,275
+[ Silence ]
+
+2054
+00:35:12,277 --> 00:35:13,811
+at twin instances of
+
+2055
+00:35:12,277 --> 00:35:13,811
+AssetWriterInput and,
+
+2056
+00:35:13,811 --> 00:35:15,345
+[ Silence ]
+
+2057
+00:35:15,347 --> 00:35:17,465
+at the same time, grab
+
+2058
+00:35:15,347 --> 00:35:17,465
+information from Core Location
+
+2059
+00:35:17,465 --> 00:35:19,583
+[ Silence ]
+
+2060
+00:35:19,585 --> 00:35:20,835
+that represents the location
+
+2061
+00:35:19,585 --> 00:35:20,835
+information and write
+
+2062
+00:35:20,835 --> 00:35:22,085
+[ Silence ]
+
+2063
+00:35:22,087 --> 00:35:23,338
+that to its own
+
+2064
+00:35:22,087 --> 00:35:23,338
+AssetWriterInput.
+
+2065
+00:35:23,338 --> 00:35:24,589
+[ Silence ]
+
+2066
+00:35:24,590 --> 00:35:26,558
+For more detail about how to do
+
+2067
+00:35:24,590 --> 00:35:26,558
+that we've actually implemented
+
+2068
+00:35:26,558 --> 00:35:28,526
+[ Silence ]
+
+2069
+00:35:28,527 --> 00:35:29,611
+that and made it
+
+2070
+00:35:28,527 --> 00:35:29,611
+available as sample code,
+
+2071
+00:35:29,611 --> 00:35:30,695
+[ Silence ]
+
+2072
+00:35:30,696 --> 00:35:32,497
+so see AVCaptureLocation if you
+
+2073
+00:35:30,696 --> 00:35:32,497
+want to make your own movies
+
+2074
+00:35:32,497 --> 00:35:34,298
+[ Silence ]
+
+2075
+00:35:34,299 --> 00:35:35,383
+that contain dynamic location.
+
+2076
+00:35:35,383 --> 00:35:36,467
+[ Silence ]
+
+2077
+00:35:36,468 --> 00:35:37,719
+We also have sample code
+
+2078
+00:35:36,468 --> 00:35:37,719
+as Shalini mentioned
+
+2079
+00:35:37,719 --> 00:35:38,970
+[ Silence ]
+
+2080
+00:35:38,971 --> 00:35:39,754
+for the demo we just showed you,
+
+2081
+00:35:39,754 --> 00:35:40,537
+[ Silence ]
+
+2082
+00:35:40,539 --> 00:35:41,756
+that's called
+
+2083
+00:35:40,539 --> 00:35:41,756
+AVTimedAnnotationWriter.
+
+2084
+00:35:41,756 --> 00:35:42,973
+[ Silence ]
+
+2085
+00:35:42,975 --> 00:35:44,109
+And, of course, for more
+
+2086
+00:35:42,975 --> 00:35:44,109
+information about AssetWriter
+
+2087
+00:35:44,109 --> 00:35:45,243
+[ Silence ]
+
+2088
+00:35:45,244 --> 00:35:46,628
+in general, see that same
+
+2089
+00:35:45,244 --> 00:35:46,628
+talk I referenced earlier:
+
+2090
+00:35:46,628 --> 00:35:48,012
+[ Silence ]
+
+2091
+00:35:48,013 --> 00:35:49,480
+"Working with Media
+
+2092
+00:35:48,013 --> 00:35:49,480
+in AVFoundation".
+
+2093
+00:35:49,480 --> 00:35:50,947
+[ Silence ]
+
+2094
+00:35:50,949 --> 00:35:53,084
+Last two quick topics about
+
+2095
+00:35:50,949 --> 00:35:53,084
+timed metadata: ExportSession.
+
+2096
+00:35:53,084 --> 00:35:55,219
+[ Silence ]
+
+2097
+00:35:55,220 --> 00:35:56,521
+Just like we've said the
+
+2098
+00:35:55,220 --> 00:35:56,521
+asset ExportSession will
+
+2099
+00:35:56,521 --> 00:35:57,822
+[ Silence ]
+
+2100
+00:35:57,823 --> 00:35:59,541
+by default pass through any
+
+2101
+00:35:57,823 --> 00:35:59,541
+of your metadata that applies
+
+2102
+00:35:59,541 --> 00:36:01,259
+[ Silence ]
+
+2103
+00:36:01,260 --> 00:36:02,777
+to the entire asset or
+
+2104
+00:36:01,260 --> 00:36:02,777
+entire track, it will pass
+
+2105
+00:36:02,777 --> 00:36:04,294
+[ Silence ]
+
+2106
+00:36:04,296 --> 00:36:05,363
+that through, copy it
+
+2107
+00:36:04,296 --> 00:36:05,363
+to the output file.
+
+2108
+00:36:05,363 --> 00:36:06,430
+[ Silence ]
+
+2109
+00:36:06,431 --> 00:36:07,815
+It will do the same thing with
+
+2110
+00:36:06,431 --> 00:36:07,815
+timed metadata that exists
+
+2111
+00:36:07,815 --> 00:36:09,199
+[ Silence ]
+
+2112
+00:36:09,201 --> 00:36:10,068
+in the source file provided
+
+2113
+00:36:10,068 --> 00:36:10,935
+[ Silence ]
+
+2114
+00:36:10,936 --> 00:36:12,403
+that your destination file
+
+2115
+00:36:10,936 --> 00:36:12,403
+type is QuickTime Movie.
+
+2116
+00:36:12,403 --> 00:36:13,870
+[ Silence ]
+
+2117
+00:36:13,872 --> 00:36:15,506
+We'll talk more about file
+
+2118
+00:36:13,872 --> 00:36:15,506
+types in just a little bit
+
+2119
+00:36:15,506 --> 00:36:17,140
+[ Silence ]
+
+2120
+00:36:17,142 --> 00:36:18,776
+but basically ExportSession
+
+2121
+00:36:17,142 --> 00:36:18,776
+behaves exactly
+
+2122
+00:36:18,776 --> 00:36:20,410
+[ Silence ]
+
+2123
+00:36:20,412 --> 00:36:21,379
+as you would expect.
+
+2124
+00:36:21,379 --> 00:36:22,346
+[ Silence ]
+
+2125
+00:36:22,347 --> 00:36:24,782
+In our last timed metadata
+
+2126
+00:36:22,347 --> 00:36:24,782
+authoring topic is HTTP Live
+
+2127
+00:36:24,782 --> 00:36:27,217
+[ Silence ]
+
+2128
+00:36:27,219 --> 00:36:28,803
+Streaming chapters so if
+
+2129
+00:36:27,219 --> 00:36:28,803
+you want to author chapters
+
+2130
+00:36:28,803 --> 00:36:30,387
+[ Silence ]
+
+2131
+00:36:30,389 --> 00:36:32,390
+in your HLS stream, you can use
+
+2132
+00:36:30,389 --> 00:36:32,390
+the session-data tag we talked
+
+2133
+00:36:32,390 --> 00:36:34,391
+[ Silence ]
+
+2134
+00:36:34,393 --> 00:36:37,529
+about earlier and the special
+
+2135
+00:36:34,393 --> 00:36:37,529
+data ID, com.apple.hls.chapters.
+
+2136
+00:36:37,529 --> 00:36:40,665
+[ Silence ]
+
+2137
+00:36:40,666 --> 00:36:42,000
+Your URL should point
+
+2138
+00:36:40,666 --> 00:36:42,000
+to a JSON file
+
+2139
+00:36:42,000 --> 00:36:43,334
+[ Silence ]
+
+2140
+00:36:43,335 --> 00:36:45,270
+that describes the chapter
+
+2141
+00:36:43,335 --> 00:36:45,270
+information for that stream and,
+
+2142
+00:36:45,270 --> 00:36:47,205
+[ Silence ]
+
+2143
+00:36:47,206 --> 00:36:48,556
+of course for more detail
+
+2144
+00:36:47,206 --> 00:36:48,556
+on this, see that same link
+
+2145
+00:36:48,556 --> 00:36:49,906
+[ Silence ]
+
+2146
+00:36:49,908 --> 00:36:51,609
+that I referenced earlier
+
+2147
+00:36:49,908 --> 00:36:51,609
+for HTTP Live Streaming.
+
+2148
+00:36:51,609 --> 00:36:53,310
+[ Silence ]
+
+2149
+00:36:53,312 --> 00:36:54,446
+All right, so that
+
+2150
+00:36:53,312 --> 00:36:54,446
+is timed metadata,
+
+2151
+00:36:54,446 --> 00:36:55,580
+[ Silence ]
+
+2152
+00:36:55,581 --> 00:36:56,748
+our next topic is privacy.
+
+2153
+00:36:56,748 --> 00:36:57,915
+[ Silence ]
+
+2154
+00:36:57,916 --> 00:36:59,133
+Why is privacy important
+
+2155
+00:36:57,916 --> 00:36:59,133
+in this context?
+
+2156
+00:36:59,133 --> 00:37:00,350
+[ Silence ]
+
+2157
+00:37:00,352 --> 00:37:02,303
+Well, any time that you
+
+2158
+00:37:00,352 --> 00:37:02,303
+are writing your users data
+
+2159
+00:37:02,303 --> 00:37:04,254
+[ Silence ]
+
+2160
+00:37:04,256 --> 00:37:05,957
+to a file you need to
+
+2161
+00:37:04,256 --> 00:37:05,957
+be at least considerate
+
+2162
+00:37:05,957 --> 00:37:07,658
+[ Silence ]
+
+2163
+00:37:07,659 --> 00:37:10,011
+about their privacy and be aware
+
+2164
+00:37:07,659 --> 00:37:10,011
+that the metadata that you write
+
+2165
+00:37:10,011 --> 00:37:12,363
+[ Silence ]
+
+2166
+00:37:12,364 --> 00:37:14,048
+out to these movie files can
+
+2167
+00:37:12,364 --> 00:37:14,048
+contain user identifiable
+
+2168
+00:37:14,048 --> 00:37:15,732
+[ Silence ]
+
+2169
+00:37:15,734 --> 00:37:17,702
+information, the most obvious
+
+2170
+00:37:15,734 --> 00:37:17,702
+example of that is location.
+
+2171
+00:37:17,702 --> 00:37:19,670
+[ Silence ]
+
+2172
+00:37:19,671 --> 00:37:21,589
+And so because movie files
+
+2173
+00:37:19,671 --> 00:37:21,589
+can be distributed and we want
+
+2174
+00:37:21,589 --> 00:37:23,507
+[ Silence ]
+
+2175
+00:37:23,508 --> 00:37:24,742
+to protect the privacy
+
+2176
+00:37:23,508 --> 00:37:24,742
+of our users,
+
+2177
+00:37:24,742 --> 00:37:25,976
+[ Silence ]
+
+2178
+00:37:25,978 --> 00:37:27,796
+for our built-in sharing
+
+2179
+00:37:25,978 --> 00:37:27,796
+services, we do our best
+
+2180
+00:37:27,796 --> 00:37:29,614
+[ Silence ]
+
+2181
+00:37:29,615 --> 00:37:31,399
+to strip out any potentially
+
+2182
+00:37:29,615 --> 00:37:31,399
+user identifiable information,
+
+2183
+00:37:31,399 --> 00:37:33,183
+[ Silence ]
+
+2184
+00:37:33,185 --> 00:37:34,852
+such as this location and we
+
+2185
+00:37:33,185 --> 00:37:34,852
+recommend that you do the same.
+
+2186
+00:37:34,852 --> 00:37:36,519
+[ Silence ]
+
+2187
+00:37:36,521 --> 00:37:37,204
+So we've given you a utility
+
+2188
+00:37:37,204 --> 00:37:37,887
+[ Silence ]
+
+2189
+00:37:37,889 --> 00:37:40,007
+for that called
+
+2190
+00:37:37,889 --> 00:37:40,007
+AVMetadataItemFilter.
+
+2191
+00:37:40,007 --> 00:37:42,125
+[ Silence ]
+
+2192
+00:37:42,127 --> 00:37:43,344
+Right now there is only one
+
+2193
+00:37:42,127 --> 00:37:43,344
+filter that we make available
+
+2194
+00:37:43,344 --> 00:37:44,561
+[ Silence ]
+
+2195
+00:37:44,563 --> 00:37:45,363
+but it is geared
+
+2196
+00:37:44,563 --> 00:37:45,363
+towards privacy,
+
+2197
+00:37:45,363 --> 00:37:46,163
+[ Silence ]
+
+2198
+00:37:46,164 --> 00:37:47,848
+it is the metadata item filter
+
+2199
+00:37:46,164 --> 00:37:47,848
+for sharing and that will strip
+
+2200
+00:37:47,848 --> 00:37:49,532
+[ Silence ]
+
+2201
+00:37:49,534 --> 00:37:51,052
+out any of this sort of
+
+2202
+00:37:49,534 --> 00:37:51,052
+user identifying information
+
+2203
+00:37:51,052 --> 00:37:52,570
+[ Silence ]
+
+2204
+00:37:52,571 --> 00:37:53,755
+that we're talking about;
+
+2205
+00:37:52,571 --> 00:37:53,755
+location is only one example.
+
+2206
+00:37:53,755 --> 00:37:54,939
+[ Silence ]
+
+2207
+00:37:54,940 --> 00:37:56,407
+But it will also strip out
+
+2208
+00:37:54,940 --> 00:37:56,407
+anything it doesn't recognize,
+
+2209
+00:37:56,407 --> 00:37:57,874
+[ Silence ]
+
+2210
+00:37:57,876 --> 00:37:58,476
+because it doesn't know whether
+
+2211
+00:37:58,476 --> 00:37:59,076
+[ Silence ]
+
+2212
+00:37:59,077 --> 00:38:00,494
+that might contain user
+
+2213
+00:37:59,077 --> 00:38:00,494
+identifiable information.
+
+2214
+00:38:00,494 --> 00:38:01,911
+[ Silence ]
+
+2215
+00:38:01,913 --> 00:38:03,531
+So that includes any
+
+2216
+00:38:01,913 --> 00:38:03,531
+metadata that uses identifiers
+
+2217
+00:38:03,531 --> 00:38:05,149
+[ Silence ]
+
+2218
+00:38:05,150 --> 00:38:06,134
+that you define yourself.
+
+2219
+00:38:06,134 --> 00:38:07,118
+[ Silence ]
+
+2220
+00:38:07,119 --> 00:38:09,204
+It will leave in some things
+
+2221
+00:38:07,119 --> 00:38:09,204
+like metadata that's important
+
+2222
+00:38:09,204 --> 00:38:11,289
+[ Silence ]
+
+2223
+00:38:11,290 --> 00:38:11,873
+to the structure of the movie
+
+2224
+00:38:11,873 --> 00:38:12,456
+[ Silence ]
+
+2225
+00:38:12,457 --> 00:38:13,708
+and chapters are the
+
+2226
+00:38:12,457 --> 00:38:13,708
+best example of that,
+
+2227
+00:38:13,708 --> 00:38:14,959
+[ Silence ]
+
+2228
+00:38:14,960 --> 00:38:17,095
+and also any commercial
+
+2229
+00:38:14,960 --> 00:38:17,095
+related data like your Apple ID.
+
+2230
+00:38:17,095 --> 00:38:19,230
+[ Silence ]
+
+2231
+00:38:19,231 --> 00:38:21,416
+So to use the MetadataItemFilter
+
+2232
+00:38:19,231 --> 00:38:21,416
+you're going to first
+
+2233
+00:38:21,416 --> 00:38:23,601
+[ Silence ]
+
+2234
+00:38:23,602 --> 00:38:25,703
+of all create your filter and
+
+2235
+00:38:23,602 --> 00:38:25,703
+feed it your original array
+
+2236
+00:38:25,703 --> 00:38:27,804
+[ Silence ]
+
+2237
+00:38:27,806 --> 00:38:29,457
+of metadata items using
+
+2238
+00:38:27,806 --> 00:38:29,457
+this metadataItemsFromArray
+
+2239
+00:38:29,457 --> 00:38:31,108
+[ Silence ]
+
+2240
+00:38:31,109 --> 00:38:32,443
+filteredByMetadataItemFilter
+
+2241
+00:38:31,109 --> 00:38:32,443
+method.
+
+2242
+00:38:32,443 --> 00:38:33,777
+[ Silence ]
+
+2243
+00:38:33,779 --> 00:38:35,146
+This is a companion to that
+
+2244
+00:38:33,779 --> 00:38:35,146
+other filtering method based
+
+2245
+00:38:35,146 --> 00:38:36,513
+[ Silence ]
+
+2246
+00:38:36,515 --> 00:38:37,815
+on identifiers we've
+
+2247
+00:38:36,515 --> 00:38:37,815
+been using all day
+
+2248
+00:38:37,815 --> 00:38:39,115
+[ Silence ]
+
+2249
+00:38:39,117 --> 00:38:40,351
+and then once you have
+
+2250
+00:38:39,117 --> 00:38:40,351
+your filtered array
+
+2251
+00:38:40,351 --> 00:38:41,585
+[ Silence ]
+
+2252
+00:38:41,586 --> 00:38:43,554
+of metadata items just set
+
+2253
+00:38:41,586 --> 00:38:43,554
+that on your AssetWriter
+
+2254
+00:38:43,554 --> 00:38:45,522
+[ Silence ]
+
+2255
+00:38:45,524 --> 00:38:46,641
+or ExportSession as
+
+2256
+00:38:45,524 --> 00:38:46,641
+you normally would.
+
+2257
+00:38:46,641 --> 00:38:47,758
+[ Silence ]
+
+2258
+00:38:47,759 --> 00:38:48,793
+Well actually I mentioned
+
+2259
+00:38:47,759 --> 00:38:48,793
+ExportSession
+
+2260
+00:38:48,793 --> 00:38:49,827
+[ Silence ]
+
+2261
+00:38:49,828 --> 00:38:51,345
+but things can be simple if
+
+2262
+00:38:49,828 --> 00:38:51,345
+you're using the ExportSession
+
+2263
+00:38:51,345 --> 00:38:52,862
+[ Silence ]
+
+2264
+00:38:52,864 --> 00:38:54,732
+and only want to
+
+2265
+00:38:52,864 --> 00:38:54,732
+copy the metadata
+
+2266
+00:38:54,732 --> 00:38:56,600
+[ Silence ]
+
+2267
+00:38:56,601 --> 00:38:57,902
+from the source asset
+
+2268
+00:38:56,601 --> 00:38:57,902
+and not add your own.
+
+2269
+00:38:57,902 --> 00:38:59,203
+[ Silence ]
+
+2270
+00:38:59,204 --> 00:39:00,304
+You just set the filter
+
+2271
+00:38:59,204 --> 00:39:00,304
+on the ExportSession
+
+2272
+00:39:00,304 --> 00:39:01,404
+[ Silence ]
+
+2273
+00:39:01,406 --> 00:39:02,590
+and it will actually do
+
+2274
+00:39:01,406 --> 00:39:02,590
+the filtering for you,
+
+2275
+00:39:02,590 --> 00:39:03,774
+[ Silence ]
+
+2276
+00:39:03,775 --> 00:39:05,376
+this will filter both
+
+2277
+00:39:03,775 --> 00:39:05,376
+static and timed metadata
+
+2278
+00:39:05,376 --> 00:39:06,977
+[ Silence ]
+
+2279
+00:39:06,978 --> 00:39:08,746
+but it will only filter the
+
+2280
+00:39:06,978 --> 00:39:08,746
+metadata from the source asset.
+
+2281
+00:39:08,746 --> 00:39:10,514
+[ Silence ]
+
+2282
+00:39:10,515 --> 00:39:11,949
+If you set your own metadata
+
+2283
+00:39:10,515 --> 00:39:11,949
+on the metadata property,
+
+2284
+00:39:11,949 --> 00:39:13,383
+[ Silence ]
+
+2285
+00:39:13,385 --> 00:39:14,669
+it won't filter that for you;
+
+2286
+00:39:13,385 --> 00:39:14,669
+you'll need to do the process
+
+2287
+00:39:14,669 --> 00:39:15,953
+[ Silence ]
+
+2288
+00:39:15,954 --> 00:39:17,505
+that I just described of
+
+2289
+00:39:15,954 --> 00:39:17,505
+doing the filtering yourself.
+
+2290
+00:39:17,505 --> 00:39:19,056
+[ Silence ]
+
+2291
+00:39:19,057 --> 00:39:19,790
+The only other thing
+
+2292
+00:39:19,057 --> 00:39:19,790
+to keep in mind is
+
+2293
+00:39:19,790 --> 00:39:20,523
+[ Silence ]
+
+2294
+00:39:20,525 --> 00:39:21,509
+that the export may
+
+2295
+00:39:20,525 --> 00:39:21,509
+take more time
+
+2296
+00:39:21,509 --> 00:39:22,493
+[ Silence ]
+
+2297
+00:39:22,494 --> 00:39:23,895
+when the filter is being used
+
+2298
+00:39:22,494 --> 00:39:23,895
+because it has to go through
+
+2299
+00:39:23,895 --> 00:39:25,296
+[ Silence ]
+
+2300
+00:39:25,297 --> 00:39:26,497
+and examine all of
+
+2301
+00:39:25,297 --> 00:39:26,497
+the metadata items.
+
+2302
+00:39:26,497 --> 00:39:27,697
+[ Silence ]
+
+2303
+00:39:27,699 --> 00:39:28,849
+So that's privacy.
+
+2304
+00:39:28,849 --> 00:39:29,999
+[ Silence ]
+
+2305
+00:39:30,001 --> 00:39:31,919
+Our last section of the talk
+
+2306
+00:39:30,001 --> 00:39:31,919
+today is some assorted best
+
+2307
+00:39:31,919 --> 00:39:33,837
+[ Silence ]
+
+2308
+00:39:33,839 --> 00:39:35,039
+practices when you are
+
+2309
+00:39:33,839 --> 00:39:35,039
+writing your own files
+
+2310
+00:39:35,039 --> 00:39:36,239
+[ Silence ]
+
+2311
+00:39:36,241 --> 00:39:37,809
+that contain metadata.
+
+2312
+00:39:37,809 --> 00:39:39,377
+[ Silence ]
+
+2313
+00:39:39,378 --> 00:39:40,945
+First up, what if you're
+
+2314
+00:39:39,378 --> 00:39:40,945
+writing timed metadata
+
+2315
+00:39:40,945 --> 00:39:42,512
+[ Silence ]
+
+2316
+00:39:42,514 --> 00:39:44,248
+and you have multiple
+
+2317
+00:39:42,514 --> 00:39:44,248
+streams of metadata
+
+2318
+00:39:44,248 --> 00:39:45,982
+[ Silence ]
+
+2319
+00:39:45,984 --> 00:39:47,034
+that use different identifiers.
+
+2320
+00:39:47,034 --> 00:39:48,084
+[ Silence ]
+
+2321
+00:39:48,086 --> 00:39:49,036
+How do you get those
+
+2322
+00:39:48,086 --> 00:39:49,036
+into the same file?
+
+2323
+00:39:49,036 --> 00:39:49,986
+[ Silence ]
+
+2324
+00:39:49,988 --> 00:39:51,522
+Well, we actually have the
+
+2325
+00:39:49,988 --> 00:39:51,522
+situation in the demo app,
+
+2326
+00:39:51,522 --> 00:39:53,056
+[ Silence ]
+
+2327
+00:39:53,058 --> 00:39:54,575
+we have that circle is comprised
+
+2328
+00:39:53,058 --> 00:39:54,575
+of two different pieces
+
+2329
+00:39:54,575 --> 00:39:56,092
+[ Silence ]
+
+2330
+00:39:56,094 --> 00:39:57,812
+of information, the
+
+2331
+00:39:56,094 --> 00:39:57,812
+position and the radius.
+
+2332
+00:39:57,812 --> 00:39:59,530
+[ Silence ]
+
+2333
+00:39:59,531 --> 00:40:00,898
+So we're representing these
+
+2334
+00:40:00,898 --> 00:40:02,265
+[ Silence ]
+
+2335
+00:40:02,267 --> 00:40:03,734
+and the demo app is two
+
+2336
+00:40:02,267 --> 00:40:03,734
+distinct streams of metadata.
+
+2337
+00:40:03,734 --> 00:40:05,201
+[ Silence ]
+
+2338
+00:40:05,203 --> 00:40:06,354
+And so the most obvious way
+
+2339
+00:40:05,203 --> 00:40:06,354
+I can think of to get this
+
+2340
+00:40:06,354 --> 00:40:07,505
+[ Silence ]
+
+2341
+00:40:07,506 --> 00:40:10,274
+into a file is to use two
+
+2342
+00:40:07,506 --> 00:40:10,274
+different AVAssetWriterInputs,
+
+2343
+00:40:10,274 --> 00:40:13,042
+[ Silence ]
+
+2344
+00:40:13,044 --> 00:40:14,145
+which result in having
+
+2345
+00:40:13,044 --> 00:40:14,145
+two metadata tracks
+
+2346
+00:40:14,145 --> 00:40:15,246
+[ Silence ]
+
+2347
+00:40:15,247 --> 00:40:16,280
+in the output file,
+
+2348
+00:40:15,247 --> 00:40:16,280
+pretty simple.
+
+2349
+00:40:16,280 --> 00:40:17,313
+[ Silence ]
+
+2350
+00:40:17,315 --> 00:40:18,766
+But there is another
+
+2351
+00:40:17,315 --> 00:40:18,766
+way you can do it,
+
+2352
+00:40:18,766 --> 00:40:20,217
+[ Silence ]
+
+2353
+00:40:20,218 --> 00:40:22,019
+you could instead combine those
+
+2354
+00:40:20,218 --> 00:40:22,019
+two different types of metadata
+
+2355
+00:40:22,019 --> 00:40:23,820
+[ Silence ]
+
+2356
+00:40:23,822 --> 00:40:25,256
+into one timed metadata
+
+2357
+00:40:23,822 --> 00:40:25,256
+group and write
+
+2358
+00:40:25,256 --> 00:40:26,690
+[ Silence ]
+
+2359
+00:40:26,691 --> 00:40:27,691
+that to a single
+
+2360
+00:40:26,691 --> 00:40:27,691
+AssetWriterInput
+
+2361
+00:40:27,691 --> 00:40:28,691
+[ Silence ]
+
+2362
+00:40:28,693 --> 00:40:30,161
+and that will result in
+
+2363
+00:40:28,693 --> 00:40:30,161
+only one metadata track
+
+2364
+00:40:30,161 --> 00:40:31,629
+[ Silence ]
+
+2365
+00:40:31,630 --> 00:40:33,047
+in the output file that contains
+
+2366
+00:40:31,630 --> 00:40:33,047
+multiple different kinds
+
+2367
+00:40:33,047 --> 00:40:34,464
+[ Silence ]
+
+2368
+00:40:34,466 --> 00:40:35,133
+of identifiers.
+
+2369
+00:40:35,133 --> 00:40:35,800
+[ Silence ]
+
+2370
+00:40:35,801 --> 00:40:37,051
+There are some advantages to
+
+2371
+00:40:35,801 --> 00:40:37,051
+this approach, not the least
+
+2372
+00:40:37,051 --> 00:40:38,301
+[ Silence ]
+
+2373
+00:40:38,303 --> 00:40:39,904
+of which is it can result
+
+2374
+00:40:38,303 --> 00:40:39,904
+in lower storage overhead
+
+2375
+00:40:39,904 --> 00:40:41,505
+[ Silence ]
+
+2376
+00:40:41,506 --> 00:40:43,274
+and therefore as we always
+
+2377
+00:40:41,506 --> 00:40:43,274
+see more efficient playback.
+
+2378
+00:40:43,274 --> 00:40:45,042
+[ Silence ]
+
+2379
+00:40:45,043 --> 00:40:46,811
+But there are of course
+
+2380
+00:40:45,043 --> 00:40:46,811
+pros and cons to everything.
+
+2381
+00:40:46,811 --> 00:40:48,579
+[ Silence ]
+
+2382
+00:40:48,580 --> 00:40:49,847
+So you'll definitely want
+
+2383
+00:40:48,580 --> 00:40:49,847
+to consider combining
+
+2384
+00:40:49,847 --> 00:40:51,114
+[ Silence ]
+
+2385
+00:40:51,116 --> 00:40:52,316
+into one track your
+
+2386
+00:40:51,116 --> 00:40:52,316
+different metadata
+
+2387
+00:40:52,316 --> 00:40:53,516
+[ Silence ]
+
+2388
+00:40:53,518 --> 00:40:54,869
+if they are used
+
+2389
+00:40:53,518 --> 00:40:54,869
+together during playback
+
+2390
+00:40:54,869 --> 00:40:56,220
+[ Silence ]
+
+2391
+00:40:56,221 --> 00:40:57,205
+and they have identical timing.
+
+2392
+00:40:57,205 --> 00:40:58,189
+[ Silence ]
+
+2393
+00:40:58,190 --> 00:40:59,324
+This is definitely the case
+
+2394
+00:40:58,190 --> 00:40:59,324
+with the example we just saw
+
+2395
+00:40:59,324 --> 00:41:00,458
+[ Silence ]
+
+2396
+00:41:00,459 --> 00:41:02,076
+with the circle center
+
+2397
+00:41:00,459 --> 00:41:02,076
+and the circle radius.
+
+2398
+00:41:02,076 --> 00:41:03,693
+[ Silence ]
+
+2399
+00:41:03,695 --> 00:41:05,313
+If these are not true then
+
+2400
+00:41:03,695 --> 00:41:05,313
+you might not want to combine.
+
+2401
+00:41:05,313 --> 00:41:06,931
+[ Silence ]
+
+2402
+00:41:06,932 --> 00:41:08,066
+And in fact one instance where
+
+2403
+00:41:06,932 --> 00:41:08,066
+you definitely do not want
+
+2404
+00:41:08,066 --> 00:41:09,200
+[ Silence ]
+
+2405
+00:41:09,201 --> 00:41:10,818
+to combine, is if
+
+2406
+00:41:09,201 --> 00:41:10,818
+you have one type
+
+2407
+00:41:10,818 --> 00:41:12,435
+[ Silence ]
+
+2408
+00:41:12,437 --> 00:41:14,071
+of metadata that's associated
+
+2409
+00:41:12,437 --> 00:41:14,071
+with another track in the file,
+
+2410
+00:41:14,071 --> 00:41:15,705
+[ Silence ]
+
+2411
+00:41:15,707 --> 00:41:16,991
+so that's like our
+
+2412
+00:41:15,707 --> 00:41:16,991
+annotations are associated
+
+2413
+00:41:16,991 --> 00:41:18,275
+[ Silence ]
+
+2414
+00:41:18,276 --> 00:41:19,443
+with the video track, but
+
+2415
+00:41:18,276 --> 00:41:19,443
+then you have another type
+
+2416
+00:41:19,443 --> 00:41:20,610
+[ Silence ]
+
+2417
+00:41:20,612 --> 00:41:21,963
+of metadata like location
+
+2418
+00:41:20,612 --> 00:41:21,963
+that is associated
+
+2419
+00:41:21,963 --> 00:41:23,314
+[ Silence ]
+
+2420
+00:41:23,315 --> 00:41:23,965
+with the entire asset.
+
+2421
+00:41:23,965 --> 00:41:24,615
+[ Silence ]
+
+2422
+00:41:24,616 --> 00:41:25,900
+You don't want to combine
+
+2423
+00:41:24,616 --> 00:41:25,900
+those into one track,
+
+2424
+00:41:25,900 --> 00:41:27,184
+[ Silence ]
+
+2425
+00:41:27,185 --> 00:41:29,453
+otherwise your location in that
+
+2426
+00:41:27,185 --> 00:41:29,453
+example will become mistakenly
+
+2427
+00:41:29,453 --> 00:41:31,721
+[ Silence ]
+
+2428
+00:41:31,723 --> 00:41:32,506
+associated with just
+
+2429
+00:41:31,723 --> 00:41:32,506
+the video track,
+
+2430
+00:41:32,506 --> 00:41:33,289
+[ Silence ]
+
+2431
+00:41:33,291 --> 00:41:34,091
+and that's not what you want.
+
+2432
+00:41:34,091 --> 00:41:34,891
+[ Silence ]
+
+2433
+00:41:34,893 --> 00:41:35,426
+So that's how to deal
+
+2434
+00:41:35,426 --> 00:41:35,959
+[ Silence ]
+
+2435
+00:41:35,961 --> 00:41:37,395
+with multiple streams
+
+2436
+00:41:35,961 --> 00:41:37,395
+of timed metadata.
+
+2437
+00:41:37,395 --> 00:41:38,829
+[ Silence ]
+
+2438
+00:41:38,830 --> 00:41:41,465
+Next topic is duration of
+
+2439
+00:41:38,830 --> 00:41:41,465
+your timed metadata groups,
+
+2440
+00:41:41,465 --> 00:41:44,100
+[ Silence ]
+
+2441
+00:41:44,102 --> 00:41:44,869
+when you get a timed
+
+2442
+00:41:44,102 --> 00:41:44,869
+metadata group
+
+2443
+00:41:44,869 --> 00:41:45,636
+[ Silence ]
+
+2444
+00:41:45,637 --> 00:41:46,520
+from AVFoundation
+
+2445
+00:41:45,637 --> 00:41:46,520
+it's always going
+
+2446
+00:41:46,520 --> 00:41:47,403
+[ Silence ]
+
+2447
+00:41:47,405 --> 00:41:49,523
+to have a fully formed
+
+2448
+00:41:47,405 --> 00:41:49,523
+time range.
+
+2449
+00:41:49,523 --> 00:41:51,641
+[ Silence ]
+
+2450
+00:41:51,643 --> 00:41:53,194
+So that means it will have
+
+2451
+00:41:51,643 --> 00:41:53,194
+a start time and a duration.
+
+2452
+00:41:53,194 --> 00:41:54,745
+[ Silence ]
+
+2453
+00:41:54,746 --> 00:41:56,030
+We actually recommend when you
+
+2454
+00:41:54,746 --> 00:41:56,030
+make your own timed metadata
+
+2455
+00:41:56,030 --> 00:41:57,314
+[ Silence ]
+
+2456
+00:41:57,315 --> 00:41:58,666
+groups for a pending
+
+2457
+00:41:57,315 --> 00:41:58,666
+with the AVAssetWriter
+
+2458
+00:41:58,666 --> 00:42:00,017
+[ Silence ]
+
+2459
+00:42:00,018 --> 00:42:01,252
+that you don't bother
+
+2460
+00:42:00,018 --> 00:42:01,252
+giving us a duration.
+
+2461
+00:42:01,252 --> 00:42:02,486
+[ Silence ]
+
+2462
+00:42:02,487 --> 00:42:03,888
+And to see how that works,
+
+2463
+00:42:02,487 --> 00:42:03,888
+here's an example of a group
+
+2464
+00:42:03,888 --> 00:42:05,289
+[ Silence ]
+
+2465
+00:42:05,290 --> 00:42:06,691
+that starts at time 0 but
+
+2466
+00:42:05,290 --> 00:42:06,691
+it doesn't have a duration
+
+2467
+00:42:06,691 --> 00:42:08,092
+[ Silence ]
+
+2468
+00:42:08,093 --> 00:42:09,126
+so how do we know when it ends?
+
+2469
+00:42:09,126 --> 00:42:10,159
+[ Silence ]
+
+2470
+00:42:10,161 --> 00:42:11,278
+Well, of course we'll wait
+
+2471
+00:42:10,161 --> 00:42:11,278
+until you append the next one
+
+2472
+00:42:11,278 --> 00:42:12,395
+[ Silence ]
+
+2473
+00:42:12,397 --> 00:42:13,914
+and then we'll say that,
+
+2474
+00:42:12,397 --> 00:42:13,914
+"Okay, the end time
+
+2475
+00:42:13,914 --> 00:42:15,431
+[ Silence ]
+
+2476
+00:42:15,433 --> 00:42:16,484
+of the first group is the same
+
+2477
+00:42:16,484 --> 00:42:17,535
+[ Silence ]
+
+2478
+00:42:17,536 --> 00:42:18,653
+as the start time
+
+2479
+00:42:17,536 --> 00:42:18,653
+of the next one."
+
+2480
+00:42:18,653 --> 00:42:19,770
+[ Silence ]
+
+2481
+00:42:19,771 --> 00:42:20,921
+So this ensures that your
+
+2482
+00:42:19,771 --> 00:42:20,921
+metadata track is going
+
+2483
+00:42:20,921 --> 00:42:22,071
+[ Silence ]
+
+2484
+00:42:22,073 --> 00:42:24,792
+to have a continuous stream of
+
+2485
+00:42:22,073 --> 00:42:24,792
+contiguous metadata and we think
+
+2486
+00:42:24,792 --> 00:42:27,511
+[ Silence ]
+
+2487
+00:42:27,512 --> 00:42:29,213
+that for most cases this is the
+
+2488
+00:42:27,512 --> 00:42:29,213
+best way to store your metadata.
+
+2489
+00:42:29,213 --> 00:42:30,914
+[ Silence ]
+
+2490
+00:42:30,916 --> 00:42:31,849
+The way you accomplish this is,
+
+2491
+00:42:31,849 --> 00:42:32,782
+[ Silence ]
+
+2492
+00:42:32,784 --> 00:42:33,617
+when you're making
+
+2493
+00:42:32,784 --> 00:42:33,617
+your time range,
+
+2494
+00:42:33,617 --> 00:42:34,450
+[ Silence ]
+
+2495
+00:42:34,452 --> 00:42:36,487
+you just use KCMTimeInvalid
+
+2496
+00:42:34,452 --> 00:42:36,487
+for your duration
+
+2497
+00:42:36,487 --> 00:42:38,522
+[ Silence ]
+
+2498
+00:42:38,523 --> 00:42:39,490
+and we'll take care of the rest.
+
+2499
+00:42:39,490 --> 00:42:40,457
+[ Silence ]
+
+2500
+00:42:40,458 --> 00:42:42,092
+We do recognize that there are
+
+2501
+00:42:40,458 --> 00:42:42,092
+cases where you might not want
+
+2502
+00:42:42,092 --> 00:42:43,726
+[ Silence ]
+
+2503
+00:42:43,728 --> 00:42:45,079
+to have contiguous
+
+2504
+00:42:43,728 --> 00:42:45,079
+metadata, you might want
+
+2505
+00:42:45,079 --> 00:42:46,430
+[ Silence ]
+
+2506
+00:42:46,431 --> 00:42:48,282
+to author an explicit gap into
+
+2507
+00:42:46,431 --> 00:42:48,282
+your metadata stream and so,
+
+2508
+00:42:48,282 --> 00:42:50,133
+[ Silence ]
+
+2509
+00:42:50,135 --> 00:42:51,335
+for that, our recommendation
+
+2510
+00:42:50,135 --> 00:42:51,335
+is that you give us
+
+2511
+00:42:51,335 --> 00:42:52,535
+[ Silence ]
+
+2512
+00:42:52,537 --> 00:42:54,088
+in the middle there a group
+
+2513
+00:42:52,537 --> 00:42:54,088
+that contains zero items.
+
+2514
+00:42:54,088 --> 00:42:55,639
+[ Silence ]
+
+2515
+00:42:55,640 --> 00:42:57,024
+This is the best way to
+
+2516
+00:42:55,640 --> 00:42:57,024
+author a gap in the metadata.
+
+2517
+00:42:57,024 --> 00:42:58,408
+[ Silence ]
+
+2518
+00:42:58,410 --> 00:43:00,695
+And you can see we just do that
+
+2519
+00:42:58,410 --> 00:43:00,695
+by presenting an empty array
+
+2520
+00:43:00,695 --> 00:43:02,980
+[ Silence ]
+
+2521
+00:43:02,981 --> 00:43:04,165
+when we're creating our
+
+2522
+00:43:02,981 --> 00:43:04,165
+timed metadata group.
+
+2523
+00:43:04,165 --> 00:43:05,349
+[ Silence ]
+
+2524
+00:43:05,350 --> 00:43:06,917
+Notice that we're still
+
+2525
+00:43:05,350 --> 00:43:06,917
+using KCMTimeInvalid
+
+2526
+00:43:06,917 --> 00:43:08,484
+[ Silence ]
+
+2527
+00:43:08,486 --> 00:43:09,320
+for our duration here.
+
+2528
+00:43:09,320 --> 00:43:10,154
+[ Silence ]
+
+2529
+00:43:10,155 --> 00:43:11,706
+Just tell us when the beginning
+
+2530
+00:43:10,155 --> 00:43:11,706
+of the metadata silence,
+
+2531
+00:43:11,706 --> 00:43:13,257
+[ Silence ]
+
+2532
+00:43:13,258 --> 00:43:15,042
+so to speak, is and we'll figure
+
+2533
+00:43:13,258 --> 00:43:15,042
+out how long it lasts based
+
+2534
+00:43:15,042 --> 00:43:16,826
+[ Silence ]
+
+2535
+00:43:16,828 --> 00:43:18,612
+on when you append your
+
+2536
+00:43:16,828 --> 00:43:18,612
+next non-empty group.
+
+2537
+00:43:18,612 --> 00:43:20,396
+[ Silence ]
+
+2538
+00:43:20,398 --> 00:43:21,849
+So that's how you write
+
+2539
+00:43:20,398 --> 00:43:21,849
+gaps in your metadata.
+
+2540
+00:43:21,849 --> 00:43:23,300
+[ Silence ]
+
+2541
+00:43:23,301 --> 00:43:24,335
+Our last best practice,
+
+2542
+00:43:24,335 --> 00:43:25,369
+[ Silence ]
+
+2543
+00:43:25,370 --> 00:43:26,437
+I mentioned output
+
+2544
+00:43:25,370 --> 00:43:26,437
+file type before
+
+2545
+00:43:26,437 --> 00:43:27,504
+[ Silence ]
+
+2546
+00:43:27,505 --> 00:43:29,139
+and here's the longer
+
+2547
+00:43:27,505 --> 00:43:29,139
+explanation.
+
+2548
+00:43:29,139 --> 00:43:30,773
+[ Silence ]
+
+2549
+00:43:30,775 --> 00:43:31,492
+Well, AssetWriter
+
+2550
+00:43:31,492 --> 00:43:32,209
+[ Silence ]
+
+2551
+00:43:32,210 --> 00:43:33,611
+and AssetExportSessions
+
+2552
+00:43:32,210 --> 00:43:33,611
+support writing
+
+2553
+00:43:33,611 --> 00:43:35,012
+[ Silence ]
+
+2554
+00:43:35,013 --> 00:43:36,747
+to a wide variety of file types.
+
+2555
+00:43:36,747 --> 00:43:38,481
+[ Silence ]
+
+2556
+00:43:38,483 --> 00:43:39,683
+[ Silence ]
+
+2557
+00:43:39,684 --> 00:43:40,968
+You've got QuickTime
+
+2558
+00:43:39,684 --> 00:43:40,968
+movie, MPEG4, and all sorts
+
+2559
+00:43:40,968 --> 00:43:42,252
+[ Silence ]
+
+2560
+00:43:42,253 --> 00:43:43,771
+of other kind of file types
+
+2561
+00:43:43,771 --> 00:43:45,289
+[ Silence ]
+
+2562
+00:43:45,290 --> 00:43:47,325
+and those file types can carry
+
+2563
+00:43:45,290 --> 00:43:47,325
+different kinds of metadata;
+
+2564
+00:43:47,325 --> 00:43:49,360
+[ Silence ]
+
+2565
+00:43:49,361 --> 00:43:50,495
+some have more restrictions
+
+2566
+00:43:49,361 --> 00:43:50,495
+than others about what kind
+
+2567
+00:43:50,495 --> 00:43:51,629
+[ Silence ]
+
+2568
+00:43:51,630 --> 00:43:52,513
+of metadata can go
+
+2569
+00:43:51,630 --> 00:43:52,513
+into that file type.
+
+2570
+00:43:52,513 --> 00:43:53,396
+[ Silence ]
+
+2571
+00:43:53,398 --> 00:43:55,383
+So the easiest situation, say
+
+2572
+00:43:53,398 --> 00:43:55,383
+if you have an ExportSession
+
+2573
+00:43:55,383 --> 00:43:57,368
+[ Silence ]
+
+2574
+00:43:57,369 --> 00:43:59,370
+and you're going from one,
+
+2575
+00:43:57,369 --> 00:43:59,370
+from the same file type
+
+2576
+00:43:59,370 --> 00:44:01,371
+[ Silence ]
+
+2577
+00:44:01,373 --> 00:44:02,073
+as your source to the output,
+
+2578
+00:44:02,073 --> 00:44:02,773
+[ Silence ]
+
+2579
+00:44:02,774 --> 00:44:04,392
+so for this example they're
+
+2580
+00:44:02,774 --> 00:44:04,392
+both QuickTime movie files.
+
+2581
+00:44:04,392 --> 00:44:06,010
+[ Silence ]
+
+2582
+00:44:06,011 --> 00:44:07,128
+This is the easiest
+
+2583
+00:44:06,011 --> 00:44:07,128
+way to ensure that all
+
+2584
+00:44:07,128 --> 00:44:08,245
+[ Silence ]
+
+2585
+00:44:08,246 --> 00:44:09,897
+of that data is actually going
+
+2586
+00:44:08,246 --> 00:44:09,897
+to make it into the output file.
+
+2587
+00:44:09,897 --> 00:44:11,548
+[ Silence ]
+
+2588
+00:44:11,549 --> 00:44:13,050
+If instead you're using a
+
+2589
+00:44:11,549 --> 00:44:13,050
+different output file type,
+
+2590
+00:44:13,050 --> 00:44:14,551
+[ Silence ]
+
+2591
+00:44:14,552 --> 00:44:15,619
+like MPEG4 in this example,
+
+2592
+00:44:15,619 --> 00:44:16,686
+[ Silence ]
+
+2593
+00:44:16,688 --> 00:44:18,239
+then some different things
+
+2594
+00:44:16,688 --> 00:44:18,239
+are going to have to happen.
+
+2595
+00:44:18,239 --> 00:44:19,790
+[ Silence ]
+
+2596
+00:44:19,791 --> 00:44:20,975
+You notice those last few
+
+2597
+00:44:19,791 --> 00:44:20,975
+items didn't quite make it
+
+2598
+00:44:20,975 --> 00:44:22,159
+[ Silence ]
+
+2599
+00:44:22,160 --> 00:44:22,793
+into the output file;
+
+2600
+00:44:22,793 --> 00:44:23,426
+[ Silence ]
+
+2601
+00:44:23,428 --> 00:44:24,545
+it's because they have no
+
+2602
+00:44:23,428 --> 00:44:24,545
+equivalent representation
+
+2603
+00:44:24,545 --> 00:44:25,662
+[ Silence ]
+
+2604
+00:44:25,664 --> 00:44:27,048
+that works with an MPEG4 file.
+
+2605
+00:44:27,048 --> 00:44:28,432
+[ Silence ]
+
+2606
+00:44:28,433 --> 00:44:29,200
+If you're looking
+
+2607
+00:44:28,433 --> 00:44:29,200
+closely you'll also notice
+
+2608
+00:44:29,200 --> 00:44:29,967
+[ Silence ]
+
+2609
+00:44:29,968 --> 00:44:31,352
+that those top two
+
+2610
+00:44:29,968 --> 00:44:31,352
+items have changed,
+
+2611
+00:44:31,352 --> 00:44:32,736
+[ Silence ]
+
+2612
+00:44:32,737 --> 00:44:34,371
+although they sound very similar
+
+2613
+00:44:32,737 --> 00:44:34,371
+they are slightly different
+
+2614
+00:44:34,371 --> 00:44:36,005
+[ Silence ]
+
+2615
+00:44:36,007 --> 00:44:37,141
+identifiers because that's
+
+2616
+00:44:36,007 --> 00:44:37,141
+the kind of identifier
+
+2617
+00:44:37,141 --> 00:44:38,275
+[ Silence ]
+
+2618
+00:44:38,276 --> 00:44:38,959
+that works with MPEG4.
+
+2619
+00:44:38,959 --> 00:44:39,642
+[ Silence ]
+
+2620
+00:44:39,644 --> 00:44:41,679
+So both AssetExportSession and
+
+2621
+00:44:39,644 --> 00:44:41,679
+AssetWriter will do the sort
+
+2622
+00:44:41,679 --> 00:44:43,714
+[ Silence ]
+
+2623
+00:44:43,715 --> 00:44:44,465
+of three step process.
+
+2624
+00:44:44,465 --> 00:44:45,215
+[ Silence ]
+
+2625
+00:44:45,216 --> 00:44:47,134
+First, they'll try to pass
+
+2626
+00:44:45,216 --> 00:44:47,134
+that data through directly
+
+2627
+00:44:47,134 --> 00:44:49,052
+[ Silence ]
+
+2628
+00:44:49,054 --> 00:44:50,955
+if possible and, if not, they'll
+
+2629
+00:44:49,054 --> 00:44:50,955
+try to convert the identifier
+
+2630
+00:44:50,955 --> 00:44:52,856
+[ Silence ]
+
+2631
+00:44:52,857 --> 00:44:53,791
+into an equivalent
+
+2632
+00:44:52,857 --> 00:44:53,791
+representation
+
+2633
+00:44:53,791 --> 00:44:54,725
+[ Silence ]
+
+2634
+00:44:54,726 --> 00:44:55,609
+in the output file type.
+
+2635
+00:44:55,609 --> 00:44:56,492
+[ Silence ]
+
+2636
+00:44:56,494 --> 00:44:58,095
+If neither of those work, we
+
+2637
+00:44:56,494 --> 00:44:58,095
+have no choice but to just drop
+
+2638
+00:44:58,095 --> 00:44:59,696
+[ Silence ]
+
+2639
+00:44:59,698 --> 00:45:00,581
+that piece of metadata
+
+2640
+00:44:59,698 --> 00:45:00,581
+on the floor.
+
+2641
+00:45:00,581 --> 00:45:01,464
+[ Silence ]
+
+2642
+00:45:01,466 --> 00:45:03,701
+So in terms of guidance on how
+
+2643
+00:45:01,466 --> 00:45:03,701
+to choose an output file type,
+
+2644
+00:45:03,701 --> 00:45:05,936
+[ Silence ]
+
+2645
+00:45:05,937 --> 00:45:07,004
+well, my two recommendations
+
+2646
+00:45:05,937 --> 00:45:07,004
+are,
+
+2647
+00:45:07,004 --> 00:45:08,071
+[ Silence ]
+
+2648
+00:45:08,073 --> 00:45:10,424
+if you are using say an
+
+2649
+00:45:08,073 --> 00:45:10,424
+ExportSession to copy all
+
+2650
+00:45:10,424 --> 00:45:12,775
+[ Silence ]
+
+2651
+00:45:12,777 --> 00:45:15,012
+of the metadata, timed or
+
+2652
+00:45:12,777 --> 00:45:15,012
+otherwise, from the source asset
+
+2653
+00:45:15,012 --> 00:45:17,247
+[ Silence ]
+
+2654
+00:45:17,248 --> 00:45:18,716
+to your destination file,
+
+2655
+00:45:17,248 --> 00:45:18,716
+the best way is to try
+
+2656
+00:45:18,716 --> 00:45:20,184
+[ Silence ]
+
+2657
+00:45:20,185 --> 00:45:21,452
+and use the same file type
+
+2658
+00:45:20,185 --> 00:45:21,452
+that you started with,
+
+2659
+00:45:21,452 --> 00:45:22,719
+[ Silence ]
+
+2660
+00:45:22,721 --> 00:45:24,138
+and if you don't know what the
+
+2661
+00:45:22,721 --> 00:45:24,138
+file type is you can use the
+
+2662
+00:45:24,138 --> 00:45:25,555
+[ Silence ]
+
+2663
+00:45:25,557 --> 00:45:26,841
+NSURLTypeIdentifierKey
+
+2664
+00:45:25,557 --> 00:45:26,841
+to find out.
+
+2665
+00:45:26,841 --> 00:45:28,125
+[ Silence ]
+
+2666
+00:45:28,126 --> 00:45:30,361
+You can also always use
+
+2667
+00:45:28,126 --> 00:45:30,361
+the QuickTime Movie file
+
+2668
+00:45:30,361 --> 00:45:32,596
+[ Silence ]
+
+2669
+00:45:32,597 --> 00:45:34,832
+because that is going to
+
+2670
+00:45:32,597 --> 00:45:34,832
+have the greatest chance
+
+2671
+00:45:34,832 --> 00:45:37,067
+[ Silence ]
+
+2672
+00:45:37,068 --> 00:45:38,435
+of supporting your metadata
+
+2673
+00:45:37,068 --> 00:45:38,435
+no matter where it came from.
+
+2674
+00:45:38,435 --> 00:45:39,802
+[ Silence ]
+
+2675
+00:45:39,804 --> 00:45:41,038
+If AVFoundation supports
+
+2676
+00:45:39,804 --> 00:45:41,038
+it, there's a good chance
+
+2677
+00:45:41,038 --> 00:45:42,272
+[ Silence ]
+
+2678
+00:45:42,273 --> 00:45:43,474
+that it will be supported
+
+2679
+00:45:42,273 --> 00:45:43,474
+by the QuickTime movie file.
+
+2680
+00:45:43,474 --> 00:45:44,675
+[ Silence ]
+
+2681
+00:45:44,676 --> 00:45:45,743
+Of course, this is the only way
+
+2682
+00:45:45,743 --> 00:45:46,810
+[ Silence ]
+
+2683
+00:45:46,811 --> 00:45:47,695
+if you're writing
+
+2684
+00:45:46,811 --> 00:45:47,695
+timed metadata,
+
+2685
+00:45:47,695 --> 00:45:48,579
+[ Silence ]
+
+2686
+00:45:48,580 --> 00:45:49,897
+to get your timed
+
+2687
+00:45:48,580 --> 00:45:49,897
+metadata into a file is
+
+2688
+00:45:49,897 --> 00:45:51,214
+[ Silence ]
+
+2689
+00:45:51,216 --> 00:45:52,450
+to use QuickTime Movie file;
+
+2690
+00:45:51,216 --> 00:45:52,450
+it's the only file form
+
+2691
+00:45:52,450 --> 00:45:53,684
+[ Silence ]
+
+2692
+00:45:53,685 --> 00:45:54,702
+that supports it right now.
+
+2693
+00:45:54,702 --> 00:45:55,719
+[ Silence ]
+
+2694
+00:45:55,720 --> 00:45:57,087
+Of course good advice is always
+
+2695
+00:45:57,087 --> 00:45:58,454
+[ Silence ]
+
+2696
+00:45:58,456 --> 00:45:59,573
+to check the results,
+
+2697
+00:45:58,456 --> 00:45:59,573
+no matter what.
+
+2698
+00:45:59,573 --> 00:46:00,690
+[ Silence ]
+
+2699
+00:46:00,692 --> 00:46:02,376
+Check that your output files
+
+2700
+00:46:00,692 --> 00:46:02,376
+contain the kind of metadata
+
+2701
+00:46:02,376 --> 00:46:04,060
+[ Silence ]
+
+2702
+00:46:04,062 --> 00:46:05,463
+that you expect, all the
+
+2703
+00:46:04,062 --> 00:46:05,463
+metadata that you expect
+
+2704
+00:46:05,463 --> 00:46:06,864
+[ Silence ]
+
+2705
+00:46:06,865 --> 00:46:07,915
+and you can choose to
+
+2706
+00:46:06,865 --> 00:46:07,915
+use some of the APIs
+
+2707
+00:46:07,915 --> 00:46:08,965
+[ Silence ]
+
+2708
+00:46:08,967 --> 00:46:09,717
+that we've already
+
+2709
+00:46:08,967 --> 00:46:09,717
+talked about if you want
+
+2710
+00:46:09,717 --> 00:46:10,467
+[ Silence ]
+
+2711
+00:46:10,468 --> 00:46:11,602
+to do that at runtime.
+
+2712
+00:46:11,602 --> 00:46:12,736
+[ Silence ]
+
+2713
+00:46:12,737 --> 00:46:14,371
+Some guidance if that
+
+2714
+00:46:12,737 --> 00:46:14,371
+doesn't end up being the case:
+
+2715
+00:46:14,371 --> 00:46:16,005
+[ Silence ]
+
+2716
+00:46:16,007 --> 00:46:17,157
+if you don't get all the
+
+2717
+00:46:16,007 --> 00:46:17,157
+metadata that you expect, well,
+
+2718
+00:46:17,157 --> 00:46:18,307
+[ Silence ]
+
+2719
+00:46:18,309 --> 00:46:19,343
+you can try to do the
+
+2720
+00:46:18,309 --> 00:46:19,343
+conversion yourself.
+
+2721
+00:46:19,343 --> 00:46:20,377
+[ Silence ]
+
+2722
+00:46:20,378 --> 00:46:21,762
+Especially if you have a
+
+2723
+00:46:20,378 --> 00:46:21,762
+custom identifier and are going
+
+2724
+00:46:21,762 --> 00:46:23,146
+[ Silence ]
+
+2725
+00:46:23,148 --> 00:46:24,715
+to a file type that doesn't
+
+2726
+00:46:23,148 --> 00:46:24,715
+support your custom identifier,
+
+2727
+00:46:24,715 --> 00:46:26,282
+[ Silence ]
+
+2728
+00:46:26,284 --> 00:46:27,868
+take a look at that long list
+
+2729
+00:46:26,284 --> 00:46:27,868
+of built-in identifiers we have
+
+2730
+00:46:27,868 --> 00:46:29,452
+[ Silence ]
+
+2731
+00:46:29,454 --> 00:46:30,521
+and see if there is something
+
+2732
+00:46:29,454 --> 00:46:30,521
+that's roughly equivalent
+
+2733
+00:46:30,521 --> 00:46:31,588
+[ Silence ]
+
+2734
+00:46:31,589 --> 00:46:32,489
+to what you're trying
+
+2735
+00:46:31,589 --> 00:46:32,489
+to store and you can do
+
+2736
+00:46:32,489 --> 00:46:33,389
+[ Silence ]
+
+2737
+00:46:33,391 --> 00:46:34,224
+that conversion yourself.
+
+2738
+00:46:34,224 --> 00:46:35,057
+[ Silence ]
+
+2739
+00:46:35,059 --> 00:46:35,926
+One particular example
+
+2740
+00:46:35,059 --> 00:46:35,926
+I want to call
+
+2741
+00:46:35,926 --> 00:46:36,793
+[ Silence ]
+
+2742
+00:46:36,795 --> 00:46:38,262
+out that involves only
+
+2743
+00:46:36,795 --> 00:46:38,262
+built-in identifiers is
+
+2744
+00:46:38,262 --> 00:46:39,729
+[ Silence ]
+
+2745
+00:46:39,731 --> 00:46:41,415
+when you're trying to
+
+2746
+00:46:39,731 --> 00:46:41,415
+go from ID3 to iTunes,
+
+2747
+00:46:41,415 --> 00:46:43,099
+[ Silence ]
+
+2748
+00:46:43,101 --> 00:46:44,218
+well AVFoundation
+
+2749
+00:46:43,101 --> 00:46:44,218
+currently isn't going to do
+
+2750
+00:46:44,218 --> 00:46:45,335
+[ Silence ]
+
+2751
+00:46:45,336 --> 00:46:46,320
+that conversion for you.
+
+2752
+00:46:46,320 --> 00:46:47,304
+[ Silence ]
+
+2753
+00:46:47,305 --> 00:46:48,405
+But there's no reason you
+
+2754
+00:46:47,305 --> 00:46:48,405
+couldn't do that yourself,
+
+2755
+00:46:48,405 --> 00:46:49,505
+[ Silence ]
+
+2756
+00:46:49,507 --> 00:46:50,991
+so once again just take a look
+
+2757
+00:46:49,507 --> 00:46:50,991
+at our long list of identifiers
+
+2758
+00:46:50,991 --> 00:46:52,475
+[ Silence ]
+
+2759
+00:46:52,477 --> 00:46:54,645
+and match them up and do the
+
+2760
+00:46:52,477 --> 00:46:54,645
+conversion in your own code.
+
+2761
+00:46:54,645 --> 00:46:56,813
+[ Silence ]
+
+2762
+00:46:56,815 --> 00:46:58,082
+So that is the end of the talk.
+
+2763
+00:46:58,082 --> 00:46:59,349
+[ Silence ]
+
+2764
+00:46:59,350 --> 00:47:01,034
+See what we covered: we talked
+
+2765
+00:46:59,350 --> 00:47:01,034
+obviously a lot about metadata
+
+2766
+00:47:01,034 --> 00:47:02,718
+[ Silence ]
+
+2767
+00:47:02,720 --> 00:47:03,754
+in AVFoundation,
+
+2768
+00:47:02,720 --> 00:47:03,754
+we talked about all
+
+2769
+00:47:03,754 --> 00:47:04,788
+[ Silence ]
+
+2770
+00:47:04,789 --> 00:47:06,206
+of the different classes
+
+2771
+00:47:04,789 --> 00:47:06,206
+you can use for inspection,
+
+2772
+00:47:06,206 --> 00:47:07,623
+[ Silence ]
+
+2773
+00:47:07,625 --> 00:47:08,859
+we talked about AVAsset
+
+2774
+00:47:07,625 --> 00:47:08,859
+and AVMetadataItem
+
+2775
+00:47:08,859 --> 00:47:10,093
+[ Silence ]
+
+2776
+00:47:10,094 --> 00:47:11,361
+and how those work
+
+2777
+00:47:10,094 --> 00:47:11,361
+together and also authoring,
+
+2778
+00:47:11,361 --> 00:47:12,628
+[ Silence ]
+
+2779
+00:47:12,630 --> 00:47:13,847
+we talked about the AssetWriter,
+
+2780
+00:47:13,847 --> 00:47:15,064
+[ Silence ]
+
+2781
+00:47:15,066 --> 00:47:16,634
+the AssetExportSession even
+
+2782
+00:47:15,066 --> 00:47:16,634
+briefly on the capture audio
+
+2783
+00:47:16,634 --> 00:47:18,202
+[ Silence ]
+
+2784
+00:47:18,203 --> 00:47:19,220
+and movie file outputs.
+
+2785
+00:47:19,220 --> 00:47:20,237
+[ Silence ]
+
+2786
+00:47:20,238 --> 00:47:21,689
+We dove into timed metadata,
+
+2787
+00:47:20,238 --> 00:47:21,689
+including all the new features
+
+2788
+00:47:21,689 --> 00:47:23,140
+[ Silence ]
+
+2789
+00:47:23,141 --> 00:47:24,642
+that enable things like
+
+2790
+00:47:23,141 --> 00:47:24,642
+the dynamic location
+
+2791
+00:47:24,642 --> 00:47:26,143
+[ Silence ]
+
+2792
+00:47:26,144 --> 00:47:28,195
+and your own timed metadata
+
+2793
+00:47:26,144 --> 00:47:28,195
+like the annotation demo.
+
+2794
+00:47:28,195 --> 00:47:30,246
+[ Silence ]
+
+2795
+00:47:30,248 --> 00:47:31,665
+We also talked about
+
+2796
+00:47:30,248 --> 00:47:31,665
+privacy considerations
+
+2797
+00:47:31,665 --> 00:47:33,082
+[ Silence ]
+
+2798
+00:47:33,084 --> 00:47:34,735
+and some best practices like how
+
+2799
+00:47:33,084 --> 00:47:34,735
+to choose the right file type.
+
+2800
+00:47:34,735 --> 00:47:36,386
+[ Silence ]
+
+2801
+00:47:36,387 --> 00:47:38,338
+So for more information, you
+
+2802
+00:47:36,387 --> 00:47:38,338
+can contact our evangelism team
+
+2803
+00:47:38,338 --> 00:47:40,289
+[ Silence ]
+
+2804
+00:47:40,291 --> 00:47:41,191
+or see our programing guide,
+
+2805
+00:47:41,191 --> 00:47:42,091
+[ Silence ]
+
+2806
+00:47:42,093 --> 00:47:43,260
+there are some other
+
+2807
+00:47:42,093 --> 00:47:43,260
+related sessions you might be
+
+2808
+00:47:43,260 --> 00:47:44,427
+[ Silence ]
+
+2809
+00:47:44,429 --> 00:47:44,962
+interested in.
+
+2810
+00:47:44,962 --> 00:47:45,495
+[ Silence ]
+
+2811
+00:47:45,496 --> 00:47:46,280
+If you missed this
+
+2812
+00:47:45,496 --> 00:47:46,280
+morning's presentation
+
+2813
+00:47:46,280 --> 00:47:47,064
+[ Silence ]
+
+2814
+00:47:47,065 --> 00:47:47,948
+on "Modern Media
+
+2815
+00:47:47,065 --> 00:47:47,948
+Playback", you can catch
+
+2816
+00:47:47,948 --> 00:47:48,831
+[ Silence ]
+
+2817
+00:47:48,833 --> 00:47:49,850
+that on the video recording.
+
+2818
+00:47:49,850 --> 00:47:50,867
+[ Silence ]
+
+2819
+00:47:50,869 --> 00:47:53,170
+Tomorrow there is also a
+
+2820
+00:47:50,869 --> 00:47:53,170
+camera capture talk focusing
+
+2821
+00:47:53,170 --> 00:47:55,471
+[ Silence ]
+
+2822
+00:47:55,473 --> 00:47:56,290
+on manual controls.
+
+2823
+00:47:56,290 --> 00:47:57,107
+[ Silence ]
+
+2824
+00:47:57,108 --> 00:47:58,892
+And on Thursday we'll have
+
+2825
+00:47:57,108 --> 00:47:58,892
+a talk about direct access
+
+2826
+00:47:58,892 --> 00:48:00,676
+[ Silence ]
+
+2827
+00:48:00,678 --> 00:48:02,012
+to video encoding and
+
+2828
+00:48:00,678 --> 00:48:02,012
+decoding, which I'm sure a lot
+
+2829
+00:48:02,012 --> 00:48:03,346
+[ Silence ]
+
+2830
+00:48:03,348 --> 00:48:04,832
+of you will be interested in.
+
+2831
+00:48:04,832 --> 00:48:06,316
+[ Silence ]
+
+2832
+00:48:06,317 --> 00:48:09,820
+[ Silence ]
+
+2833
+00:48:09,820 --> 00:48:13,323
+[ Silence ]
+
+2834
+00:48:13,324 --> 00:48:13,356
+[ Silence ]

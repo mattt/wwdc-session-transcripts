@@ -1,0 +1,148 @@
+
+1
+00:00:11,258 --> 00:00:14,121
+Good Morning and Welcome to Session 714
+
+2
+00:00:14,936 --> 00:00:18,043
+For the next hour, myself and my
+colleagues Conrad and Michael
+
+3
+00:00:18,517 --> 00:00:20,955
+are going to be talking about
+protecting the user's data,
+
+4
+00:00:21,427 --> 00:00:24,400
+and the part that you, the developers,
+can play in that.
+
+5
+00:00:25,982 --> 00:00:27,790
+First of all, a little bit about ourselves.
+
+6
+00:00:28,329 --> 00:00:30,937
+We are all members of the
+platform security team at Apple
+
+7
+00:00:31,508 --> 00:00:33,534
+and we really operate up
+and down the stack,
+
+8
+00:00:34,115 --> 00:00:35,581
+all the way down from
+the secure bootloader,
+
+9
+00:00:36,306 --> 00:00:38,596
+all the way up to applications
+and even the cloud.
+
+10
+00:00:39,071 --> 00:00:41,333
+But some times that we are always involved
+
+11
+00:00:41,851 --> 00:00:44,102
+is when a cryptographic key is used
+
+12
+00:00:44,294 --> 00:00:45,438
+to protect user's data.
+
+13
+00:00:46,386 --> 00:00:48,876
+That's technologies you've probably
+come across before.
+
+14
+00:00:51,254 --> 00:00:54,179
+We also design and build solutions
+for internal clients
+
+15
+00:00:54,735 --> 00:00:58,789
+For example, we were involved with
+designing the cryptography
+used by iMessage.
+
+16
+00:01:00,685 --> 00:01:03,308
+We expose a lot of that functionality,
+
+17
+00:01:03,697 --> 00:01:04,466
+through third part—
+
+18
+00:01:04,700 --> 00:01:07,085
+APIs for use by third parties
+such as yourselves;
+
+19
+00:01:07,312 --> 00:01:10,804
+Security.framework, CommonCrypto
+being examples.
+
+20
+99:59:59,999 --> 99:59:59,999
+That functionality is also exposed
+
+21
+99:59:59,999 --> 99:59:59,999
+by other Apple APIs at an even higher level,
+
+22
+99:59:59,999 --> 99:59:59,999
+for example, NSFileManager, CFNetwork,
+
+23
+99:59:59,999 --> 99:59:59,999
+and we're going to be pulling
+
+24
+99:59:59,999 --> 99:59:59,999
+from both of those layers
+
+25
+99:59:59,999 --> 99:59:59,999
+during this presentation.
+
+26
+99:59:59,999 --> 99:59:59,999
+What we're going to talk about:
+
+27
+99:59:59,999 --> 99:59:59,999
+We're going to look at a common situation,
+
+28
+99:59:59,999 --> 99:59:59,999
+which is a client app talking to
+a web service.
+
+29
+99:59:59,999 --> 99:59:59,999
+We're going to subject it to
+a hostile environment,
+
+30
+99:59:59,999 --> 99:59:59,999
+a simulated attack, and show what can happen,
+
+31
+99:59:59,999 --> 99:59:59,999
+talk about why that matters, and give some
+
+32
+99:59:59,999 --> 99:59:59,999
+simple steps that you can put
+in your applications
+
+33
+99:59:59,999 --> 99:59:59,999
+to avoid falling foul of such attacks.

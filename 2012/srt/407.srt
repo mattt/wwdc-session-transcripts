@@ -1,0 +1,136 @@
+
+1
+00:00:10,547 --> 00:00:12,417
+My name is Joshua Pennington
+
+2
+00:00:12,417 --> 00:00:14,999
+and I'm an engineer on the
+Interface Builder Team
+
+3
+00:00:15,115 --> 00:00:16,748
+Today we're going to talk about
+
+4
+00:00:16,748 --> 00:00:19,289
+how you can adopt Storyboards
+in your app.
+
+5
+00:00:20,633 --> 00:00:22,029
+We're going to cover a couple topics today.
+
+6
+00:00:22,880 --> 00:00:25,942
+We're going to start by giving
+a quick overview of Storyboards.
+
+7
+00:00:27,061 --> 00:00:30,327
+Then my colleague Tony is going to
+come up here and talk about
+
+8
+00:00:30,555 --> 00:00:34,418
+how you can adopt Storyboards in
+applications that use code or xibs
+
+9
+00:00:35,713 --> 00:00:39,359
+And I'm going to finish by talking about
+some great new features for Storyboards
+
+10
+00:00:39,391 --> 00:00:40,509
+in iOS 6.
+
+11
+00:00:41,946 --> 00:00:43,234
+Let's start with the basics.
+
+12
+99:59:59,999 --> 99:59:59,999
+This is a Storyboard.
+
+13
+99:59:59,999 --> 99:59:59,999
+This Storyboard allows to view you app's
+entire user interface in one place.
+
+14
+99:59:59,999 --> 99:59:59,999
+And you can also view the transitions
+between parts of your application
+
+15
+99:59:59,999 --> 99:59:59,999
+so you can very quickly get an overview
+of the application just by glancing at it.
+
+16
+99:59:59,999 --> 99:59:59,999
+And there are two main concepts
+in a Storyboard.
+
+17
+99:59:59,999 --> 99:59:59,999
+The first concept if that of a "scene".
+
+18
+99:59:59,999 --> 99:59:59,999
+A scene is a view controller, and it can
+represent an entire screen in your app
+
+19
+99:59:59,999 --> 99:59:59,999
+or just one major component area, like a
+split view pane
+
+20
+99:59:59,999 --> 99:59:59,999
+and a split view controller on iPad.
+
+21
+99:59:59,999 --> 99:59:59,999
+And you can drag in views, you can select
+things and resize them.
+
+22
+99:59:59,999 --> 99:59:59,999
+You can inspect your attributes
+in the inspector.
+
+23
+99:59:59,999 --> 99:59:59,999
+All of the normal interface builder
+affordances are present here.
+
+24
+99:59:59,999 --> 99:59:59,999
+This is where you're gonna spend
+most of your time fleshing out the UI
+
+25
+99:59:59,999 --> 99:59:59,999
+of your application.
+
+26
+99:59:59,999 --> 99:59:59,999
+So that's the first concept:
+the scene.
+
+27
+99:59:59,999 --> 99:59:59,999
+The second concept if that
+of a "segue".
+
+28
+99:59:59,999 --> 99:59:59,999
+A segue defines navigation in your
+Storyboard.
+
+29
+99:59:59,999 --> 99:59:59,999
+
+30

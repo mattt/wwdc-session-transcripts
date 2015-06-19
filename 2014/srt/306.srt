@@ -1,0 +1,6665 @@
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1
+00:00:13,046 --> 00:00:13,526 A:middle
+>> Welcome.
+
+2
+00:00:13,716 --> 00:00:15,116 A:middle
+Welcome to Friday.
+
+3
+00:00:15,116 --> 00:00:16,186 A:middle
+Thanks for being here.
+
+4
+00:00:16,896 --> 00:00:18,586 A:middle
+My name is Sal Soghoian.
+
+5
+00:00:18,586 --> 00:00:19,676 A:middle
+I am the Product Manager
+
+6
+00:00:19,676 --> 00:00:22,686 A:middle
+for Automation Technologies
+
+7
+at Apple, Inc.
+
+8
+00:00:23,236 --> 00:00:27,046 A:middle
+And this is Session
+
+9
+306, this is a big day.
+
+10
+00:00:27,246 --> 00:00:30,266 A:middle
+We get to welcome
+
+11
+JavaScript to the family
+
+12
+00:00:30,266 --> 00:00:32,776 A:middle
+of scripting languages on OS X.
+
+13
+00:00:33,516 --> 00:00:36,616 A:middle
+[ Applause ]
+
+14
+00:00:37,116 --> 00:00:38,956 A:middle
+We've been waiting
+
+15
+a long time for this
+
+16
+00:00:38,956 --> 00:00:40,766 A:middle
+and I know our customers
+
+17
+have, too,
+
+18
+00:00:40,766 --> 00:00:42,466 A:middle
+and we're really
+
+19
+thrilled about it.
+
+20
+00:00:43,136 --> 00:00:46,006 A:middle
+And before I get into the
+
+21
+details of the language
+
+22
+00:00:46,006 --> 00:00:49,486 A:middle
+and how it works I'd like
+
+23
+to take a moment to reflect
+
+24
+00:00:49,486 --> 00:00:54,116 A:middle
+on the state of automation,
+
+25
+beginning with Mavericks.
+
+26
+00:00:55,416 --> 00:00:59,386 A:middle
+Now, in Mavericks we introduced
+
+27
+a host of new features,
+
+28
+00:00:59,596 --> 00:01:01,516 A:middle
+some very powerful
+
+29
+things beginning
+
+30
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+31
+00:01:01,516 --> 00:01:05,296 A:middle
+with notification support in
+
+32
+both the scripting language
+
+33
+00:01:05,296 --> 00:01:06,636 A:middle
+and in Automator as well.
+
+34
+00:01:06,636 --> 00:01:10,376 A:middle
+So it became very easy to
+
+35
+use notifications instead
+
+36
+00:01:10,376 --> 00:01:13,506 A:middle
+of posting dialogues in
+
+37
+your automation routines.
+
+38
+00:01:14,226 --> 00:01:16,776 A:middle
+We also introduced
+
+39
+Code Signing ability
+
+40
+00:01:16,776 --> 00:01:19,356 A:middle
+in our Editor applications,
+
+41
+both in Automator
+
+42
+00:01:19,356 --> 00:01:21,926 A:middle
+and in the Script
+
+43
+Editor, which is great
+
+44
+00:01:21,926 --> 00:01:25,966 A:middle
+because then you could sign and
+
+45
+deliver Automation solutions
+
+46
+00:01:25,966 --> 00:01:28,296 A:middle
+to your customers,
+
+47
+friends and coworkers.
+
+48
+00:01:29,096 --> 00:01:31,686 A:middle
+We also introduced
+
+49
+a new construct
+
+50
+00:01:31,686 --> 00:01:34,886 A:middle
+in AppleScript called the
+
+51
+"use" statement that acts
+
+52
+00:01:34,886 --> 00:01:39,246 A:middle
+like an importer to import
+
+53
+functionality from applications
+
+54
+00:01:39,246 --> 00:01:43,746 A:middle
+and frameworks and scripting
+
+55
+editions, and allow them
+
+56
+00:01:44,136 --> 00:01:46,136 A:middle
+to be used in your scripts.
+
+57
+00:01:46,496 --> 00:01:49,986 A:middle
+And by doing this we
+
+58
+also made it possible
+
+59
+00:01:49,986 --> 00:01:53,076 A:middle
+to have Script Libraries
+
+60
+that we introduced.
+
+61
+00:01:53,556 --> 00:01:56,596 A:middle
+And Script Libraries are
+
+62
+scripts that you create yourself
+
+63
+00:01:57,356 --> 00:02:00,746 A:middle
+that contain your favorite
+
+64
+sub-routines or handlers,
+
+65
+00:02:01,286 --> 00:02:04,736 A:middle
+and you can call and load these
+
+66
+libraries from scripts anywhere
+
+67
+00:02:04,736 --> 00:02:06,086 A:middle
+in the operating system.
+
+68
+00:02:06,566 --> 00:02:11,206 A:middle
+You can also take advantage of
+
+69
+AppleScript Objective-C and any
+
+70
+00:02:11,206 --> 00:02:13,316 A:middle
+of the Cocoa calls
+
+71
+that you want to use.
+
+72
+00:02:13,576 --> 00:02:17,366 A:middle
+So they were very powerful,
+
+73
+very useful they be introduced.
+
+74
+00:02:18,236 --> 00:02:21,276 A:middle
+And then finally, we had
+
+75
+a new feature that worked
+
+76
+00:02:21,276 --> 00:02:24,666 A:middle
+on English-only systems but we
+
+77
+thought it was so interesting
+
+78
+00:02:24,666 --> 00:02:26,256 A:middle
+that we introduced it.
+
+79
+00:02:26,696 --> 00:02:30,056 A:middle
+It was called Speakable
+
+80
+Workflows, and it allowed you
+
+81
+00:02:30,056 --> 00:02:35,516 A:middle
+to take your Automator workflow
+
+82
+and save it as a speakable item
+
+83
+00:02:35,746 --> 00:02:37,646 A:middle
+in the dictation architecture.
+
+84
+00:02:37,646 --> 00:02:40,396 A:middle
+So you could say a command and
+
+85
+it would run your workflow.
+
+86
+00:02:40,946 --> 00:02:43,616 A:middle
+And so Mavericks was a very
+
+87
+productive release for us,
+
+88
+00:02:43,616 --> 00:02:46,526 A:middle
+we were very excited about
+
+89
+it, but we were also excited
+
+90
+00:02:46,526 --> 00:02:49,226 A:middle
+about what we've
+
+91
+done in Yosemite
+
+92
+00:02:49,226 --> 00:02:52,996 A:middle
+and how it builds upon the
+
+93
+groundwork we laid in Mavericks.
+
+94
+00:02:53,566 --> 00:02:56,776 A:middle
+As part of this evolutionary
+
+95
+process,
+
+96
+00:02:57,166 --> 00:03:00,456 A:middle
+we integrated Code Signing
+
+97
+with workflow files.
+
+98
+
+99
+00:03:00,786 --> 00:03:03,926 A:middle
+So not only applets but now
+
+100
+your workflow files can be
+
+101
+00:03:03,926 --> 00:03:05,216 A:middle
+Code-Signed as well.
+
+102
+00:03:05,946 --> 00:03:08,666 A:middle
+And because of changes
+
+103
+that we implemented
+
+104
+00:03:08,666 --> 00:03:12,586 A:middle
+in the AppleScript language for
+
+105
+supporting optional parameters
+
+106
+00:03:12,586 --> 00:03:15,666 A:middle
+in sub-routines and
+
+107
+handlers we were enabled
+
+108
+00:03:15,666 --> 00:03:19,236 A:middle
+to upgrade the scripting
+
+109
+library support
+
+110
+00:03:19,236 --> 00:03:22,616 A:middle
+so that you can now have your
+
+111
+favorite calls have optional
+
+112
+00:03:22,616 --> 00:03:24,486 A:middle
+parameters and use
+
+113
+those as well.
+
+114
+00:03:25,016 --> 00:03:26,536 A:middle
+Very good improvement there.
+
+115
+00:03:27,446 --> 00:03:30,586 A:middle
+And listening to customer
+
+116
+requests that have been
+
+117
+00:03:31,166 --> 00:03:33,696 A:middle
+for years and years,
+
+118
+requesting some way
+
+119
+00:03:33,696 --> 00:03:38,866 A:middle
+to indicate a progress method
+
+120
+for their Automation routines,
+
+121
+00:03:38,896 --> 00:03:43,146 A:middle
+we now have built-in
+
+122
+script progress indicators.
+
+123
+00:03:43,346 --> 00:03:48,836 A:middle
+So, by calling simple properties
+
+124
+you can have your scripts
+
+125
+00:03:48,836 --> 00:03:52,506 A:middle
+display a progress
+
+126
+indicator, a circle,
+
+127
+00:03:52,706 --> 00:03:56,646 A:middle
+or even as a progress
+
+128
+bar in a floating window,
+
+129
+00:03:56,806 --> 00:03:59,996 A:middle
+and all of this is done for
+
+130
+you automatically, all you have
+
+131
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+132
+00:04:00,036 --> 00:04:02,796 A:middle
+to do is set properties
+
+133
+within your scripts.
+
+134
+00:04:03,256 --> 00:04:05,916 A:middle
+So I think our customers
+
+135
+are going to really enjoy
+
+136
+00:04:05,916 --> 00:04:07,266 A:middle
+that particular feature.
+
+137
+00:04:08,156 --> 00:04:10,806 A:middle
+And we took the idea
+
+138
+of Speakable Workflows
+
+139
+00:04:10,806 --> 00:04:12,566 A:middle
+and we've advanced it now
+
+140
+00:04:12,926 --> 00:04:16,366 A:middle
+because of the dictation
+
+141
+architecture in Yosemite
+
+142
+00:04:16,366 --> 00:04:18,435 A:middle
+that works with all languages.
+
+143
+00:04:19,125 --> 00:04:21,986 A:middle
+We now have a new
+
+144
+template item in Automator
+
+145
+00:04:22,246 --> 00:04:24,806 A:middle
+for creating a Dictation
+
+146
+Command.
+
+147
+00:04:25,266 --> 00:04:28,576 A:middle
+So you create your workflow,
+
+148
+you save it, it gets saved
+
+149
+00:04:28,576 --> 00:04:32,186 A:middle
+into the dictation architecture
+
+150
+and when you're in the process
+
+151
+00:04:32,186 --> 00:04:34,656 A:middle
+of dictating or just
+
+152
+sitting at the machine,
+
+153
+00:04:34,936 --> 00:04:38,166 A:middle
+you can say the name of your
+
+154
+command and it will execute.
+
+155
+00:04:38,736 --> 00:04:40,976 A:middle
+Very interesting, very
+
+156
+powerful, I know you're going
+
+157
+00:04:40,976 --> 00:04:43,246 A:middle
+to have a lot of
+
+158
+fun exploring that.
+
+159
+00:04:43,746 --> 00:04:47,106 A:middle
+So that's just a quick
+
+160
+overview of where we've been,
+
+161
+00:04:47,516 --> 00:04:50,456 A:middle
+but something that's been
+
+162
+on our minds for a long time
+
+163
+00:04:50,456 --> 00:04:52,576 A:middle
+that we've happy
+
+164
+and very pleased
+
+165
+00:04:52,576 --> 00:04:55,766 A:middle
+to have here today is
+
+166
+JavaScript for Automation.
+
+167
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+168
+00:04:57,036 --> 00:05:01,496 A:middle
+Now, those of you that are
+
+169
+familiar with JavaScript
+
+170
+00:05:01,496 --> 00:05:05,956 A:middle
+from the web-based community,
+
+171
+this is not the JavaScript
+
+172
+00:05:05,956 --> 00:05:11,326 A:middle
+for writing a DOM that uses CSS
+
+173
+and HTML5 to create a web app.
+
+174
+00:05:11,716 --> 00:05:15,366 A:middle
+We're talking about extending
+
+175
+the JavaScript core language
+
+176
+00:05:15,866 --> 00:05:18,736 A:middle
+to integrate with the open
+
+177
+scripting architecture.
+
+178
+00:05:19,016 --> 00:05:22,886 A:middle
+And by doing this, you
+
+179
+have now gained the ability
+
+180
+00:05:22,886 --> 00:05:26,266 A:middle
+to pull all those levers
+
+181
+inside of the scriptable apps
+
+182
+00:05:26,266 --> 00:05:30,096 A:middle
+on your operating system to
+
+183
+perform the kind of repetitive
+
+184
+00:05:30,096 --> 00:05:33,856 A:middle
+or interesting or complex
+
+185
+tasks that you do every day.
+
+186
+00:05:34,066 --> 00:05:38,526 A:middle
+And now this power is available
+
+187
+to you through JavaScript.
+
+188
+00:05:39,296 --> 00:05:42,586 A:middle
+Now many of you that write
+
+189
+JavaScript professionally
+
+190
+00:05:42,586 --> 00:05:47,676 A:middle
+or as your focus, you're used
+
+191
+to using editors like BBEdit,
+
+192
+00:05:47,896 --> 00:05:53,136 A:middle
+Sublime Text, WebStorm,
+
+193
+TextMate, things like that.
+
+194
+00:05:53,526 --> 00:05:58,596 A:middle
+Initially, as you adapt to
+
+195
+JavaScript for Automation,
+
+196
+00:05:58,876 --> 00:06:00,326 A:middle
+you'll write your first scripts
+
+197
+00:06:00,326 --> 00:06:02,666 A:middle
+in the Script Editor
+
+198
+application.
+
+199
+00:06:03,146 --> 00:06:05,866 A:middle
+And I'm going to give
+
+200
+you just a short overview
+
+201
+00:06:06,106 --> 00:06:09,546 A:middle
+of this application, its
+
+202
+interface and preferences
+
+203
+00:06:09,856 --> 00:06:12,416 A:middle
+so that you'll understand
+
+204
+what's happening
+
+205
+00:06:12,416 --> 00:06:14,896 A:middle
+as David presents
+
+206
+JavaScript for you.
+
+207
+00:06:15,656 --> 00:06:19,246 A:middle
+So let me take a look at the
+
+208
+Script Editor application.
+
+209
+00:06:19,886 --> 00:06:22,916 A:middle
+So when you open the Script
+
+210
+Editor Application you get this
+
+211
+00:06:22,916 --> 00:06:25,756 A:middle
+very simple interface,
+
+212
+this is a script window.
+
+213
+00:06:26,346 --> 00:06:29,966 A:middle
+And it has a simple but
+
+214
+very powerful design to it,
+
+215
+00:06:30,506 --> 00:06:32,176 A:middle
+beginning with the little slider
+
+216
+00:06:32,486 --> 00:06:35,246 A:middle
+that separates the two
+
+217
+main panes of the window,
+
+218
+00:06:35,576 --> 00:06:38,966 A:middle
+the script pane where you
+
+219
+enter the code for your script,
+
+220
+00:06:39,676 --> 00:06:42,656 A:middle
+and the bottom pane
+
+221
+contains an event log.
+
+222
+00:06:42,996 --> 00:06:46,856 A:middle
+So as the script is executing
+
+223
+you'll see the events listed
+
+224
+00:06:46,856 --> 00:06:49,586 A:middle
+there with the results
+
+225
+coming in from the events.
+
+226
+00:06:49,886 --> 00:06:51,826 A:middle
+And this is a live
+
+227
+log that happens
+
+228
+00:06:51,826 --> 00:06:53,796 A:middle
+as the script is executing.
+
+229
+00:06:54,756 --> 00:06:58,146 A:middle
+At the top there are
+
+230
+some simple controls
+
+231
+00:06:58,146 --> 00:06:59,826 A:middle
+for basically compiling
+
+232
+the script
+
+233
+00:06:59,826 --> 00:07:01,726 A:middle
+to make sure your
+
+234
+syntax is correct,
+
+235
+
+236
+00:07:02,556 --> 00:07:05,596 A:middle
+and there's also a control for
+
+237
+running or stopping your script.
+
+238
+00:07:06,566 --> 00:07:10,276 A:middle
+Now, there at the bottom
+
+239
+here is a language control.
+
+240
+00:07:10,276 --> 00:07:12,656 A:middle
+So make sure if you're
+
+241
+writing JavaScript
+
+242
+00:07:13,006 --> 00:07:17,516 A:middle
+that this popup menu is set
+
+243
+for the JavaScript language.
+
+244
+00:07:18,116 --> 00:07:22,516 A:middle
+And that's basically
+
+245
+the interface,
+
+246
+00:07:22,516 --> 00:07:27,156 A:middle
+and the way that it works is
+
+247
+you enter your script code
+
+248
+00:07:27,586 --> 00:07:31,306 A:middle
+into the top area, then
+
+249
+you click the Run button
+
+250
+00:07:32,136 --> 00:07:35,986 A:middle
+and as it executes you can see
+
+251
+00:07:35,986 --> 00:07:37,856 A:middle
+that there's a progress
+
+252
+indicator here
+
+253
+00:07:37,856 --> 00:07:40,456 A:middle
+on the right showing the
+
+254
+progress of the script,
+
+255
+00:07:40,716 --> 00:07:42,976 A:middle
+and you can watch
+
+256
+the event log go by.
+
+257
+00:07:43,596 --> 00:07:47,696 A:middle
+Now this simple script that
+
+258
+exported open Keynote documents
+
+259
+00:07:47,726 --> 00:07:50,176 A:middle
+to movies, you can
+
+260
+see the results of it
+
+261
+00:07:50,176 --> 00:07:52,466 A:middle
+and how it was logged
+
+262
+and everything indicated
+
+263
+00:07:52,466 --> 00:07:54,686 A:middle
+in the final result of
+
+264
+the script at the bottom.
+
+265
+00:07:55,106 --> 00:07:57,236 A:middle
+So this is the interface
+
+266
+that you have
+
+267
+00:07:57,286 --> 00:07:59,186 A:middle
+when you're executing scripts,
+
+268
+00:07:59,186 --> 00:08:01,426 A:middle
+and as David shows
+
+269
+you the examples,
+
+270
+
+271
+00:08:01,596 --> 00:08:03,626 A:middle
+this is what you're
+
+272
+going to see.
+
+273
+00:08:04,226 --> 00:08:06,806 A:middle
+There's some other important
+
+274
+preferences you should be aware
+
+275
+00:08:06,806 --> 00:08:09,096 A:middle
+of and let me just
+
+276
+quickly show those to you.
+
+277
+00:08:09,536 --> 00:08:14,896 A:middle
+So, in the Preferences menu
+
+278
+from the Application menu,
+
+279
+00:08:15,436 --> 00:08:19,556 A:middle
+in the General Settings
+
+280
+pane there is a Default
+
+281
+00:08:19,556 --> 00:08:20,906 A:middle
+Language popup.
+
+282
+00:08:20,906 --> 00:08:22,756 A:middle
+If you're going to
+
+283
+be using JavaScript
+
+284
+00:08:22,756 --> 00:08:26,376 A:middle
+as your primary language for
+
+285
+scripting you want to make sure
+
+286
+00:08:26,376 --> 00:08:29,576 A:middle
+that you change this
+
+287
+value to JavaScript.
+
+288
+00:08:29,946 --> 00:08:32,135 A:middle
+Now this says JavaScript 1.0.
+
+289
+00:08:32,135 --> 00:08:34,765 A:middle
+This is JavaScript
+
+290
+for Automation 1.0.
+
+291
+00:08:34,765 --> 00:08:37,385 A:middle
+It is not JavaScript 1.0.
+
+292
+00:08:37,385 --> 00:08:41,275 A:middle
+We use the current JavaScript
+
+293
+core language as the basis.
+
+294
+00:08:41,346 --> 00:08:44,316 A:middle
+So don't be freaked out
+
+295
+when you see 1.0 there.
+
+296
+00:08:44,796 --> 00:08:49,556 A:middle
+Also, make sure that you
+
+297
+check the Show Script menu
+
+298
+00:08:49,556 --> 00:08:53,296 A:middle
+in menu bar option, and what
+
+299
+this will do is activate the
+
+300
+00:08:53,376 --> 00:08:56,666 A:middle
+system-wide Script Menu at the
+
+301
+top right of your menu bar.
+
+302
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+303
+00:08:56,996 --> 00:09:00,946 A:middle
+And from this Script Menu you
+
+304
+can host your favorite scripts
+
+305
+00:09:01,226 --> 00:09:03,646 A:middle
+and you can make them
+
+306
+available contextually
+
+307
+00:09:03,646 --> 00:09:05,216 A:middle
+within certain applications.
+
+308
+00:09:05,216 --> 00:09:08,306 A:middle
+So if you write scripts for the
+
+309
+Finder, they can only appear
+
+310
+00:09:08,336 --> 00:09:09,246 A:middle
+if the Finder's there.
+
+311
+00:09:09,246 --> 00:09:10,916 A:middle
+If you write scripts for Pages,
+
+312
+00:09:11,056 --> 00:09:12,866 A:middle
+they'll only appear
+
+313
+when Pages are there.
+
+314
+00:09:13,106 --> 00:09:16,166 A:middle
+It's up to you, the Script
+
+315
+Menu runs shell scripts,
+
+316
+00:09:16,166 --> 00:09:19,246 A:middle
+Apple scripts, applications,
+
+317
+workflows, JavaScripts,
+
+318
+00:09:20,006 --> 00:09:21,856 A:middle
+any kind of scripting
+
+319
+language supported
+
+320
+00:09:21,856 --> 00:09:24,646 A:middle
+by the operating system can
+
+321
+run from the Script Menu.
+
+322
+00:09:24,646 --> 00:09:26,576 A:middle
+So you'll be taking
+
+323
+advantage of that.
+
+324
+00:09:27,356 --> 00:09:31,906 A:middle
+In addition, if you want to set
+
+325
+certain coloring for the code
+
+326
+00:09:31,906 --> 00:09:35,516 A:middle
+that you use, this formatting
+
+327
+pane is where you'll do that.
+
+328
+00:09:35,716 --> 00:09:39,096 A:middle
+You can choose fonts, font
+
+329
+size and coloring to apply
+
+330
+00:09:39,506 --> 00:09:42,026 A:middle
+to fit comfortably with
+
+331
+what you're used to.
+
+332
+00:09:43,306 --> 00:09:46,396 A:middle
+Next, I'd like to
+
+333
+look at dictionaries.
+
+334
+00:09:46,876 --> 00:09:49,356 A:middle
+Now, in the operating system,
+
+335
+00:09:49,356 --> 00:09:52,506 A:middle
+every scriptable
+
+336
+application carries internally
+
+337
+00:09:52,506 --> 00:09:55,646 A:middle
+within its bundle a
+
+338
+complete dictionary
+
+339
+00:09:55,646 --> 00:09:58,316 A:middle
+of all the terms
+
+340
+that it understands.
+
+341
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+342
+00:09:58,706 --> 00:10:02,576 A:middle
+It will list all the classes and
+
+343
+all the methods and the commands
+
+344
+00:10:02,576 --> 00:10:06,396 A:middle
+and the properties and elements
+
+345
+that it is familiar with.
+
+346
+00:10:06,626 --> 00:10:09,716 A:middle
+So this is where you will
+
+347
+go to learn about how
+
+348
+00:10:09,716 --> 00:10:12,266 A:middle
+to control a particular
+
+349
+application.
+
+350
+00:10:12,616 --> 00:10:14,826 A:middle
+And what you do is you
+
+351
+choose Open Dictionary
+
+352
+00:10:14,826 --> 00:10:18,176 A:middle
+from the File menu and in the
+
+353
+forthcoming dialogue choose
+
+354
+00:10:18,176 --> 00:10:18,966 A:middle
+an application.
+
+355
+00:10:19,686 --> 00:10:23,046 A:middle
+When you do that you'll
+
+356
+see a script viewer window
+
+357
+00:10:23,046 --> 00:10:25,606 A:middle
+like this one for the
+
+358
+Keynote dictionary,
+
+359
+00:10:26,856 --> 00:10:29,936 A:middle
+and this is what you
+
+360
+see when you look
+
+361
+00:10:29,936 --> 00:10:32,376 A:middle
+at an application's
+
+362
+scripting dictionary,
+
+363
+00:10:32,376 --> 00:10:35,476 A:middle
+and this is what you will do
+
+364
+to navigate that dictionary.
+
+365
+00:10:36,626 --> 00:10:38,896 A:middle
+At the top is a Language button,
+
+366
+00:10:38,896 --> 00:10:41,416 A:middle
+so this dictionary
+
+367
+viewer functions
+
+368
+00:10:41,536 --> 00:10:44,006 A:middle
+for all the scripting
+
+369
+languages we support,
+
+370
+00:10:44,006 --> 00:10:48,216 A:middle
+so it supports JavaScript,
+
+371
+AppleScript or Objective-C,
+
+372
+00:10:48,376 --> 00:10:49,906 A:middle
+and you can change the mode
+
+373
+00:10:50,026 --> 00:10:52,736 A:middle
+for viewing the content
+
+374
+right from this menu.
+
+375
+00:10:52,736 --> 00:10:57,976 A:middle
+Now at the top part of
+
+376
+this window, the top pane
+
+377
+00:10:57,976 --> 00:10:59,826 A:middle
+of this window, is
+
+378
+the Model Viewer.
+
+379
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+380
+00:10:59,826 --> 00:11:01,976 A:middle
+And this is where you
+
+381
+see how the objects
+
+382
+00:11:02,326 --> 00:11:06,086 A:middle
+in the application
+
+383
+scripting model are reflected.
+
+384
+00:11:06,796 --> 00:11:11,496 A:middle
+On the left-hand side, typically
+
+385
+a scripting dictionary is
+
+386
+00:11:11,496 --> 00:11:15,256 A:middle
+grouped into suites, and these
+
+387
+suites are usually grouped
+
+388
+00:11:15,256 --> 00:11:17,806 A:middle
+by functionality,
+
+389
+by what they do.
+
+390
+00:11:18,116 --> 00:11:20,046 A:middle
+In this particular
+
+391
+example you'll see
+
+392
+00:11:20,046 --> 00:11:21,666 A:middle
+that there's multiple suites.
+
+393
+00:11:22,096 --> 00:11:23,716 A:middle
+There's suites for iWork.
+
+394
+00:11:24,206 --> 00:11:27,766 A:middle
+Because Keynote is part of the
+
+395
+iWork family of applications,
+
+396
+00:11:28,546 --> 00:11:31,486 A:middle
+the iWork Suites
+
+397
+of common objects
+
+398
+00:11:31,486 --> 00:11:34,076 A:middle
+and common commands
+
+399
+are included there.
+
+400
+00:11:34,296 --> 00:11:37,286 A:middle
+And then Keynote has
+
+401
+its own suite of things
+
+402
+00:11:37,286 --> 00:11:39,946 A:middle
+that are particular for
+
+403
+the Keynote application.
+
+404
+00:11:39,946 --> 00:11:42,936 A:middle
+And then once the
+
+405
+suite is selected,
+
+406
+00:11:43,336 --> 00:11:47,566 A:middle
+you'll see in the next column
+
+407
+the methods and the classes
+
+408
+00:11:47,566 --> 00:11:50,146 A:middle
+that belong to that
+
+409
+particular suite.
+
+410
+00:11:50,146 --> 00:11:53,126 A:middle
+So here we have commands
+
+411
+like Export,
+
+412
+00:11:53,476 --> 00:11:55,746 A:middle
+where you would export
+
+413
+a presentation.
+
+414
+00:11:55,746 --> 00:11:57,796 A:middle
+And you see classes
+
+415
+like document.
+
+416
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+417
+00:11:58,366 --> 00:12:02,136 A:middle
+And then when you select a
+
+418
+class, you'll see the elements
+
+419
+00:12:02,356 --> 00:12:06,026 A:middle
+that belong to that class
+
+420
+in the right-hand column,
+
+421
+00:12:06,376 --> 00:12:10,096 A:middle
+and also the properties
+
+422
+of that particular class.
+
+423
+00:12:10,096 --> 00:12:14,126 A:middle
+And here you see the properties
+
+424
+of a Keynote document.
+
+425
+00:12:14,896 --> 00:12:18,146 A:middle
+Now for further information
+
+426
+and detail about these,
+
+427
+00:12:18,396 --> 00:12:21,666 A:middle
+in the bottom half of the
+
+428
+window is the dictionary viewer.
+
+429
+00:12:21,666 --> 00:12:25,426 A:middle
+And the dictionary viewer
+
+430
+contains the definitions for all
+
+431
+00:12:25,426 --> 00:12:27,146 A:middle
+of those particular elements.
+
+432
+00:12:27,256 --> 00:12:29,496 A:middle
+So when you want to
+
+433
+know about, well,
+
+434
+00:12:29,496 --> 00:12:32,466 A:middle
+how do I script the Finder,
+
+435
+or how do I script Numbers,
+
+436
+00:12:32,756 --> 00:12:35,766 A:middle
+how do I script Keynote,
+
+437
+how do I script Aperture?
+
+438
+00:12:36,376 --> 00:12:40,146 A:middle
+You open a dictionary and this
+
+439
+is where you learn and explore
+
+440
+00:12:40,306 --> 00:12:43,006 A:middle
+to find out how to
+
+441
+control those applications.
+
+442
+00:12:43,636 --> 00:12:46,756 A:middle
+So that's the scripting
+
+443
+dictionary,
+
+444
+00:12:46,756 --> 00:12:49,026 A:middle
+and that's the Script
+
+445
+Editor application.
+
+446
+00:12:49,026 --> 00:12:53,546 A:middle
+So, let me get out of the way
+
+447
+and bring up David Steinberg,
+
+448
+00:12:53,846 --> 00:12:56,296 A:middle
+who's the newest
+
+449
+member of our team,
+
+450
+00:12:56,296 --> 00:12:58,976 A:middle
+to show you JavaScript
+
+451
+for Automation.
+
+452
+00:12:59,206 --> 00:12:59,996 A:middle
+Enjoy this [applause].
+
+453
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+454
+00:13:02,226 --> 00:13:02,946 A:middle
+>> Thank you, Sal.
+
+455
+00:13:03,856 --> 00:13:04,596 A:middle
+Hello, everyone.
+
+456
+00:13:04,596 --> 00:13:06,256 A:middle
+Thank you for being here.
+
+457
+00:13:06,256 --> 00:13:07,206 A:middle
+It's a great honor.
+
+458
+00:13:07,286 --> 00:13:09,546 A:middle
+I'm really excited to be showing
+
+459
+you this awesome new feature
+
+460
+00:13:09,846 --> 00:13:12,606 A:middle
+of OS X Yosemite,
+
+461
+JavaScript for Automation.
+
+462
+00:13:13,066 --> 00:13:17,586 A:middle
+So today's talk will cover what
+
+463
+JavaScript for Automation is
+
+464
+00:13:17,966 --> 00:13:21,386 A:middle
+and how it works, how you can
+
+465
+use JavaScript for Automation
+
+466
+00:13:21,826 --> 00:13:23,726 A:middle
+from basic to more
+
+467
+advanced techniques,
+
+468
+00:13:24,236 --> 00:13:25,106 A:middle
+and finally we'll talk
+
+469
+00:13:25,106 --> 00:13:27,446 A:middle
+about where you can use
+
+470
+JavaScript for Automation.
+
+471
+00:13:28,036 --> 00:13:32,466 A:middle
+So to talk about what
+
+472
+JavaScript for Automation is,
+
+473
+00:13:33,186 --> 00:13:36,906 A:middle
+let's take a look at
+
+474
+the underlying pieces.
+
+475
+00:13:37,056 --> 00:13:39,576 A:middle
+Automation allows you
+
+476
+to accomplish tasks
+
+477
+00:13:39,746 --> 00:13:43,056 A:middle
+on your Mac automatically,
+
+478
+from simple tasks,
+
+479
+00:13:43,516 --> 00:13:46,776 A:middle
+such as changing the name of
+
+480
+a hundred files all at once,
+
+481
+00:13:47,276 --> 00:13:51,436 A:middle
+to more complex tasks, such as
+
+482
+sending personalized directions
+
+483
+00:13:51,486 --> 00:13:53,436 A:middle
+to guests before a
+
+484
+party you're having.
+
+485
+00:13:54,626 --> 00:13:58,656 A:middle
+I'd like to demonstrate the
+
+486
+power of Automation to you now.
+
+487
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+488
+00:13:59,536 --> 00:14:02,026 A:middle
+So I work for Acme
+
+489
+Widgets, we're a company
+
+490
+00:14:02,026 --> 00:14:03,956 A:middle
+that makes widgets,
+
+491
+as you might expect.
+
+492
+00:14:04,706 --> 00:14:07,466 A:middle
+We have three main
+
+493
+clients, Japan, USA,
+
+494
+00:14:07,466 --> 00:14:10,976 A:middle
+and then across Europe, and here
+
+495
+I have a chart detailing some
+
+496
+00:14:10,976 --> 00:14:13,826 A:middle
+of our widgets' prices and
+
+497
+the regions they go to,
+
+498
+00:14:13,826 --> 00:14:15,796 A:middle
+and the particular
+
+499
+currency, and so on.
+
+500
+00:14:16,486 --> 00:14:19,666 A:middle
+And now I have four
+
+501
+upcoming presentations.
+
+502
+00:14:20,246 --> 00:14:22,856 A:middle
+First, I have to give a
+
+503
+presentation to the president
+
+504
+00:14:22,856 --> 00:14:26,006 A:middle
+of the company about all of
+
+505
+the regions that we work with,
+
+506
+00:14:26,446 --> 00:14:28,976 A:middle
+all of their individual
+
+507
+prices, currencies, and so on,
+
+508
+00:14:29,056 --> 00:14:31,376 A:middle
+and then I have to give
+
+509
+presentations to each
+
+510
+00:14:31,376 --> 00:14:35,006 A:middle
+of those regions only detailing
+
+511
+the particular information
+
+512
+00:14:35,006 --> 00:14:36,236 A:middle
+that pertains to that region.
+
+513
+00:14:36,976 --> 00:14:38,466 A:middle
+So, now I'm thinking, okay,
+
+514
+00:14:38,526 --> 00:14:39,846 A:middle
+I have four Keynotes
+
+515
+I have to make.
+
+516
+00:14:40,506 --> 00:14:41,726 A:middle
+Well, let's start
+
+517
+with the first.
+
+518
+00:14:41,826 --> 00:14:45,086 A:middle
+I have all my data here,
+
+519
+it's formatted as I want it,
+
+520
+00:14:45,366 --> 00:14:47,586 A:middle
+I have some images that I
+
+521
+can use related to this data.
+
+522
+00:14:47,586 --> 00:14:51,006 A:middle
+How about I write a script
+
+523
+that does this for me?
+
+524
+00:14:51,636 --> 00:14:53,556 A:middle
+Well, I've done just that.
+
+525
+00:14:53,996 --> 00:14:56,926 A:middle
+So here I have a script, don't
+
+526
+worry about understanding all
+
+527
+00:14:56,926 --> 00:14:59,836 A:middle
+of it at the moment, but it's a
+
+528
+JavaScript for Automation script
+
+529
+00:14:59,836 --> 00:15:02,196 A:middle
+that uses this Numbers document
+
+530
+00:15:02,616 --> 00:15:05,236 A:middle
+and produces a full slide
+
+531
+deck for me in Keynote.
+
+532
+00:15:05,756 --> 00:15:09,796 A:middle
+So if I run this here, we see
+
+533
+our slides are being created
+
+534
+00:15:09,846 --> 00:15:13,776 A:middle
+for us with the information
+
+535
+that we got from that data,
+
+536
+00:15:13,776 --> 00:15:17,466 A:middle
+and now we have an entire slide
+
+537
+deck ready for my president
+
+538
+00:15:17,466 --> 00:15:19,596 A:middle
+to see, detailing
+
+539
+all of our widgets,
+
+540
+00:15:19,876 --> 00:15:22,756 A:middle
+their prices per region,
+
+541
+currency, and so on.
+
+542
+00:15:23,036 --> 00:15:23,766 A:middle
+This is perfect.
+
+543
+00:15:24,326 --> 00:15:27,476 A:middle
+Okay, so I've accomplished
+
+544
+one, completely automatically.
+
+545
+00:15:27,586 --> 00:15:31,326 A:middle
+I have three more to do,
+
+546
+and each of those are going
+
+547
+00:15:31,326 --> 00:15:33,186 A:middle
+to be pretty much
+
+548
+the exact same.
+
+549
+00:15:33,406 --> 00:15:36,346 A:middle
+Same number of slides, same
+
+550
+images, same information,
+
+551
+00:15:36,746 --> 00:15:39,546 A:middle
+changed per region with
+
+552
+particular currency and so on.
+
+553
+00:15:40,116 --> 00:15:42,716 A:middle
+And in fact, all of that
+
+554
+information is already
+
+555
+00:15:42,716 --> 00:15:45,386 A:middle
+in this presentation I have
+
+556
+here, I just need to slim it
+
+557
+00:15:45,386 --> 00:15:46,576 A:middle
+down for each version.
+
+558
+00:15:47,426 --> 00:15:49,076 A:middle
+So I wrote myself
+
+559
+a helper script,
+
+560
+00:15:49,236 --> 00:15:50,586 A:middle
+I'm going to use
+
+561
+it multiple times,
+
+562
+00:15:50,586 --> 00:15:52,216 A:middle
+so I put it in my script menu.
+
+563
+00:15:52,886 --> 00:15:55,176 A:middle
+And what this does
+
+564
+is it lets me say,
+
+565
+00:15:55,696 --> 00:15:57,016 A:middle
+where am I presenting today?
+
+566
+00:15:57,086 --> 00:15:59,716 A:middle
+Well, today I'm going to
+
+567
+be presenting in Japan.
+
+568
+00:15:59,816 --> 00:16:03,086 A:middle
+So I just slim down my
+
+569
+Keynote to the few slides
+
+570
+00:16:03,086 --> 00:16:04,276 A:middle
+that are important, put it
+
+571
+00:16:04,276 --> 00:16:06,676 A:middle
+in presentation mode
+
+572
+and I'm able to go.
+
+573
+00:16:06,676 --> 00:16:08,186 A:middle
+Hello everyone, thank
+
+574
+you for being here.
+
+575
+00:16:08,186 --> 00:16:09,236 A:middle
+Let's talk about prices.
+
+576
+00:16:09,236 --> 00:16:10,716 A:middle
+It's been a real
+
+577
+pleasure, have a good day.
+
+578
+00:16:11,496 --> 00:16:13,586 A:middle
+Now [laughter], right?
+
+579
+00:16:14,086 --> 00:16:17,296 A:middle
+Now, I'm going to be giving
+
+580
+a presentation for the USA.
+
+581
+00:16:17,796 --> 00:16:20,566 A:middle
+Okay, I don't want to make
+
+582
+another slide deck all together,
+
+583
+00:16:20,566 --> 00:16:23,116 A:middle
+I'm going to use my nice
+
+584
+little helper here, USA.
+
+585
+00:16:23,416 --> 00:16:24,906 A:middle
+Hello everybody, thank
+
+586
+you for being here.
+
+587
+00:16:24,906 --> 00:16:26,006 A:middle
+Let's talk some dollars.
+
+588
+00:16:26,006 --> 00:16:27,716 A:middle
+It's been a real
+
+589
+pleasure, have a nice day.
+
+590
+00:16:28,386 --> 00:16:28,936 A:middle
+Beautiful.
+
+591
+00:16:29,176 --> 00:16:34,006 A:middle
+That entire automatable
+
+592
+process was automated for me
+
+593
+00:16:34,236 --> 00:16:35,936 A:middle
+with just a couple little
+
+594
+scripts that I wrote.
+
+595
+00:16:36,546 --> 00:16:39,736 A:middle
+That made my life easier,
+
+596
+got my work done faster.
+
+597
+00:16:40,086 --> 00:16:42,186 A:middle
+And that is the power
+
+598
+of Automation.
+
+599
+00:16:44,516 --> 00:16:48,696 A:middle
+[ Applause ]
+
+600
+00:16:49,196 --> 00:16:52,126 A:middle
+Those demos were made possible
+
+601
+by scripting applications,
+
+602
+00:16:52,606 --> 00:16:55,696 A:middle
+and applications that are built
+
+603
+using Cocoa automatically have a
+
+604
+00:16:55,696 --> 00:16:58,406 A:middle
+certain level of scriptability,
+
+605
+such as being able
+
+606
+00:16:58,406 --> 00:17:00,106 A:middle
+to be told to open, or to print.
+
+607
+
+608
+00:17:01,046 --> 00:17:02,016 A:middle
+And a wide variety
+
+609
+00:17:02,016 --> 00:17:04,415 A:middle
+of applications have fully
+
+610
+embraced scriptability,
+
+611
+00:17:04,836 --> 00:17:07,455 A:middle
+detailing the Object
+
+612
+Model of the application
+
+613
+00:17:07,766 --> 00:17:13,376 A:middle
+and offering rich suites of
+
+614
+functionality beyond the basics.
+
+615
+00:17:13,935 --> 00:17:17,506 A:middle
+Apple events are the underlying
+
+616
+communication mechanism behind
+
+617
+00:17:17,506 --> 00:17:18,566 A:middle
+application scripting.
+
+618
+00:17:19,386 --> 00:17:22,026 A:middle
+They provide access to the
+
+619
+scriptable pieces and parts
+
+620
+00:17:22,026 --> 00:17:24,116 A:middle
+of an application
+
+621
+that are defined
+
+622
+00:17:24,116 --> 00:17:27,116 A:middle
+in an application's scripting
+
+623
+dictionary, as Sal showed,
+
+624
+00:17:27,715 --> 00:17:31,286 A:middle
+detailing what objects can
+
+625
+be interacted with and how.
+
+626
+00:17:31,426 --> 00:17:32,816 A:middle
+So when you script
+
+627
+an application
+
+628
+00:17:33,126 --> 00:17:36,496 A:middle
+in whatever language you may,
+
+629
+its scripting dictionary is read
+
+630
+00:17:36,496 --> 00:17:37,996 A:middle
+and then Apple events are used
+
+631
+00:17:37,996 --> 00:17:39,436 A:middle
+to communicate with
+
+632
+the application.
+
+633
+00:17:40,446 --> 00:17:42,696 A:middle
+So let's take a look at an
+
+634
+example of an Object Model.
+
+635
+00:17:43,266 --> 00:17:47,576 A:middle
+Here we have Mail, which
+
+636
+has an application object
+
+637
+00:17:48,376 --> 00:17:52,176 A:middle
+with an inbox property, with
+
+638
+a messages element array,
+
+639
+00:17:52,576 --> 00:17:54,806 A:middle
+with each element
+
+640
+individually accessible.
+
+641
+00:17:55,466 --> 00:17:58,556 A:middle
+So for example, we could
+
+642
+pinpoint the second message
+
+643
+00:17:58,556 --> 00:18:02,486 A:middle
+of the inbox of the application
+
+644
+mail, as an object specifier,
+
+645
+
+646
+00:18:02,846 --> 00:18:05,286 A:middle
+or a reference to
+
+647
+that particular object
+
+648
+00:18:05,286 --> 00:18:07,226 A:middle
+in that particular application.
+
+649
+00:18:08,736 --> 00:18:10,766 A:middle
+This is great, we've
+
+650
+looked really closely
+
+651
+00:18:10,766 --> 00:18:13,446 A:middle
+at the things behind Automation
+
+652
+and application scripting.
+
+653
+00:18:14,216 --> 00:18:16,876 A:middle
+Now let's talk about
+
+654
+JavaScript and how the power
+
+655
+00:18:16,876 --> 00:18:18,606 A:middle
+of Automation was brought to it.
+
+656
+00:18:19,766 --> 00:18:23,396 A:middle
+JavaScript is a scripting
+
+657
+language with C-like syntax
+
+658
+00:18:23,596 --> 00:18:25,456 A:middle
+and objects with
+
+659
+prototype-based inheritance.
+
+660
+00:18:26,096 --> 00:18:26,886 A:middle
+It's most well known
+
+661
+00:18:26,886 --> 00:18:29,686 A:middle
+in the browser being the
+
+662
+scripting language of HTML5.
+
+663
+00:18:29,756 --> 00:18:32,226 A:middle
+But it's also become
+
+664
+quite popular
+
+665
+00:18:32,226 --> 00:18:36,316 A:middle
+as a server-side scripting
+
+666
+language, evidenced by Node.js.
+
+667
+00:18:36,716 --> 00:18:40,036 A:middle
+JavaScript on OS X is
+
+668
+powered by JavaScriptCore,
+
+669
+00:18:40,216 --> 00:18:42,196 A:middle
+the engine used by
+
+670
+WebKit and Safari.
+
+671
+00:18:44,166 --> 00:18:47,686 A:middle
+JavaScript for Automation
+
+672
+is built on JavaScriptCore.
+
+673
+00:18:48,326 --> 00:18:51,576 A:middle
+It's using the modern JavaScript
+
+674
+environment, and it's a kind
+
+675
+00:18:51,576 --> 00:18:52,916 A:middle
+of server-side JavaScript,
+
+676
+00:18:53,196 --> 00:18:56,336 A:middle
+or as we like to call it
+
+677
+OS Automation JavaScript.
+
+678
+00:18:56,866 --> 00:18:58,946 A:middle
+And while the underlying
+
+679
+engine is the same,
+
+680
+00:18:59,466 --> 00:19:01,296 A:middle
+JavaScript for Automation
+
+681
+is quite different
+
+682
+
+683
+00:19:01,296 --> 00:19:02,646 A:middle
+from running scripts
+
+684
+in your browser.
+
+685
+00:19:03,376 --> 00:19:04,986 A:middle
+When you use JavaScript
+
+686
+for Automation,
+
+687
+00:19:05,056 --> 00:19:08,096 A:middle
+you can do everything that
+
+688
+you as the Mac user can do.
+
+689
+00:19:08,096 --> 00:19:10,516 A:middle
+And this is very different
+
+690
+from browser scripts
+
+691
+00:19:10,516 --> 00:19:12,276 A:middle
+that don't have access
+
+692
+to your personal data
+
+693
+00:19:12,486 --> 00:19:14,676 A:middle
+or the applications on your Mac.
+
+694
+00:19:15,106 --> 00:19:17,626 A:middle
+And in browser scripts you
+
+695
+might expect a window object
+
+696
+00:19:17,626 --> 00:19:20,216 A:middle
+or a document object, but you're
+
+697
+not going to have those here.
+
+698
+00:19:20,216 --> 00:19:21,686 A:middle
+You have a host of
+
+699
+different objects
+
+700
+00:19:21,686 --> 00:19:24,906 A:middle
+that you can interact
+
+701
+with, to automate your Mac.
+
+702
+00:19:25,196 --> 00:19:27,646 A:middle
+So how exactly was this
+
+703
+brought to JavaScript?
+
+704
+00:19:28,436 --> 00:19:31,626 A:middle
+Well to recap, applications
+
+705
+have scripting dictionaries
+
+706
+00:19:31,696 --> 00:19:33,946 A:middle
+that detail what can be
+
+707
+interacted with and how,
+
+708
+00:19:34,536 --> 00:19:36,156 A:middle
+and Apple events are
+
+709
+used to communicate
+
+710
+00:19:36,156 --> 00:19:37,056 A:middle
+with those applications.
+
+711
+00:19:37,846 --> 00:19:38,566 A:middle
+So to bring this
+
+712
+00:19:38,616 --> 00:19:42,386 A:middle
+to JavaScriptCore we built the
+
+713
+JavaScript Apple Event Bridge
+
+714
+00:19:42,666 --> 00:19:44,426 A:middle
+that reads those
+
+715
+scripting dictionaries
+
+716
+00:19:44,756 --> 00:19:46,656 A:middle
+and then uses Apple
+
+717
+events to communicate
+
+718
+00:19:46,656 --> 00:19:47,716 A:middle
+with the applications.
+
+719
+00:19:48,476 --> 00:19:51,476 A:middle
+So now that we've seen what
+
+720
+JavaScript for Automation is
+
+721
+00:19:51,666 --> 00:19:54,946 A:middle
+and how it works, let's look
+
+722
+at how we can use JavaScript
+
+723
+00:19:54,946 --> 00:19:58,686 A:middle
+for Automation, beginning
+
+724
+with scripting applications.
+
+725
+00:19:59,336 --> 00:20:04,426 A:middle
+We introduced an
+
+726
+application object
+
+727
+
+728
+00:20:04,736 --> 00:20:07,816 A:middle
+into a JavaScript context,
+
+729
+which is the main entrance point
+
+730
+00:20:07,886 --> 00:20:10,406 A:middle
+to all of the scriptable pieces
+
+731
+and parts of an application.
+
+732
+00:20:11,276 --> 00:20:12,886 A:middle
+So, the most common way
+
+733
+00:20:13,016 --> 00:20:15,356 A:middle
+to access an application
+
+734
+is by name.
+
+735
+00:20:16,046 --> 00:20:18,066 A:middle
+Here we're accessing
+
+736
+the Safari application.
+
+737
+00:20:18,846 --> 00:20:21,526 A:middle
+And beyond name we can
+
+738
+also access applications
+
+739
+00:20:21,526 --> 00:20:25,816 A:middle
+by Bundle ID, by
+
+740
+Path, by Process ID,
+
+741
+00:20:25,816 --> 00:20:30,476 A:middle
+and we can get the application
+
+742
+that's running the script we're
+
+743
+00:20:30,476 --> 00:20:34,026 A:middle
+currently in by getting
+
+744
+the current application.
+
+745
+00:20:35,076 --> 00:20:36,986 A:middle
+So now that we have
+
+746
+this application object,
+
+747
+00:20:36,986 --> 00:20:39,306 A:middle
+we're going to want
+
+748
+to interact with it.
+
+749
+00:20:39,496 --> 00:20:43,156 A:middle
+Let's look at some examples of
+
+750
+the syntax for doing just that.
+
+751
+00:20:44,436 --> 00:20:47,636 A:middle
+Accessing properties is
+
+752
+accomplished using dot notation.
+
+753
+00:20:48,676 --> 00:20:51,406 A:middle
+To access elements, you
+
+754
+use square brackets.
+
+755
+00:20:52,586 --> 00:20:57,046 A:middle
+To call commands, you call them
+
+756
+as functions using parentheses.
+
+757
+00:20:57,906 --> 00:21:01,416 A:middle
+And you can create new objects
+
+758
+by calling class constructors
+
+759
+
+760
+00:21:01,616 --> 00:21:03,916 A:middle
+as functions, again,
+
+761
+using parentheses.
+
+762
+00:21:04,866 --> 00:21:07,496 A:middle
+So let's take a look at
+
+763
+getting and setting properties.
+
+764
+00:21:08,366 --> 00:21:12,336 A:middle
+Let's say we're scripting
+
+765
+Safari, we create a reference
+
+766
+00:21:12,386 --> 00:21:16,236 A:middle
+to the first document of
+
+767
+Safari, and now we can do things
+
+768
+00:21:16,266 --> 00:21:18,296 A:middle
+like get the document's URL.
+
+769
+00:21:19,576 --> 00:21:21,006 A:middle
+See the parentheses at the end?
+
+770
+00:21:21,616 --> 00:21:24,866 A:middle
+We're calling this property
+
+771
+as a function because we want
+
+772
+00:21:24,866 --> 00:21:27,886 A:middle
+to actually send the get
+
+773
+event to the application
+
+774
+00:21:27,916 --> 00:21:29,606 A:middle
+and get the string value.
+
+775
+00:21:29,996 --> 00:21:32,176 A:middle
+We don't simply want
+
+776
+to reference to the URL
+
+777
+00:21:32,176 --> 00:21:34,456 A:middle
+of the document, we want
+
+778
+to call it as a function
+
+779
+00:21:34,546 --> 00:21:35,866 A:middle
+and get that string value.
+
+780
+00:21:36,866 --> 00:21:38,976 A:middle
+We can also set the
+
+781
+document's URL,
+
+782
+00:21:39,126 --> 00:21:42,636 A:middle
+and this sends the set
+
+783
+event to the application
+
+784
+00:21:42,716 --> 00:21:43,916 A:middle
+and actually sets the URL.
+
+785
+00:21:46,156 --> 00:21:48,536 A:middle
+Let's say we want to get a
+
+786
+particular window in Safari.
+
+787
+00:21:49,756 --> 00:21:52,926 A:middle
+Well, there are three ways to
+
+788
+access elements in JavaScript
+
+789
+00:21:52,926 --> 00:22:00,316 A:middle
+for Automation: by
+
+790
+index, by name and by ID.
+
+791
+00:22:01,426 --> 00:22:03,676 A:middle
+Each has benefits and
+
+792
+risks associated with it
+
+793
+00:22:03,676 --> 00:22:05,816 A:middle
+and it's important you
+
+794
+understand the Object Model
+
+795
+00:22:05,816 --> 00:22:07,676 A:middle
+of the application that
+
+796
+you're scripting to know
+
+797
+00:22:07,676 --> 00:22:11,476 A:middle
+when it's best to use which.
+
+798
+00:22:11,656 --> 00:22:14,416 A:middle
+So already with just these
+
+799
+basics we can do some pretty
+
+800
+00:22:14,416 --> 00:22:15,156 A:middle
+amazing things.
+
+801
+00:22:15,876 --> 00:22:17,016 A:middle
+Let's put it to use.
+
+802
+00:22:18,686 --> 00:22:21,406 A:middle
+First, I'd like to just
+
+803
+open up Script Editor.
+
+804
+00:22:22,306 --> 00:22:25,416 A:middle
+We've got a little JavaScript
+
+805
+here, just straight JavaScript.
+
+806
+00:22:26,126 --> 00:22:29,796 A:middle
+Creating a string, some
+
+807
+text, and then I'm going
+
+808
+00:22:29,796 --> 00:22:32,136 A:middle
+to use console.log,
+
+809
+just like I expect
+
+810
+00:22:32,136 --> 00:22:33,716 A:middle
+in JavaScript, to log this text.
+
+811
+00:22:34,396 --> 00:22:37,136 A:middle
+And when I log this,
+
+812
+it's going to show
+
+813
+00:22:37,136 --> 00:22:39,216 A:middle
+up in the event log
+
+814
+on a lower panel.
+
+815
+00:22:39,216 --> 00:22:40,996 A:middle
+So I'm going to open
+
+816
+the event log,
+
+817
+00:22:41,766 --> 00:22:43,826 A:middle
+and if I run this script we see
+
+818
+00:22:43,826 --> 00:22:45,706 A:middle
+"hello world" was logged
+
+819
+just like we wanted.
+
+820
+00:22:46,126 --> 00:22:46,656 A:middle
+This is great.
+
+821
+00:22:46,656 --> 00:22:48,336 A:middle
+This is the JavaScript
+
+822
+I'm used to.
+
+823
+00:22:48,996 --> 00:22:50,426 A:middle
+It's doing exactly
+
+824
+what we wanted.
+
+825
+00:22:50,496 --> 00:22:52,416 A:middle
+This is hugely useful
+
+826
+for debugging,
+
+827
+00:22:52,416 --> 00:22:54,306 A:middle
+we can log throughout a
+
+828
+script to see what's going on.
+
+829
+00:22:55,046 --> 00:22:58,126 A:middle
+But let's say I wanted to
+
+830
+write some text and I wanted it
+
+831
+00:22:58,126 --> 00:23:01,726 A:middle
+to exist even after I quit
+
+832
+Script Editor, or perhaps I want
+
+833
+00:23:01,726 --> 00:23:05,056 A:middle
+to style that text, change
+
+834
+its font or color and so on.
+
+835
+00:23:06,226 --> 00:23:07,416 A:middle
+Now we can start interacting
+
+836
+00:23:07,416 --> 00:23:09,586 A:middle
+with applications
+
+837
+to accomplish that.
+
+838
+00:23:11,936 --> 00:23:14,766 A:middle
+So here we have a TextEdit
+
+839
+document named Log,
+
+840
+00:23:14,956 --> 00:23:15,826 A:middle
+and I'm going to use this
+
+841
+00:23:15,826 --> 00:23:19,576 A:middle
+across a couple demos
+
+842
+to write some text.
+
+843
+00:23:19,706 --> 00:23:21,986 A:middle
+First, this is a simple script,
+
+844
+00:23:23,696 --> 00:23:27,336 A:middle
+we access the TextEdit
+
+845
+application, we get a reference
+
+846
+00:23:27,456 --> 00:23:31,056 A:middle
+to the Log document, then
+
+847
+we set the document's text
+
+848
+00:23:31,276 --> 00:23:33,656 A:middle
+and we style its
+
+849
+font, size and color.
+
+850
+00:23:35,056 --> 00:23:37,616 A:middle
+So before I run this I'm
+
+851
+going to open the Event Log
+
+852
+00:23:37,616 --> 00:23:40,026 A:middle
+and we'll be able to see the
+
+853
+events that are being sent
+
+854
+00:23:40,026 --> 00:23:41,916 A:middle
+to this application
+
+855
+to accomplish this.
+
+856
+00:23:43,016 --> 00:23:44,186 A:middle
+So when I run this script,
+
+857
+00:23:45,016 --> 00:23:48,006 A:middle
+we see "I love JavaScript" was
+
+858
+logged just like we wanted,
+
+859
+00:23:48,266 --> 00:23:51,826 A:middle
+styled just liked we wanted, and
+
+860
+in the bottom here we see all
+
+861
+00:23:51,826 --> 00:23:54,286 A:middle
+of the events that were sent
+
+862
+to accomplish this task.
+
+863
+00:23:54,926 --> 00:23:56,936 A:middle
+So this is great, we have
+
+864
+some persistent text,
+
+865
+00:23:57,306 --> 00:23:59,056 A:middle
+it's been beautified
+
+866
+just like we wanted.
+
+867
+00:23:59,526 --> 00:24:01,206 A:middle
+But what if we want to
+
+868
+do this multiple times
+
+869
+
+870
+00:24:01,206 --> 00:24:02,106 A:middle
+from the same script?
+
+871
+00:24:03,016 --> 00:24:06,896 A:middle
+Well, instead of repeating the
+
+872
+functionality again and again,
+
+873
+00:24:06,896 --> 00:24:09,376 A:middle
+we're playing in JavaScript,
+
+874
+we can write a function.
+
+875
+00:24:10,326 --> 00:24:11,666 A:middle
+And I've done just that.
+
+876
+00:24:12,406 --> 00:24:15,546 A:middle
+Here we have a function that
+
+877
+accepts some text to log
+
+878
+00:24:15,546 --> 00:24:17,736 A:middle
+and an optional formatting
+
+879
+parameter.
+
+880
+00:24:18,566 --> 00:24:23,626 A:middle
+Then, just like before, we
+
+881
+access the TextEdit application,
+
+882
+00:24:23,966 --> 00:24:27,556 A:middle
+we get a reference to the
+
+883
+log document, but now instead
+
+884
+00:24:27,556 --> 00:24:31,036 A:middle
+of setting the document's entire
+
+885
+text, we're going to append
+
+886
+00:24:31,036 --> 00:24:32,496 A:middle
+to the last paragraph.
+
+887
+00:24:33,006 --> 00:24:35,726 A:middle
+Then we're going to style
+
+888
+based on formatting you pass in
+
+889
+00:24:36,176 --> 00:24:37,126 A:middle
+or some default values.
+
+890
+00:24:37,126 --> 00:24:40,856 A:middle
+Now that we have our log,
+
+891
+we call it three times
+
+892
+00:24:40,856 --> 00:24:44,716 A:middle
+at the bottom here, passing in
+
+893
+parameters for formatting twice,
+
+894
+00:24:44,986 --> 00:24:47,036 A:middle
+and the last time we
+
+895
+use default values.
+
+896
+00:24:47,796 --> 00:24:53,316 A:middle
+So if I run this script, we see
+
+897
+that our text was logged just
+
+898
+00:24:53,316 --> 00:24:55,536 A:middle
+like we wanted, styled
+
+899
+as we wanted.
+
+900
+00:24:55,536 --> 00:24:58,496 A:middle
+And this is great, we're able
+
+901
+to log as many times as we want,
+
+902
+00:24:58,656 --> 00:25:01,286 A:middle
+style any different way that
+
+903
+we choose, every single time.
+
+904
+
+905
+00:25:01,976 --> 00:25:07,206 A:middle
+So this is powerful stuff simply
+
+906
+by accessing an application,
+
+907
+00:25:07,206 --> 00:25:09,016 A:middle
+an element, and a
+
+908
+couple properties,
+
+909
+00:25:09,526 --> 00:25:11,926 A:middle
+right out of the box,
+
+910
+power at your fingertips,
+
+911
+00:25:12,256 --> 00:25:13,446 A:middle
+and it's really easy
+
+912
+to approach.
+
+913
+00:25:13,446 --> 00:25:18,486 A:middle
+Let's look at some other
+
+914
+ways that we might want
+
+915
+00:25:18,486 --> 00:25:19,806 A:middle
+to interact with applications.
+
+916
+00:25:21,796 --> 00:25:24,376 A:middle
+Let's say we're scripting Mail
+
+917
+and we want to access some
+
+918
+00:25:24,376 --> 00:25:25,646 A:middle
+of the messages in our inbox,
+
+919
+00:25:26,086 --> 00:25:28,536 A:middle
+but we don't want the entire
+
+920
+messages element array
+
+921
+00:25:28,536 --> 00:25:31,306 A:middle
+of the inbox, that's a whole
+
+922
+lot of messages usually.
+
+923
+00:25:31,846 --> 00:25:36,086 A:middle
+Let's say we want to get only
+
+924
+the messages whose subject
+
+925
+00:25:36,086 --> 00:25:36,876 A:middle
+is JavaScript.
+
+926
+00:25:38,056 --> 00:25:39,756 A:middle
+Using the special "whose" method
+
+927
+00:25:39,946 --> 00:25:42,086 A:middle
+of element arrays
+
+928
+we can do just that.
+
+929
+00:25:42,206 --> 00:25:45,316 A:middle
+By passing in a dictionary of
+
+930
+properties we'd like to match
+
+931
+00:25:45,316 --> 00:25:48,946 A:middle
+on those elements we now receive
+
+932
+an array only containing the
+
+933
+00:25:48,946 --> 00:25:52,746 A:middle
+elements that match.
+
+934
+00:25:53,346 --> 00:25:55,676 A:middle
+Objects have certain commands
+
+935
+that they can respond to
+
+936
+00:25:56,616 --> 00:25:58,856 A:middle
+and you can call those
+
+937
+commands as methods locally
+
+938
+00:25:58,986 --> 00:26:01,386 A:middle
+that send the command
+
+939
+events to the application.
+
+940
+
+941
+00:26:02,716 --> 00:26:04,436 A:middle
+So again, let's say
+
+942
+we're scripting Mail,
+
+943
+00:26:04,996 --> 00:26:08,666 A:middle
+we have a reference to the
+
+944
+first message of our inbox,
+
+945
+00:26:09,096 --> 00:26:10,676 A:middle
+and we want to open it.
+
+946
+00:26:10,846 --> 00:26:13,606 A:middle
+Well, we could tell
+
+947
+the message to open,
+
+948
+00:26:14,976 --> 00:26:17,876 A:middle
+we could also tell Mail
+
+949
+to open the message.
+
+950
+00:26:18,256 --> 00:26:20,056 A:middle
+And both of these are
+
+951
+entirely equivalent.
+
+952
+00:26:20,586 --> 00:26:24,416 A:middle
+Some commands take
+
+953
+named parameters,
+
+954
+00:26:25,166 --> 00:26:27,476 A:middle
+and so you accomplish this
+
+955
+by passing in a dictionary
+
+956
+00:26:27,476 --> 00:26:28,756 A:middle
+of those named parameters.
+
+957
+00:26:29,296 --> 00:26:32,206 A:middle
+Here, for example, we're
+
+958
+creating a reply to our message,
+
+959
+00:26:32,506 --> 00:26:33,856 A:middle
+we're going to reply
+
+960
+to everybody
+
+961
+00:26:34,266 --> 00:26:35,686 A:middle
+and we're not going
+
+962
+to open a window.
+
+963
+00:26:37,106 --> 00:26:41,076 A:middle
+Now remember, you can always
+
+964
+use the dictionary viewer
+
+965
+00:26:41,076 --> 00:26:44,656 A:middle
+in Script Editor to see
+
+966
+which named parameters go
+
+967
+00:26:44,656 --> 00:26:46,526 A:middle
+with which commands, which
+
+968
+commands can be called
+
+969
+00:26:46,526 --> 00:26:47,856 A:middle
+on which objects, and so on.
+
+970
+00:26:47,936 --> 00:26:49,866 A:middle
+It's a phenomenal
+
+971
+tool and really useful
+
+972
+00:26:49,866 --> 00:26:52,216 A:middle
+when you're building
+
+973
+more complex scripts.
+
+974
+00:26:54,476 --> 00:26:56,746 A:middle
+Some commands take
+
+975
+files as parameters,
+
+976
+00:26:57,606 --> 00:27:00,116 A:middle
+such as opening a
+
+977
+document using TextEdit.
+
+978
+
+979
+00:27:01,016 --> 00:27:04,386 A:middle
+So to accomplish this we've
+
+980
+introduced a path object
+
+981
+00:27:04,386 --> 00:27:07,176 A:middle
+into the environment that
+
+982
+you construct with a string
+
+983
+00:27:07,176 --> 00:27:10,066 A:middle
+that has a string with a file
+
+984
+path inside and now you can use
+
+985
+00:27:10,066 --> 00:27:13,636 A:middle
+that path object anywhere that a
+
+986
+file is expected as a parameter.
+
+987
+00:27:14,996 --> 00:27:17,056 A:middle
+So we could open our
+
+988
+document just like we wanted.
+
+989
+00:27:17,936 --> 00:27:20,546 A:middle
+Be aware that if you
+
+990
+pass a string instead
+
+991
+00:27:20,546 --> 00:27:22,906 A:middle
+of a path wherever
+
+992
+a file's expected,
+
+993
+00:27:22,906 --> 00:27:23,946 A:middle
+you will receive an error.
+
+994
+00:27:24,106 --> 00:27:28,046 A:middle
+So let's say we want to
+
+995
+create a document instead
+
+996
+00:27:28,046 --> 00:27:29,966 A:middle
+of simply opening
+
+997
+one in TextEdit.
+
+998
+00:27:31,206 --> 00:27:33,556 A:middle
+Well, we're scripting TextEdit,
+
+999
+00:27:34,176 --> 00:27:37,536 A:middle
+we can call the document class
+
+1000
+constructor as a function.
+
+1001
+00:27:38,476 --> 00:27:42,616 A:middle
+But now to actually create this
+
+1002
+object inside the application,
+
+1003
+00:27:42,706 --> 00:27:45,796 A:middle
+bring it to life, we're
+
+1004
+going to push the document
+
+1005
+00:27:46,126 --> 00:27:47,786 A:middle
+onto the documents
+
+1006
+element array.
+
+1007
+00:27:47,786 --> 00:27:51,106 A:middle
+And that actually creates
+
+1008
+it inside the application.
+
+1009
+00:27:51,666 --> 00:27:53,066 A:middle
+Then we can interact
+
+1010
+with it just
+
+1011
+00:27:53,066 --> 00:27:55,226 A:middle
+like any other objects
+
+1012
+inside the application.
+
+1013
+00:27:55,576 --> 00:27:56,946 A:middle
+We can set its text,
+
+1014
+for example.
+
+1015
+00:27:57,856 --> 00:28:01,736 A:middle
+And optionally, when you
+
+1016
+create objects, you can pass
+
+1017
+
+1018
+00:28:01,736 --> 00:28:04,156 A:middle
+in a dictionary of properties
+
+1019
+you'd like to have set
+
+1020
+00:28:04,216 --> 00:28:05,916 A:middle
+on that object when
+
+1021
+it's created.
+
+1022
+00:28:06,206 --> 00:28:09,046 A:middle
+Here we're creating a
+
+1023
+document, passing in some text
+
+1024
+00:28:09,046 --> 00:28:10,326 A:middle
+when we instantiate it.
+
+1025
+00:28:10,546 --> 00:28:12,896 A:middle
+We push again on the
+
+1026
+appropriate array,
+
+1027
+00:28:12,896 --> 00:28:15,136 A:middle
+and it's created
+
+1028
+inside the application,
+
+1029
+00:28:15,556 --> 00:28:18,486 A:middle
+living and breathing, ready
+
+1030
+for us to interact with.
+
+1031
+00:28:18,846 --> 00:28:21,306 A:middle
+So this is a wide
+
+1032
+range of functionality,
+
+1033
+00:28:21,376 --> 00:28:24,276 A:middle
+inherently available in
+
+1034
+applications, property access,
+
+1035
+00:28:24,276 --> 00:28:27,096 A:middle
+element access, calling
+
+1036
+commands, creating objects.
+
+1037
+00:28:27,786 --> 00:28:31,226 A:middle
+But there are script
+
+1038
+plug-ins, plug-ins for scripts
+
+1039
+00:28:31,666 --> 00:28:34,336 A:middle
+that allow you to extend the
+
+1040
+functionality of an application.
+
+1041
+00:28:35,026 --> 00:28:38,796 A:middle
+And the OS has a set of
+
+1042
+standard scripting additions
+
+1043
+00:28:38,996 --> 00:28:39,536 A:middle
+that it ships.
+
+1044
+00:28:40,086 --> 00:28:42,156 A:middle
+These are available from
+
+1045
+every scripting environment,
+
+1046
+00:28:42,976 --> 00:28:44,606 A:middle
+including JavaScript
+
+1047
+for Automation.
+
+1048
+00:28:45,576 --> 00:28:47,376 A:middle
+So let's say that we're
+
+1049
+scripting the current
+
+1050
+00:28:47,376 --> 00:28:49,286 A:middle
+application and we
+
+1051
+want to be able
+
+1052
+00:28:49,286 --> 00:28:50,306 A:middle
+to use these standard additions.
+
+1053
+00:28:51,146 --> 00:28:55,216 A:middle
+To do so we're going to set the
+
+1054
+includeStandardAdditions flag
+
+1055
+00:28:55,216 --> 00:28:59,276 A:middle
+to true, and then we can do
+
+1056
+things like tell the application
+
+1057
+00:28:59,276 --> 00:29:01,596 A:middle
+to beep, which is hugely
+
+1058
+useful for debugging,
+
+1059
+00:29:02,216 --> 00:29:04,696 A:middle
+tell the application
+
+1060
+to speak some text,
+
+1061
+00:29:05,206 --> 00:29:06,546 A:middle
+which can extend
+
+1062
+our functionality
+
+1063
+00:29:06,546 --> 00:29:07,476 A:middle
+to a wider audience.
+
+1064
+00:29:07,666 --> 00:29:10,866 A:middle
+We can also do things like
+
+1065
+display alerts and dialogues,
+
+1066
+00:29:11,126 --> 00:29:14,856 A:middle
+which is great because now
+
+1067
+we have user interaction
+
+1068
+00:29:15,056 --> 00:29:17,036 A:middle
+incorporated with
+
+1069
+scripting applications.
+
+1070
+00:29:18,866 --> 00:29:20,256 A:middle
+So we've covered a
+
+1071
+lot of different ways
+
+1072
+00:29:20,256 --> 00:29:22,286 A:middle
+that we can actually
+
+1073
+script applications,
+
+1074
+00:29:22,346 --> 00:29:23,876 A:middle
+their Object Models, and so on.
+
+1075
+00:29:24,726 --> 00:29:28,106 A:middle
+Let's look at other uses of
+
+1076
+JavaScript for Automation.
+
+1077
+00:29:29,376 --> 00:29:32,826 A:middle
+Remember earlier when we racked
+
+1078
+the logging functionality
+
+1079
+00:29:32,826 --> 00:29:35,256 A:middle
+in a function so we could use it
+
+1080
+multiple times from one script?
+
+1081
+00:29:36,476 --> 00:29:37,816 A:middle
+Well what if we wanted to log
+
+1082
+00:29:37,816 --> 00:29:40,086 A:middle
+from multiple scripts,
+
+1083
+not just one?
+
+1084
+00:29:41,106 --> 00:29:43,146 A:middle
+This is the perfect
+
+1085
+use of a library.
+
+1086
+00:29:43,676 --> 00:29:47,426 A:middle
+I've taken that log
+
+1087
+function and I've saved it
+
+1088
+00:29:47,426 --> 00:29:51,086 A:middle
+in a script named Toolbox in
+
+1089
+the Script Library's folder.
+
+1090
+00:29:51,476 --> 00:29:54,396 A:middle
+And now I can access this
+
+1091
+library and its functions
+
+1092
+00:29:54,396 --> 00:29:56,276 A:middle
+from any other script
+
+1093
+that I write.
+
+1094
+00:29:56,906 --> 00:30:01,936 A:middle
+To accomplish this I instantiate
+
+1095
+a library object by name,
+
+1096
+00:30:02,406 --> 00:30:06,946 A:middle
+and file extension is optional,
+
+1097
+and then I can those functions
+
+1098
+00:30:07,266 --> 00:30:09,556 A:middle
+as methods on that
+
+1099
+library object.
+
+1100
+00:30:09,916 --> 00:30:11,946 A:middle
+So this code would log
+
+1101
+just like we did before.
+
+1102
+00:30:12,696 --> 00:30:15,576 A:middle
+And the beautiful thing about
+
+1103
+Libraries is they can be written
+
+1104
+00:30:15,576 --> 00:30:17,696 A:middle
+in JavaScript and Apple Script,
+
+1105
+00:30:17,986 --> 00:30:19,836 A:middle
+and used in JavaScript
+
+1106
+for Automation.
+
+1107
+00:30:21,556 --> 00:30:23,036 A:middle
+So now let's take a look at how
+
+1108
+00:30:23,036 --> 00:30:25,736 A:middle
+to create applets using
+
+1109
+JavaScript for Automation.
+
+1110
+00:30:27,116 --> 00:30:29,966 A:middle
+Applets are applications
+
+1111
+saved by Script Editor,
+
+1112
+00:30:30,116 --> 00:30:33,126 A:middle
+and when you run an applet
+
+1113
+the script that's saved inside
+
+1114
+00:30:33,126 --> 00:30:34,226 A:middle
+is run.
+
+1115
+00:30:34,886 --> 00:30:37,346 A:middle
+Applets have a certain
+
+1116
+number of events
+
+1117
+00:30:37,486 --> 00:30:38,766 A:middle
+that you can create
+
+1118
+handlers for,
+
+1119
+00:30:39,066 --> 00:30:42,746 A:middle
+such as when the applet is
+
+1120
+run, when the applet is told
+
+1121
+00:30:42,746 --> 00:30:44,826 A:middle
+to open documents
+
+1122
+or print documents.
+
+1123
+00:30:45,506 --> 00:30:47,816 A:middle
+There's a special idle
+
+1124
+handler that allows you
+
+1125
+00:30:47,816 --> 00:30:49,136 A:middle
+to perform periodic tasks.
+
+1126
+00:30:49,986 --> 00:30:53,566 A:middle
+And you can also create handlers
+
+1127
+for when an applet is reopened,
+
+1128
+00:30:53,916 --> 00:30:54,896 A:middle
+or when an applet is quit.
+
+1129
+00:30:55,866 --> 00:30:58,946 A:middle
+And just like Libraries, you can
+
+1130
+have any other functions inside
+
+1131
+00:30:58,946 --> 00:31:00,646 A:middle
+your applet and those
+
+1132
+can be called.
+
+1133
+00:31:00,646 --> 00:31:04,826 A:middle
+So let's take a look at an
+
+1134
+example of a basic applet
+
+1135
+00:31:05,246 --> 00:31:07,176 A:middle
+that uses a Script Library.
+
+1136
+00:31:07,686 --> 00:31:13,556 A:middle
+Here we have our log document
+
+1137
+like before, and let's look
+
+1138
+00:31:13,556 --> 00:31:16,006 A:middle
+at the script inside
+
+1139
+of this applet here.
+
+1140
+00:31:16,616 --> 00:31:21,256 A:middle
+At the top we instantiate
+
+1141
+our Toolbox Library,
+
+1142
+00:31:21,796 --> 00:31:25,466 A:middle
+then in our run handler
+
+1143
+we log Run in green.
+
+1144
+00:31:26,256 --> 00:31:28,536 A:middle
+In our idle handler,
+
+1145
+we log Idle in orange.
+
+1146
+00:31:28,946 --> 00:31:31,266 A:middle
+And in quit handler,
+
+1147
+we log Quit in red.
+
+1148
+00:31:32,236 --> 00:31:36,526 A:middle
+So if I double click this
+
+1149
+applet to run it we see that Run
+
+1150
+00:31:36,526 --> 00:31:40,306 A:middle
+and Idle were logged just
+
+1151
+like we wanted, and if I go
+
+1152
+00:31:40,306 --> 00:31:42,916 A:middle
+and quit the applet, we see
+
+1153
+00:31:42,916 --> 00:31:45,256 A:middle
+that Quit was also
+
+1154
+logged, which is great.
+
+1155
+00:31:45,776 --> 00:31:47,046 A:middle
+This is exactly what we wanted.
+
+1156
+00:31:47,196 --> 00:31:50,366 A:middle
+And this is a very basic example
+
+1157
+of using a couple handlers
+
+1158
+00:31:50,366 --> 00:31:51,976 A:middle
+and an applet and
+
+1159
+using a Library.
+
+1160
+00:31:52,166 --> 00:31:53,956 A:middle
+But imagine the possibilities
+
+1161
+here.
+
+1162
+00:31:54,286 --> 00:31:56,766 A:middle
+This is double-clickable
+
+1163
+JavaScript sitting
+
+1164
+00:31:56,766 --> 00:31:58,736 A:middle
+on my desktop, ready to interact
+
+1165
+00:31:58,736 --> 00:32:00,426 A:middle
+with all the scriptable
+
+1166
+applications,
+
+1167
+00:32:00,906 --> 00:32:02,706 A:middle
+Script Libraries and more.
+
+1168
+00:32:04,066 --> 00:32:07,526 A:middle
+Speaking of more, we've looked
+
+1169
+at scripting the Object Model
+
+1170
+00:32:07,526 --> 00:32:10,186 A:middle
+of an application
+
+1171
+extensively, but what if we want
+
+1172
+00:32:10,186 --> 00:32:12,256 A:middle
+to script the user
+
+1173
+interface of an application?
+
+1174
+00:32:12,766 --> 00:32:17,406 A:middle
+This is accomplished
+
+1175
+by using accessibility,
+
+1176
+00:32:18,076 --> 00:32:21,426 A:middle
+which allows applications
+
+1177
+on your Mac to interact
+
+1178
+00:32:21,426 --> 00:32:23,626 A:middle
+with your Mac on your behalf.
+
+1179
+00:32:23,916 --> 00:32:26,726 A:middle
+System Events uses
+
+1180
+the accessibility APIs
+
+1181
+00:32:26,726 --> 00:32:29,156 A:middle
+to expose the user
+
+1182
+interface of an application.
+
+1183
+00:32:29,266 --> 00:32:31,176 A:middle
+And in JavaScript
+
+1184
+for Automation,
+
+1185
+00:32:31,386 --> 00:32:35,006 A:middle
+you use the System Events
+
+1186
+application to access the pieces
+
+1187
+00:32:35,006 --> 00:32:36,616 A:middle
+and parts of a user interface.
+
+1188
+00:32:36,956 --> 00:32:40,086 A:middle
+So let's look at an example.
+
+1189
+00:32:40,396 --> 00:32:43,326 A:middle
+First, we're going to access
+
+1190
+the System Events application.
+
+1191
+00:32:44,156 --> 00:32:47,506 A:middle
+Then we're going to
+
+1192
+access the Notes process
+
+1193
+00:32:47,776 --> 00:32:51,196 A:middle
+of the System Events processes
+
+1194
+elements array, and we're going
+
+1195
+00:32:51,196 --> 00:32:53,136 A:middle
+to set it to a variable,
+
+1196
+notesUI.
+
+1197
+00:32:54,146 --> 00:32:56,856 A:middle
+Now we can do things
+
+1198
+like close a window,
+
+1199
+00:32:57,186 --> 00:32:59,726 A:middle
+by clicking the first
+
+1200
+button of the first window
+
+1201
+00:32:59,726 --> 00:33:00,646 A:middle
+of Notes user interface.
+
+1202
+00:33:00,646 --> 00:33:04,236 A:middle
+Let's say we want to send some
+
+1203
+keystrokes to this application.
+
+1204
+00:33:04,616 --> 00:33:06,606 A:middle
+Well to do so, we're going
+
+1205
+00:33:06,606 --> 00:33:10,336 A:middle
+to access the Notes application
+
+1206
+itself and activate it,
+
+1207
+00:33:10,336 --> 00:33:11,596 A:middle
+bringing it to the front,
+
+1208
+00:33:12,006 --> 00:33:16,576 A:middle
+and then we could call the
+
+1209
+SystemEvents.keystroke command,
+
+1210
+00:33:17,026 --> 00:33:19,396 A:middle
+passing in 'm', using
+
+1211
+'command down'
+
+1212
+00:33:19,656 --> 00:33:21,806 A:middle
+to simulate a minimize event.
+
+1213
+00:33:22,716 --> 00:33:25,826 A:middle
+To use accessibility
+
+1214
+it must be enabled
+
+1215
+00:33:25,826 --> 00:33:28,086 A:middle
+in the Privacy preferences,
+
+1216
+for applications
+
+1217
+00:33:28,086 --> 00:33:29,946 A:middle
+like Script Editor,
+
+1218
+and so on, to use it.
+
+1219
+00:33:29,946 --> 00:33:32,296 A:middle
+And the first time you try
+
+1220
+to use it, accessibility,
+
+1221
+00:33:32,296 --> 00:33:34,926 A:middle
+you will be prompted
+
+1222
+to enable it.
+
+1223
+00:33:35,386 --> 00:33:37,066 A:middle
+Okay, so we've looked
+
+1224
+at another way
+
+1225
+00:33:37,066 --> 00:33:39,216 A:middle
+to script an application,
+
+1226
+its user interface.
+
+1227
+00:33:39,216 --> 00:33:42,686 A:middle
+We've looked at scripting Object
+
+1228
+Models, Libraries, and Applets.
+
+1229
+00:33:43,346 --> 00:33:46,076 A:middle
+Now let's look at a more
+
+1230
+advanced use of JavaScript
+
+1231
+00:33:46,076 --> 00:33:51,376 A:middle
+for Automation using system
+
+1232
+APIs, which provide access
+
+1233
+00:33:51,496 --> 00:33:54,796 A:middle
+to really powerful and important
+
+1234
+things like the file system
+
+1235
+00:33:55,006 --> 00:33:57,816 A:middle
+and Cocoa app development
+
+1236
+in JavaScript.
+
+1237
+00:33:59,896 --> 00:34:02,886 A:middle
+We introduced two objects
+
+1238
+into the environment
+
+1239
+00:34:03,376 --> 00:34:05,946 A:middle
+that are your means for
+
+1240
+interacting with system APIs.
+
+1241
+00:34:06,726 --> 00:34:08,216 A:middle
+ObjC and $.
+
+1242
+00:34:08,946 --> 00:34:10,835 A:middle
+And for those coming from
+
+1243
+a browser environment,
+
+1244
+00:34:10,906 --> 00:34:12,946 A:middle
+$ may mean something
+
+1245
+very special to you,
+
+1246
+00:34:13,335 --> 00:34:15,576 A:middle
+but in our environment
+
+1247
+it's a very different $.
+
+1248
+00:34:16,216 --> 00:34:22,085 A:middle
+ObjC can be used to do things
+
+1249
+like bridging JavaScript values
+
+1250
+00:34:22,246 --> 00:34:26,476 A:middle
+into Objective-C, bridging
+
+1251
+Objective-C objects
+
+1252
+00:34:26,536 --> 00:34:30,206 A:middle
+into JavaScript, and
+
+1253
+importing frameworks
+
+1254
+00:34:30,206 --> 00:34:31,196 A:middle
+that you'd like to use.
+
+1255
+00:34:32,666 --> 00:34:35,585 A:middle
+So once you've imported a
+
+1256
+framework you can access its
+
+1257
+00:34:35,585 --> 00:34:39,196 A:middle
+classes and functions and
+
+1258
+so on using the $ object,
+
+1259
+00:34:39,866 --> 00:34:44,076 A:middle
+and you can also call $ as
+
+1260
+a function, as a shorthand
+
+1261
+00:34:44,076 --> 00:34:46,815 A:middle
+for bridging JavaScript
+
+1262
+values into Objective-C.
+
+1263
+00:34:47,906 --> 00:34:51,246 A:middle
+So now let's talk about
+
+1264
+calling methods on objects.
+
+1265
+00:34:52,206 --> 00:34:55,416 A:middle
+Well, to begin let's look
+
+1266
+at some Objective-C code.
+
+1267
+00:34:56,286 --> 00:34:58,896 A:middle
+It's quite simple, we're
+
+1268
+going to create an NSString
+
+1269
+00:34:58,896 --> 00:35:01,096 A:middle
+and then we're going to
+
+1270
+write that string to a file.
+
+1271
+00:35:01,626 --> 00:35:04,946 A:middle
+This is the equivalent
+
+1272
+JavaScript
+
+1273
+00:35:04,946 --> 00:35:06,736 A:middle
+for Automation code
+
+1274
+to accomplish this.
+
+1275
+00:35:06,906 --> 00:35:08,926 A:middle
+And there are a couple key
+
+1276
+things to focus on here.
+
+1277
+00:35:09,866 --> 00:35:13,586 A:middle
+First, the Foundation
+
+1278
+Framework is available to you
+
+1279
+00:35:13,586 --> 00:35:15,916 A:middle
+out of the box when you're
+
+1280
+using JavaScript for Automation.
+
+1281
+00:35:16,356 --> 00:35:18,716 A:middle
+So we don't need to
+
+1282
+import Foundation.
+
+1283
+00:35:19,966 --> 00:35:24,196 A:middle
+Then, we use the $ object to
+
+1284
+access the NSString class,
+
+1285
+00:35:24,946 --> 00:35:28,186 A:middle
+we call alloc, and because
+
+1286
+it takes no parameters,
+
+1287
+00:35:28,186 --> 00:35:29,466 A:middle
+we don't need parentheses.
+
+1288
+00:35:29,656 --> 00:35:31,236 A:middle
+We do not use parentheses here.
+
+1289
+00:35:31,986 --> 00:35:34,846 A:middle
+Then, we call
+
+1290
+initWithUTF8String,
+
+1291
+00:35:35,296 --> 00:35:37,856 A:middle
+and we're going to be passing
+
+1292
+in a parameter, so we call it
+
+1293
+00:35:37,856 --> 00:35:39,426 A:middle
+as a function and
+
+1294
+pass in our parameter.
+
+1295
+00:35:40,826 --> 00:35:44,876 A:middle
+Now, the method to write to a
+
+1296
+file takes multiple parameters,
+
+1297
+00:35:45,326 --> 00:35:47,266 A:middle
+so we're going to
+
+1298
+convert the selector
+
+1299
+00:35:47,526 --> 00:35:50,526 A:middle
+to a JavaScript method
+
+1300
+name, that can catenating
+
+1301
+00:35:50,526 --> 00:35:53,476 A:middle
+and camelCasing the pieces
+
+1302
+together, and then we call it
+
+1303
+00:35:53,476 --> 00:35:56,066 A:middle
+as a function, passing in the
+
+1304
+parameters in the right order.
+
+1305
+00:35:56,566 --> 00:35:59,996 A:middle
+So now that we've seen
+
+1306
+how to write to a file,
+
+1307
+00:36:00,916 --> 00:36:02,036 A:middle
+let's actually see it in use.
+
+1308
+00:36:03,566 --> 00:36:05,206 A:middle
+This is a little script.
+
+1309
+00:36:05,306 --> 00:36:08,476 A:middle
+At the top we create an
+
+1310
+NSString with some text we'd
+
+1311
+00:36:08,476 --> 00:36:09,466 A:middle
+like to write to a file.
+
+1312
+00:36:10,366 --> 00:36:12,526 A:middle
+Then we create an
+
+1313
+NSString with a file path,
+
+1314
+00:36:12,526 --> 00:36:15,826 A:middle
+and we call this
+
+1315
+stringByExpandingTildeInPath
+
+1316
+00:36:16,126 --> 00:36:18,046 A:middle
+method on it to get
+
+1317
+the full path.
+
+1318
+00:36:18,726 --> 00:36:21,306 A:middle
+And then we write the
+
+1319
+string to that file.
+
+1320
+00:36:21,306 --> 00:36:23,186 A:middle
+And when we write this,
+
+1321
+00:36:23,666 --> 00:36:25,696 A:middle
+it's going to appear
+
+1322
+in this folder here.
+
+1323
+00:36:26,766 --> 00:36:30,656 A:middle
+So if I run this script,
+
+1324
+our file was created,
+
+1325
+00:36:30,656 --> 00:36:33,296 A:middle
+our text was written
+
+1326
+just like we wanted.
+
+1327
+00:36:33,626 --> 00:36:34,406 A:middle
+This is phenomenal.
+
+1328
+00:36:35,666 --> 00:36:39,936 A:middle
+And this is a simple example,
+
+1329
+but you can imagine the power
+
+1330
+00:36:39,936 --> 00:36:42,916 A:middle
+and utility that the system
+
+1331
+APIs bring to the JavaScript
+
+1332
+00:36:42,916 --> 00:36:44,116 A:middle
+for Automation environment.
+
+1333
+00:36:46,056 --> 00:36:51,856 A:middle
+Let's look at other ways that we
+
+1334
+can interact with these API's.
+
+1335
+00:36:51,856 --> 00:36:53,916 A:middle
+Let's say we create
+
+1336
+a new NSTask object.
+
+1337
+00:36:54,606 --> 00:36:57,696 A:middle
+Well, to access its properties
+
+1338
+we're going to use dot notation.
+
+1339
+00:36:58,516 --> 00:37:02,016 A:middle
+So we can access the running
+
+1340
+property, get its Boolean value
+
+1341
+00:37:02,016 --> 00:37:02,976 A:middle
+and react accordingly.
+
+1342
+00:37:02,976 --> 00:37:07,626 A:middle
+We could also set its
+
+1343
+launchPath property, like so.
+
+1344
+00:37:07,716 --> 00:37:09,456 A:middle
+This will actually
+
+1345
+set it on the object.
+
+1346
+00:37:10,636 --> 00:37:13,366 A:middle
+An interesting thing
+
+1347
+of a JavaScript
+
+1348
+00:37:13,366 --> 00:37:16,616 A:middle
+for Automation bridge,
+
+1349
+is the bridged nil.
+
+1350
+00:37:17,556 --> 00:37:20,556 A:middle
+So, nil in Objective-C
+
+1351
+is somewhat similar
+
+1352
+00:37:20,556 --> 00:37:22,606 A:middle
+to the undefined in JavaScript,
+
+1353
+00:37:22,936 --> 00:37:24,036 A:middle
+but they're not exactly
+
+1354
+the same,
+
+1355
+00:37:24,036 --> 00:37:25,386 A:middle
+and they differ in key ways.
+
+1356
+00:37:26,766 --> 00:37:29,346 A:middle
+In Objective-C it's absolutely
+
+1357
+valid to call a method
+
+1358
+00:37:29,346 --> 00:37:32,046 A:middle
+on a nil object, and you'll
+
+1359
+receive another nil object.
+
+1360
+00:37:32,446 --> 00:37:36,426 A:middle
+But in JavaScript, if you call
+
+1361
+a method on an undefined object,
+
+1362
+00:37:36,636 --> 00:37:37,626 A:middle
+you will receive an error.
+
+1363
+00:37:38,266 --> 00:37:41,506 A:middle
+Therefore, we do not
+
+1364
+bridge nil undefined,
+
+1365
+00:37:41,506 --> 00:37:43,566 A:middle
+we keep it as a bridged
+
+1366
+nil object
+
+1367
+00:37:43,706 --> 00:37:45,366 A:middle
+that you can interact with.
+
+1368
+00:37:46,876 --> 00:37:50,736 A:middle
+So to create a bridged nil
+
+1369
+object, we call the $ function
+
+1370
+00:37:50,736 --> 00:37:52,026 A:middle
+without any parameters.
+
+1371
+00:37:52,946 --> 00:37:55,196 A:middle
+Why might you want to
+
+1372
+create a bridged nil object,
+
+1373
+00:37:55,196 --> 00:37:55,796 A:middle
+you're asking?
+
+1374
+00:37:56,266 --> 00:37:59,216 A:middle
+Well, this allows you
+
+1375
+to accomplish things
+
+1376
+00:37:59,216 --> 00:38:00,306 A:middle
+like pass-by-reference.
+
+1377
+00:38:01,136 --> 00:38:04,916 A:middle
+So here we're creating a new
+
+1378
+NSXMLDocument, and we're going
+
+1379
+00:38:04,916 --> 00:38:08,146 A:middle
+to pass our bridged nil
+
+1380
+object, our error variable,
+
+1381
+00:38:08,396 --> 00:38:10,046 A:middle
+as the third and
+
+1382
+final parameter.
+
+1383
+00:38:10,046 --> 00:38:12,796 A:middle
+And what'll happen
+
+1384
+behind the scenes is
+
+1385
+00:38:12,796 --> 00:38:14,816 A:middle
+if an NSError object is created,
+
+1386
+00:38:14,976 --> 00:38:17,416 A:middle
+the bridged nil object
+
+1387
+will be replaced by it,
+
+1388
+00:38:17,746 --> 00:38:19,786 A:middle
+and now our error
+
+1389
+variable will point
+
+1390
+00:38:19,786 --> 00:38:21,116 A:middle
+at that and we can use that.
+
+1391
+00:38:21,676 --> 00:38:24,336 A:middle
+So once we've created our
+
+1392
+document, we can check
+
+1393
+00:38:24,536 --> 00:38:27,406 A:middle
+if it's nil by calling
+
+1394
+the isNil method on it,
+
+1395
+00:38:27,776 --> 00:38:31,356 A:middle
+and if it is nil we could,
+
+1396
+for example, log the user info
+
+1397
+00:38:31,406 --> 00:38:34,046 A:middle
+from the now populated
+
+1398
+error object.
+
+1399
+00:38:36,756 --> 00:38:40,376 A:middle
+Another exciting thing that
+
+1400
+you can do using system APIs is
+
+1401
+00:38:40,376 --> 00:38:41,746 A:middle
+subclassing objects.
+
+1402
+00:38:42,356 --> 00:38:45,946 A:middle
+So to accomplish this, you call
+
+1403
+the registerSubclass method
+
+1404
+00:38:46,066 --> 00:38:50,116 A:middle
+on the ObjC object, you pass
+
+1405
+in a name of your Subclass,
+
+1406
+00:38:50,936 --> 00:38:54,716 A:middle
+its superclass, although this
+
+1407
+is optional, and will default
+
+1408
+00:38:54,716 --> 00:39:00,066 A:middle
+to NSObject, any protocols
+
+1409
+that your class made here, too.
+
+1410
+00:39:01,366 --> 00:39:04,526 A:middle
+Properties are defined
+
+1411
+as an object
+
+1412
+00:39:04,996 --> 00:39:07,226 A:middle
+where the keys are the
+
+1413
+names of the property
+
+1414
+00:39:07,226 --> 00:39:09,576 A:middle
+and the values are the
+
+1415
+type of the property.
+
+1416
+00:39:10,196 --> 00:39:13,126 A:middle
+And methods are, again,
+
+1417
+00:39:13,126 --> 00:39:15,706 A:middle
+an object where the
+
+1418
+keys are the selector
+
+1419
+00:39:15,706 --> 00:39:18,576 A:middle
+and the value is an
+
+1420
+object detailing the types
+
+1421
+00:39:18,576 --> 00:39:20,546 A:middle
+of the method and
+
+1422
+its implementation.
+
+1423
+00:39:21,366 --> 00:39:24,676 A:middle
+Now if you're defining a
+
+1424
+function or a method, excuse me,
+
+1425
+00:39:24,936 --> 00:39:27,666 A:middle
+that's declared in a
+
+1426
+protocol or on a superclass,
+
+1427
+00:39:27,846 --> 00:39:30,936 A:middle
+the types are optional, but for
+
+1428
+demonstration purposes we'll
+
+1429
+00:39:30,936 --> 00:39:31,536 A:middle
+show them here.
+
+1430
+00:39:32,676 --> 00:39:33,846 A:middle
+So now let's put this to use.
+
+1431
+00:39:34,476 --> 00:39:36,146 A:middle
+Let's see using a subclass
+
+1432
+00:39:36,346 --> 00:39:40,446 A:middle
+and creating something
+
+1433
+using system APIs.
+
+1434
+00:39:40,656 --> 00:39:44,016 A:middle
+So here I have an applet, and
+
+1435
+this is the script inside,
+
+1436
+00:39:44,486 --> 00:39:47,596 A:middle
+and this produces a
+
+1437
+Cocoa application,
+
+1438
+00:39:47,596 --> 00:39:51,006 A:middle
+a temperature converter, nice
+
+1439
+little guy for us to use.
+
+1440
+00:39:51,356 --> 00:39:52,886 A:middle
+And there are two
+
+1441
+things I'd like to point
+
+1442
+00:39:52,886 --> 00:39:54,356 A:middle
+out before we actually run this.
+
+1443
+00:39:54,746 --> 00:39:57,486 A:middle
+You'll see at the top
+
+1444
+that we import Cocoa.
+
+1445
+00:39:57,726 --> 00:40:00,816 A:middle
+Now this allows us to access
+
+1446
+things like NSWindow, and so on.
+
+1447
+00:40:01,776 --> 00:40:03,736 A:middle
+We create our windows
+
+1448
+and our inputs,
+
+1449
+00:40:04,306 --> 00:40:06,676 A:middle
+and then we register
+
+1450
+our subclass,
+
+1451
+00:40:07,496 --> 00:40:09,906 A:middle
+named TemperatureConverter,
+
+1452
+that has two methods,
+
+1453
+00:40:10,086 --> 00:40:12,046 A:middle
+to convert from Celsius
+
+1454
+to Fahrenheit,
+
+1455
+00:40:12,196 --> 00:40:13,636 A:middle
+and from Fahrenheit to Celsius.
+
+1456
+00:40:14,356 --> 00:40:17,676 A:middle
+And you can see that all of the
+
+1457
+logic inside of these methods,
+
+1458
+00:40:17,676 --> 00:40:20,406 A:middle
+all of the math is
+
+1459
+in JavaScript.
+
+1460
+00:40:20,956 --> 00:40:24,406 A:middle
+Then we create a new
+
+1461
+TemperatureConverter object,
+
+1462
+00:40:24,846 --> 00:40:27,666 A:middle
+hook it up to our inputs, and
+
+1463
+bring the window to the front.
+
+1464
+00:40:28,526 --> 00:40:29,436 A:middle
+So let's run this.
+
+1465
+00:40:30,526 --> 00:40:33,866 A:middle
+Close this here, and if I double
+
+1466
+click this Applet to run it,
+
+1467
+00:40:35,596 --> 00:40:40,106 A:middle
+we have a nice little Cocoa
+
+1468
+application written entirely
+
+1469
+00:40:40,106 --> 00:40:40,846 A:middle
+in JavaScript.
+
+1470
+00:40:41,516 --> 00:40:43,546 A:middle
+[ Applause ]
+
+1471
+00:40:44,046 --> 00:40:45,246 A:middle
+Of course, it does
+
+1472
+what we promise.
+
+1473
+00:40:45,656 --> 00:40:48,026 A:middle
+We can convert our
+
+1474
+Fahrenheit to Celsius,
+
+1475
+00:40:48,026 --> 00:40:50,016 A:middle
+our Celsius to Fahrenheit
+
+1476
+and so on.
+
+1477
+00:40:50,196 --> 00:40:52,046 A:middle
+And this is a little example.
+
+1478
+00:40:52,596 --> 00:40:53,426 A:middle
+Look at this.
+
+1479
+00:40:53,426 --> 00:40:56,076 A:middle
+We can create a Cocoa
+
+1480
+application in JavaScript,
+
+1481
+00:40:56,186 --> 00:40:57,606 A:middle
+imagine what you
+
+1482
+can do from here.
+
+1483
+00:40:57,936 --> 00:40:59,456 A:middle
+With all this at
+
+1484
+your fingertips,
+
+1485
+00:40:59,616 --> 00:41:03,946 A:middle
+there is power ready to be used.
+
+1486
+00:41:03,946 --> 00:41:06,396 A:middle
+And definitely make sure
+
+1487
+to check out the JavaScript
+
+1488
+00:41:06,396 --> 00:41:07,736 A:middle
+for Automation for
+
+1489
+release notes,
+
+1490
+00:41:07,996 --> 00:41:10,596 A:middle
+where you can see other great
+
+1491
+things you can do using system
+
+1492
+00:41:10,596 --> 00:41:14,036 A:middle
+APIs, like binding C
+
+1493
+functions into the environment,
+
+1494
+00:41:15,276 --> 00:41:17,196 A:middle
+another mechanism for
+
+1495
+pass-by-reference,
+
+1496
+00:41:18,516 --> 00:41:20,976 A:middle
+and also passing functions
+
+1497
+where blocks are expected.
+
+1498
+00:41:24,596 --> 00:41:27,656 A:middle
+All right, so we've done
+
+1499
+a beautiful whirlwind tour
+
+1500
+00:41:27,656 --> 00:41:30,396 A:middle
+of all the ways we can use
+
+1501
+JavaScript for Automation,
+
+1502
+00:41:31,106 --> 00:41:34,046 A:middle
+from application scripting,
+
+1503
+libraries and applets,
+
+1504
+00:41:34,046 --> 00:41:36,426 A:middle
+UI scripting, using system APIs.
+
+1505
+00:41:36,676 --> 00:41:38,346 A:middle
+I'm sure each and every
+
+1506
+one of you is just itching
+
+1507
+00:41:38,346 --> 00:41:39,256 A:middle
+to get your hands on this.
+
+1508
+00:41:39,796 --> 00:41:40,896 A:middle
+I completely understand.
+
+1509
+00:41:41,216 --> 00:41:42,596 A:middle
+But before you do let's talk
+
+1510
+00:41:42,596 --> 00:41:44,996 A:middle
+about where you can use
+
+1511
+JavaScript for Automation.
+
+1512
+00:41:45,566 --> 00:41:50,386 A:middle
+So as all the demos have
+
+1513
+shown, you can use JavaScript
+
+1514
+00:41:50,386 --> 00:41:52,166 A:middle
+for Automation in Script Editor.
+
+1515
+00:41:52,786 --> 00:41:56,376 A:middle
+You can save Applets and
+
+1516
+Droplets from Script Editor,
+
+1517
+00:41:56,376 --> 00:41:59,616 A:middle
+as we saw, and run them.
+
+1518
+00:41:59,996 --> 00:42:03,116 A:middle
+As Sal mentioned, and you
+
+1519
+saw in the presentation demo,
+
+1520
+00:42:03,506 --> 00:42:05,906 A:middle
+you can save scripts in the
+
+1521
+system-wide Script Menu,
+
+1522
+00:42:05,906 --> 00:42:07,526 A:middle
+and this is phenomenal for
+
+1523
+scripts that you're going
+
+1524
+00:42:07,526 --> 00:42:10,936 A:middle
+to use repeatedly,
+
+1525
+again and again.
+
+1526
+00:42:11,096 --> 00:42:15,286 A:middle
+Automator, which allows
+
+1527
+you to produce workflows,
+
+1528
+00:42:15,606 --> 00:42:17,876 A:middle
+automating applications
+
+1529
+and processes on your Macs,
+
+1530
+00:42:18,546 --> 00:42:22,066 A:middle
+now has a run JavaScript
+
+1531
+Automator action
+
+1532
+00:42:22,486 --> 00:42:24,966 A:middle
+that lets you incorporate
+
+1533
+JavaScript for Automation
+
+1534
+00:42:25,236 --> 00:42:27,826 A:middle
+into your workflows,
+
+1535
+and once you've done
+
+1536
+00:42:27,876 --> 00:42:33,116 A:middle
+so you can save those workflows
+
+1537
+as services that can be used
+
+1538
+00:42:33,116 --> 00:42:35,326 A:middle
+from any application
+
+1539
+and across your system.
+
+1540
+00:42:35,876 --> 00:42:40,216 A:middle
+And finally, you can use
+
+1541
+JavaScript for Automation
+
+1542
+00:42:40,216 --> 00:42:43,806 A:middle
+in Terminal using the
+
+1543
+osascript command line tool.
+
+1544
+00:42:43,806 --> 00:42:46,506 A:middle
+And this is great, you
+
+1545
+can incorporate JavaScript
+
+1546
+00:42:46,506 --> 00:42:48,226 A:middle
+for Automation into
+
+1547
+a Bash script.
+
+1548
+00:42:48,546 --> 00:42:50,886 A:middle
+And for example, display
+
+1549
+an alert when you're
+
+1550
+00:42:50,886 --> 00:42:53,116 A:middle
+about to finish a
+
+1551
+long-running background process.
+
+1552
+00:42:53,856 --> 00:42:56,426 A:middle
+So we've seen some of the places
+
+1553
+where you can use JavaScript
+
+1554
+00:42:56,426 --> 00:43:01,616 A:middle
+for Automation already,
+
+1555
+now let's look at the rest.
+
+1556
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1557
+00:43:01,746 --> 00:43:05,376 A:middle
+Let me set the scene, I
+
+1558
+work as a photographer
+
+1559
+00:43:05,376 --> 00:43:08,826 A:middle
+in a travel magazine and I
+
+1560
+take pictures for our cover.
+
+1561
+00:43:09,226 --> 00:43:11,616 A:middle
+And every week I have to
+
+1562
+send those cover photos
+
+1563
+00:43:11,616 --> 00:43:12,736 A:middle
+to the same person
+
+1564
+00:43:13,276 --> 00:43:15,936 A:middle
+to be approved before I
+
+1565
+can submit them the print.
+
+1566
+00:43:16,956 --> 00:43:20,566 A:middle
+Every week I sent the same
+
+1567
+email message to the same person
+
+1568
+00:43:20,856 --> 00:43:23,126 A:middle
+and all I'm changing
+
+1569
+are the pictures.
+
+1570
+00:43:23,956 --> 00:43:28,726 A:middle
+So, I whipped up a little
+
+1571
+droplet here using the
+
+1572
+00:43:29,676 --> 00:43:34,166 A:middle
+openDocuments handler that
+
+1573
+accesses the mail application,
+
+1574
+00:43:34,346 --> 00:43:35,876 A:middle
+creates a new mail message
+
+1575
+00:43:35,876 --> 00:43:37,946 A:middle
+for us using some
+
+1576
+pre-canned content.
+
+1577
+00:43:38,686 --> 00:43:43,306 A:middle
+It then uses the Contact
+
+1578
+application to get my recipient
+
+1579
+00:43:43,306 --> 00:43:46,396 A:middle
+of the email message, gets their
+
+1580
+name and their email address,
+
+1581
+00:43:47,326 --> 00:43:49,896 A:middle
+puts it on the message, and
+
+1582
+then for each of the pictures
+
+1583
+00:43:49,896 --> 00:43:52,066 A:middle
+that we've dropped on this
+
+1584
+droplet we're going to add them
+
+1585
+00:43:52,066 --> 00:43:55,146 A:middle
+as attachments to the message,
+
+1586
+activate mail and have it ready
+
+1587
+00:43:55,146 --> 00:43:58,336 A:middle
+to send whenever I'd like.
+
+1588
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1589
+00:43:58,576 --> 00:44:00,966 A:middle
+So, here are some of
+
+1590
+the photos I took.
+
+1591
+00:44:00,966 --> 00:44:03,766 A:middle
+I happen to know the last
+
+1592
+three are the most beautiful,
+
+1593
+00:44:03,766 --> 00:44:07,836 A:middle
+so I'm going to drop those
+
+1594
+right here onto this droplet.
+
+1595
+00:44:08,216 --> 00:44:11,726 A:middle
+Our mail message is
+
+1596
+created, the content's there,
+
+1597
+00:44:11,726 --> 00:44:15,006 A:middle
+our recipient's there and all
+
+1598
+the pictures we wanted are ready
+
+1599
+00:44:15,006 --> 00:44:15,846 A:middle
+for us to go.
+
+1600
+00:44:16,226 --> 00:44:22,706 A:middle
+My workflow was cut from
+
+1601
+100% down to 5, 10, 0%.
+
+1602
+00:44:23,416 --> 00:44:24,516 A:middle
+This made my life easier.
+
+1603
+00:44:25,196 --> 00:44:27,576 A:middle
+And while I have
+
+1604
+this script open,
+
+1605
+00:44:28,466 --> 00:44:30,486 A:middle
+I'd like to mention
+
+1606
+another problem that I have.
+
+1607
+00:44:31,376 --> 00:44:34,036 A:middle
+I read a lot of JavaScript for
+
+1608
+Automation, as you might expect,
+
+1609
+00:44:34,436 --> 00:44:36,676 A:middle
+and I regularly have
+
+1610
+Script Editor windows open,
+
+1611
+00:44:36,916 --> 00:44:38,396 A:middle
+multiples all at once.
+
+1612
+00:44:38,906 --> 00:44:41,346 A:middle
+Sometimes I'm running a
+
+1613
+Library that I'm going to use
+
+1614
+00:44:41,346 --> 00:44:43,216 A:middle
+in another script
+
+1615
+and I want to be able
+
+1616
+00:44:43,216 --> 00:44:44,596 A:middle
+to see everything
+
+1617
+at the same time.
+
+1618
+00:44:45,626 --> 00:44:49,086 A:middle
+And so before I hopped on the
+
+1619
+Automation train, I might've had
+
+1620
+00:44:49,086 --> 00:44:52,306 A:middle
+to drag these windows around
+
+1621
+the screen, resize them,
+
+1622
+00:44:52,306 --> 00:44:54,326 A:middle
+make sure corners aren't
+
+1623
+overlapping each other,
+
+1624
+00:44:54,326 --> 00:44:55,466 A:middle
+and so on and so forth.
+
+1625
+00:44:56,516 --> 00:44:58,896 A:middle
+But then I realized,
+
+1626
+why don't I automate it?
+
+1627
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1628
+00:44:59,546 --> 00:45:01,826 A:middle
+So I whipped up this script here
+
+1629
+00:45:02,456 --> 00:45:04,516 A:middle
+that accesses the Script
+
+1630
+Editor application,
+
+1631
+00:45:05,166 --> 00:45:08,636 A:middle
+it gets all of the windows, and
+
+1632
+then using the number of windows
+
+1633
+00:45:08,636 --> 00:45:12,206 A:middle
+and the size of the screen
+
+1634
+it carefully, meticulously,
+
+1635
+00:45:12,356 --> 00:45:15,106 A:middle
+programmatically
+
+1636
+tiles the windows
+
+1637
+00:45:15,106 --> 00:45:17,276 A:middle
+around the screen,
+
+1638
+based on their size.
+
+1639
+00:45:18,216 --> 00:45:21,416 A:middle
+So if I run this from the
+
+1640
+script menu, because I use it
+
+1641
+00:45:21,416 --> 00:45:24,056 A:middle
+so frequently, we see all
+
+1642
+00:45:24,056 --> 00:45:26,566 A:middle
+of my windows were tiled
+
+1643
+exactly as I wanted.
+
+1644
+00:45:26,866 --> 00:45:28,836 A:middle
+I can see everything
+
+1645
+all at the same time.
+
+1646
+00:45:29,036 --> 00:45:31,536 A:middle
+This is beautiful for
+
+1647
+developing multiple scripts
+
+1648
+00:45:31,536 --> 00:45:32,276 A:middle
+at the same time.
+
+1649
+00:45:33,326 --> 00:45:35,696 A:middle
+So I used JavaScript
+
+1650
+for Automation
+
+1651
+00:45:35,996 --> 00:45:38,886 A:middle
+to make writing JavaScript
+
+1652
+for Automation even easier.
+
+1653
+00:45:39,356 --> 00:45:42,606 A:middle
+It's powerful, it's
+
+1654
+flexible and it's everywhere.
+
+1655
+00:45:44,516 --> 00:45:49,686 A:middle
+[ Applause ]
+
+1656
+00:45:50,186 --> 00:45:53,586 A:middle
+Now, speaking of flexibility,
+
+1657
+and power, and everywhere,
+
+1658
+00:45:53,906 --> 00:45:57,796 A:middle
+in fact, we've proven to
+
+1659
+ourselves how easy it is
+
+1660
+00:45:58,006 --> 00:46:00,666 A:middle
+to extend popular Text
+
+1661
+Editors for JavaScript,
+
+1662
+00:46:00,926 --> 00:46:03,846 A:middle
+like Sublime Text, and
+
+1663
+TextMate, to extend
+
+1664
+00:46:03,846 --> 00:46:06,586 A:middle
+and to execute JavaScript
+
+1665
+for Automation code
+
+1666
+00:46:06,746 --> 00:46:08,526 A:middle
+that we're writing in
+
+1667
+those applications.
+
+1668
+00:46:09,576 --> 00:46:12,716 A:middle
+And to prove it to you how
+
+1669
+easy it is to write JavaScript
+
+1670
+00:46:12,716 --> 00:46:15,706 A:middle
+for Automation anywhere
+
+1671
+and run it, we've whipped
+
+1672
+00:46:15,706 --> 00:46:17,876 A:middle
+up this automated workflow
+
+1673
+00:46:18,296 --> 00:46:22,476 A:middle
+that uses the new Run
+
+1674
+JavaScript action,
+
+1675
+00:46:22,476 --> 00:46:26,726 A:middle
+and what we do is we
+
+1676
+access the content
+
+1677
+00:46:26,946 --> 00:46:30,776 A:middle
+of the front-most document,
+
+1678
+we evaluate that as a script,
+
+1679
+00:46:31,836 --> 00:46:35,866 A:middle
+then we display the result
+
+1680
+and we optionally copy it
+
+1681
+00:46:35,866 --> 00:46:37,936 A:middle
+to the clipboard if we'd like.
+
+1682
+00:46:39,156 --> 00:46:42,266 A:middle
+I've saved this as a service
+
+1683
+and I've attached that service
+
+1684
+00:46:42,266 --> 00:46:48,766 A:middle
+to a hotkey, so now my work is
+
+1685
+very, very slim and easy to do.
+
+1686
+00:46:49,886 --> 00:46:52,416 A:middle
+I would like you to notice
+
+1687
+I'm in TextEdit right now
+
+1688
+00:46:52,866 --> 00:46:53,736 A:middle
+and I have JavaScript
+
+1689
+00:46:53,736 --> 00:46:55,936 A:middle
+for Automation code
+
+1690
+written in a document.
+
+1691
+00:46:56,796 --> 00:46:59,386 A:middle
+So using that Automator
+
+1692
+workflow as a service attached
+
+1693
+00:46:59,386 --> 00:47:05,066 A:middle
+to this hotkey, I can
+
+1694
+run this, code executing
+
+1695
+00:47:05,226 --> 00:47:08,236 A:middle
+from the TextEdit IDE
+
+1696
+that I love so much,
+
+1697
+00:47:08,236 --> 00:47:10,536 A:middle
+that I've created using
+
+1698
+JavaScript for Automation.
+
+1699
+00:47:11,296 --> 00:47:14,166 A:middle
+We get our result, we
+
+1700
+could copy to the clipboard
+
+1701
+00:47:14,166 --> 00:47:15,466 A:middle
+but not right now, thank you.
+
+1702
+00:47:16,136 --> 00:47:18,566 A:middle
+And so, that's amazing.
+
+1703
+00:47:18,656 --> 00:47:20,966 A:middle
+I just run JavaScript for
+
+1704
+Automation from TextEdit,
+
+1705
+00:47:20,966 --> 00:47:23,526 A:middle
+and this is to show that
+
+1706
+you can use JavaScript
+
+1707
+00:47:23,526 --> 00:47:26,086 A:middle
+for Automation how you'd
+
+1708
+like, where you'd like.
+
+1709
+00:47:26,086 --> 00:47:27,776 A:middle
+It's extraordinarily extensible
+
+1710
+00:47:27,776 --> 00:47:29,406 A:middle
+and it's extraordinarily
+
+1711
+flexible.
+
+1712
+00:47:29,936 --> 00:47:36,386 A:middle
+And as we mentioned before,
+
+1713
+you can use JavaScript
+
+1714
+00:47:36,386 --> 00:47:39,436 A:middle
+for Automation from Terminal
+
+1715
+using the osascript command
+
+1716
+00:47:39,436 --> 00:47:39,856 A:middle
+line tool.
+
+1717
+00:47:41,116 --> 00:47:42,936 A:middle
+So, let's look at an example.
+
+1718
+00:47:42,936 --> 00:47:47,896 A:middle
+We're going to be calling the
+
+1719
+osascript command line tool
+
+1720
+00:47:47,896 --> 00:47:48,796 A:middle
+with a couple flags.
+
+1721
+00:47:49,236 --> 00:47:51,016 A:middle
+We're going to be using
+
+1722
+the JavaScript language.
+
+1723
+00:47:51,446 --> 00:47:54,826 A:middle
+We want our result to print
+
+1724
+a source, and then we pass
+
+1725
+00:47:54,826 --> 00:47:55,986 A:middle
+in some JavaScript to run.
+
+1726
+00:47:57,076 --> 00:47:59,156 A:middle
+This is what I talked
+
+1727
+about before.
+
+1728
+00:47:59,526 --> 00:48:01,726 A:middle
+We can display an alert, so
+
+1729
+imagine this could be a part
+
+1730
+00:48:01,726 --> 00:48:04,916 A:middle
+of a bash process at the
+
+1731
+end that'll show us an alert
+
+1732
+00:48:04,916 --> 00:48:06,336 A:middle
+when our process
+
+1733
+is about to finish.
+
+1734
+00:48:07,256 --> 00:48:10,406 A:middle
+So if I run this, our
+
+1735
+alert was displayed just
+
+1736
+00:48:10,406 --> 00:48:11,826 A:middle
+like we wanted, which is great.
+
+1737
+00:48:12,516 --> 00:48:16,246 A:middle
+We get our result, we could
+
+1738
+react accordingly if we wanted.
+
+1739
+00:48:17,156 --> 00:48:19,326 A:middle
+And another really
+
+1740
+exciting new feature
+
+1741
+00:48:19,326 --> 00:48:21,886 A:middle
+of osascript is an
+
+1742
+interactive mode.
+
+1743
+00:48:22,856 --> 00:48:25,886 A:middle
+So a variety of programming
+
+1744
+languages, like Ruby and Python,
+
+1745
+00:48:25,886 --> 00:48:27,626 A:middle
+have interactive
+
+1746
+modes that allow you
+
+1747
+00:48:27,626 --> 00:48:30,286 A:middle
+to interactively program
+
+1748
+in those environments,
+
+1749
+00:48:30,786 --> 00:48:33,076 A:middle
+and now this is possible
+
+1750
+from osascript.
+
+1751
+00:48:33,756 --> 00:48:38,566 A:middle
+So, to do so I'm going
+
+1752
+to call osascript,
+
+1753
+00:48:38,566 --> 00:48:42,696 A:middle
+our language is JavaScript, and
+
+1754
+I'm going to pass the -i flag
+
+1755
+00:48:42,746 --> 00:48:44,266 A:middle
+to say I'm going in
+
+1756
+interactive mode.
+
+1757
+00:48:44,266 --> 00:48:47,206 A:middle
+Now to demo this
+
+1758
+interactive mode,
+
+1759
+00:48:47,206 --> 00:48:49,246 A:middle
+I'm going to be interacting
+
+1760
+with Safari.
+
+1761
+00:48:50,266 --> 00:48:53,806 A:middle
+So, I'm going to create
+
+1762
+a variable and set it
+
+1763
+00:48:53,806 --> 00:48:57,016 A:middle
+to the Safari application, we
+
+1764
+see that Safari was activated
+
+1765
+00:48:57,046 --> 00:49:01,226 A:middle
+for us, making it a
+
+1766
+little better to see.
+
+1767
+00:49:01,816 --> 00:49:03,546 A:middle
+Then we can do things
+
+1768
+00:49:03,546 --> 00:49:06,816 A:middle
+like create a reference
+
+1769
+to the first window.
+
+1770
+00:49:07,136 --> 00:49:08,796 A:middle
+Let's say we want to
+
+1771
+get that window's name
+
+1772
+00:49:09,926 --> 00:49:12,046 A:middle
+and simply call the name
+
+1773
+property as a function.
+
+1774
+00:49:12,376 --> 00:49:14,116 A:middle
+Favorites, like we
+
+1775
+expect, that's great.
+
+1776
+00:49:14,116 --> 00:49:17,516 A:middle
+This is a lot of fun, but
+
+1777
+let's spice it up a bit.
+
+1778
+00:49:17,816 --> 00:49:20,086 A:middle
+Let's create a new tab
+
+1779
+and add that to the window
+
+1780
+00:49:20,316 --> 00:49:22,166 A:middle
+in real-time, interactively.
+
+1781
+00:49:22,916 --> 00:49:25,346 A:middle
+First, we'll create a new tab,
+
+1782
+00:49:25,346 --> 00:49:28,716 A:middle
+and we'll have the
+
+1783
+URL be apple.com.
+
+1784
+00:49:30,156 --> 00:49:33,686 A:middle
+Then, to actually create this
+
+1785
+in the application I'm going
+
+1786
+00:49:33,686 --> 00:49:36,496 A:middle
+to push it onto the
+
+1787
+window's tabs element array.
+
+1788
+00:49:38,186 --> 00:49:41,786 A:middle
+And, before I do though, I know
+
+1789
+that I want to bring the tab
+
+1790
+00:49:41,786 --> 00:49:45,006 A:middle
+to the front when I do this,
+
+1791
+and I can't quite remember,
+
+1792
+00:49:45,356 --> 00:49:48,706 A:middle
+I think it's the front
+
+1793
+tab or there's a property
+
+1794
+00:49:48,706 --> 00:49:50,706 A:middle
+that I can summon a window
+
+1795
+to bring it to the front.
+
+1796
+00:49:51,456 --> 00:49:53,776 A:middle
+So, we're interacting
+
+1797
+with this live,
+
+1798
+00:49:53,776 --> 00:49:55,906 A:middle
+before I do this let's make
+
+1799
+sure that I know what I'm doing.
+
+1800
+00:49:55,906 --> 00:49:57,266 A:middle
+So I'm going to bring
+
+1801
+up Script Editor
+
+1802
+00:49:57,266 --> 00:50:03,546 A:middle
+and I'm going access the
+
+1803
+Library window and let's see,
+
+1804
+
+1805
+00:50:03,706 --> 00:50:05,726 A:middle
+we'll access Safari
+
+1806
+scripting Dictionary.
+
+1807
+00:50:05,966 --> 00:50:09,046 A:middle
+Great. Okay, we'll look
+
+1808
+at the Safari suite.
+
+1809
+00:50:09,256 --> 00:50:12,986 A:middle
+Yes, window, thank you,
+
+1810
+ah, the currentTab,
+
+1811
+00:50:12,986 --> 00:50:14,576 A:middle
+not the frontTab, excuse me.
+
+1812
+00:50:14,836 --> 00:50:18,816 A:middle
+So now that I have this property
+
+1813
+I know exactly how to create,
+
+1814
+00:50:19,196 --> 00:50:21,376 A:middle
+how to set the tab
+
+1815
+to the current tab,
+
+1816
+00:50:21,526 --> 00:50:22,306 A:middle
+bringing it to the front.
+
+1817
+00:50:23,006 --> 00:50:25,446 A:middle
+So if I push out of the
+
+1818
+array and bring the tab
+
+1819
+00:50:25,446 --> 00:50:29,856 A:middle
+to the front we've just now
+
+1820
+live, interactively added a tab
+
+1821
+00:50:29,856 --> 00:50:32,796 A:middle
+to this window, and had a whole
+
+1822
+lot of fun in the process.
+
+1823
+00:50:33,516 --> 00:50:36,616 A:middle
+[ Applause ]
+
+1824
+00:50:37,116 --> 00:50:40,046 A:middle
+And beyond being a cool way
+
+1825
+to interact with applications,
+
+1826
+00:50:40,386 --> 00:50:43,116 A:middle
+this is phenomenal for
+
+1827
+exploring their scriptability,
+
+1828
+00:50:43,236 --> 00:50:44,936 A:middle
+for learning JavaScript
+
+1829
+for Automation.
+
+1830
+00:50:44,936 --> 00:50:48,756 A:middle
+It's a great tool to have.
+
+1831
+00:50:48,956 --> 00:50:49,786 A:middle
+All right.
+
+1832
+00:50:50,006 --> 00:50:53,816 A:middle
+So we've covered what JavaScript
+
+1833
+for Automation is, how it works,
+
+1834
+00:50:54,356 --> 00:50:57,126 A:middle
+how you can use it and
+
+1835
+where you can use it.
+
+1836
+00:50:57,916 --> 00:51:01,846 A:middle
+To summarize, JavaScript
+
+1837
+for Automation is built
+
+1838
+
+1839
+00:51:01,846 --> 00:51:05,006 A:middle
+on JavaScriptCore, a modern
+
+1840
+JavaScript environment
+
+1841
+00:51:05,006 --> 00:51:07,676 A:middle
+and it's built on the Open
+
+1842
+Scripting Architecture,
+
+1843
+00:51:07,956 --> 00:51:12,816 A:middle
+which has been part of the
+
+1844
+Mac OS since before OS X.
+
+1845
+00:51:13,426 --> 00:51:16,246 A:middle
+JavaScript for Automation has
+
+1846
+been integrated system-wide
+
+1847
+00:51:16,246 --> 00:51:19,416 A:middle
+at all layers, from high-level
+
+1848
+application scripting,
+
+1849
+00:51:19,606 --> 00:51:22,096 A:middle
+to system services, to
+
+1850
+use in the terminal,
+
+1851
+00:51:22,326 --> 00:51:23,546 A:middle
+and accessing system APIs.
+
+1852
+00:51:24,546 --> 00:51:29,646 A:middle
+And as you saw, JavaScript
+
+1853
+for Automation is flexible,
+
+1854
+00:51:30,066 --> 00:51:32,046 A:middle
+it allows you to
+
+1855
+accomplish tasks
+
+1856
+00:51:32,166 --> 00:51:34,976 A:middle
+and solve problems the
+
+1857
+best way that you see fit.
+
+1858
+00:51:36,456 --> 00:51:40,406 A:middle
+So, our call to action
+
+1859
+today is go out
+
+1860
+00:51:40,406 --> 00:51:42,546 A:middle
+and script the scriptable
+
+1861
+applications on your Mac.
+
+1862
+00:51:43,976 --> 00:51:46,736 A:middle
+For app developers, make
+
+1863
+your applications scriptable
+
+1864
+00:51:46,736 --> 00:51:48,896 A:middle
+so other people can script
+
+1865
+them and do amazing things.
+
+1866
+00:51:50,656 --> 00:51:52,116 A:middle
+And make sure to tell others
+
+1867
+00:51:52,116 --> 00:51:54,806 A:middle
+to make their applications
+
+1868
+scriptable if it isn't already.
+
+1869
+00:51:55,496 --> 00:51:58,596 A:middle
+We have a phenomenal ecosystem,
+
+1870
+we're really excited for more
+
+1871
+00:51:58,596 --> 00:52:00,536 A:middle
+and more applications
+
+1872
+to join it every day.
+
+1873
+00:52:00,536 --> 00:52:05,826 A:middle
+To check out documentation,
+
+1874
+make sure to go
+
+1875
+00:52:05,826 --> 00:52:07,986 A:middle
+to developer.apple.com,
+
+1876
+for the JavaScript
+
+1877
+00:52:07,986 --> 00:52:10,846 A:middle
+for Automation release notes,
+
+1878
+as well as some sample code.
+
+1879
+00:52:11,486 --> 00:52:14,436 A:middle
+We are having a phenomenal time
+
+1880
+with this great new feature,
+
+1881
+00:52:14,436 --> 00:52:16,276 A:middle
+we cannot wait for you
+
+1882
+to get your hands on it.
+
+1883
+00:52:16,736 --> 00:52:17,666 A:middle
+Thank you very much.
+
+1884
+00:52:18,516 --> 00:52:32,640 A:middle
+[ Applause ]
+
+1885
