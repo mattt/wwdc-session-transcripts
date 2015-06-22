@@ -1,0 +1,4766 @@
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1
+00:00:28,516 --> 00:00:33,106 A:middle
+[Applause]
+
+2
+00:00:33,606 --> 00:00:34,226 A:middle
+>> Good morning.
+
+3
+00:00:35,406 --> 00:00:36,966 A:middle
+Welcome to Continuous
+Integration
+
+4
+00:00:36,966 --> 00:00:38,466 A:middle
+and Code Coverage in Xcode.
+
+5
+00:00:38,926 --> 00:00:40,036 A:middle
+My name is Matt Moriarity.
+
+6
+00:00:40,186 --> 00:00:41,846 A:middle
+I am an engineer
+on the Xcode team.
+
+7
+00:00:42,236 --> 00:00:44,306 A:middle
+I am really excited to
+be here today to talk
+
+8
+00:00:44,306 --> 00:00:47,046 A:middle
+about some tools we have in
+Xcode to help you get more
+
+9
+00:00:47,046 --> 00:00:48,996 A:middle
+out of testing and
+hopefully motivate you
+
+10
+00:00:48,996 --> 00:00:50,496 A:middle
+to write more tests.
+
+11
+00:00:52,816 --> 00:00:54,946 A:middle
+Today we are going
+to start by talking
+
+12
+00:00:54,946 --> 00:00:56,246 A:middle
+about what Xcode Server is.
+
+13
+00:00:56,596 --> 00:00:58,846 A:middle
+Xcode Server is a
+continuous integration product
+
+14
+00:00:58,946 --> 00:01:00,086 A:middle
+that we bundle with Xcode.
+
+15
+
+16
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+17
+00:00:58,946 --> 00:01:00,086 A:middle
+that we bundle with Xcode.
+
+18
+00:01:01,276 --> 00:01:04,756 A:middle
+Then we will step into what's
+new in Xcode Server and Xcode 7,
+
+19
+00:01:05,156 --> 00:01:07,896 A:middle
+with a special focus on the
+new code coverage feature
+
+20
+00:01:07,976 --> 00:01:09,026 A:middle
+that we introduced this year.
+
+21
+00:01:10,056 --> 00:01:12,896 A:middle
+Then we will spend the second
+half of the session talking
+
+22
+00:01:12,896 --> 00:01:14,976 A:middle
+about some more advanced
+features of Xcode Server
+
+23
+00:01:15,226 --> 00:01:17,076 A:middle
+that will allow you to
+integrate it into some
+
+24
+00:01:17,076 --> 00:01:18,446 A:middle
+of your team's unique workflows.
+
+25
+00:01:19,626 --> 00:01:20,736 A:middle
+And of course, all throughout,
+
+26
+00:01:20,776 --> 00:01:22,786 A:middle
+we will have demos showing
+you how all this great stuff
+
+27
+00:01:22,786 --> 00:01:23,126 A:middle
+is done.
+
+28
+00:01:24,066 --> 00:01:25,946 A:middle
+So let's jump right in.
+
+29
+00:01:26,716 --> 00:01:30,506 A:middle
+So Xcode Server is a feature
+we introduced in Xcode
+
+30
+00:01:30,556 --> 00:01:34,286 A:middle
+with Xcode 5, and it's all
+about supporting a process known
+
+31
+00:01:34,286 --> 00:01:35,596 A:middle
+as continuous integration.
+
+32
+00:01:36,816 --> 00:01:38,146 A:middle
+And continuous integration
+is all
+
+33
+00:01:38,146 --> 00:01:41,076 A:middle
+about improving collaboration
+with your team to allow you
+
+34
+00:01:41,076 --> 00:01:42,156 A:middle
+to build better software.
+
+35
+00:01:43,306 --> 00:01:43,956 A:middle
+So what does that mean?
+
+36
+00:01:43,956 --> 00:01:47,716 A:middle
+It means pulling down all
+of your code regularly
+
+37
+00:01:47,996 --> 00:01:50,646 A:middle
+and then building and testing
+it and surfacing issues
+
+38
+00:01:50,646 --> 00:01:53,666 A:middle
+like build errors or test
+failures as soon as possible
+
+39
+00:01:53,936 --> 00:01:55,506 A:middle
+so you can fix things
+right away.
+
+40
+00:01:56,166 --> 00:02:00,336 A:middle
+Now, there's a lot of ways you
+can do continuous integration
+
+41
+
+42
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+43
+00:01:56,166 --> 00:02:00,336 A:middle
+Now, there's a lot of ways you
+can do continuous integration
+
+44
+00:02:00,336 --> 00:02:02,786 A:middle
+out there, but we think Xcode
+Server is especially great
+
+45
+00:02:02,786 --> 00:02:04,846 A:middle
+for app developers like
+you for two reasons.
+
+46
+00:02:05,376 --> 00:02:08,295 A:middle
+First of all, it's
+really easy to set up.
+
+47
+00:02:08,645 --> 00:02:10,506 A:middle
+Thanks to integration
+with OS X Server,
+
+48
+00:02:10,756 --> 00:02:12,936 A:middle
+if you've got OS X Server
+and Xcode on your Mac,
+
+49
+00:02:13,186 --> 00:02:15,786 A:middle
+you are minutes away from having
+a continuous integration server
+
+50
+00:02:15,996 --> 00:02:17,356 A:middle
+testing your project regularly.
+
+51
+00:02:17,906 --> 00:02:22,336 A:middle
+And second, Xcode Server
+has deep integration
+
+52
+00:02:22,336 --> 00:02:23,336 A:middle
+with Xcode itself.
+
+53
+00:02:23,546 --> 00:02:25,806 A:middle
+We know a lot about how
+Xcode projects are built,
+
+54
+00:02:26,196 --> 00:02:28,776 A:middle
+how we work with devices
+and things like that,
+
+55
+00:02:28,776 --> 00:02:31,236 A:middle
+so we can ask you as few
+questions as possible to get up
+
+56
+00:02:31,236 --> 00:02:34,056 A:middle
+and running with your code
+checking out regularly.
+
+57
+00:02:34,656 --> 00:02:38,756 A:middle
+So before we go any
+further, I want to talk
+
+58
+00:02:38,756 --> 00:02:40,506 A:middle
+about a few concepts
+that we talk
+
+59
+00:02:40,506 --> 00:02:42,136 A:middle
+about when we are talking
+about Xcode Server.
+
+60
+00:02:42,766 --> 00:02:45,126 A:middle
+The first is something you are
+probably familiar with even
+
+61
+00:02:45,126 --> 00:02:46,766 A:middle
+if you have never used
+Xcode Server before,
+
+62
+00:02:47,176 --> 00:02:48,356 A:middle
+and that is a scheme.
+
+63
+00:02:49,266 --> 00:02:52,546 A:middle
+Every time you run your
+project or run tests in Xcode,
+
+64
+00:02:52,546 --> 00:02:53,376 A:middle
+you are running a scheme.
+
+65
+00:02:53,776 --> 00:02:55,436 A:middle
+A lot of times they are
+auto created for you,
+
+66
+00:02:55,436 --> 00:02:57,106 A:middle
+but you can create your
+own custom schemes,
+
+67
+00:02:57,456 --> 00:02:59,926 A:middle
+and they basically form a recipe
+for building your project,
+
+68
+00:02:59,926 --> 00:03:03,566 A:middle
+so they tell you what targets to
+build, what test bundles to run,
+
+69
+
+70
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+71
+00:02:59,926 --> 00:03:03,566 A:middle
+so they tell you what targets to
+build, what test bundles to run,
+
+72
+00:03:03,746 --> 00:03:06,166 A:middle
+arguments to pass to your
+executables, things like that.
+
+73
+00:03:07,186 --> 00:03:09,076 A:middle
+Schemes are important
+for Xcode Server
+
+74
+00:03:09,326 --> 00:03:11,106 A:middle
+when it comes time
+to set up a bot.
+
+75
+00:03:12,636 --> 00:03:14,976 A:middle
+Now, a bot is -- we
+like to think about it
+
+76
+00:03:14,976 --> 00:03:18,196 A:middle
+as having another
+member of your team,
+
+77
+00:03:18,396 --> 00:03:21,376 A:middle
+that it's basically taking a
+particular scheme and building
+
+78
+00:03:21,376 --> 00:03:22,946 A:middle
+and running it on the
+schedule you define
+
+79
+00:03:23,206 --> 00:03:25,196 A:middle
+and doing exactly the
+actions you tell it to
+
+80
+00:03:25,646 --> 00:03:27,266 A:middle
+and then reporting those
+results back to you.
+
+81
+00:03:27,826 --> 00:03:32,496 A:middle
+And each time that schedule goes
+off and we run your project,
+
+82
+00:03:32,776 --> 00:03:33,906 A:middle
+we call that an integration.
+
+83
+00:03:33,906 --> 00:03:36,416 A:middle
+It's like the act of
+integrating all the changes
+
+84
+00:03:36,416 --> 00:03:37,886 A:middle
+from every member of
+your team together
+
+85
+00:03:38,166 --> 00:03:40,566 A:middle
+and seeing how everything
+comes together.
+
+86
+00:03:41,226 --> 00:03:44,946 A:middle
+Now that we are all
+on the same page,
+
+87
+00:03:45,156 --> 00:03:48,076 A:middle
+let's talk about what's new
+in Xcode 7 and Xcode Server.
+
+88
+00:03:49,586 --> 00:03:52,946 A:middle
+To start, if you've used Xcode
+Server before in Xcode 6,
+
+89
+00:03:53,226 --> 00:03:55,676 A:middle
+you know when you go to edit one
+of your bots, we would take you
+
+90
+00:03:55,676 --> 00:03:58,476 A:middle
+through the entire workflow
+for creating a bot again,
+
+91
+00:03:58,476 --> 00:04:00,326 A:middle
+just with a lot of the
+values already filled in.
+
+92
+
+93
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+94
+00:03:58,476 --> 00:04:00,326 A:middle
+just with a lot of the
+values already filled in.
+
+95
+00:04:01,036 --> 00:04:03,906 A:middle
+Now, that's a little
+tedious when you want
+
+96
+00:04:03,906 --> 00:04:06,056 A:middle
+to make a simple change
+like adding a trigger,
+
+97
+00:04:06,056 --> 00:04:07,726 A:middle
+changing your schedule,
+something like that.
+
+98
+00:04:08,066 --> 00:04:10,266 A:middle
+Now we have this tabbed
+interface that allows you
+
+99
+00:04:10,266 --> 00:04:12,916 A:middle
+to get right in, make the change
+you want to do, and get out.
+
+100
+00:04:13,516 --> 00:04:18,526 A:middle
+[Applause]
+
+101
+00:04:19,026 --> 00:04:20,536 A:middle
+A lot of fans of tagged
+workflows out there.
+
+102
+00:04:22,446 --> 00:04:25,006 A:middle
+We've also made improvements
+to source control in Xcode 7.
+
+103
+00:04:25,596 --> 00:04:28,486 A:middle
+So whereas previously
+we would kind of try
+
+104
+00:04:28,486 --> 00:04:30,266 A:middle
+to automatically handle
+all your source control
+
+105
+00:04:30,266 --> 00:04:32,696 A:middle
+and hide the details from you,
+we now surface more of that
+
+106
+00:04:32,696 --> 00:04:33,916 A:middle
+to you so you can see exactly
+
+107
+00:04:33,916 --> 00:04:36,616 A:middle
+which repositories your
+bot is going to check out,
+
+108
+00:04:37,236 --> 00:04:39,836 A:middle
+and you can select to not
+include some of those.
+
+109
+00:04:40,166 --> 00:04:43,026 A:middle
+And for the repositories you are
+checking out, you can now see
+
+110
+00:04:43,026 --> 00:04:45,976 A:middle
+and choose which branch you'll
+check out instead of just -
+
+111
+00:04:46,516 --> 00:04:50,596 A:middle
+[Applause]
+
+112
+00:04:51,096 --> 00:04:51,276 A:middle
+Thank you.
+
+113
+00:04:51,276 --> 00:04:57,146 A:middle
+Instead of just hoping that
+Xcode figured it out correctly.
+
+114
+00:04:57,236 --> 00:04:59,656 A:middle
+We also made improvements to
+security in source control,
+
+115
+00:04:59,926 --> 00:05:02,876 A:middle
+specifically when it comes
+to SSH fingerprinting
+
+116
+
+117
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+118
+00:04:59,926 --> 00:05:02,876 A:middle
+specifically when it comes
+to SSH fingerprinting
+
+119
+00:05:03,176 --> 00:05:04,846 A:middle
+and self-signed certificates.
+
+120
+00:05:05,386 --> 00:05:08,856 A:middle
+Both of these are not
+automatically secure methods
+
+121
+00:05:08,856 --> 00:05:09,756 A:middle
+of transportation.
+
+122
+00:05:09,756 --> 00:05:12,366 A:middle
+They require you to trust the
+server you are connecting to,
+
+123
+00:05:12,716 --> 00:05:16,106 A:middle
+so that if the server
+changes later, you will know
+
+124
+00:05:16,466 --> 00:05:17,496 A:middle
+that they have a new fingerprint
+
+125
+00:05:17,496 --> 00:05:19,776 A:middle
+and may be impersonating the
+server you thought you were
+
+126
+00:05:19,776 --> 00:05:20,926 A:middle
+connecting to.
+
+127
+00:05:21,306 --> 00:05:24,246 A:middle
+Previously Xcode would
+automatically trust the servers
+
+128
+00:05:24,586 --> 00:05:26,996 A:middle
+and not do any verification.
+
+129
+00:05:27,226 --> 00:05:29,886 A:middle
+Now we require you to explicitly
+trust any of these servers
+
+130
+00:05:30,166 --> 00:05:32,636 A:middle
+and then we store the
+fingerprint so if it changes
+
+131
+00:05:32,636 --> 00:05:35,496 A:middle
+in the future, we won't check
+out from the wrong server.
+
+132
+00:05:36,046 --> 00:05:40,426 A:middle
+And we've also updated
+many of the reports
+
+133
+00:05:40,426 --> 00:05:41,736 A:middle
+that you see in your
+integrations.
+
+134
+00:05:42,236 --> 00:05:44,516 A:middle
+So the test report has been
+cleaned up and compacted.
+
+135
+00:05:45,636 --> 00:05:47,876 A:middle
+It's now easier to see
+any assertion failures
+
+136
+00:05:47,876 --> 00:05:48,836 A:middle
+that come up in your tests.
+
+137
+00:05:49,456 --> 00:05:54,566 A:middle
+And the logs view
+has gotten drastic
+
+138
+00:05:54,566 --> 00:05:55,676 A:middle
+performance improvements.
+
+139
+00:05:55,926 --> 00:05:58,246 A:middle
+Previously we would try to
+show you a stacked view of all
+
+140
+00:05:58,246 --> 00:06:01,626 A:middle
+of your logs, but that has
+some significant performance
+
+141
+
+142
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+143
+00:05:58,246 --> 00:06:01,626 A:middle
+of your logs, but that has
+some significant performance
+
+144
+00:06:01,676 --> 00:06:03,906 A:middle
+penalties when you try to
+expand one of those logs.
+
+145
+00:06:04,186 --> 00:06:06,236 A:middle
+We now show you one log at
+a time that you can choose
+
+146
+00:06:06,236 --> 00:06:07,756 A:middle
+from a pop-up button
+in the left corner,
+
+147
+00:06:08,156 --> 00:06:11,166 A:middle
+and now viewing large
+log files is super fast.
+
+148
+00:06:12,516 --> 00:06:19,496 A:middle
+[Applause]
+
+149
+00:06:19,996 --> 00:06:23,216 A:middle
+One of the other great things
+that makes Xcode Server special
+
+150
+00:06:23,216 --> 00:06:26,136 A:middle
+when it comes to continuous
+integration is it knows what
+
+151
+00:06:26,136 --> 00:06:28,586 A:middle
+kinds of issues Xcode
+projects can produce
+
+152
+00:06:28,586 --> 00:06:31,466 A:middle
+and knows what a build error
+looks like, a test failure.
+
+153
+00:06:31,736 --> 00:06:35,216 A:middle
+It's not just showing you
+some raw plain text log file
+
+154
+00:06:35,446 --> 00:06:37,246 A:middle
+and having you go
+through and figure
+
+155
+00:06:37,246 --> 00:06:38,356 A:middle
+out what actually happened.
+
+156
+00:06:39,396 --> 00:06:42,016 A:middle
+So we do a lot of smart things
+when it comes to these issues
+
+157
+00:06:42,016 --> 00:06:44,106 A:middle
+in order to surface that
+and make that issue useful.
+
+158
+00:06:45,626 --> 00:06:46,746 A:middle
+When you run an integration --
+
+159
+00:06:46,896 --> 00:06:48,386 A:middle
+this is true in Xcode
+6 as well --
+
+160
+00:06:48,846 --> 00:06:51,326 A:middle
+we show you this nice report
+showing you all the issues
+
+161
+00:06:51,326 --> 00:06:52,906 A:middle
+that came up in your build.
+
+162
+00:06:53,856 --> 00:06:56,256 A:middle
+And we surface which ones are
+new because we can compare them
+
+163
+00:06:56,256 --> 00:06:58,326 A:middle
+to the previous integration,
+and that allows us
+
+164
+00:06:58,326 --> 00:07:00,376 A:middle
+to pinpoint exactly what
+integration and thus
+
+165
+
+166
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+167
+00:06:58,326 --> 00:07:00,376 A:middle
+to pinpoint exactly what
+integration and thus
+
+168
+00:07:00,376 --> 00:07:02,866 A:middle
+which commits introduce
+a particular issue,
+
+169
+00:07:03,276 --> 00:07:07,066 A:middle
+and that makes it much
+easier to find the cause,
+
+170
+00:07:07,346 --> 00:07:12,596 A:middle
+track it down, and make a fix.
+
+171
+00:07:12,806 --> 00:07:15,176 A:middle
+We have added some new stuff
+in Xcode 7 around issues.
+
+172
+00:07:15,626 --> 00:07:17,066 A:middle
+Now if you see an
+issue that comes up
+
+173
+00:07:17,376 --> 00:07:20,266 A:middle
+and you either know it was your
+fault and you want to go fix it
+
+174
+00:07:20,406 --> 00:07:22,506 A:middle
+or you can see just from
+looking at the issue,
+
+175
+00:07:22,506 --> 00:07:24,416 A:middle
+like I know what's
+wrong there, I can go in
+
+176
+00:07:24,416 --> 00:07:26,386 A:middle
+and fix it real quick
+and get this cleared up.
+
+177
+00:07:26,826 --> 00:07:29,436 A:middle
+Then you can claim issues,
+and that puts your name on it
+
+178
+00:07:29,476 --> 00:07:31,816 A:middle
+so everyone on your team will
+see that when they go look
+
+179
+00:07:31,816 --> 00:07:33,356 A:middle
+at the report, and they will
+know that they don't have
+
+180
+00:07:33,396 --> 00:07:36,866 A:middle
+to worry about it;
+you are on the case.
+
+181
+00:07:37,046 --> 00:07:38,946 A:middle
+For issues that are
+either intermittent
+
+182
+00:07:38,946 --> 00:07:41,936 A:middle
+or know have been alre fixed,
+you can silence those issues
+
+183
+00:07:41,936 --> 00:07:43,226 A:middle
+for a certain period of time,
+
+184
+00:07:43,446 --> 00:07:44,936 A:middle
+and they will disappear
+from the report.
+
+185
+00:07:46,406 --> 00:07:48,826 A:middle
+That allows you to focus
+on exactly the things
+
+186
+00:07:48,826 --> 00:07:51,176 A:middle
+that actually need your
+attention without cluttering it
+
+187
+00:07:51,176 --> 00:07:52,876 A:middle
+up with things you know
+are already handled.
+
+188
+00:07:57,976 --> 00:07:58,996 A:middle
+But one of the best things
+
+189
+00:07:58,996 --> 00:08:01,666 A:middle
+about Xcode Server is
+how well we interact
+
+190
+
+191
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+192
+00:07:58,996 --> 00:08:01,666 A:middle
+about Xcode Server is
+how well we interact
+
+193
+00:08:01,666 --> 00:08:04,116 A:middle
+with all the other features
+that Xcode introduces.
+
+194
+00:08:04,336 --> 00:08:06,426 A:middle
+And since there are some
+great new features in Xcode 7,
+
+195
+00:08:06,776 --> 00:08:09,676 A:middle
+we have taken the special time
+to integrate those features
+
+196
+00:08:09,676 --> 00:08:10,856 A:middle
+in Xcode Server as well.
+
+197
+00:08:11,306 --> 00:08:13,246 A:middle
+I want to look at
+a few of those.
+
+198
+00:08:14,516 --> 00:08:17,576 A:middle
+So user interface
+testing is new in Xcode 7.
+
+199
+00:08:19,016 --> 00:08:21,066 A:middle
+And we've taken special
+care to make sure
+
+200
+00:08:21,066 --> 00:08:22,696 A:middle
+that works perfectly
+in Xcode Server.
+
+201
+00:08:23,856 --> 00:08:26,486 A:middle
+When you run Mac tests
+or iOS simulator tests,
+
+202
+00:08:26,796 --> 00:08:28,346 A:middle
+we create a full window session
+
+203
+00:08:28,346 --> 00:08:29,626 A:middle
+in the background
+on your server.
+
+204
+00:08:29,876 --> 00:08:31,156 A:middle
+That's where all
+of your tests run.
+
+205
+00:08:31,386 --> 00:08:33,525 A:middle
+That means you don't have
+to worry about is it going
+
+206
+00:08:33,525 --> 00:08:36,806 A:middle
+to be the right environment for
+Xcode 2, launch my application,
+
+207
+00:08:37,015 --> 00:08:38,135 A:middle
+we'll make sure it works fine.
+
+208
+00:08:38,525 --> 00:08:40,236 A:middle
+If you are using
+real iOS devices,
+
+209
+00:08:40,466 --> 00:08:42,466 A:middle
+then you will see
+the UI test stepping
+
+210
+00:08:42,466 --> 00:08:45,786 A:middle
+through the application
+right on the device.
+
+211
+00:08:46,516 --> 00:08:50,546 A:middle
+[Applause]
+
+212
+00:08:51,046 --> 00:08:52,576 A:middle
+So user interface
+testing is a great way
+
+213
+00:08:52,576 --> 00:08:54,866 A:middle
+to test your application
+at a high level,
+
+214
+00:08:54,866 --> 00:08:56,176 A:middle
+the same way your
+users will see it,
+
+215
+00:08:56,416 --> 00:08:58,456 A:middle
+and test all the different
+layers interacting together.
+
+216
+00:08:59,006 --> 00:09:01,406 A:middle
+It's even better when you have
+a server running those tests
+
+217
+
+218
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+219
+00:08:59,006 --> 00:09:01,406 A:middle
+It's even better when you have
+a server running those tests
+
+220
+00:09:01,406 --> 00:09:05,696 A:middle
+across multiple devices
+at the same time.
+
+221
+00:09:05,796 --> 00:09:08,126 A:middle
+And on a schedule.
+
+222
+00:09:09,756 --> 00:09:13,306 A:middle
+On-demand resources is a new
+feature in iOS 9 that allows you
+
+223
+00:09:13,306 --> 00:09:16,716 A:middle
+to make your apps bundle
+smaller by not storing
+
+224
+00:09:16,716 --> 00:09:18,156 A:middle
+as many resources in the bundle.
+
+225
+00:09:18,376 --> 00:09:20,176 A:middle
+Instead the App Store
+will host them for you
+
+226
+00:09:20,666 --> 00:09:21,836 A:middle
+when your app is on the Store.
+
+227
+00:09:23,056 --> 00:09:25,126 A:middle
+Then your application can
+download those resources
+
+228
+00:09:25,336 --> 00:09:26,886 A:middle
+when they are needed
+and they can be removed
+
+229
+00:09:26,886 --> 00:09:29,486 A:middle
+from disk when you are done.
+
+230
+00:09:29,706 --> 00:09:31,946 A:middle
+Now, that's great for when
+your app is in the App Store,
+
+231
+00:09:31,946 --> 00:09:35,336 A:middle
+but when you are doing QA
+internally before you release
+
+232
+00:09:35,706 --> 00:09:38,236 A:middle
+and you need to test out the
+builds of your application,
+
+233
+00:09:38,846 --> 00:09:40,386 A:middle
+what happens to the
+resources then?
+
+234
+00:09:40,386 --> 00:09:42,036 A:middle
+The App Store is not going
+to be hosting them then.
+
+235
+00:09:42,036 --> 00:09:45,666 A:middle
+You are changing too fast for
+that to really be practical.
+
+236
+00:09:46,916 --> 00:09:49,346 A:middle
+But if you get your QA
+builds from Xcode Server,
+
+237
+00:09:49,346 --> 00:09:52,056 A:middle
+if you let your integrations
+produce IPAS that you install
+
+238
+00:09:52,056 --> 00:09:55,506 A:middle
+on your devices, then this is
+handled completely automatically
+
+239
+00:09:55,506 --> 00:09:55,856 A:middle
+for you.
+
+240
+00:09:56,196 --> 00:09:58,536 A:middle
+You don't have to check a box,
+you don't have to do anything.
+
+241
+00:09:58,746 --> 00:10:00,946 A:middle
+Xcode Server will see you
+have on-demand resources
+
+242
+
+243
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+244
+00:09:58,746 --> 00:10:00,946 A:middle
+Xcode Server will see you
+have on-demand resources
+
+245
+00:10:00,946 --> 00:10:03,516 A:middle
+in your application, it will
+host them on its own server
+
+246
+00:10:03,846 --> 00:10:06,346 A:middle
+and will teach your
+application where to find them.
+
+247
+00:10:08,516 --> 00:10:12,666 A:middle
+[Applause]
+
+248
+00:10:13,166 --> 00:10:15,576 A:middle
+Finally, I want to dig
+deeper into another one
+
+249
+00:10:15,576 --> 00:10:17,676 A:middle
+of the new features in
+Xcode 7 that goes great
+
+250
+00:10:17,676 --> 00:10:19,466 A:middle
+with Xcode Server and
+continuous integration,
+
+251
+00:10:19,666 --> 00:10:20,586 A:middle
+and that's code coverage.
+
+252
+00:10:21,166 --> 00:10:25,536 A:middle
+So code coverage is
+a tool that's all
+
+253
+00:10:25,536 --> 00:10:28,056 A:middle
+about measuring the value
+of your tests, specifically,
+
+254
+00:10:28,256 --> 00:10:30,326 A:middle
+we want to know what
+code is actually running
+
+255
+00:10:30,636 --> 00:10:31,456 A:middle
+when we run tests.
+
+256
+00:10:32,456 --> 00:10:35,986 A:middle
+Because it's easy to go about
+building up a big test suite
+
+257
+00:10:35,986 --> 00:10:39,106 A:middle
+for your application and feel
+like you are resilient to change
+
+258
+00:10:39,106 --> 00:10:40,646 A:middle
+and that regressions
+aren't going to come
+
+259
+00:10:40,646 --> 00:10:41,616 A:middle
+up that you won't notice.
+
+260
+00:10:42,596 --> 00:10:45,506 A:middle
+But how do you really know how
+many tests is enough tests?
+
+261
+00:10:45,886 --> 00:10:48,706 A:middle
+Say I've got an application
+that's got 2,000 unit tests,
+
+262
+00:10:49,116 --> 00:10:52,536 A:middle
+but only 20% of my application
+is actually getting run
+
+263
+00:10:52,536 --> 00:10:53,086 A:middle
+by those tests?
+
+264
+00:10:53,906 --> 00:10:56,686 A:middle
+Well, that's still not as
+useful as I might think it is.
+
+265
+00:10:57,016 --> 00:10:59,316 A:middle
+So code coverage is all about
+surfacing this information
+
+266
+00:10:59,316 --> 00:11:01,036 A:middle
+to you so you can make
+informed decisions.
+
+267
+
+268
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+269
+00:10:59,316 --> 00:11:01,036 A:middle
+to you so you can make
+informed decisions.
+
+270
+00:11:01,906 --> 00:11:03,756 A:middle
+So it allows you to run your
+tests and measure exactly
+
+271
+00:11:03,826 --> 00:11:06,596 A:middle
+which code is getting exercised
+there and, more importantly,
+
+272
+00:11:07,026 --> 00:11:09,446 A:middle
+which code is completely
+untested and, thus,
+
+273
+00:11:09,506 --> 00:11:11,776 A:middle
+that's code that could
+have a regression
+
+274
+00:11:11,776 --> 00:11:13,756 A:middle
+as you go adding new
+features, and you wouldn't know
+
+275
+00:11:13,756 --> 00:11:14,696 A:middle
+about it from your tests.
+
+276
+00:11:15,266 --> 00:11:19,566 A:middle
+So we think code coverage is
+really important for teams
+
+277
+00:11:19,566 --> 00:11:20,856 A:middle
+that are serious about testing,
+
+278
+00:11:21,146 --> 00:11:24,546 A:middle
+and that's why we've integrated
+code coverage into Xcode.
+
+279
+00:11:25,196 --> 00:11:27,146 A:middle
+So like most great
+Xcode features,
+
+280
+00:11:27,326 --> 00:11:29,696 A:middle
+code coverage is built off of
+tight integration with LLVM.
+
+281
+00:11:30,736 --> 00:11:33,776 A:middle
+So when you have gathering code
+coverage enabled in your scheme,
+
+282
+00:11:33,906 --> 00:11:35,636 A:middle
+the compiler will
+instrument your code
+
+283
+00:11:35,886 --> 00:11:38,586 A:middle
+so we can count how often
+each expression is executed,
+
+284
+00:11:39,166 --> 00:11:40,486 A:middle
+then we will surface
+this information
+
+285
+00:11:40,486 --> 00:11:41,366 A:middle
+to you right in the IDE.
+
+286
+00:11:42,996 --> 00:11:44,206 A:middle
+Now, there's two ways
+we are going to do that.
+
+287
+00:11:45,406 --> 00:11:48,566 A:middle
+The first is if you go to the
+report navigator for your test,
+
+288
+00:11:48,756 --> 00:11:51,916 A:middle
+you could do this in
+Xcode 6, but now in 7,
+
+289
+00:11:51,916 --> 00:11:53,646 A:middle
+there is a new tab will
+labeled "coverage."
+
+290
+00:11:53,646 --> 00:11:59,176 A:middle
+If you look at that report, you
+can see by target and then file
+
+291
+00:11:59,176 --> 00:12:02,136 A:middle
+and then method exactly how
+well covered the different parts
+
+292
+
+293
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+294
+00:11:59,176 --> 00:12:02,136 A:middle
+and then method exactly how
+well covered the different parts
+
+295
+00:12:02,136 --> 00:12:02,986 A:middle
+of your application are.
+
+296
+00:12:04,386 --> 00:12:07,366 A:middle
+This is a great way to look at
+your application at a high level
+
+297
+00:12:07,586 --> 00:12:10,136 A:middle
+and then drill down and identify
+which parts need your attention.
+
+298
+00:12:10,746 --> 00:12:16,346 A:middle
+But if I get down to finding a
+method that has 75% coverage,
+
+299
+00:12:17,036 --> 00:12:18,076 A:middle
+well, that's good to know,
+
+300
+00:12:18,076 --> 00:12:21,336 A:middle
+but I don't really know what
+I need to know to fix that.
+
+301
+00:12:21,336 --> 00:12:23,676 A:middle
+I don't know which branches
+of my code are tested
+
+302
+00:12:23,676 --> 00:12:24,426 A:middle
+and which ones aren't.
+
+303
+00:12:25,446 --> 00:12:28,666 A:middle
+So if I hit the arrow that
+shows up when you hover over one
+
+304
+00:12:28,666 --> 00:12:30,726 A:middle
+of these methods or
+files, it will jump right
+
+305
+00:12:30,726 --> 00:12:31,736 A:middle
+to the source code editor
+
+306
+00:12:31,736 --> 00:12:35,036 A:middle
+where we show inline annotations
+highlighting exactly which parts
+
+307
+00:12:35,036 --> 00:12:36,296 A:middle
+of your application
+are uncovered.
+
+308
+00:12:36,546 --> 00:12:38,906 A:middle
+For the parts that are covered,
+we'll tell you how many times
+
+309
+00:12:38,906 --> 00:12:39,876 A:middle
+that executed in your test.
+
+310
+00:12:41,516 --> 00:12:47,486 A:middle
+[Applause]
+
+311
+00:12:47,986 --> 00:12:51,006 A:middle
+So code coverage is really great
+on its own in the Xcode IDE,
+
+312
+00:12:51,066 --> 00:12:54,406 A:middle
+but I think it gets even better
+when you put it on Xcode Server
+
+313
+00:12:54,436 --> 00:12:56,796 A:middle
+where you have a bot running
+your project over time
+
+314
+00:12:56,886 --> 00:12:58,016 A:middle
+across multiple devices.
+
+315
+00:12:58,666 --> 00:13:01,466 A:middle
+So that's one of the
+things that's special
+
+316
+
+317
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+318
+00:12:58,666 --> 00:13:01,466 A:middle
+So that's one of the
+things that's special
+
+319
+00:13:01,466 --> 00:13:04,466 A:middle
+about integrations and bots is
+that you can set them up to run
+
+320
+00:13:04,466 --> 00:13:06,486 A:middle
+on a suite of devices
+instead of just one
+
+321
+00:13:06,486 --> 00:13:07,836 A:middle
+at a time, like you do in Xcode.
+
+322
+00:13:08,956 --> 00:13:11,326 A:middle
+So when you do that, we'll show
+you the coverage data for all
+
+323
+00:13:11,326 --> 00:13:13,636 A:middle
+of your devices together,
+and we'll highlight
+
+324
+00:13:13,636 --> 00:13:16,706 A:middle
+in orange any methods
+or targets or files
+
+325
+00:13:16,956 --> 00:13:19,036 A:middle
+that had different coverage
+across your devices,
+
+326
+00:13:19,036 --> 00:13:22,536 A:middle
+so you can identify where
+things are different and decide
+
+327
+00:13:22,536 --> 00:13:25,166 A:middle
+if that's a bug or maybe
+that's expected behavior.
+
+328
+00:13:26,066 --> 00:13:27,836 A:middle
+It could be fairly
+common for you
+
+329
+00:13:27,836 --> 00:13:30,386 A:middle
+to have code coverage that's
+different on different devices,
+
+330
+00:13:30,386 --> 00:13:32,116 A:middle
+especially in user
+interface code,
+
+331
+00:13:32,326 --> 00:13:33,986 A:middle
+where you might be doing
+something different on, say,
+
+332
+00:13:33,986 --> 00:13:35,336 A:middle
+an iPad versus an iPhone.
+
+333
+00:13:35,906 --> 00:13:40,366 A:middle
+One of the things that
+Xcode Server provides you
+
+334
+00:13:40,366 --> 00:13:42,396 A:middle
+as well is a history
+that's stored
+
+335
+00:13:42,396 --> 00:13:44,146 A:middle
+and tracked along the
+life of your project.
+
+336
+00:13:44,646 --> 00:13:47,036 A:middle
+This allows us to, when you are
+looking at the code coverage
+
+337
+00:13:47,036 --> 00:13:50,776 A:middle
+for an integration, highlight
+when changes happen and exactly
+
+338
+00:13:50,776 --> 00:13:53,966 A:middle
+which methods and files had
+those changes in coverage
+
+339
+00:13:53,966 --> 00:13:57,696 A:middle
+so you can pinpoint that down
+to a specific set of commits.
+
+340
+00:13:59,596 --> 00:14:03,266 A:middle
+This history also allows us
+to show trends, so in Xcode 6,
+
+341
+
+342
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+343
+00:13:59,596 --> 00:14:03,266 A:middle
+This history also allows us
+to show trends, so in Xcode 6,
+
+344
+00:14:03,266 --> 00:14:05,846 A:middle
+we had build history and test
+history charts for your bot.
+
+345
+00:14:06,316 --> 00:14:08,116 A:middle
+That shows as you're
+adding more tests,
+
+346
+00:14:08,116 --> 00:14:09,176 A:middle
+you can see the chart grow,
+
+347
+00:14:09,456 --> 00:14:11,816 A:middle
+and you can see how well
+your issues have been going
+
+348
+00:14:12,106 --> 00:14:13,516 A:middle
+and how stable your
+bot has been.
+
+349
+00:14:13,866 --> 00:14:15,836 A:middle
+But now we also have a
+new code coverage graph
+
+350
+00:14:16,106 --> 00:14:17,596 A:middle
+that shows the overall coverage
+
+351
+00:14:17,596 --> 00:14:18,956 A:middle
+of your project trending
+over time.
+
+352
+00:14:20,376 --> 00:14:23,246 A:middle
+Now this is great to know if,
+for instance, if it's improving,
+
+353
+00:14:23,246 --> 00:14:24,816 A:middle
+then you know as
+you add features,
+
+354
+00:14:24,816 --> 00:14:27,086 A:middle
+you are either adding
+tests for those features
+
+355
+00:14:27,476 --> 00:14:29,016 A:middle
+or you're adding
+tests for features
+
+356
+00:14:29,016 --> 00:14:30,436 A:middle
+that previously had no coverage.
+
+357
+00:14:31,056 --> 00:14:32,456 A:middle
+Or maybe it's trending downward
+
+358
+00:14:32,456 --> 00:14:33,766 A:middle
+because you are moving
+a little too fast
+
+359
+00:14:33,766 --> 00:14:35,536 A:middle
+and not testing the
+features you are adding now.
+
+360
+00:14:35,766 --> 00:14:37,946 A:middle
+This can help you make
+informed decisions going forward
+
+361
+00:14:38,076 --> 00:14:39,536 A:middle
+about what you want
+to do and how you want
+
+362
+00:14:39,536 --> 00:14:40,486 A:middle
+to spend your development time.
+
+363
+00:14:41,076 --> 00:14:46,886 A:middle
+And of course, if you are using
+big screen in your workspace
+
+364
+00:14:46,966 --> 00:14:50,166 A:middle
+to show your overall bot status,
+right below the number of tests
+
+365
+00:14:50,166 --> 00:14:52,426 A:middle
+in your project we'll also
+show you your overall coverage
+
+366
+00:14:52,426 --> 00:14:54,546 A:middle
+percentage, so you can
+keep an eye on that.
+
+367
+00:14:56,156 --> 00:14:57,376 A:middle
+All right.
+
+368
+00:14:57,786 --> 00:14:59,486 A:middle
+So now I'd like to bring
+up my colleague, Eric,
+
+369
+00:14:59,786 --> 00:15:01,756 A:middle
+to demonstrate some of
+the code coverage features
+
+370
+
+371
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+372
+00:14:59,786 --> 00:15:01,756 A:middle
+to demonstrate some of
+the code coverage features
+
+373
+00:15:01,756 --> 00:15:02,976 A:middle
+in Xcode and Xcode Server.
+
+374
+00:15:03,516 --> 00:15:10,706 A:middle
+[Applause]
+
+375
+00:15:11,206 --> 00:15:11,676 A:middle
+>> ERIC DUDIAK: Thank you, Matt.
+
+376
+00:15:11,676 --> 00:15:14,656 A:middle
+I am going to show you an
+application that we've built
+
+377
+00:15:14,656 --> 00:15:17,726 A:middle
+for internal use that we
+use to track coffee owed
+
+378
+00:15:17,726 --> 00:15:18,826 A:middle
+from one person to another.
+
+379
+00:15:18,826 --> 00:15:21,116 A:middle
+You may have seen this
+application last year,
+
+380
+00:15:21,116 --> 00:15:22,876 A:middle
+we've made a few
+enhancements to it since then.
+
+381
+00:15:24,046 --> 00:15:26,996 A:middle
+Basically, the rule is you owe
+someone coffee if they fix a bug
+
+382
+00:15:26,996 --> 00:15:29,166 A:middle
+for you or otherwise
+owe you a favor.
+
+383
+00:15:29,166 --> 00:15:31,606 A:middle
+So we have a whole
+application to track that.
+
+384
+00:15:32,186 --> 00:15:34,236 A:middle
+And like any good application,
+we have unit testing
+
+385
+00:15:34,236 --> 00:15:36,086 A:middle
+to make sure as we are
+adding features to it,
+
+386
+00:15:36,086 --> 00:15:39,766 A:middle
+we are not impacting
+existing working code.
+
+387
+00:15:39,966 --> 00:15:42,786 A:middle
+So having you test those is
+really only half the battle.
+
+388
+00:15:42,786 --> 00:15:45,666 A:middle
+I don't know how many unit tests
+I am comfortable with in terms
+
+389
+00:15:45,666 --> 00:15:49,256 A:middle
+of when this application
+is actually fully tested,
+
+390
+00:15:49,256 --> 00:15:51,786 A:middle
+and I want to look at coverage
+and see what we have here.
+
+391
+00:15:53,226 --> 00:15:55,076 A:middle
+Because maybe we don't
+have that many tests.
+
+392
+00:15:55,076 --> 00:15:56,666 A:middle
+So let's take a look at it.
+
+393
+00:15:56,666 --> 00:15:58,866 A:middle
+I actually ran the test
+earlier before I got up here.
+
+394
+00:15:58,866 --> 00:16:01,086 A:middle
+We can just take a
+look on the device.
+
+395
+
+396
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+397
+00:15:58,866 --> 00:16:01,086 A:middle
+We can just take a
+look on the device.
+
+398
+00:16:01,086 --> 00:16:02,396 A:middle
+We only have about seven tests.
+
+399
+00:16:02,556 --> 00:16:05,786 A:middle
+That's pretty bad.
+
+400
+00:16:06,626 --> 00:16:07,786 A:middle
+But it's a small application.
+
+401
+00:16:07,786 --> 00:16:09,906 A:middle
+Maybe that's enough
+to cover everything.
+
+402
+00:16:09,906 --> 00:16:11,676 A:middle
+They are all passing at
+least, so that's a good start.
+
+403
+00:16:11,676 --> 00:16:12,816 A:middle
+Let's look at coverage.
+
+404
+00:16:12,816 --> 00:16:16,656 A:middle
+So if we look at the
+coverage report here,
+
+405
+00:16:16,656 --> 00:16:19,186 A:middle
+we see the application is
+broken down into two targets.
+
+406
+00:16:19,226 --> 00:16:22,156 A:middle
+We have a UI-level
+application, coffeeboard.app,
+
+407
+00:16:22,706 --> 00:16:24,456 A:middle
+which doesn't have
+much coverage.
+
+408
+00:16:25,466 --> 00:16:25,876 A:middle
+But that's okay.
+
+409
+00:16:25,876 --> 00:16:26,766 A:middle
+It's a UI application.
+
+410
+00:16:26,766 --> 00:16:28,116 A:middle
+I should write some
+UI tests for that.
+
+411
+00:16:28,116 --> 00:16:30,806 A:middle
+I am more concerned about this
+foundation level framework.
+
+412
+00:16:31,016 --> 00:16:32,956 A:middle
+Here we see only
+about 50% coverage.
+
+413
+00:16:32,956 --> 00:16:36,386 A:middle
+Now, that's pretty sad because
+this could be 100% covered
+
+414
+00:16:36,386 --> 00:16:37,116 A:middle
+if we tried hard.
+
+415
+00:16:37,676 --> 00:16:40,946 A:middle
+And it looks like the class
+that's really falling behind is
+
+416
+00:16:40,946 --> 00:16:42,366 A:middle
+this transaction class.
+
+417
+00:16:43,186 --> 00:16:45,116 A:middle
+And if we look at the
+transaction class,
+
+418
+00:16:46,036 --> 00:16:47,346 A:middle
+we see we have a bunch
+of methods in here
+
+419
+00:16:47,346 --> 00:16:49,486 A:middle
+that aren't getting called
+at all in our unit tests.
+
+420
+00:16:49,686 --> 00:16:52,066 A:middle
+We are creating a few
+transactions, and we can see
+
+421
+00:16:52,066 --> 00:16:53,716 A:middle
+that in the initializers
+being called,
+
+422
+00:16:53,716 --> 00:16:56,336 A:middle
+but we are never actually
+doing anything with them.
+
+423
+00:16:56,446 --> 00:16:58,466 A:middle
+So I should explain a
+little bit about our app.
+
+424
+00:16:58,466 --> 00:16:59,716 A:middle
+It has a really neat feature,
+
+425
+
+426
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+427
+00:17:00,226 --> 00:17:02,626 A:middle
+which is using a proprietary
+algorithm that we have.
+
+428
+00:17:02,726 --> 00:17:05,646 A:middle
+If I owe Matt two coffees
+and he owes me one coffee,
+
+429
+00:17:05,906 --> 00:17:06,976 A:middle
+we actually merge that down
+
+430
+00:17:06,976 --> 00:17:08,736 A:middle
+to just a single
+coffee that I owe Matt.
+
+431
+00:17:10,116 --> 00:17:11,376 A:middle
+Really secret algorithm
+that I want
+
+432
+00:17:11,376 --> 00:17:14,165 A:middle
+to make sure is very well
+tested, and also I am not
+
+433
+00:17:14,165 --> 00:17:16,986 A:middle
+that good at math, so
+I have to make sure.
+
+434
+00:17:17,925 --> 00:17:20,606 A:middle
+So let's see and look at the
+actual source file for this,
+
+435
+00:17:20,646 --> 00:17:22,766 A:middle
+and just like Matt said, I
+am going to use the arrow
+
+436
+00:17:22,766 --> 00:17:27,026 A:middle
+that shows up on hover and jump
+straight into my source editor.
+
+437
+00:17:28,146 --> 00:17:32,016 A:middle
+Here we see a whole lot of these
+dark, highlighted sections.
+
+438
+00:17:32,306 --> 00:17:35,236 A:middle
+Anything that's using
+the default background
+
+439
+00:17:35,236 --> 00:17:37,096 A:middle
+of my source editor --
+white in this case --
+
+440
+00:17:37,406 --> 00:17:39,616 A:middle
+is code that's already
+covered, and I don't really need
+
+441
+00:17:39,616 --> 00:17:40,526 A:middle
+to worry about it too much.
+
+442
+00:17:40,666 --> 00:17:43,336 A:middle
+I am really more concerned about
+all of this code that's showing
+
+443
+00:17:43,336 --> 00:17:44,406 A:middle
+up with a gray background.
+
+444
+00:17:44,806 --> 00:17:47,786 A:middle
+I can confirm it's uncovered
+because on the right side here,
+
+445
+00:17:48,146 --> 00:17:50,166 A:middle
+we see a bunch of
+zeros indicating
+
+446
+00:17:50,166 --> 00:17:51,246 A:middle
+that this code was never passed
+
+447
+00:17:51,246 --> 00:17:53,746 A:middle
+over inside any of
+my unit tests.
+
+448
+00:17:54,686 --> 00:17:55,436 A:middle
+So that's not good.
+
+449
+00:17:56,826 --> 00:17:58,546 A:middle
+Now let's navigate
+over to the unit test
+
+450
+00:17:58,546 --> 00:17:59,466 A:middle
+and take a look at this.
+
+451
+
+452
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+453
+00:18:00,256 --> 00:18:02,006 A:middle
+If I go to the transaction
+tests,
+
+454
+00:18:02,086 --> 00:18:05,256 A:middle
+I see that I just
+don't have any tests.
+
+455
+00:18:05,256 --> 00:18:06,816 A:middle
+That's kind of a problem.
+
+456
+00:18:07,126 --> 00:18:08,786 A:middle
+So let's fix that right now.
+
+457
+00:18:08,786 --> 00:18:11,326 A:middle
+I am going to go ahead and
+create a little blank space here
+
+458
+00:18:11,326 --> 00:18:13,546 A:middle
+and write in a little
+bit of Swift.
+
+459
+00:18:14,446 --> 00:18:16,626 A:middle
+And of course, I assume
+you all have magic macros
+
+460
+00:18:16,626 --> 00:18:18,176 A:middle
+that add all your
+unit tests for you.
+
+461
+00:18:18,176 --> 00:18:19,566 A:middle
+That's how we all
+develop, right?
+
+462
+00:18:20,516 --> 00:18:25,586 A:middle
+[Applause]
+
+463
+00:18:26,086 --> 00:18:28,126 A:middle
+I am going to go ahead and
+run the test on the device.
+
+464
+00:18:28,126 --> 00:18:29,356 A:middle
+It's going to take a second.
+
+465
+00:18:29,356 --> 00:18:32,036 A:middle
+As Matt said, we are
+using LLVM to go ahead
+
+466
+00:18:32,036 --> 00:18:34,616 A:middle
+and instrument your code while
+it's running so we know exactly
+
+467
+00:18:34,616 --> 00:18:36,156 A:middle
+which expressions are being run.
+
+468
+00:18:36,796 --> 00:18:40,346 A:middle
+When that runs on my device, I
+am going to look at the scheme.
+
+469
+00:18:40,626 --> 00:18:43,316 A:middle
+One thing to keep in mind,
+since it is a feature of LLVM,
+
+470
+00:18:43,316 --> 00:18:44,726 A:middle
+it's optional in Xcode.
+
+471
+00:18:44,956 --> 00:18:47,826 A:middle
+The way I turned it on is
+went into the scheme editor
+
+472
+00:18:48,066 --> 00:18:49,336 A:middle
+and selected the test action.
+
+473
+00:18:49,756 --> 00:18:51,186 A:middle
+I then made sure
+that check box for
+
+474
+00:18:51,186 --> 00:18:52,846 A:middle
+"gather data coverage"
+is selected.
+
+475
+00:18:53,906 --> 00:18:55,486 A:middle
+That ensures I get
+coverage data.
+
+476
+00:18:56,256 --> 00:18:56,796 A:middle
+Perfect timing.
+
+477
+00:18:56,796 --> 00:18:58,026 A:middle
+All my tests succeeded.
+
+478
+00:18:58,246 --> 00:19:00,266 A:middle
+Great, they always do when I
+build them with magic macros.
+
+479
+
+480
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+481
+00:18:58,246 --> 00:19:00,266 A:middle
+Great, they always do when I
+build them with magic macros.
+
+482
+00:19:01,556 --> 00:19:03,696 A:middle
+If I look at the
+test report now,
+
+483
+00:19:03,746 --> 00:19:05,776 A:middle
+I see I have more unit tests.
+
+484
+00:19:05,966 --> 00:19:07,266 A:middle
+But that's not really
+the whole story.
+
+485
+00:19:07,266 --> 00:19:08,656 A:middle
+Let's look at that
+coverage report again.
+
+486
+00:19:09,186 --> 00:19:12,186 A:middle
+Here we see a much
+prettier picture.
+
+487
+00:19:12,186 --> 00:19:15,646 A:middle
+If I zoom in on that, we will
+see I am now at 76% covered,
+
+488
+00:19:15,896 --> 00:19:17,696 A:middle
+not all the way there
+but doing a lot better
+
+489
+00:19:17,696 --> 00:19:18,446 A:middle
+than we were before.
+
+490
+00:19:19,016 --> 00:19:20,886 A:middle
+I'm going to go ahead
+
+491
+00:19:20,886 --> 00:19:22,936 A:middle
+and disclose the
+transaction class again,
+
+492
+00:19:22,936 --> 00:19:24,016 A:middle
+and here we see a lot more
+
+493
+00:19:24,016 --> 00:19:25,176 A:middle
+of these methods
+are getting covered.
+
+494
+00:19:25,176 --> 00:19:27,576 A:middle
+I am testing that merge code
+that I was worried about earlier
+
+495
+00:19:27,996 --> 00:19:29,416 A:middle
+and was causing me to
+lose a lot of sleep.
+
+496
+00:19:29,936 --> 00:19:33,006 A:middle
+Now one interesting thing, if
+we go back to the source editor,
+
+497
+00:19:34,166 --> 00:19:36,546 A:middle
+if we look at the
+is equal method,
+
+498
+00:19:36,546 --> 00:19:38,686 A:middle
+if you noticed before it
+was only partially covered.
+
+499
+00:19:38,686 --> 00:19:41,186 A:middle
+We can see here exactly
+why that is.
+
+500
+00:19:41,766 --> 00:19:42,706 A:middle
+If we look at the is equal,
+
+501
+00:19:42,706 --> 00:19:45,026 A:middle
+we don't actually compare our
+transaction class to something
+
+502
+00:19:45,026 --> 00:19:46,426 A:middle
+that isn't a transaction class,
+
+503
+00:19:46,876 --> 00:19:49,046 A:middle
+so this return false
+is never getting called
+
+504
+00:19:49,046 --> 00:19:50,266 A:middle
+in any of our unit tests.
+
+505
+00:19:51,006 --> 00:19:53,266 A:middle
+So being able to see
+this coverage as you go
+
+506
+00:19:53,266 --> 00:19:55,556 A:middle
+through different branches is
+very useful if you have a lot
+
+507
+00:19:55,556 --> 00:19:58,326 A:middle
+of branching logic in your code
+that you know has edge cases.
+
+508
+00:19:58,766 --> 00:20:00,846 A:middle
+This way you can ensure that
+every edge case is covered
+
+509
+
+510
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+511
+00:19:58,766 --> 00:20:00,846 A:middle
+This way you can ensure that
+every edge case is covered
+
+512
+00:20:00,846 --> 00:20:02,126 A:middle
+when you are writing
+your unit tests.
+
+513
+00:20:02,986 --> 00:20:05,286 A:middle
+We can also see a lot of this
+code is getting covered multiple
+
+514
+00:20:05,286 --> 00:20:07,256 A:middle
+times, and that's really
+important to make sure
+
+515
+00:20:07,256 --> 00:20:09,276 A:middle
+if you know there are multiple
+cases that hit the same path
+
+516
+00:20:09,276 --> 00:20:10,916 A:middle
+in your code but
+ultimately are different,
+
+517
+00:20:10,916 --> 00:20:14,446 A:middle
+you are getting coverage
+on all of them.
+
+518
+00:20:14,636 --> 00:20:16,876 A:middle
+Now, everything I just
+did was a bit tedious,
+
+519
+00:20:16,876 --> 00:20:19,576 A:middle
+and I wish I could just have
+someone run these unit tests all
+
+520
+00:20:19,576 --> 00:20:21,896 A:middle
+day not have to worry about it,
+
+521
+00:20:21,896 --> 00:20:23,216 A:middle
+not to compare them
+one to the other.
+
+522
+00:20:23,216 --> 00:20:25,586 A:middle
+I was told there wasn't
+money in the budget
+
+523
+00:20:25,586 --> 00:20:26,926 A:middle
+for an intern to do that.
+
+524
+00:20:27,586 --> 00:20:29,226 A:middle
+Let's look at Xcode Server.
+
+525
+00:20:29,226 --> 00:20:32,016 A:middle
+I already set up a bot for this
+and it's on a different branch
+
+526
+00:20:32,016 --> 00:20:36,466 A:middle
+that already has the commit,
+so let's look at the bot.
+
+527
+00:20:36,466 --> 00:20:38,146 A:middle
+Here just like Matt was
+showing in the slides earlier,
+
+528
+00:20:38,146 --> 00:20:41,556 A:middle
+we see a high-level overview of
+my project as it's been running
+
+529
+00:20:41,556 --> 00:20:44,706 A:middle
+for the past 24 hours
+and over the past amount
+
+530
+00:20:44,706 --> 00:20:46,306 A:middle
+of time I have been
+running this bot.
+
+531
+00:20:46,736 --> 00:20:48,876 A:middle
+At the top we surface
+high-level statistics,
+
+532
+00:20:49,486 --> 00:20:52,246 A:middle
+and you can show the statistics
+for any period of time, week,
+
+533
+00:20:52,246 --> 00:20:56,066 A:middle
+hour, month, year, or since
+the beginning of your bot.
+
+534
+00:20:56,736 --> 00:20:58,076 A:middle
+Then we see build history.
+
+535
+00:20:58,076 --> 00:21:00,116 A:middle
+This is where we
+surface errors, warnings,
+
+536
+
+537
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+538
+00:20:58,076 --> 00:21:00,116 A:middle
+This is where we
+surface errors, warnings,
+
+539
+00:21:00,116 --> 00:21:01,366 A:middle
+analysis issues over time.
+
+540
+00:21:01,526 --> 00:21:03,296 A:middle
+In this case, I had a
+few warnings earlier,
+
+541
+00:21:03,296 --> 00:21:04,466 A:middle
+but I've gone ahead
+and fixed those,
+
+542
+00:21:04,466 --> 00:21:06,196 A:middle
+so we are currently
+showing no issues.
+
+543
+00:21:06,826 --> 00:21:09,196 A:middle
+The next two graphs are
+probably most important
+
+544
+00:21:09,196 --> 00:21:10,236 A:middle
+for continuous integrations,
+
+545
+00:21:10,236 --> 00:21:11,876 A:middle
+assuming your project
+is building cleanly
+
+546
+00:21:11,876 --> 00:21:13,076 A:middle
+with no warnings or errors.
+
+547
+00:21:13,656 --> 00:21:14,696 A:middle
+And that is your tests.
+
+548
+00:21:15,196 --> 00:21:17,436 A:middle
+In this case we see I had
+a few test failures earlier
+
+549
+00:21:17,436 --> 00:21:18,936 A:middle
+but I've been steadily
+adding tests.
+
+550
+00:21:19,596 --> 00:21:22,676 A:middle
+That's great, but what we really
+want to see is a steady increase
+
+551
+00:21:22,946 --> 00:21:26,136 A:middle
+in tests all passing, but
+also a steady increase
+
+552
+00:21:26,136 --> 00:21:27,696 A:middle
+in code coverage
+with those tests.
+
+553
+00:21:27,916 --> 00:21:29,886 A:middle
+If you are adding tests
+but not adding coverage,
+
+554
+00:21:29,886 --> 00:21:31,756 A:middle
+you are not really
+adding as much value
+
+555
+00:21:31,756 --> 00:21:32,486 A:middle
+as you might think you are.
+
+556
+00:21:33,356 --> 00:21:36,056 A:middle
+If I look at the coverage,
+the last integration --
+
+557
+00:21:36,056 --> 00:21:38,346 A:middle
+this is that commit I
+just made you didn't see,
+
+558
+00:21:38,346 --> 00:21:39,186 A:middle
+but I promise I made it --
+
+559
+00:21:39,186 --> 00:21:41,916 A:middle
+we can actually go straight
+into the coverage report.
+
+560
+00:21:43,296 --> 00:21:45,656 A:middle
+So this looks a lot like
+what we just saw in Xcode
+
+561
+00:21:45,656 --> 00:21:46,986 A:middle
+when I ran my tests locally.
+
+562
+00:21:47,716 --> 00:21:50,076 A:middle
+Just like in Xcode, we
+break it down by target
+
+563
+00:21:50,076 --> 00:21:51,716 A:middle
+and across different classes.
+
+564
+00:21:51,956 --> 00:21:53,516 A:middle
+And I can expand that
+transaction class
+
+565
+00:21:54,336 --> 00:21:56,236 A:middle
+and see the exact same
+methods getting the same level
+
+566
+00:21:56,236 --> 00:21:56,696 A:middle
+of coverage.
+
+567
+00:21:56,946 --> 00:21:58,656 A:middle
+But there are two
+big differences.
+
+568
+00:21:58,776 --> 00:22:00,676 A:middle
+So in this case,
+I can see change
+
+569
+
+570
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+571
+00:21:58,776 --> 00:22:00,676 A:middle
+So in this case,
+I can see change
+
+572
+00:22:00,676 --> 00:22:02,246 A:middle
+over time right in the report.
+
+573
+00:22:02,246 --> 00:22:04,086 A:middle
+So instead of having to go
+through two different reports
+
+574
+00:22:04,086 --> 00:22:06,406 A:middle
+to see whether I actually
+increased the coverage,
+
+575
+00:22:06,406 --> 00:22:08,006 A:middle
+especially if it's a
+less drastic change
+
+576
+00:22:08,006 --> 00:22:10,876 A:middle
+than the one I just made, we
+can surface that right here.
+
+577
+00:22:11,456 --> 00:22:13,606 A:middle
+So my coverage is now 22% better
+
+578
+00:22:13,676 --> 00:22:15,996 A:middle
+in CB foundation.framework
+than it was before.
+
+579
+00:22:16,856 --> 00:22:17,486 A:middle
+And in particular,
+
+580
+00:22:17,486 --> 00:22:21,146 A:middle
+that transaction class
+increased 48% more covered.
+
+581
+00:22:21,746 --> 00:22:24,486 A:middle
+Now we highlight down here in
+orange an interesting thing,
+
+582
+00:22:24,486 --> 00:22:26,816 A:middle
+which is difference
+between devices.
+
+583
+00:22:27,286 --> 00:22:30,036 A:middle
+And actually, in Xcode
+Server's reports,
+
+584
+00:22:30,036 --> 00:22:33,296 A:middle
+I can click this checkbox and
+show the device differences
+
+585
+00:22:33,776 --> 00:22:34,866 A:middle
+and highlight that immediately.
+
+586
+00:22:35,386 --> 00:22:36,236 A:middle
+Now, in this case, it looks
+
+587
+00:22:36,236 --> 00:22:38,756 A:middle
+like this detail view
+controller isn't showing
+
+588
+00:22:38,756 --> 00:22:40,756 A:middle
+up at all on my iPhone.
+
+589
+00:22:40,756 --> 00:22:42,106 A:middle
+That's actually to be expected.
+
+590
+00:22:42,106 --> 00:22:44,266 A:middle
+In this case, our application
+uses the split view,
+
+591
+00:22:44,796 --> 00:22:46,426 A:middle
+and that second view
+controller doesn't show
+
+592
+00:22:46,426 --> 00:22:48,556 A:middle
+up on the iPhone unless
+someone actually were to tap it.
+
+593
+00:22:48,556 --> 00:22:50,606 A:middle
+And our unit tests don't
+exercise that code.
+
+594
+00:22:51,116 --> 00:22:53,546 A:middle
+This isn't particularly unusual,
+but it's important to make sure
+
+595
+00:22:53,546 --> 00:22:54,946 A:middle
+that every time you see
+something like this,
+
+596
+00:22:54,946 --> 00:22:56,436 A:middle
+that you expect it to happen.
+
+597
+00:22:56,556 --> 00:22:58,526 A:middle
+That's why we make it
+very easy in Xcode Server
+
+598
+00:22:58,806 --> 00:23:00,936 A:middle
+to see differences between
+different classes of devices.
+
+599
+
+600
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+601
+00:22:58,806 --> 00:23:00,936 A:middle
+to see differences between
+different classes of devices.
+
+602
+00:23:01,776 --> 00:23:04,336 A:middle
+It makes it very easy
+to determine when code
+
+603
+00:23:04,336 --> 00:23:05,596 A:middle
+that should be covered isn't.
+
+604
+00:23:06,066 --> 00:23:09,966 A:middle
+That's continuous integration
+showing code coverage.
+
+605
+00:23:09,966 --> 00:23:11,436 A:middle
+With that, I am going to
+let Matt talk about some
+
+606
+00:23:11,436 --> 00:23:13,576 A:middle
+of the more advanced
+features of Xcode Server.
+
+607
+00:23:14,516 --> 00:23:20,406 A:middle
+[Applause]
+
+608
+00:23:20,906 --> 00:23:21,406 A:middle
+>> MATT MORIARITY:
+Thank you, Eric.
+
+609
+00:23:22,786 --> 00:23:24,916 A:middle
+So like Eric said,
+I want to talk
+
+610
+00:23:24,916 --> 00:23:26,776 A:middle
+about some more advanced
+features in Xcode Server.
+
+611
+00:23:27,466 --> 00:23:30,906 A:middle
+I know that many of you
+developers are very interested
+
+612
+00:23:31,196 --> 00:23:33,536 A:middle
+in extending Xcode Server
+and integrating it to parts
+
+613
+00:23:33,536 --> 00:23:34,726 A:middle
+of your team's workflows.
+
+614
+00:23:35,166 --> 00:23:39,076 A:middle
+We know Xcode Server is
+not the only tools you use
+
+615
+00:23:39,076 --> 00:23:41,936 A:middle
+to get things done, so we want
+to provide ways for Xcode Server
+
+616
+00:23:41,936 --> 00:23:43,206 A:middle
+to work with everything you use
+
+617
+00:23:43,586 --> 00:23:45,156 A:middle
+and be a perfect
+fit for your tetam.
+
+618
+00:23:45,746 --> 00:23:49,296 A:middle
+So we have two ways I am going
+to talk about today in terms
+
+619
+00:23:49,296 --> 00:23:52,126 A:middle
+of integrating Xcode into
+everything else you are using.
+
+620
+00:23:52,716 --> 00:23:54,186 A:middle
+The first one is triggers.
+
+621
+00:23:55,706 --> 00:23:59,316 A:middle
+So triggers were introduced
+in Xcode 6, and they are all
+
+622
+00:23:59,316 --> 00:24:02,626 A:middle
+about providing custom actions
+that integrate in the lifecycle
+
+623
+
+624
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+625
+00:23:59,316 --> 00:24:02,626 A:middle
+about providing custom actions
+that integrate in the lifecycle
+
+626
+00:24:02,776 --> 00:24:04,186 A:middle
+of your bots and
+your integrations.
+
+627
+00:24:05,026 --> 00:24:07,386 A:middle
+So triggers can either
+be email notifications
+
+628
+00:24:07,456 --> 00:24:09,616 A:middle
+that provide details and
+configurable information
+
+629
+00:24:09,616 --> 00:24:11,516 A:middle
+about your integrations
+and how they ran,
+
+630
+00:24:11,516 --> 00:24:15,126 A:middle
+what issues they produced,
+committers, things like that.
+
+631
+00:24:15,606 --> 00:24:18,976 A:middle
+Or more interestingly, they can
+be arbitrary scripts written
+
+632
+00:24:18,976 --> 00:24:20,466 A:middle
+in the programming
+language of your choice.
+
+633
+00:24:21,946 --> 00:24:24,196 A:middle
+So by default, we will run
+these scripts using Bash
+
+634
+00:24:24,196 --> 00:24:25,916 A:middle
+so you can type any
+old shell command
+
+635
+00:24:25,916 --> 00:24:27,926 A:middle
+into your triggers
+and that should work.
+
+636
+00:24:28,496 --> 00:24:30,756 A:middle
+But if you include a hash
+bang at the top of your script
+
+637
+00:24:30,756 --> 00:24:32,796 A:middle
+like you would if you were
+writing a command line tool,
+
+638
+00:24:32,906 --> 00:24:35,996 A:middle
+then we will use that, and
+you can use any interpreter
+
+639
+00:24:35,996 --> 00:24:36,426 A:middle
+you like.
+
+640
+00:24:36,986 --> 00:24:39,076 A:middle
+You can even write your triggers
+in Swift if you so choose.
+
+641
+00:24:40,696 --> 00:24:41,826 A:middle
+Eric will demonstrate
+that later.
+
+642
+00:24:42,406 --> 00:24:49,426 A:middle
+A trigger can run either before
+or after your integration runs,
+
+643
+00:24:49,896 --> 00:24:52,106 A:middle
+and each of those phases
+provides a unique opportunity
+
+644
+00:24:52,106 --> 00:24:53,666 A:middle
+to do something cool
+with your bots.
+
+645
+00:24:54,356 --> 00:24:56,756 A:middle
+Triggers that run
+before integration run
+
+646
+00:24:56,976 --> 00:24:58,246 A:middle
+after your source
+code checks out.
+
+647
+00:24:58,736 --> 00:25:00,716 A:middle
+That's important because it
+means you have full access
+
+648
+
+649
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+650
+00:24:58,736 --> 00:25:00,716 A:middle
+That's important because it
+means you have full access
+
+651
+00:25:00,716 --> 00:25:03,186 A:middle
+to your project and you can make
+any automated changes you want
+
+652
+00:25:03,186 --> 00:25:04,826 A:middle
+to do before the build
+actually happens.
+
+653
+00:25:05,416 --> 00:25:09,186 A:middle
+And triggers that run after
+integration can be gated
+
+654
+00:25:09,186 --> 00:25:10,526 A:middle
+on the result of
+that integration,
+
+655
+00:25:10,526 --> 00:25:13,166 A:middle
+so they can run perhaps
+only on success or only
+
+656
+00:25:13,166 --> 00:25:14,286 A:middle
+when test failures happen.
+
+657
+00:25:14,726 --> 00:25:17,526 A:middle
+And they also have access
+to a lot of information
+
+658
+00:25:17,726 --> 00:25:19,306 A:middle
+about what happened
+in your integration.
+
+659
+00:25:19,866 --> 00:25:23,806 A:middle
+And one of the ways we provide
+access to that information is
+
+660
+00:25:23,806 --> 00:25:24,946 A:middle
+through environment variables.
+
+661
+00:25:25,586 --> 00:25:29,136 A:middle
+This is just a sample of some of
+the variables that are defined
+
+662
+00:25:29,136 --> 00:25:29,986 A:middle
+when your scripts run.
+
+663
+00:25:30,276 --> 00:25:31,966 A:middle
+Any scripting language
+worth using is going
+
+664
+00:25:31,966 --> 00:25:32,946 A:middle
+to give you an easy way to get
+
+665
+00:25:32,946 --> 00:25:34,856 A:middle
+at those environment
+variables and use them.
+
+666
+00:25:36,376 --> 00:25:38,016 A:middle
+So as an example of what
+you can do with these,
+
+667
+00:25:38,316 --> 00:25:42,236 A:middle
+last year we demonstrated a
+trigger that posted a message
+
+668
+00:25:42,236 --> 00:25:44,506 A:middle
+to a jabber chat room every
+time an integration completed.
+
+669
+00:25:44,796 --> 00:25:46,636 A:middle
+We used the bot name,
+integration number,
+
+670
+00:25:46,636 --> 00:25:48,016 A:middle
+and result to do that.
+
+671
+00:25:49,196 --> 00:25:52,166 A:middle
+It was really easy,
+very quick to set up.
+
+672
+00:25:53,296 --> 00:25:55,856 A:middle
+There's two things up
+here that I think I want
+
+673
+00:25:55,856 --> 00:25:56,696 A:middle
+to call your attention to,
+
+674
+00:25:56,696 --> 00:25:58,386 A:middle
+because they seem a little
+weird and out of place.
+
+675
+00:25:59,026 --> 00:26:01,056 A:middle
+So we have a bot ID
+and integration ID
+
+676
+
+677
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+678
+00:25:59,026 --> 00:26:01,056 A:middle
+So we have a bot ID
+and integration ID
+
+679
+00:26:01,056 --> 00:26:03,456 A:middle
+for the integration
+running and its bot.
+
+680
+00:26:03,836 --> 00:26:06,166 A:middle
+That's a little weird if
+this is all we give you.
+
+681
+00:26:06,356 --> 00:26:07,886 A:middle
+You can't really do
+much with just an ID.
+
+682
+00:26:07,886 --> 00:26:09,546 A:middle
+It's an arbitrary
+string of characters.
+
+683
+00:26:10,306 --> 00:26:10,936 A:middle
+What good is that?
+
+684
+00:26:10,936 --> 00:26:12,076 A:middle
+No user wants to see that.
+
+685
+00:26:13,546 --> 00:26:16,076 A:middle
+So they don't do a lot on their
+own but are very interesting
+
+686
+00:26:16,076 --> 00:26:17,686 A:middle
+when combined with
+the Xcode Server API.
+
+687
+00:26:18,466 --> 00:26:22,886 A:middle
+So the Xcode Server API
+forms the underpinnings
+
+688
+00:26:22,886 --> 00:26:25,576 A:middle
+of how the Xcode ID and
+Xcode Server communicate.
+
+689
+00:26:25,876 --> 00:26:28,226 A:middle
+You can also harness
+this API for your own use
+
+690
+00:26:28,616 --> 00:26:30,746 A:middle
+and do some pretty
+interesting things with it.
+
+691
+00:26:31,696 --> 00:26:34,776 A:middle
+So like most web services
+APIs, it's built off of open,
+
+692
+00:26:34,866 --> 00:26:36,036 A:middle
+well-established standards.
+
+693
+00:26:37,546 --> 00:26:40,636 A:middle
+We use HTTPS to do secure
+communication back and forth
+
+694
+00:26:40,676 --> 00:26:41,676 A:middle
+between client and server.
+
+695
+00:26:41,866 --> 00:26:43,146 A:middle
+And we use basic authentication
+
+696
+00:26:43,146 --> 00:26:46,036 A:middle
+over that encrypted
+channel for authentication.
+
+697
+00:26:46,596 --> 00:26:52,106 A:middle
+Our API follows a REST pattern,
+so it's all about interacting
+
+698
+00:26:52,106 --> 00:26:54,036 A:middle
+with resources, like
+bots and integrations
+
+699
+00:26:54,256 --> 00:26:57,856 A:middle
+and using the standard HTTP
+verbs like get, post, patch,
+
+700
+00:26:57,856 --> 00:27:02,866 A:middle
+and delete, to perform
+operations on those resources.
+
+701
+
+702
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+703
+00:26:57,856 --> 00:27:02,866 A:middle
+and delete, to perform
+operations on those resources.
+
+704
+00:27:04,436 --> 00:27:07,556 A:middle
+And of course, we communicate
+data back and forth using JSON.
+
+705
+00:27:07,816 --> 00:27:09,526 A:middle
+It's easy to use,
+it's easy to parse,
+
+706
+00:27:09,526 --> 00:27:11,296 A:middle
+it's the lingua franca
+of Web Services.
+
+707
+00:27:11,486 --> 00:27:12,886 A:middle
+Everybody is using it.
+
+708
+00:27:14,976 --> 00:27:17,696 A:middle
+This is great news for
+you, the aspiring extender
+
+709
+00:27:17,696 --> 00:27:20,586 A:middle
+of Xcode Server because it
+means no matter your preferred
+
+710
+00:27:20,586 --> 00:27:21,946 A:middle
+programming language
+or environment,
+
+711
+00:27:22,316 --> 00:27:24,806 A:middle
+you surely have a way
+to speak HTTPS and JSON,
+
+712
+00:27:25,266 --> 00:27:31,056 A:middle
+which means you can make almost
+anything talk to Xcode Server.
+
+713
+00:27:31,186 --> 00:27:33,796 A:middle
+Let's walk through how
+we might use this API.
+
+714
+00:27:34,356 --> 00:27:37,106 A:middle
+So what's the simplest question
+we could ask our server?
+
+715
+00:27:37,796 --> 00:27:40,646 A:middle
+Let's start with what
+bots are on my server?
+
+716
+00:27:41,056 --> 00:27:42,366 A:middle
+And this is very easy to do.
+
+717
+00:27:42,496 --> 00:27:44,656 A:middle
+We make a get request
+to the bots resource.
+
+718
+00:27:45,416 --> 00:27:48,076 A:middle
+If you look at the URL there,
+you will see that we communicate
+
+719
+00:27:48,076 --> 00:27:52,776 A:middle
+over port 20,343, and all our
+API requests have a /api prefix.
+
+720
+00:27:53,416 --> 00:27:56,506 A:middle
+It's not important here,
+but I want you to remember
+
+721
+00:27:56,506 --> 00:27:59,876 A:middle
+that when you try out the API
+yourself on your own server.
+
+722
+
+723
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+724
+00:28:00,386 --> 00:28:04,056 A:middle
+When we make that request,
+we get a JSON object
+
+725
+00:28:04,056 --> 00:28:05,976 A:middle
+that tells us the count
+of the results we have
+
+726
+00:28:06,226 --> 00:28:08,066 A:middle
+and gives us an array of
+the results themselves.
+
+727
+00:28:09,206 --> 00:28:11,056 A:middle
+Each of these JSON
+objects represents one
+
+728
+00:28:11,056 --> 00:28:13,416 A:middle
+of the bots that's set up
+and configured on our server.
+
+729
+00:28:14,416 --> 00:28:17,656 A:middle
+Like most resources, bots
+have an ID, they have a name
+
+730
+00:28:17,946 --> 00:28:20,216 A:middle
+like you gave it in Xcode
+when you created it,
+
+731
+00:28:20,216 --> 00:28:21,956 A:middle
+and they have all the
+configuration parameters
+
+732
+00:28:22,676 --> 00:28:25,126 A:middle
+that you set up when you
+are setting up your bot.
+
+733
+00:28:26,316 --> 00:28:26,836 A:middle
+All right.
+
+734
+00:28:26,836 --> 00:28:27,816 A:middle
+So what's something
+else we can do?
+
+735
+00:28:27,816 --> 00:28:28,676 A:middle
+Now that we have a bot,
+
+736
+00:28:29,046 --> 00:28:31,196 A:middle
+let's see what integrations
+have run for this bot.
+
+737
+00:28:32,636 --> 00:28:36,746 A:middle
+So now we access the integration
+subresource for that bot.
+
+738
+00:28:38,706 --> 00:28:40,896 A:middle
+And we do that, we get
+a very similar result
+
+739
+00:28:40,896 --> 00:28:44,306 A:middle
+as what we saw before,
+except now the results are --
+
+740
+00:28:44,306 --> 00:28:46,086 A:middle
+represent integrations,
+not bots.
+
+741
+00:28:47,506 --> 00:28:50,126 A:middle
+But integrations are resources
+as well, they also have IDs.
+
+742
+00:28:50,546 --> 00:28:53,696 A:middle
+One interesting thing is that we
+also keep a snapshot of the bot
+
+743
+00:28:53,956 --> 00:28:56,826 A:middle
+on the integration, and that's
+important because as your --
+
+744
+00:28:56,936 --> 00:28:58,726 A:middle
+your project changes over time
+
+745
+00:28:58,896 --> 00:29:01,136 A:middle
+or maybe you adopt new Xcode
+features, things like that,
+
+746
+
+747
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+748
+00:28:58,896 --> 00:29:01,136 A:middle
+or maybe you adopt new Xcode
+features, things like that,
+
+749
+00:29:01,456 --> 00:29:04,026 A:middle
+the bot configuration might
+change when you edit it,
+
+750
+00:29:04,026 --> 00:29:05,766 A:middle
+so we store a snapshot
+on the integration
+
+751
+00:29:05,766 --> 00:29:07,786 A:middle
+so that you know exactly
+how your bot was configured
+
+752
+00:29:07,976 --> 00:29:09,296 A:middle
+when that integration ran.
+
+753
+00:29:09,886 --> 00:29:14,396 A:middle
+So we also keep track of the
+step in the build process
+
+754
+00:29:14,396 --> 00:29:15,326 A:middle
+that your integration is at.
+
+755
+00:29:15,466 --> 00:29:17,226 A:middle
+If it's completed, you
+will see a result there,
+
+756
+00:29:17,546 --> 00:29:20,476 A:middle
+and also a breakdown of all
+the different issue types
+
+757
+00:29:20,726 --> 00:29:22,846 A:middle
+that your integration can
+produce and the changes
+
+758
+00:29:22,996 --> 00:29:24,736 A:middle
+from the previous integration.
+
+759
+00:29:25,316 --> 00:29:29,096 A:middle
+So these are both get
+requests I've shown you so far.
+
+760
+00:29:29,196 --> 00:29:31,766 A:middle
+That's great for
+collecting information,
+
+761
+00:29:32,166 --> 00:29:34,256 A:middle
+but if you are using the
+API, you probably want
+
+762
+00:29:34,256 --> 00:29:35,196 A:middle
+to do something with it.
+
+763
+00:29:36,166 --> 00:29:37,056 A:middle
+So what's something we could do
+
+764
+00:29:37,056 --> 00:29:38,526 A:middle
+to actually have an
+impact on our server?
+
+765
+00:29:39,236 --> 00:29:41,086 A:middle
+Well, we could trigger
+an integration manually.
+
+766
+00:29:41,646 --> 00:29:44,086 A:middle
+Maybe we have some kind of other
+automated process that's not the
+
+767
+00:29:44,086 --> 00:29:46,506 A:middle
+built-in scheduler in Xcode
+Server, and we want to use
+
+768
+00:29:46,506 --> 00:29:49,036 A:middle
+that to trigger integrations
+for certain bots.
+
+769
+00:29:49,776 --> 00:29:51,066 A:middle
+That's easy to do.
+
+770
+00:29:51,066 --> 00:29:52,516 A:middle
+We can use the same URL
+
+771
+00:29:52,716 --> 00:29:55,906 A:middle
+and change our HTTP
+method to a post.
+
+772
+00:29:57,536 --> 00:29:59,836 A:middle
+When we do that, we've
+gone from saying I want
+
+773
+00:29:59,836 --> 00:30:01,666 A:middle
+to list the integrations
+for this bot to I want
+
+774
+
+775
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+776
+00:29:59,836 --> 00:30:01,666 A:middle
+to list the integrations
+for this bot to I want
+
+777
+00:30:01,666 --> 00:30:05,246 A:middle
+to create a new integration
+for this bot.
+
+778
+00:30:05,446 --> 00:30:06,536 A:middle
+If we make that request,
+
+779
+00:30:07,066 --> 00:30:08,856 A:middle
+we get an object
+representing an integration,
+
+780
+00:30:08,856 --> 00:30:11,226 A:middle
+much like you saw before,
+but a lot lighter this time.
+
+781
+00:30:11,506 --> 00:30:12,906 A:middle
+There's a lot of
+properties that get set
+
+782
+00:30:13,316 --> 00:30:15,466 A:middle
+on the integration during
+the process of building,
+
+783
+00:30:15,766 --> 00:30:17,496 A:middle
+but this integration is
+only in a pending state
+
+784
+00:30:17,716 --> 00:30:19,406 A:middle
+until the builder picks
+it up in the queue
+
+785
+00:30:19,406 --> 00:30:22,606 A:middle
+and actually starts
+running with it.
+
+786
+00:30:22,876 --> 00:30:26,076 A:middle
+Now, most of the post end points
+in our API actually require you
+
+787
+00:30:26,076 --> 00:30:27,986 A:middle
+to put some JSON
+data in the body
+
+788
+00:30:28,056 --> 00:30:31,266 A:middle
+that says this is the
+properties of this resource,
+
+789
+00:30:31,326 --> 00:30:34,576 A:middle
+the attributes I want set
+on the thing I am creating.
+
+790
+00:30:35,176 --> 00:30:37,016 A:middle
+Integrations are a bit
+of a special case here
+
+791
+00:30:37,376 --> 00:30:40,886 A:middle
+because bots are
+essentially already that.
+
+792
+00:30:41,256 --> 00:30:43,776 A:middle
+They are already the template
+for each new integration,
+
+793
+00:30:44,046 --> 00:30:45,506 A:middle
+and so they know
+everything they need to know
+
+794
+00:30:45,506 --> 00:30:46,646 A:middle
+to create a new integration.
+
+795
+00:30:47,796 --> 00:30:50,146 A:middle
+Or at least they know everything
+they need in the general case.
+
+796
+00:30:50,386 --> 00:30:52,646 A:middle
+You can have a bit of an
+impact on your integrations.
+
+797
+00:30:52,646 --> 00:30:54,936 A:middle
+For instance, if you want
+to have an integration
+
+798
+00:30:54,936 --> 00:30:56,396 A:middle
+that specifically runs cleanly
+
+799
+00:30:56,686 --> 00:30:59,746 A:middle
+with no leftover build
+artifacts, then you can do
+
+800
+00:30:59,746 --> 00:31:02,296 A:middle
+that by passing some
+JSON in the body to tell
+
+801
+
+802
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+803
+00:30:59,746 --> 00:31:02,296 A:middle
+that by passing some
+JSON in the body to tell
+
+804
+00:31:02,426 --> 00:31:04,636 A:middle
+that this integration
+should clean before it runs.
+
+805
+00:31:05,156 --> 00:31:05,326 A:middle
+All right.
+
+806
+00:31:06,396 --> 00:31:07,846 A:middle
+So that's an example of some
+
+807
+00:31:07,846 --> 00:31:09,066 A:middle
+of the things you
+can do with our API.
+
+808
+00:31:09,446 --> 00:31:12,046 A:middle
+Now I'd like to bring Eric back
+up to do a demonstration of some
+
+809
+00:31:12,046 --> 00:31:13,376 A:middle
+of these advanced
+Xcode features.
+
+810
+00:31:14,516 --> 00:31:20,306 A:middle
+[Applause]
+
+811
+00:31:20,806 --> 00:31:21,926 A:middle
+>> ERIC DUDIAK: Thank
+you again, Matt.
+
+812
+00:31:22,736 --> 00:31:23,986 A:middle
+So like Matt said, we
+are going to show some
+
+813
+00:31:23,986 --> 00:31:26,946 A:middle
+of the advanced features of
+Xcode Server with this project.
+
+814
+00:31:27,996 --> 00:31:30,576 A:middle
+Now, like many of you,
+
+815
+00:31:30,826 --> 00:31:32,906 A:middle
+we developed this
+app both internally,
+
+816
+00:31:32,906 --> 00:31:35,446 A:middle
+but we also distribute
+it, and I want to be able
+
+817
+00:31:35,446 --> 00:31:37,366 A:middle
+to easily differentiate
+my internal builds
+
+818
+00:31:37,706 --> 00:31:38,716 A:middle
+from my external builds.
+
+819
+00:31:39,596 --> 00:31:41,426 A:middle
+Now, one common strategy
+for that is if we look
+
+820
+00:31:41,426 --> 00:31:43,726 A:middle
+at our Asset Catalog, we
+see two different images.
+
+821
+00:31:43,916 --> 00:31:46,356 A:middle
+In the first case, we see
+the standard app icon,
+
+822
+00:31:46,356 --> 00:31:48,406 A:middle
+which is this white coffee cup.
+
+823
+00:31:48,856 --> 00:31:51,696 A:middle
+In the case of our
+internal builds,
+
+824
+00:31:51,696 --> 00:31:55,386 A:middle
+we want to always show this
+icon as an internal flag
+
+825
+00:31:55,386 --> 00:31:56,556 A:middle
+and a black coffee cup.
+
+826
+00:31:56,916 --> 00:31:59,606 A:middle
+This way when we are running
+internal builds on our device,
+
+827
+
+828
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+829
+00:32:00,366 --> 00:32:01,266 A:middle
+we know that they are internal
+
+830
+00:32:01,266 --> 00:32:02,996 A:middle
+and not the ones we might have
+shipped through the App Store
+
+831
+00:32:02,996 --> 00:32:05,636 A:middle
+or somehow distributed
+through our normal channels.
+
+832
+00:32:06,626 --> 00:32:08,796 A:middle
+It's very useful so we
+know when we find a bug,
+
+833
+00:32:09,416 --> 00:32:11,016 A:middle
+we are hopefully the
+only ones seeing it.
+
+834
+00:32:11,426 --> 00:32:14,356 A:middle
+Now, the other way we want
+
+835
+00:32:14,356 --> 00:32:16,276 A:middle
+to differentiate
+our internal app is
+
+836
+00:32:16,276 --> 00:32:17,936 A:middle
+that when we're running
+internally,
+
+837
+00:32:18,456 --> 00:32:20,266 A:middle
+we normally have
+a settings bundle,
+
+838
+00:32:20,266 --> 00:32:23,096 A:middle
+and in that settings bundle, we
+define, like many applications,
+
+839
+00:32:23,096 --> 00:32:25,386 A:middle
+a version, in this
+case version 2.0,
+
+840
+00:32:25,386 --> 00:32:27,426 A:middle
+since we've made some
+recent major changes.
+
+841
+00:32:28,056 --> 00:32:31,176 A:middle
+Now, 2.0 is perfectly sufficient
+for our external users to see,
+
+842
+00:32:31,176 --> 00:32:33,576 A:middle
+we'll bump this version every
+time we submit to the App Store.
+
+843
+00:32:34,376 --> 00:32:35,196 A:middle
+But for internal use,
+
+844
+00:32:35,196 --> 00:32:37,376 A:middle
+we probably want a little bit
+more fine-grain information.
+
+845
+00:32:37,566 --> 00:32:40,426 A:middle
+More specifically, we want some
+unique identifier for the build.
+
+846
+00:32:41,656 --> 00:32:43,706 A:middle
+In this case, I think I
+want to use Xcode Server
+
+847
+00:32:43,706 --> 00:32:44,716 A:middle
+to actually distinguish
+
+848
+00:32:44,716 --> 00:32:48,746 A:middle
+which integration the build
+came from on my server.
+
+849
+00:32:48,746 --> 00:32:51,266 A:middle
+I am going to go ahead
+and go to the bot.
+
+850
+00:32:51,266 --> 00:32:54,216 A:middle
+And this is the same
+bot I was using before.
+
+851
+00:32:54,216 --> 00:32:55,866 A:middle
+I am going to go into
+the edit workflow.
+
+852
+00:32:56,406 --> 00:32:59,636 A:middle
+And just like Matt said, this
+is now completely nonlinear,
+
+853
+
+854
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+855
+00:33:00,006 --> 00:33:02,536 A:middle
+so since I am most
+interested in the triggers,
+
+856
+00:33:02,536 --> 00:33:03,886 A:middle
+I can jump straight there.
+
+857
+00:33:04,116 --> 00:33:05,406 A:middle
+So let's take our first --
+
+858
+00:33:05,406 --> 00:33:07,686 A:middle
+our first step is to
+get the icon changed.
+
+859
+00:33:07,686 --> 00:33:10,416 A:middle
+I am going to open up a trigger
+script I have already written.
+
+860
+00:33:10,416 --> 00:33:12,486 A:middle
+In this case, it's a
+simple batch script
+
+861
+00:33:12,486 --> 00:33:14,626 A:middle
+because all we are going to
+do is simple file operations.
+
+862
+00:33:14,626 --> 00:33:18,996 A:middle
+We are going to go ahead and
+use the XES source directory
+
+863
+00:33:18,996 --> 00:33:22,596 A:middle
+environment variable to figure
+out the path to that app icon,
+
+864
+00:33:23,706 --> 00:33:25,736 A:middle
+and we are going to go
+ahead and delete it.
+
+865
+00:33:26,126 --> 00:33:28,276 A:middle
+Then we are going to
+take our server version
+
+866
+00:33:28,276 --> 00:33:29,516 A:middle
+and move it into its place.
+
+867
+00:33:30,136 --> 00:33:32,126 A:middle
+So this will be a before
+integration trigger
+
+868
+00:33:32,126 --> 00:33:34,686 A:middle
+because we want this to run
+after our source code is checked
+
+869
+00:33:34,686 --> 00:33:37,156 A:middle
+out and ready to build but
+before we actually do build.
+
+870
+00:33:37,156 --> 00:33:39,056 A:middle
+So I am going to
+go ahead and copy
+
+871
+00:33:39,056 --> 00:33:41,136 A:middle
+that as a run script trigger.
+
+872
+00:33:41,746 --> 00:33:45,356 A:middle
+Now, setting up the
+settings bundle is going
+
+873
+00:33:45,356 --> 00:33:46,516 A:middle
+to be a little trickier.
+
+874
+00:33:46,516 --> 00:33:48,596 A:middle
+I could do that with a batch
+script, but that's editing a lot
+
+875
+00:33:48,596 --> 00:33:51,726 A:middle
+of batch script code manually,
+or letting a lot of plist code
+
+876
+00:33:51,726 --> 00:33:53,356 A:middle
+in a batch script
+would be painful.
+
+877
+00:33:53,356 --> 00:33:57,086 A:middle
+So I am going to go ahead
+and pull up a Swift trigger.
+
+878
+00:33:57,746 --> 00:34:00,766 A:middle
+In this case, just like the bash
+trigger, I go ahead and set it
+
+879
+
+880
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+881
+00:33:57,746 --> 00:34:00,766 A:middle
+In this case, just like the bash
+trigger, I go ahead and set it
+
+882
+00:34:00,766 --> 00:34:03,286 A:middle
+up using the hash bang
+for user bin swift.
+
+883
+00:34:04,256 --> 00:34:07,546 A:middle
+I haven't finished writing it,
+so bear with me while I do that.
+
+884
+00:34:07,546 --> 00:34:10,226 A:middle
+I am going to get
+import foundation.
+
+885
+00:34:10,226 --> 00:34:10,846 A:middle
+This is where I am going
+
+886
+00:34:10,846 --> 00:34:13,926 A:middle
+to get all the extra
+power I want from Swift.
+
+887
+00:34:14,716 --> 00:34:17,126 A:middle
+With the foundation imported,
+I am going to go ahead
+
+888
+00:34:17,126 --> 00:34:20,216 A:middle
+and use NSProcess info to get
+those environment variables
+
+889
+00:34:20,216 --> 00:34:22,366 A:middle
+that I was using in the
+other script through bash,
+
+890
+00:34:22,446 --> 00:34:24,906 A:middle
+in this case, the
+XCS source directory.
+
+891
+00:34:24,966 --> 00:34:30,755 A:middle
+After that I am going to find
+the settings bundle I had.
+
+892
+00:34:30,755 --> 00:34:33,076 A:middle
+This is where things get
+more interesting with Swift.
+
+893
+00:34:33,076 --> 00:34:37,085 A:middle
+I can load the plist as a
+dictionary right in Swift.
+
+894
+00:34:37,085 --> 00:34:38,896 A:middle
+I don't have to do
+any manual editing
+
+895
+00:34:38,896 --> 00:34:40,266 A:middle
+of the plist file myself.
+
+896
+00:34:40,266 --> 00:34:43,806 A:middle
+That gets particularly useful
+when I want to add something
+
+897
+00:34:43,806 --> 00:34:47,516 A:middle
+to it, I simply just create a
+new dictionary literal in swift
+
+898
+00:34:48,196 --> 00:34:50,456 A:middle
+and go ahead and shove
+that into my dictionary.
+
+899
+00:34:51,565 --> 00:34:53,636 A:middle
+Here we grab the
+environment variable
+
+900
+00:34:53,636 --> 00:34:56,636 A:middle
+for the integration number to
+set as this build number title.
+
+901
+00:34:56,916 --> 00:35:01,046 A:middle
+Finally, I am going to go
+ahead and write that out
+
+902
+
+903
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+904
+00:34:56,916 --> 00:35:01,046 A:middle
+Finally, I am going to go
+ahead and write that out
+
+905
+00:35:01,046 --> 00:35:02,826 A:middle
+to disk before the
+script finishes so that
+
+906
+00:35:02,826 --> 00:35:06,036 A:middle
+when we actually go to
+build, that will be picked
+
+907
+00:35:06,036 --> 00:35:07,316 A:middle
+up in my settings bundle.
+
+908
+00:35:07,376 --> 00:35:12,026 A:middle
+And to do that, I am just going
+to add another trigger below.
+
+909
+00:35:12,026 --> 00:35:12,746 A:middle
+All right.
+
+910
+00:35:13,816 --> 00:35:15,376 A:middle
+So I now have two triggers.
+
+911
+00:35:15,826 --> 00:35:19,286 A:middle
+Now, this is where I could
+push the integrate now button
+
+912
+00:35:19,286 --> 00:35:21,186 A:middle
+and get a new integration,
+but I want to use some
+
+913
+00:35:21,186 --> 00:35:24,866 A:middle
+of the API Matt was talking
+about on the server to do that.
+
+914
+00:35:25,376 --> 00:35:28,386 A:middle
+I am going to go ahead and pull
+up another application I have.
+
+915
+00:35:28,386 --> 00:35:32,856 A:middle
+And if we look here,
+we see an application
+
+916
+00:35:32,856 --> 00:35:34,066 A:middle
+that actually is connected
+
+917
+00:35:34,066 --> 00:35:36,006 A:middle
+to a serial device
+plugged into my computer.
+
+918
+00:35:37,066 --> 00:35:40,966 A:middle
+And it's using some of
+the I/O kit sample code,
+
+919
+00:35:40,966 --> 00:35:42,896 A:middle
+and we are just going
+to read that buffer,
+
+920
+00:35:42,996 --> 00:35:45,216 A:middle
+and whenever we see something
+on it, we are going to go ahead
+
+921
+00:35:45,216 --> 00:35:46,216 A:middle
+and run through this
+block of code.
+
+922
+00:35:46,216 --> 00:35:50,156 A:middle
+So I am going to open up an
+NSURL session, and I am going
+
+923
+00:35:50,156 --> 00:35:52,276 A:middle
+to call the API for
+getting all of the bots.
+
+924
+00:35:52,876 --> 00:35:54,236 A:middle
+This is just local host.
+
+925
+00:35:54,236 --> 00:35:57,016 A:middle
+The port Matt mentioned
+earlier, API/bots,
+
+926
+00:35:57,176 --> 00:35:58,966 A:middle
+and it's going to
+be the get method.
+
+927
+00:35:59,266 --> 00:36:00,646 A:middle
+I go ahead and call that,
+
+928
+
+929
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+930
+00:35:59,266 --> 00:36:00,646 A:middle
+I go ahead and call that,
+
+931
+00:36:00,646 --> 00:36:04,626 A:middle
+and using the NS JSON
+serialization API, go ahead
+
+932
+00:36:04,626 --> 00:36:09,226 A:middle
+and read in each bot and find
+the ID for coffee board bot.
+
+933
+00:36:09,226 --> 00:36:11,186 A:middle
+That's the bot I
+want to integrate.
+
+934
+00:36:12,676 --> 00:36:15,116 A:middle
+With that ID, I am going
+to build up a new URL
+
+935
+00:36:15,116 --> 00:36:16,536 A:middle
+like Matt was showing earlier
+
+936
+00:36:16,856 --> 00:36:22,896 A:middle
+with the bots/my
+UUID/integrations and switch
+
+937
+00:36:22,896 --> 00:36:25,256 A:middle
+that request to be a post
+request, so this is going
+
+938
+00:36:25,256 --> 00:36:26,636 A:middle
+to create a new integration.
+
+939
+00:36:26,896 --> 00:36:27,696 A:middle
+For the purpose of this,
+
+940
+00:36:27,696 --> 00:36:29,546 A:middle
+we don't really care what the
+integration is going to do.
+
+941
+00:36:30,456 --> 00:36:31,846 A:middle
+Now, in order to trigger this,
+
+942
+00:36:32,776 --> 00:36:35,076 A:middle
+I managed to sneak past
+security a fun little button,
+
+943
+00:36:35,876 --> 00:36:39,106 A:middle
+and this button, I am going
+to plug it into my Mac.
+
+944
+00:36:40,816 --> 00:36:43,226 A:middle
+And I am going to
+run this application.
+
+945
+00:36:43,816 --> 00:36:47,006 A:middle
+Let's try that one more time.
+
+946
+00:36:52,736 --> 00:36:54,696 A:middle
+Make sure it's fully
+connected before I run.
+
+947
+00:36:54,696 --> 00:36:56,236 A:middle
+Don't want to get
+ahead of myself.
+
+948
+00:36:56,236 --> 00:36:56,586 A:middle
+All right.
+
+949
+00:36:56,586 --> 00:36:59,216 A:middle
+Good. So that application
+is now running.
+
+950
+00:36:59,216 --> 00:37:00,436 A:middle
+We have the modem picked up.
+
+951
+
+952
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+953
+00:36:59,216 --> 00:37:00,436 A:middle
+We have the modem picked up.
+
+954
+00:37:00,436 --> 00:37:04,516 A:middle
+So I am just going to zoom in
+here on my bot and step away
+
+955
+00:37:04,516 --> 00:37:07,496 A:middle
+for a second, and
+just with the button,
+
+956
+00:37:08,576 --> 00:37:09,446 A:middle
+create a new integration.
+
+957
+00:37:10,516 --> 00:37:16,426 A:middle
+[Applause]
+
+958
+00:37:16,926 --> 00:37:18,846 A:middle
+So that was entirely with
+the button in our API.
+
+959
+00:37:18,846 --> 00:37:21,256 A:middle
+I am not going to wait for
+that integration to finish just
+
+960
+00:37:21,256 --> 00:37:24,396 A:middle
+to show you what happened,
+here we see the integration,
+
+961
+00:37:24,396 --> 00:37:27,296 A:middle
+I can install that on my local
+device I was using earlier
+
+962
+00:37:27,296 --> 00:37:27,876 A:middle
+to test.
+
+963
+00:37:29,266 --> 00:37:34,606 A:middle
+Install. And if I open up
+QuickTime to see the --
+
+964
+00:37:35,756 --> 00:37:37,446 A:middle
+so you guys can see
+what I see -- all right.
+
+965
+00:37:42,116 --> 00:37:43,146 A:middle
+There's my device.
+
+966
+00:37:44,356 --> 00:37:46,466 A:middle
+You see that we have the
+internal icon on the device,
+
+967
+00:37:46,466 --> 00:37:48,006 A:middle
+even though I never
+switched it locally.
+
+968
+00:37:48,006 --> 00:37:51,256 A:middle
+We downloaded it from the
+server, and now our app,
+
+969
+00:37:51,256 --> 00:37:52,486 A:middle
+we know, is an internal build.
+
+970
+00:37:52,486 --> 00:37:54,966 A:middle
+So that's some of the
+more advanced features
+
+971
+00:37:54,966 --> 00:37:56,836 A:middle
+of Xcode Server, and I am going
+
+972
+00:37:56,836 --> 00:38:00,246 A:middle
+to let Matt talk a little bit
+more about where you can find us
+
+973
+
+974
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+975
+00:37:56,836 --> 00:38:00,246 A:middle
+to let Matt talk a little bit
+more about where you can find us
+
+976
+00:38:00,246 --> 00:38:01,526 A:middle
+in the labs and things
+like that.
+
+977
+00:38:02,406 --> 00:38:02,896 A:middle
+Matt?
+
+978
+00:38:03,516 --> 00:38:08,686 A:middle
+[Applause]
+
+979
+00:38:09,186 --> 00:38:09,766 A:middle
+>> MATT MORIARITY: All right.
+
+980
+00:38:10,056 --> 00:38:10,586 A:middle
+Thank you, Eric.
+
+981
+00:38:10,586 --> 00:38:11,706 A:middle
+That was great.
+
+982
+00:38:11,946 --> 00:38:14,526 A:middle
+I love pressing big red
+buttons to make integrations.
+
+983
+00:38:15,036 --> 00:38:17,336 A:middle
+All right.
+
+984
+00:38:17,886 --> 00:38:20,886 A:middle
+So here are some more of the
+endpoints we have available
+
+985
+00:38:20,886 --> 00:38:24,596 A:middle
+in our API, at least to you
+guys, developers out there.
+
+986
+00:38:24,986 --> 00:38:28,046 A:middle
+There's a few more that are
+available, but they're locked
+
+987
+00:38:28,046 --> 00:38:29,756 A:middle
+down so that they
+are internal use.
+
+988
+00:38:29,756 --> 00:38:31,056 A:middle
+We want to be really
+secure and make sure
+
+989
+00:38:31,056 --> 00:38:33,096 A:middle
+that integrations
+don't get messed
+
+990
+00:38:33,096 --> 00:38:34,996 A:middle
+with too much while
+they are running,
+
+991
+00:38:36,476 --> 00:38:38,586 A:middle
+especially with the
+client server interaction
+
+992
+00:38:38,796 --> 00:38:40,666 A:middle
+where you might have your
+server exposed in more places
+
+993
+00:38:40,726 --> 00:38:42,656 A:middle
+than just your network.
+
+994
+00:38:43,606 --> 00:38:46,116 A:middle
+But I encourage you to
+reference this slide later
+
+995
+00:38:46,626 --> 00:38:49,886 A:middle
+when we've uploaded the videos
+and the slides and try out some
+
+996
+00:38:49,886 --> 00:38:51,606 A:middle
+of these endpoints
+yourself on your own servers
+
+997
+00:38:51,836 --> 00:38:52,916 A:middle
+and see what you
+can come up with
+
+998
+00:38:53,216 --> 00:38:54,626 A:middle
+and what's interesting
+for your team.
+
+999
+00:38:55,126 --> 00:38:55,286 A:middle
+All right.
+
+1000
+00:38:57,076 --> 00:39:00,786 A:middle
+So today we looked at Xcode
+Server improvements we've made
+
+1001
+
+1002
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1003
+00:38:57,076 --> 00:39:00,786 A:middle
+So today we looked at Xcode
+Server improvements we've made
+
+1004
+00:39:00,786 --> 00:39:02,786 A:middle
+in Xcode 7, both around quality
+
+1005
+00:39:02,946 --> 00:39:06,076 A:middle
+and adopting new testing
+features that have been added
+
+1006
+00:39:06,076 --> 00:39:08,846 A:middle
+in Xcode 7, especially the
+new code coverage feature
+
+1007
+00:39:09,146 --> 00:39:11,666 A:middle
+that makes it really great
+for measuring how much
+
+1008
+00:39:11,666 --> 00:39:13,856 A:middle
+of your applications code
+is actually getting used
+
+1009
+00:39:13,856 --> 00:39:14,346 A:middle
+by your tests.
+
+1010
+00:39:14,346 --> 00:39:17,316 A:middle
+And we, of course, showed
+you two great new ways
+
+1011
+00:39:17,606 --> 00:39:20,166 A:middle
+to extend Xcode Server
+and integrate it better
+
+1012
+00:39:20,166 --> 00:39:23,796 A:middle
+with your team with triggers
+and the Xcode Server API.
+
+1013
+00:39:24,336 --> 00:39:27,656 A:middle
+So for more information,
+we have a --
+
+1014
+00:39:27,656 --> 00:39:30,776 A:middle
+there's a Continuous Integration
+Guide on the developer library,
+
+1015
+00:39:31,266 --> 00:39:33,246 A:middle
+and of course, you can
+come post any questions
+
+1016
+00:39:33,296 --> 00:39:34,226 A:middle
+to the developer forums.
+
+1017
+00:39:34,796 --> 00:39:37,856 A:middle
+There's a few related sessions.
+
+1018
+00:39:38,126 --> 00:39:40,386 A:middle
+Both of them have
+already happened,
+
+1019
+00:39:40,556 --> 00:39:42,036 A:middle
+some more recently than others.
+
+1020
+00:39:42,766 --> 00:39:46,086 A:middle
+UI Testing in Xcode was
+yesterday, but I encourage you
+
+1021
+00:39:46,086 --> 00:39:46,966 A:middle
+to go look at that video.
+
+1022
+00:39:47,186 --> 00:39:48,786 A:middle
+We touched on UI
+testing but we didn't get
+
+1023
+00:39:48,786 --> 00:39:50,196 A:middle
+to demonstrate how
+it works in Server.
+
+1024
+00:39:50,506 --> 00:39:53,556 A:middle
+It is pretty automatic, but
+the UI testing feature is great
+
+1025
+00:39:53,556 --> 00:39:55,996 A:middle
+and I encourage you
+to try it out.
+
+1026
+00:39:55,996 --> 00:39:58,036 A:middle
+If you want to know more
+about getting started
+
+1027
+00:39:58,036 --> 00:40:00,976 A:middle
+with Xcode Server, last
+year we demonstrated setting
+
+1028
+
+1029
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1030
+00:39:58,036 --> 00:40:00,976 A:middle
+with Xcode Server, last
+year we demonstrated setting
+
+1031
+00:40:00,976 --> 00:40:03,516 A:middle
+up your server from scratch
+and getting your bots set
+
+1032
+00:40:03,516 --> 00:40:05,816 A:middle
+up initially in the
+Continuous Integration
+
+1033
+00:40:05,816 --> 00:40:07,206 A:middle
+with Xcode 6 session.
+
+1034
+00:40:08,616 --> 00:40:09,976 A:middle
+Thank you, everyone.
+
+1035
+00:40:09,976 --> 00:40:10,976 A:middle
+Have a great rest of your WWDC.
+
+1036
+00:40:11,508 --> 00:40:13,508 A:middle
+[Applause]
+
+1037

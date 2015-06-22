@@ -1,0 +1,4365 @@
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1
+00:00:26,516 --> 00:00:31,676 A:middle
+[Applause]
+
+2
+00:00:32,176 --> 00:00:34,506 A:middle
+>> ADAM DRISCOLL: So good
+afternoon and welcome
+
+3
+00:00:34,506 --> 00:00:35,906 A:middle
+to What's New In Core Location.
+
+4
+00:00:36,796 --> 00:00:38,656 A:middle
+My name is Adam Driscoll,
+and I'm an engineer
+
+5
+00:00:38,736 --> 00:00:40,246 A:middle
+on the Core Location
+frameworks team.
+
+6
+00:00:41,096 --> 00:00:43,346 A:middle
+I'm glad to bring this
+session to you today
+
+7
+00:00:43,346 --> 00:00:45,336 A:middle
+because things are
+getting more complicated.
+
+8
+00:00:45,336 --> 00:00:49,416 A:middle
+As you know, we have Apple
+Watch and iPhone now.
+
+9
+00:00:49,986 --> 00:00:52,906 A:middle
+So we thought we would
+focus on simplicity.
+
+10
+00:00:52,906 --> 00:00:55,266 A:middle
+What can we do to simplify
+the tasks for you guys,
+
+11
+00:00:55,306 --> 00:00:57,056 A:middle
+and we think we have
+good stuff for you today.
+
+12
+00:00:58,216 --> 00:01:00,876 A:middle
+Some of you may be
+completely new
+
+13
+
+14
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+15
+00:00:58,216 --> 00:01:00,876 A:middle
+Some of you may be
+completely new
+
+16
+00:01:00,876 --> 00:01:02,086 A:middle
+to Core Location as a framework.
+
+17
+00:01:02,086 --> 00:01:05,776 A:middle
+I thought I would start out
+with an overview of what we do,
+
+18
+00:01:06,246 --> 00:01:09,406 A:middle
+the full breadth of our API.
+
+19
+00:01:09,456 --> 00:01:12,526 A:middle
+The users know, the people
+who buy your apps know
+
+20
+00:01:12,526 --> 00:01:14,836 A:middle
+about Core Location,
+that they are in charge
+
+21
+00:01:14,916 --> 00:01:17,146 A:middle
+of whether you can
+use it or not.
+
+22
+00:01:17,146 --> 00:01:19,226 A:middle
+You can't access their
+location off the bet,
+
+23
+00:01:19,226 --> 00:01:21,726 A:middle
+you have to ask permission
+and we have the API
+
+24
+00:01:21,726 --> 00:01:23,966 A:middle
+that lets you do that.
+
+25
+00:01:24,156 --> 00:01:26,126 A:middle
+After that we have
+the bread and butter,
+
+26
+00:01:26,126 --> 00:01:27,616 A:middle
+which is location updates.
+
+27
+00:01:27,716 --> 00:01:30,786 A:middle
+This is the portion of the
+API you can use to get access
+
+28
+00:01:30,786 --> 00:01:32,296 A:middle
+to where the user
+is at that moment.
+
+29
+00:01:33,156 --> 00:01:37,596 A:middle
+Starting in iOS 8 we introduced
+the ability to do that indoors,
+
+30
+00:01:37,596 --> 00:01:41,796 A:middle
+maybe in a large venue like
+an airport or shopping mall.
+
+31
+00:01:43,616 --> 00:01:45,936 A:middle
+Then we have APIs that
+we collectively think
+
+32
+00:01:45,936 --> 00:01:47,096 A:middle
+of as monitoring APIs.
+
+33
+00:01:47,096 --> 00:01:52,716 A:middle
+These are APIs that allow you to
+specify an interest in an event
+
+34
+00:01:52,716 --> 00:01:55,246 A:middle
+that may happen and
+then be launched even
+
+35
+00:01:55,246 --> 00:01:57,016 A:middle
+if you are not running
+in order to get that,
+
+36
+00:01:57,326 --> 00:01:58,386 A:middle
+when that event does happen.
+
+37
+00:01:58,386 --> 00:02:01,736 A:middle
+The first of these
+is region monitoring.
+
+38
+
+39
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+40
+00:01:58,386 --> 00:02:01,736 A:middle
+The first of these
+is region monitoring.
+
+41
+00:02:01,736 --> 00:02:03,846 A:middle
+This allows you to
+specify a geographic region
+
+42
+00:02:04,126 --> 00:02:08,636 A:middle
+or iBeacon based region and be
+launched into the background
+
+43
+00:02:08,636 --> 00:02:10,636 A:middle
+when the user enters
+or exits that region.
+
+44
+00:02:11,476 --> 00:02:16,166 A:middle
+We have visit monitoring, sort
+of a complementary technology
+
+45
+00:02:16,226 --> 00:02:18,086 A:middle
+that allows you to
+specify that you would
+
+46
+00:02:18,086 --> 00:02:21,536 A:middle
+like to be notified whenever
+a user arrives or departs
+
+47
+00:02:21,536 --> 00:02:22,846 A:middle
+from the place but
+you don't have to know
+
+48
+00:02:22,846 --> 00:02:26,346 A:middle
+in front what that place is.
+
+49
+00:02:26,646 --> 00:02:30,066 A:middle
+It's reminders type things,
+remind me to get milk when I get
+
+50
+00:02:30,066 --> 00:02:32,956 A:middle
+to the store and
+visiting monitoring is
+
+51
+00:02:32,956 --> 00:02:34,396 A:middle
+for diary type things.
+
+52
+00:02:34,436 --> 00:02:39,436 A:middle
+I want to know where I
+went today and what I did.
+
+53
+00:02:39,436 --> 00:02:42,826 A:middle
+We have we have other
+APIs, location, geocoding,
+
+54
+00:02:42,876 --> 00:02:48,426 A:middle
+I'm not going to
+go into it today.
+
+55
+00:02:48,426 --> 00:02:52,506 A:middle
+We have improved a number
+of these regions of the API,
+
+56
+00:02:52,506 --> 00:02:55,606 A:middle
+but I want to especially
+call out indoor location.
+
+57
+00:02:55,676 --> 00:02:57,536 A:middle
+Indoor location is
+more accurate.
+
+58
+00:02:58,106 --> 00:03:00,026 A:middle
+It's faster at detecting
+floor changes.
+
+59
+
+60
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+61
+00:02:58,106 --> 00:03:00,026 A:middle
+It's faster at detecting
+floor changes.
+
+62
+00:03:00,376 --> 00:03:04,056 A:middle
+Most importantly the
+sample has been rewritten
+
+63
+00:03:04,056 --> 00:03:06,776 A:middle
+to make it more straightforward,
+use MapKit.
+
+64
+00:03:07,156 --> 00:03:09,226 A:middle
+If you think that
+that's relevant
+
+65
+00:03:09,226 --> 00:03:10,516 A:middle
+for your users, check it out.
+
+66
+00:03:10,516 --> 00:03:12,176 A:middle
+It's should be much
+easier for you to use.
+
+67
+00:03:13,346 --> 00:03:17,226 A:middle
+For the most part we will be
+talking about the first two
+
+68
+00:03:17,226 --> 00:03:22,376 A:middle
+of these points, authorization
+and location updates.
+
+69
+00:03:22,376 --> 00:03:25,746 A:middle
+Specifically, we've
+got four parts today
+
+70
+00:03:25,746 --> 00:03:27,936 A:middle
+and the first one is
+background location.
+
+71
+00:03:28,376 --> 00:03:31,006 A:middle
+This is the portion of our
+API that you use to record
+
+72
+00:03:31,396 --> 00:03:32,376 A:middle
+where the user has gone.
+
+73
+00:03:32,376 --> 00:03:35,526 A:middle
+Maybe you have a run tracking
+app and they want to have a map
+
+74
+00:03:35,526 --> 00:03:38,176 A:middle
+of where they went, or a
+navigational app and you want
+
+75
+00:03:38,176 --> 00:03:39,916 A:middle
+to give them turn
+by turn directions.
+
+76
+00:03:41,486 --> 00:03:46,046 A:middle
+We have some new API for the
+other cases of location use
+
+77
+00:03:46,046 --> 00:03:48,236 A:middle
+where you just need to know
+where they are right now.
+
+78
+00:03:48,236 --> 00:03:50,746 A:middle
+You don't need to be able to
+map but want to provide them
+
+79
+00:03:50,746 --> 00:03:52,986 A:middle
+with the information about
+where the nearest store is,
+
+80
+00:03:53,156 --> 00:03:53,756 A:middle
+that kind of thing.
+
+81
+00:03:53,756 --> 00:03:58,356 A:middle
+Then we're going to talk about
+authorization, how that changed
+
+82
+00:03:58,356 --> 00:04:02,146 A:middle
+in iOS 8 and how it applies
+now in the Apple Watch era.
+
+83
+
+84
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+85
+00:03:58,356 --> 00:04:02,146 A:middle
+in iOS 8 and how it applies
+now in the Apple Watch era.
+
+86
+00:04:03,006 --> 00:04:06,066 A:middle
+Finally we will dive into
+detail on best practices
+
+87
+00:04:06,066 --> 00:04:08,586 A:middle
+for Apple Watch, which
+hopefully should be very useful
+
+88
+00:04:08,646 --> 00:04:11,246 A:middle
+if you're getting started there.
+
+89
+00:04:11,786 --> 00:04:13,786 A:middle
+Okay. Background
+location updates.
+
+90
+00:04:14,086 --> 00:04:16,046 A:middle
+Well, we decided
+not to have any.
+
+91
+00:04:16,375 --> 00:04:18,026 A:middle
+I was just kidding.
+
+92
+00:04:18,386 --> 00:04:20,956 A:middle
+This is what the slide would
+have looked like in iOS 2 or 3.
+
+93
+00:04:20,956 --> 00:04:25,026 A:middle
+If you were a user then,
+you remember having
+
+94
+00:04:25,026 --> 00:04:27,596 A:middle
+to leave a phone on, unlocked,
+in your pocket when you went
+
+95
+00:04:27,596 --> 00:04:28,866 A:middle
+for a run if you wanted a map.
+
+96
+00:04:29,156 --> 00:04:31,956 A:middle
+Starting in iOS 4 we
+improved on this greatly,
+
+97
+00:04:31,956 --> 00:04:36,626 A:middle
+with what we call
+Background modes.
+
+98
+00:04:36,916 --> 00:04:40,236 A:middle
+You still by default will be
+running only in the foreground.
+
+99
+00:04:40,486 --> 00:04:45,026 A:middle
+However now you can use this
+handy capabilities tab in Xcode
+
+100
+00:04:45,496 --> 00:04:48,186 A:middle
+that says that you
+want to be kept alive
+
+101
+00:04:48,416 --> 00:04:51,076 A:middle
+in the background
+unsuspended in order
+
+102
+00:04:51,076 --> 00:04:52,416 A:middle
+to receive location updates.
+
+103
+00:04:53,686 --> 00:04:59,476 A:middle
+What it does, it sets a
+value key in your info plist,
+
+104
+00:04:59,476 --> 00:05:02,256 A:middle
+statically for the whole app.
+
+105
+
+106
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+107
+00:04:59,476 --> 00:05:02,256 A:middle
+statically for the whole app.
+
+108
+00:05:02,256 --> 00:05:05,146 A:middle
+The key is UI background modes.
+
+109
+00:05:05,146 --> 00:05:06,836 A:middle
+What happens when
+this has been done?
+
+110
+00:05:06,836 --> 00:05:08,396 A:middle
+We will see a video in a second.
+
+111
+00:05:09,206 --> 00:05:10,696 A:middle
+Before we do, let's just see,
+
+112
+00:05:10,696 --> 00:05:12,906 A:middle
+let me list out what
+to look for.
+
+113
+00:05:13,036 --> 00:05:17,506 A:middle
+So it allows you when -- the
+user is using your application
+
+114
+00:05:17,506 --> 00:05:19,046 A:middle
+to start location updates.
+
+115
+00:05:20,026 --> 00:05:22,086 A:middle
+Then let's say the
+user gets bored.
+
+116
+00:05:22,086 --> 00:05:26,206 A:middle
+Maybe they check out the mail
+or their music, a little demo,
+
+117
+00:05:26,206 --> 00:05:28,406 A:middle
+maybe they're going to stare
+at the home screen for awhile,
+
+118
+00:05:28,886 --> 00:05:29,786 A:middle
+but you will be able
+
+119
+00:05:29,786 --> 00:05:33,456 A:middle
+to accessing location
+during that time.
+
+120
+00:05:33,486 --> 00:05:35,876 A:middle
+The user launches you
+up and starts you again.
+
+121
+00:05:35,876 --> 00:05:40,136 A:middle
+You can stop the session and
+stop accessing their location
+
+122
+00:05:40,136 --> 00:05:43,396 A:middle
+and thereby stop draining
+their battery with the GPS.
+
+123
+00:05:44,046 --> 00:05:46,366 A:middle
+So here is the video.
+
+124
+00:05:47,726 --> 00:05:48,846 A:middle
+So user launches our app.
+
+125
+00:05:49,466 --> 00:05:51,316 A:middle
+There's a button in the
+middle there to indicate
+
+126
+00:05:51,316 --> 00:05:53,336 A:middle
+that they would like us to
+start recording, which we do.
+
+127
+00:05:53,856 --> 00:05:58,756 A:middle
+The eye chart, notice that
+the numbers are counting up,
+
+128
+00:05:58,876 --> 00:05:59,826 A:middle
+what they get to.
+
+129
+
+130
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+131
+00:06:00,036 --> 00:06:01,576 A:middle
+The user is going to put
+us in the background.
+
+132
+00:06:02,336 --> 00:06:07,796 A:middle
+And you see at the top now there
+is what we call the Blue Bar.
+
+133
+00:06:08,016 --> 00:06:10,926 A:middle
+This indicates that our
+sample app is still running.
+
+134
+00:06:11,096 --> 00:06:13,436 A:middle
+It gives the user the ability
+to tap on it to come back,
+
+135
+00:06:13,566 --> 00:06:14,926 A:middle
+which is what they just did.
+
+136
+00:06:15,146 --> 00:06:17,926 A:middle
+Notice that the numbers in
+the eye chart got bigger,
+
+137
+00:06:18,576 --> 00:06:20,466 A:middle
+not bigger in the
+eye chart sense.
+
+138
+00:06:21,246 --> 00:06:24,106 A:middle
+That indicates that we continue
+to receive location updates.
+
+139
+00:06:24,106 --> 00:06:25,956 A:middle
+That's just a count of
+the ones we've received.
+
+140
+00:06:26,046 --> 00:06:27,776 A:middle
+We continue to receive
+them in the background.
+
+141
+00:06:28,206 --> 00:06:32,196 A:middle
+The user asks us to stop,
+we go back to square one.
+
+142
+00:06:33,306 --> 00:06:36,846 A:middle
+App developers have
+created a lot
+
+143
+00:06:36,846 --> 00:06:38,596 A:middle
+of great experiences
+off of this.
+
+144
+00:06:39,936 --> 00:06:42,156 A:middle
+We are wondering if
+there's something we can do
+
+145
+00:06:42,156 --> 00:06:42,746 A:middle
+to improve it.
+
+146
+00:06:42,746 --> 00:06:44,446 A:middle
+Is there room for
+improvement here?
+
+147
+00:06:45,406 --> 00:06:51,336 A:middle
+With the particular theme of
+simplification, you'll notice
+
+148
+00:06:51,336 --> 00:06:54,266 A:middle
+that once your application has
+opted into this capability,
+
+149
+00:06:54,576 --> 00:06:57,536 A:middle
+it has responsibility because
+if you continue running
+
+150
+00:06:57,536 --> 00:07:00,986 A:middle
+in the background, the user
+may not know this is happening
+
+151
+
+152
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+153
+00:06:57,536 --> 00:07:00,986 A:middle
+in the background, the user
+may not know this is happening
+
+154
+00:07:00,986 --> 00:07:05,076 A:middle
+and you could accidentally
+use up either through a bug
+
+155
+00:07:05,076 --> 00:07:07,726 A:middle
+or through a corner case in
+your UI you could use up a lot
+
+156
+00:07:07,726 --> 00:07:09,336 A:middle
+of battery without their intent.
+
+157
+00:07:09,336 --> 00:07:13,666 A:middle
+We think of that as high stakes
+and we want to lower those,
+
+158
+00:07:13,666 --> 00:07:16,556 A:middle
+so that the consequence of a bug
+
+159
+00:07:16,556 --> 00:07:19,066 A:middle
+or an unexpected
+circumstance are lower.
+
+160
+00:07:20,296 --> 00:07:23,176 A:middle
+Another thing that you have
+to do right now that we would
+
+161
+00:07:23,176 --> 00:07:25,846 A:middle
+like to improve is, you
+have to be closely coupled
+
+162
+00:07:25,956 --> 00:07:30,296 A:middle
+to the transitions that your app
+goes through when it is entering
+
+163
+00:07:30,296 --> 00:07:32,176 A:middle
+and exiting the foreground.
+
+164
+00:07:32,176 --> 00:07:35,146 A:middle
+Once you opted in to begin
+running and using user location
+
+165
+00:07:35,146 --> 00:07:37,706 A:middle
+in the background, you have to
+tell us you are not interested
+
+166
+00:07:37,706 --> 00:07:39,166 A:middle
+to when you do go
+to the background.
+
+167
+00:07:39,166 --> 00:07:42,026 A:middle
+You only find out you are going
+
+168
+00:07:42,026 --> 00:07:44,546 A:middle
+to the background
+until after the fact.
+
+169
+00:07:44,546 --> 00:07:49,536 A:middle
+That leads to this view that
+we have in the video here
+
+170
+00:07:49,536 --> 00:07:50,986 A:middle
+that you may have seen
+in your app as well.
+
+171
+00:07:51,596 --> 00:07:55,066 A:middle
+We modified the sample so
+that it stops location updates
+
+172
+00:07:55,126 --> 00:07:56,706 A:middle
+in the delegate callback
+to indicate
+
+173
+00:07:56,706 --> 00:07:58,666 A:middle
+that it went to the background.
+
+174
+00:07:58,666 --> 00:08:01,656 A:middle
+The Blue Bar appears
+briefly and then disappears.
+
+175
+
+176
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+177
+00:07:58,666 --> 00:08:01,656 A:middle
+The Blue Bar appears
+briefly and then disappears.
+
+178
+00:08:02,746 --> 00:08:05,456 A:middle
+That can be kind of
+confusing to users.
+
+179
+00:08:05,456 --> 00:08:07,926 A:middle
+You notice that the unifying
+characteristic here is you
+
+180
+00:08:08,436 --> 00:08:10,326 A:middle
+signed up for the
+ability to check,
+
+181
+00:08:10,326 --> 00:08:13,096 A:middle
+to access the user's location
+in a continuous manner
+
+182
+00:08:13,096 --> 00:08:16,906 A:middle
+in the background, but
+that was done on a kind
+
+183
+00:08:16,906 --> 00:08:19,496 A:middle
+of carte blanche basis for
+your whole app forever.
+
+184
+00:08:19,776 --> 00:08:22,536 A:middle
+In fact you only want to
+do it at certain times,
+
+185
+00:08:22,536 --> 00:08:24,536 A:middle
+only when the user is
+actively using your app
+
+186
+00:08:24,536 --> 00:08:25,116 A:middle
+in the background.
+
+187
+00:08:25,986 --> 00:08:30,836 A:middle
+Starting in iOS 9 we have a new
+API that helps you express that.
+
+188
+00:08:31,136 --> 00:08:33,186 A:middle
+It's called allows
+background location updates,
+
+189
+00:08:33,186 --> 00:08:36,535 A:middle
+and it's a property you set
+on your location manager.
+
+190
+00:08:36,936 --> 00:08:39,946 A:middle
+If you have multiple location
+managers, you have to set it
+
+191
+00:08:39,946 --> 00:08:41,796 A:middle
+on each one when appropriate.
+
+192
+00:08:41,856 --> 00:08:45,096 A:middle
+You can have it set differently
+on different location managers.
+
+193
+00:08:45,836 --> 00:08:46,646 A:middle
+What does it do?
+
+194
+00:08:46,796 --> 00:08:48,806 A:middle
+Well, you set this
+property to yes.
+
+195
+00:08:49,296 --> 00:08:52,326 A:middle
+Then it kind of opts
+you into this behavior
+
+196
+00:08:52,326 --> 00:08:55,806 A:middle
+that you requested
+in your info plist.
+
+197
+00:08:55,806 --> 00:08:58,046 A:middle
+If you said you like the
+capability in the background,
+
+198
+00:08:58,496 --> 00:09:01,076 A:middle
+you set this to yes and
+start the location updates,
+
+199
+
+200
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+201
+00:08:58,496 --> 00:09:01,076 A:middle
+you set this to yes and
+start the location updates,
+
+202
+00:09:01,216 --> 00:09:03,146 A:middle
+you will be kept
+running in the background
+
+203
+00:09:03,146 --> 00:09:04,996 A:middle
+to receive those
+location updates.
+
+204
+00:09:05,606 --> 00:09:09,306 A:middle
+However if you set it
+to no, you will not.
+
+205
+00:09:10,446 --> 00:09:12,926 A:middle
+Okay. Crucial question then:
+What is the default value?
+
+206
+00:09:13,066 --> 00:09:14,746 A:middle
+How do we know when to set this?
+
+207
+00:09:14,746 --> 00:09:17,316 A:middle
+The default value is no.
+
+208
+00:09:17,916 --> 00:09:19,306 A:middle
+So I want to reiterate this.
+
+209
+00:09:19,506 --> 00:09:21,026 A:middle
+The default value here is no.
+
+210
+00:09:21,026 --> 00:09:24,286 A:middle
+If you have an application
+that runs for purposes
+
+211
+00:09:24,286 --> 00:09:26,336 A:middle
+of recording location
+tracks in the background
+
+212
+00:09:26,416 --> 00:09:27,756 A:middle
+or for navigational purposes,
+
+213
+00:09:28,186 --> 00:09:30,766 A:middle
+you must make a change
+when you adopt iOS 9.
+
+214
+00:09:31,346 --> 00:09:32,786 A:middle
+You have to go into
+the app and find
+
+215
+00:09:32,786 --> 00:09:36,046 A:middle
+where the user is indicating
+that they want you to do this,
+
+216
+00:09:36,046 --> 00:09:38,076 A:middle
+really want you to record a
+session in the background.
+
+217
+00:09:38,536 --> 00:09:40,916 A:middle
+Set this property to yes on
+the location manager there.
+
+218
+00:09:41,586 --> 00:09:44,796 A:middle
+When they finish,
+set it back to no.
+
+219
+00:09:45,206 --> 00:09:47,576 A:middle
+Once you've done that, however,
+you no longer have to worry
+
+220
+00:09:47,576 --> 00:09:48,886 A:middle
+about transitions
+to the foreground
+
+221
+00:09:48,886 --> 00:09:51,356 A:middle
+and background in
+an immediate case.
+
+222
+00:09:51,356 --> 00:09:53,986 A:middle
+You don't have to rush to turn
+off location updates when you go
+
+223
+00:09:53,986 --> 00:09:56,346 A:middle
+to the background because you
+are already configured either
+
+224
+00:09:56,346 --> 00:09:59,836 A:middle
+to continue or not
+continue as you go.
+
+225
+
+226
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+227
+00:10:00,616 --> 00:10:03,286 A:middle
+Okay. So must change
+if you have an app
+
+228
+00:10:03,356 --> 00:10:05,376 A:middle
+that uses background
+location updates.
+
+229
+00:10:05,376 --> 00:10:06,656 A:middle
+What is the compatibility story?
+
+230
+00:10:06,706 --> 00:10:10,026 A:middle
+Will the apps in
+the Store be broken?
+
+231
+00:10:10,026 --> 00:10:14,596 A:middle
+No, we grandfathered in all the
+apps in the Store, but you need
+
+232
+00:10:14,596 --> 00:10:17,216 A:middle
+to make this change as soon
+as you adopt iOS 9 SDK.
+
+233
+00:10:17,786 --> 00:10:22,576 A:middle
+What if you want to
+support users not
+
+234
+00:10:22,576 --> 00:10:25,486 A:middle
+on the latest and greatest iOS?
+
+235
+00:10:25,486 --> 00:10:27,116 A:middle
+Maybe they're still
+running iOS 8.
+
+236
+00:10:27,936 --> 00:10:30,016 A:middle
+You can do that in
+the standard fashion,
+
+237
+00:10:30,016 --> 00:10:34,326 A:middle
+set a minimum deployment target
+on your app and check at runtime
+
+238
+00:10:34,326 --> 00:10:35,896 A:middle
+with response to selector to see
+
+239
+00:10:35,896 --> 00:10:37,236 A:middle
+if the location manager
+you are running
+
+240
+00:10:37,236 --> 00:10:40,526 A:middle
+against currently has
+this property or not.
+
+241
+00:10:41,056 --> 00:10:43,456 A:middle
+And that's what it looks
+like in Objective-C,
+
+242
+00:10:43,456 --> 00:10:45,466 A:middle
+the response to selector
+in Swift.
+
+243
+00:10:45,466 --> 00:10:48,056 A:middle
+We have a fancy new
+pound available
+
+244
+00:10:48,056 --> 00:10:49,636 A:middle
+in Swift in response to this.
+
+245
+00:10:50,376 --> 00:10:53,426 A:middle
+If you are at runtime
+with a location manager
+
+246
+00:10:53,426 --> 00:10:56,336 A:middle
+that has knowledge of this
+property, you can set it to yes.
+
+247
+00:10:56,756 --> 00:10:58,906 A:middle
+Otherwise you can assume
+it's already set to yes
+
+248
+00:10:58,996 --> 00:10:59,846 A:middle
+and you don't have to set it.
+
+249
+
+250
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+251
+00:11:00,286 --> 00:11:02,036 A:middle
+Unfortunately, that means
+you can't set it to no
+
+252
+00:11:02,036 --> 00:11:03,146 A:middle
+for extra protection either.
+
+253
+00:11:04,456 --> 00:11:08,546 A:middle
+Okay. Brief sidebar
+because I know many of you
+
+254
+00:11:08,546 --> 00:11:10,736 A:middle
+who are interested in
+background location updates
+
+255
+00:11:10,736 --> 00:11:13,566 A:middle
+of this kind also may
+have audible cues.
+
+256
+00:11:13,976 --> 00:11:17,376 A:middle
+Probably the go-to way to
+communicate with the user
+
+257
+00:11:17,376 --> 00:11:20,866 A:middle
+when they have their
+phone in their arm band
+
+258
+00:11:20,866 --> 00:11:25,266 A:middle
+or mounted on their dash.
+
+259
+00:11:25,266 --> 00:11:29,146 A:middle
+Starting in iOS 9, the core
+audio team introduced this new,
+
+260
+00:11:29,236 --> 00:11:30,736 A:middle
+very long-named option.
+
+261
+00:11:31,216 --> 00:11:34,386 A:middle
+What this can, you use
+this option in order
+
+262
+00:11:34,386 --> 00:11:35,936 A:middle
+to indicate you are
+going to do spoken output
+
+263
+00:11:36,286 --> 00:11:40,166 A:middle
+and the system can mix you with
+other output that the user has,
+
+264
+00:11:40,616 --> 00:11:44,156 A:middle
+so you are not garbled
+but you do mix with music.
+
+265
+00:11:45,076 --> 00:11:47,516 A:middle
+Check out What's
+New In Core Audio.
+
+266
+00:11:47,886 --> 00:11:53,816 A:middle
+It happened yesterday, if
+this is appropriate for you.
+
+267
+00:11:53,816 --> 00:11:54,736 A:middle
+Background location.
+
+268
+00:11:55,576 --> 00:11:57,656 A:middle
+What about those times
+when you don't need
+
+269
+00:11:57,656 --> 00:12:00,806 A:middle
+to access the user's location
+in a continuous fashion?
+
+270
+
+271
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+272
+00:11:57,656 --> 00:12:00,806 A:middle
+to access the user's location
+in a continuous fashion?
+
+273
+00:12:01,126 --> 00:12:02,276 A:middle
+You are not building
+a map for them.
+
+274
+00:12:02,276 --> 00:12:04,746 A:middle
+You are trying to
+provide them context
+
+275
+00:12:04,746 --> 00:12:07,466 A:middle
+for where they are right now.
+
+276
+00:12:07,466 --> 00:12:09,756 A:middle
+Starting in iOS 9 we've
+introduced a new method
+
+277
+00:12:09,756 --> 00:12:12,126 A:middle
+for that called request
+location.
+
+278
+00:12:12,916 --> 00:12:16,406 A:middle
+It basically automates the
+process that you would have had
+
+279
+00:12:16,406 --> 00:12:19,426 A:middle
+to do in the past to
+accomplish this goal.
+
+280
+00:12:19,866 --> 00:12:22,076 A:middle
+If you are experienced
+with Core Location,
+
+281
+00:12:22,076 --> 00:12:23,666 A:middle
+maybe you know the
+drill already.
+
+282
+00:12:24,096 --> 00:12:25,336 A:middle
+You start updating location.
+
+283
+00:12:25,366 --> 00:12:29,836 A:middle
+You watch those locations
+come into your delegate.
+
+284
+00:12:29,836 --> 00:12:32,396 A:middle
+You'll notice that they come in
+very quickly at first but not
+
+285
+00:12:32,396 --> 00:12:33,766 A:middle
+with the best accuracy.
+
+286
+00:12:34,026 --> 00:12:35,916 A:middle
+So you need to keep an
+eye on the accuracy level.
+
+287
+00:12:35,916 --> 00:12:38,136 A:middle
+Figure out when it's good
+enough, when it is not going
+
+288
+00:12:38,136 --> 00:12:41,606 A:middle
+to get better, pick the
+right tradeoff on waiting
+
+289
+00:12:41,606 --> 00:12:44,976 A:middle
+and getting converged
+accuracy, and use that location,
+
+290
+00:12:44,976 --> 00:12:45,906 A:middle
+and then you have to remember
+
+291
+00:12:45,906 --> 00:12:47,676 A:middle
+to stop location
+updates after that.
+
+292
+00:12:48,406 --> 00:12:51,176 A:middle
+We are going to do that
+automatically for you.
+
+293
+00:12:51,386 --> 00:12:52,686 A:middle
+When you call request location,
+
+294
+00:12:53,056 --> 00:12:55,726 A:middle
+we'll start automatically
+getting location updates
+
+295
+00:12:55,796 --> 00:12:57,876 A:middle
+but we will not give them
+to your delegate callback.
+
+296
+00:12:58,136 --> 00:13:01,686 A:middle
+We threshold them
+internally according
+
+297
+
+298
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+299
+00:12:58,136 --> 00:13:01,686 A:middle
+We threshold them
+internally according
+
+300
+00:13:01,686 --> 00:13:02,696 A:middle
+to your desired accuracy
+
+301
+00:13:02,696 --> 00:13:05,266 A:middle
+and then we will call
+your delegate back once
+
+302
+00:13:05,266 --> 00:13:06,656 A:middle
+with just the location you need.
+
+303
+00:13:07,096 --> 00:13:08,236 A:middle
+It will apply our logic
+
+304
+00:13:08,236 --> 00:13:10,366 A:middle
+to determine what
+the best location is.
+
+305
+00:13:10,926 --> 00:13:13,806 A:middle
+We'll automatically stop
+location updates for you
+
+306
+00:13:13,806 --> 00:13:17,386 A:middle
+at that time so you don't
+have any risk of forgetting it
+
+307
+00:13:17,386 --> 00:13:19,696 A:middle
+or having a bug there.
+
+308
+00:13:20,166 --> 00:13:20,976 A:middle
+Okay. So.
+
+309
+00:13:21,516 --> 00:13:25,386 A:middle
+[Applause]
+
+310
+00:13:25,886 --> 00:13:28,136 A:middle
+I have a little visualization
+of how this works
+
+311
+00:13:28,136 --> 00:13:30,776 A:middle
+to explain what we are
+doing behind the scenes.
+
+312
+00:13:31,036 --> 00:13:32,976 A:middle
+You couldn't generate
+this by using this API,
+
+313
+00:13:33,156 --> 00:13:35,276 A:middle
+because remember we only give
+you one delegate callback,
+
+314
+00:13:35,816 --> 00:13:37,766 A:middle
+but to see what it looks like.
+
+315
+00:13:38,376 --> 00:13:42,166 A:middle
+This ring represents the
+desired accuracy that you set.
+
+316
+00:13:42,286 --> 00:13:44,446 A:middle
+Think of it as a diameter.
+
+317
+00:13:44,556 --> 00:13:48,006 A:middle
+The fixed accuracy that you want
+should be tighter than that.
+
+318
+00:13:48,076 --> 00:13:50,316 A:middle
+We are just going
+to graph it on top
+
+319
+00:13:50,616 --> 00:13:52,656 A:middle
+of this map here as
+locations come in.
+
+320
+00:13:52,656 --> 00:13:55,346 A:middle
+Now, you can see the center
+of a location is represented
+
+321
+00:13:55,346 --> 00:13:57,056 A:middle
+by a dark circle
+that looks like maps.
+
+322
+00:13:57,406 --> 00:13:59,676 A:middle
+The accuracy level
+is represented
+
+323
+00:13:59,676 --> 00:14:03,006 A:middle
+by a larger diameter translucent
+circle we about to see.
+
+324
+
+325
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+326
+00:13:59,676 --> 00:14:03,006 A:middle
+by a larger diameter translucent
+circle we about to see.
+
+327
+00:14:03,316 --> 00:14:05,526 A:middle
+See how that changes over time.
+
+328
+00:14:06,666 --> 00:14:09,716 A:middle
+The first fix came in quickly
+but not terribly accurate.
+
+329
+00:14:10,426 --> 00:14:11,846 A:middle
+It gets better over time.
+
+330
+00:14:12,206 --> 00:14:16,556 A:middle
+When it gets to a level that's
+good enough, we will accept it.
+
+331
+00:14:16,696 --> 00:14:18,896 A:middle
+This is the location it will
+give to your delegate callback.
+
+332
+00:14:19,456 --> 00:14:20,446 A:middle
+All right.
+
+333
+00:14:20,626 --> 00:14:22,706 A:middle
+I mentioned this
+is configurable,
+
+334
+00:14:22,966 --> 00:14:26,076 A:middle
+what your desired accuracy is.
+
+335
+00:14:26,376 --> 00:14:27,646 A:middle
+How do you set this?
+
+336
+00:14:27,766 --> 00:14:30,846 A:middle
+Fortunately we already have a
+property named desired accuracy
+
+337
+00:14:30,896 --> 00:14:31,866 A:middle
+on location manager.
+
+338
+00:14:31,866 --> 00:14:33,816 A:middle
+You may be familiar with it.
+
+339
+00:14:33,816 --> 00:14:37,276 A:middle
+It is how you control what kind
+of accuracies you're hoping
+
+340
+00:14:37,276 --> 00:14:38,776 A:middle
+for from start updating
+location.
+
+341
+00:14:38,776 --> 00:14:41,336 A:middle
+It applies also for
+request location.
+
+342
+00:14:41,996 --> 00:14:44,246 A:middle
+Let's just dial that
+down a little bit
+
+343
+00:14:44,246 --> 00:14:46,656 A:middle
+and make it very
+small, tight accuracy.
+
+344
+00:14:47,156 --> 00:14:49,826 A:middle
+And maybe a little
+bit too tight.
+
+345
+00:14:49,876 --> 00:14:53,896 A:middle
+We'll rerun the simulation
+and see what happens.
+
+346
+00:14:53,896 --> 00:14:57,076 A:middle
+First fix, we can see
+the convergence going on.
+
+347
+00:14:57,076 --> 00:14:58,756 A:middle
+Sometimes you have
+regressions in convergence.
+
+348
+00:14:59,186 --> 00:15:02,456 A:middle
+Overall the trend will be
+narrower until you reach kind
+
+349
+
+350
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+351
+00:14:59,186 --> 00:15:02,456 A:middle
+Overall the trend will be
+narrower until you reach kind
+
+352
+00:15:02,456 --> 00:15:03,366 A:middle
+of a break-even point.
+
+353
+00:15:04,226 --> 00:15:08,806 A:middle
+At that point, notice we
+didn't actually meet the
+
+354
+00:15:09,006 --> 00:15:10,186 A:middle
+accuracy criteria.
+
+355
+00:15:10,186 --> 00:15:12,046 A:middle
+We got to a point where
+we weren't getting better.
+
+356
+00:15:12,046 --> 00:15:14,846 A:middle
+At this point we
+return this location
+
+357
+00:15:14,846 --> 00:15:15,766 A:middle
+to your delegate callback.
+
+358
+00:15:16,736 --> 00:15:19,646 A:middle
+Now, that means that the
+locations that you receive
+
+359
+00:15:19,646 --> 00:15:20,956 A:middle
+after you set a desired accuracy
+
+360
+00:15:20,956 --> 00:15:23,876 A:middle
+in your request location may
+be either higher accuracy,
+
+361
+00:15:24,006 --> 00:15:25,786 A:middle
+that's smaller value
+for accuracy,
+
+362
+00:15:26,246 --> 00:15:29,216 A:middle
+or they could be lower
+depending on how we got them.
+
+363
+00:15:29,216 --> 00:15:30,776 A:middle
+Maybe you got lucky
+in the first case,
+
+364
+00:15:31,106 --> 00:15:34,216 A:middle
+and maybe it's challenging
+conditions in the second case.
+
+365
+00:15:35,086 --> 00:15:39,846 A:middle
+They get delivered to your
+location manager delegate
+
+366
+00:15:40,076 --> 00:15:41,156 A:middle
+on this delegate callback,
+
+367
+00:15:41,156 --> 00:15:42,786 A:middle
+location manager
+updated locations.
+
+368
+00:15:43,206 --> 00:15:45,646 A:middle
+Bear in mind that last
+parameter is an array.
+
+369
+00:15:45,886 --> 00:15:47,226 A:middle
+We only give you one location
+
+370
+00:15:47,446 --> 00:15:49,006 A:middle
+so it will be the zero
+element in the array.
+
+371
+00:15:49,966 --> 00:15:53,106 A:middle
+If the user, on the other
+hand, does whatever they do,
+
+372
+00:15:53,106 --> 00:15:55,856 A:middle
+if you request location
+in an environment
+
+373
+00:15:55,946 --> 00:15:57,896 A:middle
+where we can't establish
+the user's location,
+
+374
+00:15:57,896 --> 00:16:00,956 A:middle
+maybe at the bottom of a
+coal mine, we'll call back
+
+375
+
+376
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+377
+00:15:57,896 --> 00:16:00,956 A:middle
+maybe at the bottom of a
+coal mine, we'll call back
+
+378
+00:16:00,956 --> 00:16:03,076 A:middle
+on location manager did
+fail with error instead.
+
+379
+00:16:03,726 --> 00:16:04,926 A:middle
+So you're guaranteed as long
+
+380
+00:16:04,926 --> 00:16:08,556 A:middle
+as you don't interrupt request
+location, you will get one
+
+381
+00:16:08,556 --> 00:16:09,966 A:middle
+or the other of these
+two callbacks
+
+382
+00:16:09,966 --> 00:16:12,056 A:middle
+so you can hang some
+application logic off
+
+383
+00:16:12,266 --> 00:16:13,486 A:middle
+of that if you want to.
+
+384
+00:16:14,016 --> 00:16:16,466 A:middle
+And the error that you get
+
+385
+00:16:16,466 --> 00:16:19,806 A:middle
+from the error callback is
+KCL error location unknown.
+
+386
+00:16:20,846 --> 00:16:23,926 A:middle
+Two other things to keep in
+mind with request location.
+
+387
+00:16:24,506 --> 00:16:26,146 A:middle
+The first is that it's
+mutually exclusive
+
+388
+00:16:26,146 --> 00:16:27,356 A:middle
+with start updating location.
+
+389
+00:16:27,826 --> 00:16:30,566 A:middle
+Since we are using the
+same delegate callback,
+
+390
+00:16:30,786 --> 00:16:33,746 A:middle
+if you have a start updating
+session already going, started
+
+391
+00:16:33,746 --> 00:16:36,576 A:middle
+and didn't stop, then a
+request location will be simply
+
+392
+00:16:36,576 --> 00:16:37,086 A:middle
+be ignored.
+
+393
+00:16:37,896 --> 00:16:41,026 A:middle
+On the other hand if you have
+a request location outstanding
+
+394
+00:16:41,026 --> 00:16:43,236 A:middle
+but we're still converging, we
+haven't settled on a fix for you
+
+395
+00:16:43,236 --> 00:16:47,296 A:middle
+yet and you call start
+updating, that will take over
+
+396
+00:16:47,296 --> 00:16:49,456 A:middle
+and the request will be canceled
+
+397
+00:16:49,536 --> 00:16:51,176 A:middle
+and you'll start
+getting regular updates
+
+398
+00:16:51,176 --> 00:16:52,036 A:middle
+to the delegate callback.
+
+399
+00:16:52,676 --> 00:16:54,016 A:middle
+Mutually exclusive.
+
+400
+00:16:54,016 --> 00:16:55,236 A:middle
+You can have only
+one at the time,
+
+401
+00:16:55,346 --> 00:16:58,036 A:middle
+and start updating location
+effectively takes precedence.
+
+402
+00:16:58,636 --> 00:17:01,036 A:middle
+The other one is that you can
+use stop updating location
+
+403
+
+404
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+405
+00:16:58,636 --> 00:17:01,036 A:middle
+The other one is that you can
+use stop updating location
+
+406
+00:17:01,036 --> 00:17:03,556 A:middle
+in order to cancel a request.
+
+407
+00:17:03,556 --> 00:17:05,536 A:middle
+We encourage you to do this
+if the user navigates away
+
+408
+00:17:05,536 --> 00:17:08,476 A:middle
+from the scope where you had
+requested their location.
+
+409
+00:17:09,656 --> 00:17:11,685 A:middle
+So you are no longer interested,
+we can save some power.
+
+410
+00:17:12,836 --> 00:17:15,856 A:middle
+Great. So that's the two APIs
+that we have for you today.
+
+411
+00:17:15,856 --> 00:17:18,846 A:middle
+The first two of
+our overall points.
+
+412
+00:17:18,846 --> 00:17:21,185 A:middle
+So now let's talk
+about the topic
+
+413
+00:17:21,185 --> 00:17:22,705 A:middle
+that probably you are
+all very interested in,
+
+414
+00:17:22,705 --> 00:17:24,185 A:middle
+you are here to see.
+
+415
+00:17:24,336 --> 00:17:25,796 A:middle
+That's Apple Watch.
+
+416
+00:17:27,046 --> 00:17:30,206 A:middle
+So Apple Watch, first thing
+to know about any story
+
+417
+00:17:30,206 --> 00:17:32,896 A:middle
+about Apple Watch is
+that it is really a story
+
+418
+00:17:32,926 --> 00:17:35,986 A:middle
+about Apple Watch and iPhone.
+
+419
+00:17:36,186 --> 00:17:38,076 A:middle
+So these devices,
+they are a pair.
+
+420
+00:17:38,666 --> 00:17:40,866 A:middle
+They have a direct one to one
+relationship with each other.
+
+421
+00:17:41,266 --> 00:17:45,016 A:middle
+We are going to want to
+make them cooperate in order
+
+422
+00:17:45,016 --> 00:17:47,166 A:middle
+to get the best possible
+user experience.
+
+423
+00:17:48,006 --> 00:17:49,036 A:middle
+The other thing that sort
+
+424
+00:17:49,036 --> 00:17:52,226 A:middle
+of mirrors this situation is
+the way you deliver your apps
+
+425
+00:17:52,226 --> 00:17:53,086 A:middle
+to users.
+
+426
+00:17:54,036 --> 00:17:57,646 A:middle
+You can now write watchOS apps,
+but the user doesn't get them
+
+427
+00:17:57,646 --> 00:18:01,326 A:middle
+from a watchOS App Store,
+but they get them packed
+
+428
+
+429
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+430
+00:17:57,646 --> 00:18:01,326 A:middle
+from a watchOS App Store,
+but they get them packed
+
+431
+00:18:01,326 --> 00:18:04,086 A:middle
+on with the iPhone from
+the regular App Store.
+
+432
+00:18:05,376 --> 00:18:10,946 A:middle
+When they do that, if they
+configured the system to do this
+
+433
+00:18:10,946 --> 00:18:15,376 A:middle
+or choose to, iOS will
+ship that component
+
+434
+00:18:15,436 --> 00:18:18,246 A:middle
+over to the Apple Watch.
+
+435
+00:18:18,246 --> 00:18:21,116 A:middle
+The lesson to take from this
+is that your watchOS component
+
+436
+00:18:21,116 --> 00:18:23,896 A:middle
+and your iPhone component have
+a close relationship as well.
+
+437
+00:18:24,326 --> 00:18:27,386 A:middle
+From Core Location's
+perspective they are one
+
+438
+00:18:27,386 --> 00:18:29,626 A:middle
+and the same authorization
+identity.
+
+439
+00:18:30,516 --> 00:18:33,616 A:middle
+So if you have, whatever kind
+of authorization you have,
+
+440
+00:18:33,616 --> 00:18:38,266 A:middle
+whatever state you're
+in, it applies to both.
+
+441
+00:18:38,796 --> 00:18:41,106 A:middle
+Okay. So subtopics on this.
+
+442
+00:18:41,106 --> 00:18:43,016 A:middle
+First one, authorization story.
+
+443
+00:18:43,016 --> 00:18:43,786 A:middle
+There's some wrinkles.
+
+444
+00:18:43,946 --> 00:18:44,716 A:middle
+We'll get into them.
+
+445
+00:18:45,506 --> 00:18:47,386 A:middle
+The second one is cooperation.
+
+446
+00:18:47,516 --> 00:18:49,816 A:middle
+Now that we have two devices,
+two pieces of your app,
+
+447
+00:18:50,256 --> 00:18:53,886 A:middle
+how do we get them to work
+together and some best practices
+
+448
+00:18:53,886 --> 00:18:55,026 A:middle
+to keep the complexity lower.
+
+449
+00:18:55,496 --> 00:18:57,426 A:middle
+All right.
+
+450
+00:18:57,846 --> 00:19:00,486 A:middle
+Let's do a quick recap
+to make sure we're all
+
+451
+
+452
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+453
+00:18:57,846 --> 00:19:00,486 A:middle
+Let's do a quick recap
+to make sure we're all
+
+454
+00:19:00,566 --> 00:19:02,856 A:middle
+on the same ground
+with authorization.
+
+455
+00:19:02,856 --> 00:19:04,246 A:middle
+Users know they are in charge.
+
+456
+00:19:04,716 --> 00:19:10,186 A:middle
+So you ask for permission to
+access the user's location,
+
+457
+00:19:10,556 --> 00:19:12,676 A:middle
+either by request when
+in use authorization
+
+458
+00:19:13,146 --> 00:19:14,826 A:middle
+or with request always
+authorization.
+
+459
+00:19:15,676 --> 00:19:17,386 A:middle
+When in use, always.
+
+460
+00:19:17,446 --> 00:19:20,056 A:middle
+These are new terms in iOS 8.
+
+461
+00:19:20,056 --> 00:19:21,216 A:middle
+What do they mean?
+
+462
+00:19:21,216 --> 00:19:24,436 A:middle
+What, how does your
+ability to use location vary
+
+463
+00:19:24,436 --> 00:19:27,006 A:middle
+when you use these different
+kinds of authorization?
+
+464
+00:19:27,636 --> 00:19:30,246 A:middle
+Well, hopefully this table
+will help answer that question.
+
+465
+00:19:31,006 --> 00:19:35,386 A:middle
+So on iOS we will consider
+an app which has requested
+
+466
+00:19:35,386 --> 00:19:38,976 A:middle
+when in use authorization and
+been granted it and an app
+
+467
+00:19:38,976 --> 00:19:41,436 A:middle
+that requested always
+authorization
+
+468
+00:19:41,436 --> 00:19:43,546 A:middle
+and been granted it.
+
+469
+00:19:43,546 --> 00:19:48,006 A:middle
+And so first the three points
+you get for signing the test.
+
+470
+00:19:48,376 --> 00:19:51,046 A:middle
+If you have either of these
+kinds of authorization
+
+471
+00:19:51,046 --> 00:19:53,146 A:middle
+and the user is tapping
+on your app,
+
+472
+00:19:53,496 --> 00:19:54,896 A:middle
+can you access their location?
+
+473
+00:19:55,126 --> 00:19:56,206 A:middle
+The answer is yes.
+
+474
+00:19:57,046 --> 00:19:58,856 A:middle
+No doubt you already know that.
+
+475
+00:19:59,026 --> 00:20:01,086 A:middle
+So what about the slightly
+more complicated case
+
+476
+
+477
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+478
+00:19:59,026 --> 00:20:01,086 A:middle
+So what about the slightly
+more complicated case
+
+479
+00:20:01,086 --> 00:20:02,856 A:middle
+where the user has
+interacted with your app
+
+480
+00:20:02,856 --> 00:20:04,966 A:middle
+and they've indicated they would
+like you to track their run
+
+481
+00:20:05,076 --> 00:20:06,746 A:middle
+or some other reason
+they want you
+
+482
+00:20:06,776 --> 00:20:09,516 A:middle
+to continue accessing their
+location in the background
+
+483
+00:20:09,786 --> 00:20:10,866 A:middle
+in a continuous fashion?
+
+484
+00:20:11,146 --> 00:20:15,416 A:middle
+As you may know, you can
+do this with both forms
+
+485
+00:20:15,416 --> 00:20:16,426 A:middle
+of authorization as well.
+
+486
+00:20:17,236 --> 00:20:21,046 A:middle
+However, the behavior you get in
+this case is slightly different.
+
+487
+00:20:21,166 --> 00:20:24,076 A:middle
+So the Blue Bar that
+we noticed is reserved
+
+488
+00:20:24,076 --> 00:20:25,276 A:middle
+for when in use apps.
+
+489
+00:20:25,606 --> 00:20:27,686 A:middle
+The reason for that is an app
+which is authorized for when
+
+490
+00:20:27,686 --> 00:20:30,796 A:middle
+in use has an implicit
+transactional model
+
+491
+00:20:30,796 --> 00:20:31,796 A:middle
+with the user.
+
+492
+00:20:32,126 --> 00:20:34,106 A:middle
+The user is expected to know
+
+493
+00:20:34,106 --> 00:20:35,996 A:middle
+that you are accessing
+their location.
+
+494
+00:20:36,266 --> 00:20:39,326 A:middle
+They specifically want you to
+do so, as in the case with a run
+
+495
+00:20:39,326 --> 00:20:40,376 A:middle
+or navigational session.
+
+496
+00:20:40,736 --> 00:20:43,806 A:middle
+We reflect that and also help
+them in case they get distracted
+
+497
+00:20:43,806 --> 00:20:45,876 A:middle
+and forget, remember
+it's ongoing
+
+498
+00:20:46,246 --> 00:20:48,016 A:middle
+by displaying the Blue Bar.
+
+499
+00:20:48,016 --> 00:20:50,866 A:middle
+They can get back to
+the app without scraping
+
+500
+00:20:50,896 --> 00:20:55,866 A:middle
+around in the launcher
+and find your app.
+
+501
+00:20:56,646 --> 00:20:59,556 A:middle
+Okay. So what about the
+slightly more complicated case?
+
+502
+00:20:59,726 --> 00:21:02,886 A:middle
+Oh, that doesn't
+apply to always apps
+
+503
+
+504
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+505
+00:20:59,726 --> 00:21:02,886 A:middle
+Oh, that doesn't
+apply to always apps
+
+506
+00:21:02,886 --> 00:21:05,156 A:middle
+because there's no transaction.
+
+507
+00:21:05,156 --> 00:21:06,286 A:middle
+There's no expectation.
+
+508
+00:21:06,616 --> 00:21:08,356 A:middle
+If you ask for always
+authorization,
+
+509
+00:21:08,356 --> 00:21:11,576 A:middle
+then you are basically
+asking for carte blanche
+
+510
+00:21:11,636 --> 00:21:13,436 A:middle
+and the user doesn't
+expect to know
+
+511
+00:21:13,436 --> 00:21:14,566 A:middle
+when you are accessing location.
+
+512
+00:21:14,656 --> 00:21:16,636 A:middle
+We won't give them
+that breadcrumb.
+
+513
+00:21:17,486 --> 00:21:19,666 A:middle
+Okay. Background in the case
+
+514
+00:21:19,666 --> 00:21:20,836 A:middle
+that I've called
+intermittent here.
+
+515
+00:21:20,836 --> 00:21:23,726 A:middle
+This is when you're accessing
+location from the background,
+
+516
+00:21:23,726 --> 00:21:28,576 A:middle
+but it isn't in reaction to a
+foreground started or otherwise
+
+517
+00:21:28,576 --> 00:21:30,106 A:middle
+like known to the user case.
+
+518
+00:21:30,366 --> 00:21:32,436 A:middle
+This is a background
+app refresh launch
+
+519
+00:21:32,786 --> 00:21:35,526 A:middle
+or a region monitoring launch.
+
+520
+00:21:36,786 --> 00:21:38,536 A:middle
+Well, to access the
+user's location
+
+521
+00:21:38,536 --> 00:21:40,326 A:middle
+in this case you need
+always authorization.
+
+522
+00:21:40,706 --> 00:21:41,966 A:middle
+That's because they don't know.
+
+523
+00:21:42,326 --> 00:21:44,816 A:middle
+That way they can't understand
+what is going on intuitively
+
+524
+00:21:44,816 --> 00:21:47,286 A:middle
+if they are expected
+to consider you in use.
+
+525
+00:21:47,846 --> 00:21:50,746 A:middle
+So you can't access the Swift
+when in use authorization.
+
+526
+00:21:52,196 --> 00:21:53,066 A:middle
+All right.
+
+527
+00:21:53,256 --> 00:21:57,236 A:middle
+Brief reappearance of monitoring
+API just for the purposes
+
+528
+00:21:57,236 --> 00:21:59,216 A:middle
+of this extra row we have.
+
+529
+
+530
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+531
+00:22:00,236 --> 00:22:02,916 A:middle
+Little known fact is you can
+access monitor API region
+
+532
+00:22:02,916 --> 00:22:04,746 A:middle
+monitoring in both cases.
+
+533
+00:22:05,366 --> 00:22:08,356 A:middle
+You can access it if you have
+always authorization but also
+
+534
+00:22:08,386 --> 00:22:12,766 A:middle
+in when in use in using
+UI local notifications,
+
+535
+00:22:13,066 --> 00:22:16,546 A:middle
+that includes a CL region
+as a triggering event
+
+536
+00:22:16,976 --> 00:22:19,676 A:middle
+and the user will be notified
+whenever you enter or exit
+
+537
+00:22:19,676 --> 00:22:21,366 A:middle
+that region and they can
+decide whether to pass
+
+538
+00:22:21,366 --> 00:22:22,296 A:middle
+that on to you or not.
+
+539
+00:22:22,686 --> 00:22:24,066 A:middle
+They are in the loop
+
+540
+00:22:24,096 --> 00:22:27,186 A:middle
+and implicitly aware
+of what's going on.
+
+541
+00:22:27,616 --> 00:22:30,756 A:middle
+How does this story
+change for watchOS?
+
+542
+00:22:31,686 --> 00:22:34,526 A:middle
+Keep in mind we're talking
+about the watchOS component
+
+543
+00:22:34,526 --> 00:22:37,586 A:middle
+of your app only, not
+the complex of iPhone app
+
+544
+00:22:37,586 --> 00:22:40,966 A:middle
+and Watch app, but what can
+you do just on Apple Watch?
+
+545
+00:22:42,576 --> 00:22:46,546 A:middle
+Can you access location
+when the user is poking
+
+546
+00:22:47,756 --> 00:22:50,126 A:middle
+at your Watch app?
+
+547
+00:22:50,126 --> 00:22:51,976 A:middle
+Yes. But, extensive
+background as well.
+
+548
+00:22:52,236 --> 00:22:55,496 A:middle
+We only provide the request
+location API on watchOS.
+
+549
+00:22:56,236 --> 00:22:59,316 A:middle
+You can access single
+locations from the user,
+
+550
+00:22:59,606 --> 00:23:01,556 A:middle
+but you can't start a
+background tracking session
+
+551
+
+552
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+553
+00:22:59,606 --> 00:23:01,556 A:middle
+but you can't start a
+background tracking session
+
+554
+00:23:01,556 --> 00:23:02,916 A:middle
+and you can't do
+a tracking session
+
+555
+00:23:02,916 --> 00:23:03,726 A:middle
+in the foreground either.
+
+556
+00:23:04,576 --> 00:23:05,276 A:middle
+Why is this?
+
+557
+00:23:05,276 --> 00:23:09,026 A:middle
+Apple Watch is really
+optimized around the quick look.
+
+558
+00:23:09,846 --> 00:23:13,366 A:middle
+We don't want the user to sit
+there and hold their arm up
+
+559
+00:23:13,366 --> 00:23:15,386 A:middle
+and get tired looking at it
+for a long period of time
+
+560
+00:23:15,386 --> 00:23:16,936 A:middle
+as they walk around the block.
+
+561
+00:23:17,436 --> 00:23:20,636 A:middle
+The request location API
+is the most appropriate one
+
+562
+00:23:20,636 --> 00:23:21,606 A:middle
+to use on Apple Watch.
+
+563
+00:23:22,216 --> 00:23:24,306 A:middle
+That doesn't mean you that
+can't start a background session
+
+564
+00:23:24,306 --> 00:23:27,086 A:middle
+from Apple Watch, that the
+user can't record the run using
+
+565
+00:23:27,086 --> 00:23:29,246 A:middle
+exclusively interaction
+with Apple Watch,
+
+566
+00:23:29,606 --> 00:23:32,116 A:middle
+but we will use cooperation with
+iPhone to do that, and we'll get
+
+567
+00:23:32,116 --> 00:23:33,866 A:middle
+into how in a little bit.
+
+568
+00:23:35,196 --> 00:23:36,566 A:middle
+Background intermittent.
+
+569
+00:23:36,916 --> 00:23:40,046 A:middle
+There are not many cases where
+your watch app will be able
+
+570
+00:23:40,046 --> 00:23:41,206 A:middle
+to run in the background.
+
+571
+00:23:41,616 --> 00:23:42,946 A:middle
+If you find yourself running
+
+572
+00:23:42,946 --> 00:23:45,356 A:middle
+in the background
+you can get access
+
+573
+00:23:45,356 --> 00:23:47,696 A:middle
+to the user's location only if
+you have always authorization.
+
+574
+00:23:48,326 --> 00:23:51,956 A:middle
+Not in the most relevant
+row in the most table --
+
+575
+00:23:51,956 --> 00:23:54,116 A:middle
+in most cases for watchOS.
+
+576
+00:23:56,016 --> 00:23:58,976 A:middle
+Monitor API is not available.
+
+577
+00:23:59,016 --> 00:24:02,006 A:middle
+You can't -- we can't
+launch your app
+
+578
+
+579
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+580
+00:23:59,016 --> 00:24:02,006 A:middle
+You can't -- we can't
+launch your app
+
+581
+00:24:02,006 --> 00:24:03,786 A:middle
+into the background
+on Apple Watch.
+
+582
+00:24:04,176 --> 00:24:07,826 A:middle
+There's no point in
+having these APIs.
+
+583
+00:24:08,136 --> 00:24:12,036 A:middle
+Okay. So I have been referring
+to this concept of being in use.
+
+584
+00:24:12,246 --> 00:24:13,906 A:middle
+Let's drill down on
+that a little bit
+
+585
+00:24:13,906 --> 00:24:15,526 A:middle
+and get more specific
+about what it means.
+
+586
+00:24:16,326 --> 00:24:21,056 A:middle
+So your app is considered in
+use if it's in the foreground.
+
+587
+00:24:21,686 --> 00:24:23,936 A:middle
+This applies to both
+iPhone and Apple Watch.
+
+588
+00:24:24,106 --> 00:24:26,176 A:middle
+If the user is actively
+poking at it.
+
+589
+00:24:26,516 --> 00:24:31,676 A:middle
+But since there is such limited
+cases, no continuous updates
+
+590
+00:24:31,676 --> 00:24:35,126 A:middle
+and there's no background
+tracking, that's the only way
+
+591
+00:24:35,126 --> 00:24:36,826 A:middle
+on Apple Watch to be
+considered in use.
+
+592
+00:24:37,116 --> 00:24:39,836 A:middle
+However, on iPhone you can
+also be considered to be in use
+
+593
+00:24:39,836 --> 00:24:40,766 A:middle
+if you have a Blue Bar,
+
+594
+00:24:41,336 --> 00:24:45,076 A:middle
+which means you started a
+session and it's ongoing.
+
+595
+00:24:47,066 --> 00:24:49,306 A:middle
+So what is the unifying
+characteristic here?
+
+596
+00:24:49,306 --> 00:24:52,606 A:middle
+How do we extend that
+to the Apple Watch case?
+
+597
+00:24:52,986 --> 00:24:55,106 A:middle
+Both of these represent
+types when you are visible
+
+598
+00:24:55,106 --> 00:24:57,316 A:middle
+to the user, yes,
+but more specifically
+
+599
+00:24:57,316 --> 00:24:59,636 A:middle
+when the user is aware
+that you're there, running
+
+600
+00:24:59,636 --> 00:25:02,536 A:middle
+and doing something
+on their behalf.
+
+601
+
+602
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+603
+00:24:59,636 --> 00:25:02,536 A:middle
+and doing something
+on their behalf.
+
+604
+00:25:02,616 --> 00:25:04,916 A:middle
+So if the user is just
+using Apple Watch,
+
+605
+00:25:05,366 --> 00:25:07,576 A:middle
+and Apple Watch sends a
+message to iPhone in order
+
+606
+00:25:07,576 --> 00:25:10,266 A:middle
+to do something on its
+behalf, in that case
+
+607
+00:25:10,266 --> 00:25:12,106 A:middle
+in use status will
+be transferred
+
+608
+00:25:12,106 --> 00:25:15,076 A:middle
+to the iPhone app even though
+maybe it's in the user's pocket
+
+609
+00:25:15,076 --> 00:25:17,266 A:middle
+and they are not using it.
+
+610
+00:25:17,366 --> 00:25:20,286 A:middle
+They are using the
+aggregate, the whole complex
+
+611
+00:25:20,596 --> 00:25:22,926 A:middle
+and authorization is
+handled on the complex level.
+
+612
+00:25:23,436 --> 00:25:25,946 A:middle
+You need to send the message
+using an API we'll get
+
+613
+00:25:25,946 --> 00:25:28,386 A:middle
+into in a moment, in
+order to accomplish this.
+
+614
+00:25:28,786 --> 00:25:31,516 A:middle
+While you are handling
+work from Apple Watch
+
+615
+00:25:31,516 --> 00:25:36,266 A:middle
+on iPhone you will
+be considered in use.
+
+616
+00:25:36,266 --> 00:25:38,316 A:middle
+How do you get authorization
+in the first place?
+
+617
+00:25:39,196 --> 00:25:40,846 A:middle
+Well, you have to ask for it.
+
+618
+00:25:40,946 --> 00:25:43,526 A:middle
+Those two APIs that I mentioned
+earlier, request with when
+
+619
+00:25:43,526 --> 00:25:45,466 A:middle
+in use authorization or
+always authorization.
+
+620
+00:25:46,066 --> 00:25:48,816 A:middle
+Can you do that from
+iPhone, from Apple Watch?
+
+621
+00:25:49,466 --> 00:25:50,146 A:middle
+From both, neither?
+
+622
+00:25:50,146 --> 00:25:52,416 A:middle
+Neither would be kind of fun.
+
+623
+00:25:52,946 --> 00:25:57,966 A:middle
+So, what does this
+look like on iPhone?
+
+624
+00:25:57,966 --> 00:25:59,936 A:middle
+Well, the user will
+launch your app.
+
+625
+
+626
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+627
+00:26:01,336 --> 00:26:04,986 A:middle
+And then they'll do
+something to indicate
+
+628
+00:26:04,986 --> 00:26:06,436 A:middle
+that you need to
+access location.
+
+629
+00:26:06,436 --> 00:26:08,476 A:middle
+You'll realize you don't
+have authorization yet.
+
+630
+00:26:08,986 --> 00:26:11,016 A:middle
+You'll call request when
+in use authorization.
+
+631
+00:26:11,176 --> 00:26:13,946 A:middle
+You'll see that the dialog shows
+
+632
+00:26:13,946 --> 00:26:17,386 A:middle
+at the top the request that's
+being made to the user.
+
+633
+00:26:17,626 --> 00:26:21,386 A:middle
+Then below that we have
+your usage description key
+
+634
+00:26:21,386 --> 00:26:22,996 A:middle
+which you can set in
+your apps info plist
+
+635
+00:26:22,996 --> 00:26:25,076 A:middle
+to explain what you're
+going to use location for,
+
+636
+00:26:25,076 --> 00:26:28,376 A:middle
+and we encourage you to do
+a good job of explaining it
+
+637
+00:26:28,376 --> 00:26:32,996 A:middle
+so users will understand why
+they should grant you this
+
+638
+00:26:33,166 --> 00:26:35,216 A:middle
+ability, understand
+the tradeoff.
+
+639
+00:26:35,216 --> 00:26:37,686 A:middle
+You can see in this
+case that it's
+
+640
+00:26:37,686 --> 00:26:38,916 A:middle
+for purposes of demonstration.
+
+641
+00:26:38,996 --> 00:26:40,296 A:middle
+That sounds pretty appropriate.
+
+642
+00:26:40,296 --> 00:26:42,736 A:middle
+Let's allow authorization
+in this case.
+
+643
+00:26:43,306 --> 00:26:46,616 A:middle
+And you can see immediately
+that location updates start.
+
+644
+00:26:47,156 --> 00:26:54,456 A:middle
+Okay. So let's send this to the
+background after stopping it,
+
+645
+00:26:55,986 --> 00:26:57,296 A:middle
+and summarize what we just saw.
+
+646
+00:26:57,296 --> 00:27:01,386 A:middle
+When you request location
+authorization, from iPhone,
+
+647
+
+648
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+649
+00:26:57,296 --> 00:27:01,386 A:middle
+When you request location
+authorization, from iPhone,
+
+650
+00:27:01,966 --> 00:27:04,466 A:middle
+iPhone shows a prompt
+you are all used to.
+
+651
+00:27:05,816 --> 00:27:08,126 A:middle
+But also note that Apple
+Watch didn't show anything.
+
+652
+00:27:08,196 --> 00:27:09,636 A:middle
+It was just along
+for the ride there.
+
+653
+00:27:10,076 --> 00:27:12,866 A:middle
+That's because when the user is
+using their phone they are not
+
+654
+00:27:12,866 --> 00:27:15,666 A:middle
+likely to be using their
+Watch at the same time.
+
+655
+00:27:15,666 --> 00:27:17,376 A:middle
+If they do use it, they
+want to see the time
+
+656
+00:27:17,376 --> 00:27:18,776 A:middle
+or the app that's there.
+
+657
+00:27:18,776 --> 00:27:22,806 A:middle
+So we don't want to block it.
+
+658
+00:27:22,806 --> 00:27:23,966 A:middle
+What about the direction then?
+
+659
+00:27:23,966 --> 00:27:27,206 A:middle
+Can you ask for location
+authorization from Apple Watch?
+
+660
+00:27:27,546 --> 00:27:29,146 A:middle
+Yes, you can do this, too.
+
+661
+00:27:29,146 --> 00:27:30,996 A:middle
+It has a slightly different
+behavior so you'll want
+
+662
+00:27:30,996 --> 00:27:33,486 A:middle
+to do this in certain
+circumstances and not in others.
+
+663
+00:27:34,496 --> 00:27:35,766 A:middle
+Let's see what happens
+when we do this.
+
+664
+00:27:36,546 --> 00:27:38,906 A:middle
+The user launches your app.
+
+665
+00:27:40,576 --> 00:27:43,316 A:middle
+And then they navigate to
+the part where you are going
+
+666
+00:27:43,396 --> 00:27:45,956 A:middle
+to need location authorization
+to fulfill their requirements.
+
+667
+00:27:46,626 --> 00:27:48,306 A:middle
+Pretend we didn't just
+receive it back there,
+
+668
+00:27:48,426 --> 00:27:51,776 A:middle
+it's a fresh start.
+
+669
+00:27:51,776 --> 00:27:53,576 A:middle
+You call request when
+in use authorization.
+
+670
+00:27:53,666 --> 00:27:58,456 A:middle
+The prompt appears on
+iPhone and on Apple Watch.
+
+671
+00:27:58,516 --> 00:28:00,406 A:middle
+There's an alert that
+appears on Apple Watch.
+
+672
+
+673
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+674
+00:27:58,516 --> 00:28:00,406 A:middle
+There's an alert that
+appears on Apple Watch.
+
+675
+00:28:00,826 --> 00:28:03,656 A:middle
+The alert on Apple Watch
+says go look at your iPhone,
+
+676
+00:28:03,656 --> 00:28:05,376 A:middle
+you have a prompt
+to deal with there.
+
+677
+00:28:05,726 --> 00:28:06,816 A:middle
+But it has a dismiss button.
+
+678
+00:28:07,386 --> 00:28:09,386 A:middle
+That lets the user
+dismiss this alert.
+
+679
+00:28:09,386 --> 00:28:10,786 A:middle
+It is not modal.
+
+680
+00:28:11,026 --> 00:28:13,756 A:middle
+You should expect to
+see users interacting
+
+681
+00:28:13,756 --> 00:28:15,936 A:middle
+with the app while you have
+an outstanding request,
+
+682
+00:28:17,056 --> 00:28:20,206 A:middle
+which is unfamiliar to iOS.
+
+683
+00:28:20,206 --> 00:28:24,536 A:middle
+It doesn't constitute an
+answer to the prompt question.
+
+684
+00:28:24,796 --> 00:28:27,756 A:middle
+The user hasn't given up
+their ability to option
+
+685
+00:28:27,756 --> 00:28:31,676 A:middle
+to make a decision here, they
+just said get out of the way.
+
+686
+00:28:31,676 --> 00:28:34,396 A:middle
+Still appropriate to demo
+purposes, so the user will go
+
+687
+00:28:34,396 --> 00:28:36,316 A:middle
+to their phone and authorize us.
+
+688
+00:28:36,736 --> 00:28:40,376 A:middle
+It is set to reset quickly.
+
+689
+00:28:41,326 --> 00:28:43,746 A:middle
+Looks like we didn't, but if you
+look quickly you notice we got
+
+690
+00:28:43,746 --> 00:28:44,156 A:middle
+a fix.
+
+691
+00:28:44,396 --> 00:28:49,936 A:middle
+You can run it again and again
+and see that you got one.
+
+692
+00:28:49,936 --> 00:28:51,456 A:middle
+What did we see overall?
+
+693
+00:28:51,616 --> 00:28:52,736 A:middle
+What is the story there?
+
+694
+00:28:52,736 --> 00:28:56,096 A:middle
+Apple Watch initiated a
+request on Apple Watch
+
+695
+00:28:56,406 --> 00:28:59,456 A:middle
+and Apple Watch does an alert
+so the user knows what is going
+
+696
+00:28:59,456 --> 00:29:03,376 A:middle
+on so the user understands
+that the workflow needs
+
+697
+
+698
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+699
+00:28:59,456 --> 00:29:03,376 A:middle
+on so the user understands
+that the workflow needs
+
+700
+00:29:03,696 --> 00:29:06,556 A:middle
+to be interrupted to answer the
+authorization before whatever
+
+701
+00:29:06,556 --> 00:29:07,876 A:middle
+they were trying to
+do can go through.
+
+702
+00:29:08,496 --> 00:29:13,196 A:middle
+The iPhone shows a prompt as
+you're used to and importantly,
+
+703
+00:29:13,336 --> 00:29:15,876 A:middle
+the user has to answer
+the prompt on iPhone.
+
+704
+00:29:17,746 --> 00:29:18,596 A:middle
+All right.
+
+705
+00:29:18,646 --> 00:29:19,866 A:middle
+This may seem a little
+inconvenient,
+
+706
+00:29:19,866 --> 00:29:22,436 A:middle
+so why did we do it?
+
+707
+00:29:22,436 --> 00:29:23,726 A:middle
+There's two good
+reasons for this.
+
+708
+00:29:24,066 --> 00:29:26,156 A:middle
+The first one is, we
+do really want you
+
+709
+00:29:26,156 --> 00:29:28,186 A:middle
+to give a good explanation
+for your use
+
+710
+00:29:28,366 --> 00:29:29,726 A:middle
+in that usage description key.
+
+711
+00:29:30,106 --> 00:29:32,266 A:middle
+If you did, that would mean
+scrolling on Apple Watch.
+
+712
+00:29:32,266 --> 00:29:33,816 A:middle
+It's not a great
+user experience.
+
+713
+00:29:33,816 --> 00:29:37,056 A:middle
+We would rather have the large
+screen real estate that we have
+
+714
+00:29:37,056 --> 00:29:38,246 A:middle
+on iPhone for this prompt.
+
+715
+00:29:39,126 --> 00:29:41,856 A:middle
+We want to set user expectations
+
+716
+00:29:41,926 --> 00:29:43,906 A:middle
+of where they can
+control authorization.
+
+717
+00:29:44,356 --> 00:29:47,646 A:middle
+Right now iPhone is
+the root location
+
+718
+00:29:47,646 --> 00:29:49,146 A:middle
+for controlling location
+authorization
+
+719
+00:29:49,146 --> 00:29:50,866 A:middle
+and privacy authorization
+in general.
+
+720
+00:29:50,866 --> 00:29:53,896 A:middle
+We want to have all the
+interactions concentrated
+
+721
+00:29:53,896 --> 00:29:55,796 A:middle
+on iPhone so the user
+is not surprised.
+
+722
+00:29:55,796 --> 00:30:00,516 A:middle
+They can go to settings,
+privacy, location services later
+
+723
+
+724
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+725
+00:29:55,796 --> 00:30:00,516 A:middle
+They can go to settings,
+privacy, location services later
+
+726
+00:30:00,516 --> 00:30:03,966 A:middle
+on and change the settings
+there if they want to.
+
+727
+00:30:04,846 --> 00:30:05,056 A:middle
+All right.
+
+728
+00:30:05,056 --> 00:30:07,456 A:middle
+I mentioned earlier that
+request location is the API
+
+729
+00:30:07,756 --> 00:30:09,936 A:middle
+that we are making
+available in watchOS
+
+730
+00:30:09,936 --> 00:30:13,376 A:middle
+to access users' interactions
+directly from watchOS.
+
+731
+00:30:14,206 --> 00:30:18,826 A:middle
+What kind of accuracy
+can you expect?
+
+732
+00:30:18,826 --> 00:30:21,306 A:middle
+If you are issuing the
+request on Apple Watch,
+
+733
+00:30:21,626 --> 00:30:23,926 A:middle
+it depends on whether you
+have iPhone on hand or not.
+
+734
+00:30:24,296 --> 00:30:28,946 A:middle
+If you do, you get everything,
+even indoor location fixes
+
+735
+00:30:28,946 --> 00:30:31,396 A:middle
+which are accurate down
+to only a few meters.
+
+736
+00:30:32,046 --> 00:30:35,606 A:middle
+On the other hand, if you don't,
+then you can prototype this
+
+737
+00:30:35,606 --> 00:30:38,996 A:middle
+and understand the
+expectation here as the same
+
+738
+00:30:38,996 --> 00:30:41,926 A:middle
+as if you had specified
+a requested location,
+
+739
+00:30:41,976 --> 00:30:45,856 A:middle
+requested desired accuracy of
+KCL location of 100 meters.
+
+740
+00:30:46,356 --> 00:30:50,526 A:middle
+This is not location accuracy
+best, but bear in mind
+
+741
+00:30:50,566 --> 00:30:52,806 A:middle
+that it will usually be
+much better than 100 meters.
+
+742
+00:30:53,226 --> 00:30:56,056 A:middle
+In fact, in ideal
+environments you can even go
+
+743
+00:30:56,056 --> 00:30:56,886 A:middle
+for a run with this.
+
+744
+00:30:57,166 --> 00:31:01,086 A:middle
+There's no updates
+so don't try that.
+
+745
+
+746
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+747
+00:30:57,166 --> 00:31:01,086 A:middle
+There's no updates
+so don't try that.
+
+748
+00:31:01,356 --> 00:31:03,146 A:middle
+The other thing to know
+here, it's best effort,
+
+749
+00:31:03,566 --> 00:31:05,546 A:middle
+because Apple Watch isn't
+connected to the rest
+
+750
+00:31:05,546 --> 00:31:06,866 A:middle
+of the world very well.
+
+751
+00:31:06,866 --> 00:31:08,826 A:middle
+It could be if it's
+in a novel location
+
+752
+00:31:08,826 --> 00:31:10,816 A:middle
+where it doesn't have a lot
+of experience with the user,
+
+753
+00:31:10,946 --> 00:31:13,476 A:middle
+it may be unable to
+fix the user's location
+
+754
+00:31:13,476 --> 00:31:14,406 A:middle
+in their context.
+
+755
+00:31:14,786 --> 00:31:16,606 A:middle
+All right, that's the
+best effort disclaimer,
+
+756
+00:31:16,606 --> 00:31:18,836 A:middle
+but again it is a
+really good effort.
+
+757
+00:31:19,146 --> 00:31:22,646 A:middle
+When we have iPhone on hand
+we make an aggressive effort
+
+758
+00:31:22,646 --> 00:31:27,286 A:middle
+to use its facilities to learn
+more about the environment
+
+759
+00:31:27,286 --> 00:31:29,186 A:middle
+and cache a good
+long distance out.
+
+760
+00:31:29,536 --> 00:31:32,086 A:middle
+Probably for a user's run,
+unless they are training
+
+761
+00:31:32,146 --> 00:31:34,876 A:middle
+for a really long
+run, you will be fine.
+
+762
+00:31:35,186 --> 00:31:37,226 A:middle
+But just take this into
+account when you are trying
+
+763
+00:31:37,226 --> 00:31:39,686 A:middle
+to position your
+use for your users,
+
+764
+00:31:40,086 --> 00:31:42,886 A:middle
+whether they should expect to
+bring iPhone with them or not.
+
+765
+00:31:43,356 --> 00:31:46,006 A:middle
+If your app is used
+around their home or work
+
+766
+00:31:46,006 --> 00:31:48,126 A:middle
+or somewhere they
+are familiar with,
+
+767
+00:31:48,366 --> 00:31:49,566 A:middle
+probably they don't need to.
+
+768
+00:31:49,646 --> 00:31:53,596 A:middle
+On the other hand if you are
+expecting it to be used on trips
+
+769
+00:31:53,596 --> 00:31:55,166 A:middle
+or where the user has
+turned the data plan off
+
+770
+00:31:55,166 --> 00:31:58,116 A:middle
+so they don't get
+charged ridiculously,
+
+771
+00:31:58,116 --> 00:31:59,736 A:middle
+you want to encourage them
+
+772
+00:31:59,736 --> 00:32:03,706 A:middle
+to bring iPhone along anyway
+even if their data is off.
+
+773
+
+774
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+775
+00:31:59,736 --> 00:32:03,706 A:middle
+to bring iPhone along anyway
+even if their data is off.
+
+776
+00:32:04,186 --> 00:32:08,666 A:middle
+But let's suppose we
+have iPhone on hand.
+
+777
+00:32:09,136 --> 00:32:12,376 A:middle
+Well, if you need
+continuous location updates,
+
+778
+00:32:12,976 --> 00:32:17,506 A:middle
+common case in the background,
+or you need region monitoring
+
+779
+00:32:17,506 --> 00:32:21,176 A:middle
+or for that matter if you need
+anything else available on iOS
+
+780
+00:32:21,176 --> 00:32:25,006 A:middle
+but prohibited on watchOS,
+you want to use cooperation
+
+781
+00:32:25,006 --> 00:32:26,086 A:middle
+with your iPhone to do that.
+
+782
+00:32:27,076 --> 00:32:27,726 A:middle
+How do we do that?
+
+783
+00:32:28,076 --> 00:32:30,676 A:middle
+There is a great session,
+actually the last session
+
+784
+00:32:30,676 --> 00:32:32,896 A:middle
+in this room today before
+this one, before lunch.
+
+785
+00:32:32,896 --> 00:32:34,596 A:middle
+Unfortunately it's in the past
+
+786
+00:32:34,596 --> 00:32:37,336 A:middle
+but you can go see
+it on the WWDC app.
+
+787
+00:32:37,336 --> 00:32:39,856 A:middle
+If you were here before, great,
+
+788
+00:32:39,856 --> 00:32:41,216 A:middle
+this is a little
+bit of overview.
+
+789
+00:32:41,446 --> 00:32:42,476 A:middle
+This is a portion
+
+790
+00:32:42,476 --> 00:32:44,266 A:middle
+of the framework that's
+particularly relevant
+
+791
+00:32:44,266 --> 00:32:44,826 A:middle
+to location.
+
+792
+00:32:45,526 --> 00:32:47,826 A:middle
+First class of interest
+is WC session.
+
+793
+00:32:47,826 --> 00:32:50,586 A:middle
+This is the class that
+represents the connection
+
+794
+00:32:50,586 --> 00:32:52,016 A:middle
+between Apple Watch and iPhone.
+
+795
+00:32:52,606 --> 00:32:54,236 A:middle
+There's two methods
+on it that are
+
+796
+00:32:54,236 --> 00:32:55,906 A:middle
+of particular relevance to us.
+
+797
+00:32:55,956 --> 00:32:59,116 A:middle
+The first is SendMessage
+reply handler error handler
+
+798
+00:32:59,796 --> 00:33:03,446 A:middle
+and the second is update
+application context.
+
+799
+
+800
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+801
+00:32:59,796 --> 00:33:03,446 A:middle
+and the second is update
+application context.
+
+802
+00:33:04,106 --> 00:33:06,646 A:middle
+SendMessage reply handler
+error handler is bidirectional,
+
+803
+00:33:06,646 --> 00:33:07,836 A:middle
+you can send it from
+either side,
+
+804
+00:33:08,186 --> 00:33:11,506 A:middle
+update application context has
+to be initiated from iPhone.
+
+805
+00:33:11,506 --> 00:33:14,346 A:middle
+Let's take a look at how
+these work in practice for us.
+
+806
+00:33:15,476 --> 00:33:19,586 A:middle
+We are going to start by
+communicating from the Watch app
+
+807
+00:33:19,876 --> 00:33:23,036 A:middle
+to our iPhone app using
+SendMessage reply handler
+
+808
+00:33:23,256 --> 00:33:25,276 A:middle
+error handler.
+
+809
+00:33:26,016 --> 00:33:28,326 A:middle
+The user navigates to
+the part of the app
+
+810
+00:33:28,326 --> 00:33:30,806 A:middle
+where we need help
+from the other side.
+
+811
+00:33:31,196 --> 00:33:33,066 A:middle
+And they ask us to start.
+
+812
+00:33:33,736 --> 00:33:37,036 A:middle
+We send that message across and
+you can see the app comes up.
+
+813
+00:33:37,436 --> 00:33:39,786 A:middle
+And the Blue Bar came down
+too in the video, too,
+
+814
+00:33:39,786 --> 00:33:41,116 A:middle
+to indicate that it was able
+
+815
+00:33:41,116 --> 00:33:43,466 A:middle
+to get continuous
+background location session.
+
+816
+00:33:44,076 --> 00:33:48,806 A:middle
+It can start sending
+that information back.
+
+817
+00:33:49,706 --> 00:33:51,566 A:middle
+And you can see the
+updates coming
+
+818
+00:33:51,566 --> 00:33:53,956 A:middle
+in on the watch display
+if it's not too tiny.
+
+819
+00:33:53,956 --> 00:33:58,016 A:middle
+We are going to stop
+and put everything away.
+
+820
+00:33:58,136 --> 00:34:02,276 A:middle
+And okay? Then we can
+review what happened there.
+
+821
+
+822
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+823
+00:33:58,136 --> 00:34:02,276 A:middle
+And okay? Then we can
+review what happened there.
+
+824
+00:34:02,276 --> 00:34:06,266 A:middle
+So crucially, if you send
+a message to the iPhone app
+
+825
+00:34:06,266 --> 00:34:08,896 A:middle
+and it's not running, it
+can be launched if necessary
+
+826
+00:34:09,065 --> 00:34:12,706 A:middle
+by SendMessage from
+Apple Watch to iPhone.
+
+827
+00:34:12,706 --> 00:34:13,676 A:middle
+So you don't have to worry
+
+828
+00:34:13,676 --> 00:34:15,686 A:middle
+about having the user
+go start the app.
+
+829
+00:34:15,686 --> 00:34:16,976 A:middle
+They can leave the
+phone in their pocket
+
+830
+00:34:16,976 --> 00:34:20,176 A:middle
+and everything can
+take care of itself.
+
+831
+00:34:20,176 --> 00:34:22,525 A:middle
+Of note, in use status
+transferred.
+
+832
+00:34:22,606 --> 00:34:25,626 A:middle
+I mentioned this before,
+you just saw it in action
+
+833
+00:34:25,976 --> 00:34:28,366 A:middle
+because the user is using the
+Watch, they are using your app,
+
+834
+00:34:28,856 --> 00:34:29,946 A:middle
+that means it is entitled
+
+835
+00:34:29,946 --> 00:34:32,926 A:middle
+to start a background location
+tracking continuous session
+
+836
+00:34:32,996 --> 00:34:34,726 A:middle
+on iPhone.
+
+837
+00:34:34,726 --> 00:34:37,166 A:middle
+That also means take
+special account
+
+838
+00:34:37,166 --> 00:34:40,366 A:middle
+of this allows background
+location updates flag property.
+
+839
+00:34:40,366 --> 00:34:42,666 A:middle
+You need to set this
+to yes if you intend
+
+840
+00:34:42,666 --> 00:34:44,585 A:middle
+to start a continuous
+background location session
+
+841
+00:34:44,985 --> 00:34:47,626 A:middle
+and set it to no if you don't.
+
+842
+00:34:47,626 --> 00:34:51,255 A:middle
+When the user pulls their phone
+out and happens to be looking
+
+843
+00:34:51,255 --> 00:34:53,926 A:middle
+at it while they are using their
+watch they won't see mysterious
+
+844
+00:34:54,206 --> 00:34:57,906 A:middle
+Blue Bars dipping in and out.
+
+845
+00:34:58,176 --> 00:34:59,346 A:middle
+What about the other direction?
+
+846
+00:34:59,636 --> 00:35:01,946 A:middle
+So iPhone to Apple Watch.
+
+847
+
+848
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+849
+00:34:59,636 --> 00:35:01,946 A:middle
+So iPhone to Apple Watch.
+
+850
+00:35:03,696 --> 00:35:06,226 A:middle
+Well, we can use SendMessage
+reply handler error handler
+
+851
+00:35:06,326 --> 00:35:07,616 A:middle
+because it's a bidirectional
+API.
+
+852
+00:35:08,916 --> 00:35:13,646 A:middle
+When we do that, you see we
+have a bit of a problem here.
+
+853
+00:35:13,966 --> 00:35:15,546 A:middle
+Our messages aren't
+getting through.
+
+854
+00:35:15,546 --> 00:35:17,966 A:middle
+In fact, what happens
+in this case,
+
+855
+00:35:17,966 --> 00:35:21,596 A:middle
+because the Watch app is not
+running, we are just going
+
+856
+00:35:21,596 --> 00:35:23,876 A:middle
+to get the error handler called
+
+857
+00:35:23,876 --> 00:35:26,096 A:middle
+on our delegate each
+time we do this.
+
+858
+00:35:26,096 --> 00:35:29,496 A:middle
+SendMessage reply handler error
+handler is launching in the case
+
+859
+00:35:29,566 --> 00:35:34,146 A:middle
+of app to phone, and
+it is not launching
+
+860
+00:35:35,076 --> 00:35:38,806 A:middle
+in the case of phone to watch.
+
+861
+00:35:39,396 --> 00:35:45,026 A:middle
+Maybe we should look into the
+other API I mentioned earlier,
+
+862
+00:35:45,196 --> 00:35:46,486 A:middle
+update application context.
+
+863
+00:35:47,226 --> 00:35:48,636 A:middle
+This is phone to watch.
+
+864
+00:35:48,636 --> 00:35:49,926 A:middle
+We can use this API.
+
+865
+00:35:50,546 --> 00:35:52,966 A:middle
+And when we do, something
+different happens.
+
+866
+00:35:53,706 --> 00:35:58,376 A:middle
+So our Apple Watch app is still
+not running, but the messages
+
+867
+00:35:58,376 --> 00:36:00,926 A:middle
+that we send hang out.
+
+868
+
+869
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+870
+00:35:58,376 --> 00:36:00,926 A:middle
+that we send hang out.
+
+871
+00:36:00,926 --> 00:36:02,496 A:middle
+In particular, the
+last one hangs out.
+
+872
+00:36:02,766 --> 00:36:04,686 A:middle
+You don't want to use
+this method of facility
+
+873
+00:36:04,686 --> 00:36:07,946 A:middle
+to send delta updates
+but you do want
+
+874
+00:36:07,946 --> 00:36:11,016 A:middle
+to send state updates,
+full context updates.
+
+875
+00:36:11,016 --> 00:36:14,166 A:middle
+When you do, the system
+will hold on to it for you
+
+876
+00:36:14,166 --> 00:36:18,486 A:middle
+until the user does update,
+does launch your app.
+
+877
+00:36:21,246 --> 00:36:24,086 A:middle
+Okay, at that time your
+app launches and it gets
+
+878
+00:36:24,086 --> 00:36:25,466 A:middle
+that update that's
+waiting for it.
+
+879
+00:36:25,776 --> 00:36:27,056 A:middle
+You can see if you
+look carefully
+
+880
+00:36:27,056 --> 00:36:29,436 A:middle
+that it already knew
+it was started.
+
+881
+00:36:30,116 --> 00:36:32,596 A:middle
+You can send continuing
+periodic updates
+
+882
+00:36:32,596 --> 00:36:35,906 A:middle
+across from your phone app
+later on to update the UI.
+
+883
+00:36:36,706 --> 00:36:38,946 A:middle
+That initial state
+was already there.
+
+884
+00:36:38,946 --> 00:36:41,376 A:middle
+That update application
+context is appropriate to use
+
+885
+00:36:41,376 --> 00:36:43,856 A:middle
+for subsequent communications
+as well.
+
+886
+00:36:44,416 --> 00:36:45,446 A:middle
+All right.
+
+887
+00:36:46,826 --> 00:36:51,446 A:middle
+Then one thing to bring up
+with regard to this whole path
+
+888
+00:36:51,446 --> 00:36:54,886 A:middle
+from iPhone to Apple Watch is
+also take a look at this API
+
+889
+00:36:54,886 --> 00:36:56,286 A:middle
+that we introduced
+in Core Location
+
+890
+00:36:56,286 --> 00:36:59,536 A:middle
+in iOS 6 called allowed
+deferred location updates
+
+891
+00:36:59,586 --> 00:37:01,076 A:middle
+until traveled time out.
+
+892
+
+893
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+894
+00:36:59,586 --> 00:37:01,076 A:middle
+until traveled time out.
+
+895
+00:37:01,706 --> 00:37:06,636 A:middle
+This API will, sort of a
+natural complement to the system
+
+896
+00:37:06,636 --> 00:37:09,716 A:middle
+because when the user is
+not looking at Apple Watch,
+
+897
+00:37:10,076 --> 00:37:11,586 A:middle
+you don't need to keep
+it up to the second.
+
+898
+00:37:11,876 --> 00:37:13,906 A:middle
+You need to keep it
+somewhat up to date.
+
+899
+00:37:13,966 --> 00:37:16,516 A:middle
+The best way to do that
+is batch up the updates,
+
+900
+00:37:16,626 --> 00:37:18,166 A:middle
+send them over every so often,
+
+901
+00:37:18,406 --> 00:37:21,576 A:middle
+so you don't keep the user's
+Bluetooth radio running all the
+
+902
+00:37:21,576 --> 00:37:23,346 A:middle
+time and we can save some power.
+
+903
+00:37:23,826 --> 00:37:28,386 A:middle
+On the iOS side, on the
+phone you can use this API
+
+904
+00:37:29,006 --> 00:37:32,186 A:middle
+on Core Location in
+order to indicate
+
+905
+00:37:32,186 --> 00:37:35,426 A:middle
+that right now you are running
+in such a latency tolerant mode
+
+906
+00:37:35,846 --> 00:37:36,996 A:middle
+and you don't need to be woken
+
+907
+00:37:36,996 --> 00:37:38,646 A:middle
+up until the user has
+gone a certain distance
+
+908
+00:37:38,686 --> 00:37:40,256 A:middle
+or until a certain
+amount of time has passed.
+
+909
+00:37:40,626 --> 00:37:44,536 A:middle
+Maybe they went a mile,
+this is their pace.
+
+910
+00:37:44,536 --> 00:37:47,306 A:middle
+If you hit the timeout
+based on distance,
+
+911
+00:37:47,306 --> 00:37:49,036 A:middle
+it has been five minutes,
+
+912
+00:37:49,036 --> 00:37:52,536 A:middle
+or you want to send an
+update to your Apple Watch.
+
+913
+00:37:53,116 --> 00:37:55,856 A:middle
+Okay, so that's it.
+
+914
+00:37:56,196 --> 00:37:58,846 A:middle
+So we've got allows
+background location updates.
+
+915
+00:37:58,846 --> 00:37:59,846 A:middle
+This is a new property.
+
+916
+
+917
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+918
+00:38:00,226 --> 00:38:02,086 A:middle
+You have to take action on
+this but it will free you
+
+919
+00:38:02,086 --> 00:38:05,786 A:middle
+from a couple of hassles with
+close coupling and high stakes.
+
+920
+00:38:06,566 --> 00:38:08,786 A:middle
+After that we've got
+request location.
+
+921
+00:38:08,786 --> 00:38:12,216 A:middle
+This is a new method on C
+location manager that allows you
+
+922
+00:38:12,216 --> 00:38:13,556 A:middle
+to cut out some
+
+923
+00:38:13,556 --> 00:38:16,836 A:middle
+of the boilerplate you probably
+all have and get one location
+
+924
+00:38:16,836 --> 00:38:17,596 A:middle
+when that's all you need.
+
+925
+00:38:18,776 --> 00:38:22,096 A:middle
+The theme for using both of
+these devices is cooperation.
+
+926
+00:38:22,096 --> 00:38:24,226 A:middle
+And the great news, I'm happy
+
+927
+00:38:24,226 --> 00:38:28,086 A:middle
+to say we've got a
+sample called potluck
+
+928
+00:38:28,086 --> 00:38:29,936 A:middle
+which demonstrates everything
+we talked about today.
+
+929
+00:38:30,026 --> 00:38:32,656 A:middle
+In fact, that's the app that
+we demoed for these videos,
+
+930
+00:38:32,656 --> 00:38:36,576 A:middle
+and you can install it
+yourself and run it.
+
+931
+00:38:36,576 --> 00:38:38,746 A:middle
+Hopefully if the app you're
+working on isn't working,
+
+932
+00:38:39,056 --> 00:38:43,646 A:middle
+potluck will and you
+can converge and figure
+
+933
+00:38:43,916 --> 00:38:45,246 A:middle
+out where the error might be.
+
+934
+00:38:47,336 --> 00:38:49,916 A:middle
+Here is a bunch of information,
+
+935
+00:38:49,916 --> 00:38:51,786 A:middle
+I'm sure you can all
+scribble down quickly.
+
+936
+00:38:51,786 --> 00:38:53,736 A:middle
+The top part is probably
+the most important.
+
+937
+00:38:53,736 --> 00:38:55,376 A:middle
+Check out potluck.
+
+938
+00:38:55,566 --> 00:38:57,606 A:middle
+This link takes you
+to the sample code.
+
+939
+00:38:57,606 --> 00:39:00,706 A:middle
+Scroll down until you get to the
+P section and there's potluck.
+
+940
+
+941
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+942
+00:38:57,606 --> 00:39:00,706 A:middle
+Scroll down until you get to the
+P section and there's potluck.
+
+943
+00:39:01,346 --> 00:39:04,186 A:middle
+These are the sessions I thought
+might be especially relevant
+
+944
+00:39:04,186 --> 00:39:04,536 A:middle
+for you.
+
+945
+00:39:04,536 --> 00:39:08,526 A:middle
+They are all in the past, but
+they're all on tape as well.
+
+946
+00:39:08,606 --> 00:39:09,966 A:middle
+You can go check them out later.
+
+947
+00:39:10,246 --> 00:39:15,116 A:middle
+And especially Introducing
+WatchKIt 2.0 at the top
+
+948
+00:39:15,116 --> 00:39:18,736 A:middle
+and Introducing Watch
+Connectivity, that's the API
+
+949
+00:39:18,736 --> 00:39:23,086 A:middle
+that I was just talking
+about at the bottom.
+
+950
+00:39:24,186 --> 00:39:25,536 A:middle
+That's it.
+
+951
+00:39:25,746 --> 00:39:27,436 A:middle
+I hope to see you all there.
+
+952
+00:39:27,436 --> 00:39:29,456 A:middle
+I can't wait to see
+what you can create
+
+953
+00:39:29,526 --> 00:39:33,346 A:middle
+with the iOS 9 watchOS
+2 and Core Location.
+
+954
+00:39:33,376 --> 00:39:33,976 A:middle
+Keep up the good work.
+
+955
+00:39:34,516 --> 00:39:39,500 A:middle
+[Applause and cheers]
+
+956
