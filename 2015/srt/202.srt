@@ -203,12 +203,12 @@ we've added to Objective-C.
 
 45
 00:02:23,446 --> 00:02:27,666 A:middle
-Nonnull indicates never nil,
-Nullable indicates can be nil,
+`nonnull` indicates never nil,
+`nullable` indicates can be nil,
 
 46
 00:02:28,166 --> 00:02:31,726 A:middle
-Null Resettable indicates that
+`null_resettable` indicates that
 a property can be set to nil
 
 47
@@ -223,7 +223,7 @@ in a second.
 49
 00:02:36,036 --> 00:02:38,706 A:middle
 Last and least, we
-have Null Unspecified,
+have `null_unspecified`,
 
 50
 00:02:38,706 --> 00:02:39,836 A:middle
