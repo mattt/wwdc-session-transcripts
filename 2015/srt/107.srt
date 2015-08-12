@@ -875,7 +875,7 @@ in your app as well.
 
 190
 00:08:57,496 --> 00:09:00,246 A:middle
-All UI Kit controls will
+All UIKit controls will
 automatically reverse.
 
 191
@@ -885,7 +885,7 @@ X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
 
 193
 00:08:57,496 --> 00:09:00,246 A:middle
-All UI Kit controls will
+All UIKit controls will
 automatically reverse.
 
 194
@@ -997,7 +997,7 @@ This is the default.
 217
 00:10:05,096 --> 00:10:07,446 A:middle
 Unless you have a reason to
-change what UI Kit is doing,
+change what UIKit is doing,
 
 218
 00:10:07,446 --> 00:10:09,176 A:middle
@@ -1059,7 +1059,7 @@ or right-to-left layout.
 
 230
 00:10:46,016 --> 00:10:50,026 A:middle
-Now, for images, UI Kit can't
+Now, for images, UIKit can't
 know whether an image should be
 
 231
@@ -1113,7 +1113,7 @@ if that image has been flipped.
 242
 00:11:10,716 --> 00:11:14,466 A:middle
 I encourage you all to come
-to the new UI Kit support
+to the new UIKit support
 
 243
 00:11:14,466 --> 00:11:16,266 A:middle
@@ -1256,11 +1256,11 @@ hardware keyboard commands.
 272
 00:12:44,786 --> 00:12:46,966 A:middle
 App could have their own
-commands like command
+commands like command-N
 
 273
 00:12:46,966 --> 00:12:48,316 A:middle
-in to create a new document.
+to create a new document.
 
 274
 00:12:49,376 --> 00:12:50,886 A:middle
@@ -1349,7 +1349,7 @@ for each of your key commands.
 
 292
 00:13:33,426 --> 00:13:35,536 A:middle
-UI Kit will take care
+UIKit will take care
 automatically to figure
 
 293
@@ -1446,7 +1446,7 @@ on the screen,
 
 313
 00:14:27,856 --> 00:14:29,996 A:middle
-UI Kit is notifying
+UIKit is notifying
 the application
 
 314
@@ -1569,7 +1569,7 @@ to less than 30 milliseconds.
 340
 00:15:49,096 --> 00:15:52,896 A:middle
 We have also introduced a number
-of changes in UI Kit dynamics.
+of changes in UIKit dynamics.
 
 341
 00:15:54,116 --> 00:15:56,886 A:middle
