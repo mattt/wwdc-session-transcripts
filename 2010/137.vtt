@@ -1,7 +1,7 @@
 1
 00:00:07,550 --> 00:00:14,710
 >> Mellissa Turner: Hello welcome to Session 137:
-Optimizing Core Data Performance on iPhone OS.
+Optimizing CoreData Performance on iPhone OS.
 
 2
 00:00:14,710 --> 00:00:16,140
@@ -9,7 +9,7 @@ I'm Mellissa Turner.
 
 3
 00:00:16,140 --> 00:00:21,790
-I'm one of the core data engineers who works on well core
+I'm one of the CoreData engineers who works on well core
 data and does a lot of optimizing so they sent me up here
 
 4
@@ -303,7 +303,7 @@ Instruments on the simulator, instruments on the iPhone,
 66
 00:05:03,230 --> 00:05:07,840
 and you can supplement that using
-Core Data logging on the iPhone.
+CoreData logging on the iPhone.
 
 67
 00:05:07,840 --> 00:05:12,990
@@ -358,7 +358,7 @@ if you're hitting networks that kind of thing,
 77
 00:05:56,440 --> 00:06:01,010
 and in addition the simulator allows you to do
-the Core Data use the Core Data static probes,
+the CoreData use the CoreData static probes,
 
 78
 00:06:01,010 --> 00:06:05,410
@@ -367,7 +367,7 @@ embedded in the framework that allow you
 
 79
 00:06:05,410 --> 00:06:13,080
-to follow Core Data's file system activity, when we're
+to follow CoreData's file system activity, when we're
 saving, when we're fetching, when you're firing a fault
 
 80
@@ -392,7 +392,7 @@ what random system activity you've got going on
 84
 00:06:30,520 --> 00:06:35,520
 and it can be supplemented cause we don't have de-trace
-probes on the phone with the core data logging,
+probes on the phone with the CoreData logging,
 
 85
 00:06:35,520 --> 00:06:41,590
@@ -401,7 +401,7 @@ which will give you timing information
 
 86
 00:06:41,590 --> 00:06:43,980
-about a lot of the operations within Core Data.
+about a lot of the operations within CoreData.
 
 87
 00:06:43,980 --> 00:06:53,160
@@ -510,7 +510,7 @@ where all the bugs are buried I happen to know
 
 109
 00:08:36,870 --> 00:08:44,780
-that even though the Core Data tools shows up only under
+that even though the CoreData tools shows up only under
 Mac OS X, it can actually be used in the simulator as well
 
 110
@@ -524,7 +524,7 @@ in this point at looking at its memory use.
 
 112
 00:08:53,680 --> 00:08:58,680
-But I'm not just interested in the Core Data activity I also
+But I'm not just interested in the CoreData activity I also
 want to see you know what it's doing in memory so I'm going
 
 113
@@ -629,7 +629,7 @@ those, well over a 1,000 of those.
 
 133
 00:11:13,560 --> 00:11:19,560
-If I go down and look at the Core Data fetches I can see
+If I go down and look at the CoreData fetches I can see
 why I have so many of those because well I did a fetch
 
 134
@@ -789,7 +789,7 @@ Well first up remember I keep talking about loading
 
 167
 00:14:06,410 --> 00:14:11,570
-I decided I'm going to use Core Data's batching
+I decided I'm going to use CoreData's batching
 feature to only load a few of those objects,
 
 168
@@ -800,7 +800,7 @@ view plus a few more hanging off the end.
 169
 00:14:16,150 --> 00:14:23,250
 I've decided to set my batch size to 25 and this
-will cause Core Data to only load 25 of the objects
+will cause CoreData to only load 25 of the objects
 
 170
 00:14:23,250 --> 00:14:26,950
@@ -968,7 +968,7 @@ go out and access a web server and download data
 
 205
 00:17:16,110 --> 00:17:21,040
-and you're using Core Data as a
+and you're using CoreData as a
 local cache that's also an import.
 
 206
@@ -981,13 +981,13 @@ Well the easiest way to do it is just not to do it.
 
 208
 00:17:25,390 --> 00:17:30,440
-Core Data allows you to set up stacks that have
+CoreData allows you to set up stacks that have
 multiple stores so if you're doing something
 
 209
 00:17:30,440 --> 00:17:38,990
 like a periodic application, or a periodic data update that
-comes in a batch just serve it in a Core Data store format
+comes in a batch just serve it in a CoreData store format
 
 210
 00:17:38,990 --> 00:17:42,870
@@ -1110,7 +1110,7 @@ This has a lot of benefits.
 236
 00:19:27,810 --> 00:19:35,520
 This will first off it minimizes the amount of memory
-being used by your Core Data part of your application.
+being used by your CoreData part of your application.
 
 237
 00:19:35,520 --> 00:19:44,830
@@ -1208,7 +1208,7 @@ sounds like the kind of thing that's probably best done
 257
 00:21:10,610 --> 00:21:17,230
 on a background thread and you're right and we'll get into
-talking a little bit about how to use threads with Core Data
+talking a little bit about how to use threads with CoreData
 
 258
 00:21:17,230 --> 00:21:23,210
@@ -1340,7 +1340,7 @@ to need to be loaded as a result of that batch.
 286
 00:23:07,620 --> 00:23:14,190
 You set the relationship key pads for pre-fetching and then
-you execute that fetch and this will tell Core Data to go
+you execute that fetch and this will tell CoreData to go
 
 287
 00:23:14,190 --> 00:23:21,110
@@ -1354,7 +1354,7 @@ one all of the objects to be deleted.
 
 289
 00:23:24,370 --> 00:23:29,880
-Core Data will process those deletes, propagate it
+CoreData will process those deletes, propagate it
 out through the object graph and then you can save.
 
 290
@@ -1364,7 +1364,7 @@ in a background thread, which we'll talk about now.
 
 291
 00:23:37,610 --> 00:23:40,610
-How do you do threading in Core Data?
+How do you do threading in CoreData?
 
 292
 00:23:40,610 --> 00:23:42,860
@@ -1438,16 +1438,15 @@ platforms you also have the option, or IOS 4,
 
 307
 00:24:54,380 --> 00:24:58,750
-you have an option of using an NS operation
-queue, which is very similar but has existed
+you have an option of using an NSOperationQueue, which is very similar but has existed
 
 308
 00:24:58,750 --> 00:25:02,670
-on previous versions using NS operations instead of blocks.
+on previous versions using NSOperations instead of blocks.
 
 309
 00:25:02,670 --> 00:25:05,800
-It allows you to push an NS operation
+It allows you to push an NSOperation
 onto a queue and then it takes care
 
 310
@@ -1456,7 +1455,7 @@ of managing all of the threads behind your back.
 
 311
 00:25:09,260 --> 00:25:14,730
-The thing to note is the NS operation is defaults
+The thing to note is the NSOperation is defaults
 to concurrent queues rather than serial queues
 
 312
@@ -1466,13 +1465,12 @@ in a second but you can also set
 
 313
 00:25:18,470 --> 00:25:26,040
-on an NS operation queue the maximum concurrent
-operation count to 1 to turn it into a serial queue
+on an NSOperationQueue the maximumConcurrentOperationCount to 1 to turn it into a serial queue
 
 314
 00:25:26,040 --> 00:25:29,460
 and once you've got these queues what do
-you need to know about Core Data and queues?
+you need to know about CoreData and queues?
 
 315
 00:25:29,460 --> 00:25:35,380
@@ -1540,7 +1538,7 @@ a serial queue guarantees that all blocks
 
 329
 00:26:33,960 --> 00:26:38,380
-or all NS operations on that queue will be run serially.
+or all NSOperations on that queue will be run serially.
 
 330
 00:26:38,380 --> 00:26:43,130
@@ -1569,7 +1567,7 @@ cause who knows when those are going to run.
 335
 00:27:03,690 --> 00:27:08,210
 Other things to think about when you're doing currency
-with Core Data is the background threads may terminate
+with CoreData is the background threads may terminate
 
 336
 00:27:08,210 --> 00:27:11,370
@@ -1621,7 +1619,7 @@ case I'm doing it in init method.
 
 346
 00:27:59,580 --> 00:28:04,230
-It's 3 lines of code, NSOperation queue allo init,
+It's 3 lines of code, NSOperationQueue alloc init,
 I make it a confirmed operation queue
 
 347
@@ -1674,7 +1672,7 @@ they're the thread-safe unit of operation.
 
 357
 00:28:58,630 --> 00:29:03,710
-You can pass the NSManageObjectContext
+You can pass the NSManagedObjectContext
 did save notification between threads.
 
 358
@@ -1874,7 +1872,7 @@ on which I imported photos.
 
 399
 00:32:24,220 --> 00:32:29,670
-Get me all dates on which there were Core Data labs at WWDC.
+Get me all dates on which there were CoreData labs at WWDC.
 
 400
 00:32:29,670 --> 00:32:33,320
@@ -1883,7 +1881,7 @@ option to get aggregate values.
 
 401
 00:32:33,320 --> 00:32:44,700
-Get me the total time spent talking about Core Data at WWDC
+Get me the total time spent talking about CoreData at WWDC
 and the way to find all of the options that you can flag
 
 402
@@ -1980,8 +1978,8 @@ The first and foremost of those is let the database do it.
 
 422
 00:34:22,770 --> 00:34:29,540
-Core Data in most cases for most of your applications
-will you'll be using the Core Data SQL store type.
+CoreData in most cases for most of your applications
+will you'll be using the CoreData SQL store type.
 
 423
 00:34:29,540 --> 00:34:31,080
@@ -2003,7 +2001,7 @@ So let the database do it if you can.
 
 427
 00:34:44,600 --> 00:34:49,440
-Operate let Core Data translate
+Operate let CoreData translate
 your predicates into wear clauses.
 
 428
@@ -2322,7 +2320,7 @@ Indexes for example.
 494
 00:40:33,690 --> 00:40:39,900
 An index allows a database to very quickly do a search on
-a column and you can set up indices in Core Data by going
+a column and you can set up indices in CoreData by going
 
 495
 00:40:39,900 --> 00:40:46,030
@@ -2331,7 +2329,7 @@ tool, finding the index button and checking it.
 
 496
 00:40:46,030 --> 00:40:49,470
-This tells Core Data that you want to put an
+This tells CoreData that you want to put an
 index on that column for optimal searching.
 
 497
@@ -2533,7 +2531,7 @@ the relationship key pads for pre-fetching.
 538
 00:44:01,340 --> 00:44:08,640
 Just set all of the relationship key pads whose information
-you're interested in and Core Data will go off and grab all
+you're interested in and CoreData will go off and grab all
 
 539
 00:44:08,640 --> 00:44:13,400
@@ -2552,7 +2550,7 @@ relationship and all of his will be minions will be loaded.
 
 542
 00:44:25,950 --> 00:44:32,320
-If you have multiple stores you can actually tell Core Data
+If you have multiple stores you can actually tell CoreData
 to only send a fetch request to a given subset of stores.
 
 543
@@ -2583,7 +2581,7 @@ I'd like to talk about the fetch results controller.
 548
 00:45:01,140 --> 00:45:05,910
 Fetch results controller is something that
-we've added to Core Data that allows you
+we've added to CoreData that allows you
 
 549
 00:45:05,910 --> 00:45:11,720
@@ -2658,12 +2656,12 @@ to at least one of the delegate change tracking methods.
 
 564
 00:46:26,100 --> 00:46:30,090
-You can see those in the Core Data
+You can see those in the CoreData
 navigation application template
 
 565
 00:46:30,090 --> 00:46:38,220
-if you create a Core Data navigation based application from
+if you create a CoreData navigation based application from
 the template it will give you a fully functional application
 
 566
@@ -2683,11 +2681,11 @@ by your fetch request, you cannot track changes to those.
 569
 00:46:56,420 --> 00:47:00,240
 It can't track changes to those objects
-because Core Data can only track changes
+because CoreData can only track changes
 
 570
 00:47:00,240 --> 00:47:04,790
-to NS managed objects, it doesn't do it for any other types.
+to NSManagedObjects, it doesn't do it for any other types.
 
 571
 00:47:04,790 --> 00:47:09,380
@@ -2766,7 +2764,7 @@ and I figured I put this up before the summary.
 
 587
 00:48:26,300 --> 00:48:31,580
-If you've run across something in Core Data that
+If you've run across something in CoreData that
 it's not working the way you expect it file a bug.
 
 588
@@ -2852,7 +2850,7 @@ Is that good Ben?
 605
 00:49:47,890 --> 00:49:52,610
 Unfortunately we're sort of at the end of the week
-for the Core Data stuff so I can't point you off
+for the CoreData stuff so I can't point you off
 
 606
 00:49:52,610 --> 00:49:56,900
@@ -2875,7 +2873,7 @@ want to talk over stuff it's a good place to go.
 610
 00:50:10,530 --> 00:50:15,910
 Our Evangelist is Michael Jurewitz you can always send
-an email and there's a lot of Core Data documentation
+an email and there's a lot of CoreData documentation
 
 611
 00:50:15,910 --> 00:50:19,880
