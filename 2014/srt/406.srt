@@ -1,0 +1,5892 @@
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1
+00:00:00,506 --> 00:00:11,516 A:middle
+[ Silence ]
+
+2
+00:00:12,016 --> 00:00:13,000 A:middle
+[ Applause ]
+
+3
+00:00:13,606 --> 00:00:14,016 A:middle
+>> Good morning.
+
+4
+00:00:16,606 --> 00:00:18,666 A:middle
+Welcome to Session 406:
+
+5
+00:00:18,976 --> 00:00:20,626 A:middle
+Integrating Swift
+with Objective-C.
+
+6
+00:00:22,466 --> 00:00:25,496 A:middle
+Now many of the Swift demos
+here at the conference start
+
+7
+00:00:25,496 --> 00:00:27,756 A:middle
+by creating either a
+brand-new project from one
+
+8
+00:00:27,756 --> 00:00:31,516 A:middle
+of expo's project templates or
+a playground and that's great.
+
+9
+00:00:31,986 --> 00:00:34,916 A:middle
+Playgrounds are a great way
+to explore the Swift language.
+
+10
+00:00:35,896 --> 00:00:39,836 A:middle
+But many of you already have
+Mac or iOS apps and some
+
+11
+00:00:39,836 --> 00:00:41,846 A:middle
+of you have spent years
+writing Objective-C code.
+
+12
+00:00:42,066 --> 00:00:43,906 A:middle
+You have written it carefully.
+
+13
+00:00:43,906 --> 00:00:47,356 A:middle
+You have debugged it,
+polished it, optimized it.
+
+14
+00:00:47,356 --> 00:00:48,996 A:middle
+It's just perfect, hmm?
+
+15
+00:00:49,946 --> 00:00:52,916 A:middle
+And we certainly don't want
+you to have to throw any
+
+16
+00:00:52,916 --> 00:00:56,086 A:middle
+of that away or rewrite
+anything that you don't want to.
+
+17
+00:00:56,726 --> 00:00:59,956 A:middle
+Also some of you have really
+a lot of Objective-C code
+
+18
+
+19
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+20
+00:01:00,576 --> 00:01:02,806 A:middle
+that you maybe spent a decade
+writing and maybe it's...
+
+21
+00:01:02,966 --> 00:01:03,786 A:middle
+not-so-perfect.
+
+22
+00:01:03,786 --> 00:01:06,156 A:middle
+It's not as clean and shiny.
+
+23
+00:01:06,646 --> 00:01:09,106 A:middle
+So you are going to be using
+
+24
+00:01:09,106 --> 00:01:10,956 A:middle
+that Objective-C
+code for a while.
+
+25
+00:01:10,986 --> 00:01:13,036 A:middle
+You might want to rewrite
+it, but it's not going
+
+26
+00:01:13,036 --> 00:01:14,876 A:middle
+to happen this time around,
+because you've got an app
+
+27
+00:01:14,876 --> 00:01:19,596 A:middle
+to ship, etc. So,
+Objective-C is not going away.
+
+28
+00:01:20,086 --> 00:01:23,006 A:middle
+Both Swift and Objective-C
+are first class citizens
+
+29
+00:01:23,246 --> 00:01:24,996 A:middle
+for doing Cocoa and
+Cocoa Touch development.
+
+30
+00:01:26,326 --> 00:01:29,386 A:middle
+And, in fact, we don't
+want you to spend any time
+
+31
+00:01:29,386 --> 00:01:30,156 A:middle
+that you don't have to.
+
+32
+00:01:30,156 --> 00:01:32,516 A:middle
+We don't want you to stop
+refining the Objective-C code.
+
+33
+00:01:32,516 --> 00:01:35,816 A:middle
+We want you to be able to
+integrate Swift as you want to.
+
+34
+00:01:36,636 --> 00:01:39,546 A:middle
+And we do think that as
+you implement new features,
+
+35
+00:01:39,886 --> 00:01:43,546 A:middle
+as you finally get around to
+replacing crufty subsystems
+
+36
+00:01:43,916 --> 00:01:45,446 A:middle
+that you want to
+use Swift for that
+
+37
+00:01:45,846 --> 00:01:49,276 A:middle
+because of its better
+type safety,
+
+38
+00:01:49,756 --> 00:01:52,096 A:middle
+its expressiveness,
+its performance.
+
+39
+00:01:54,076 --> 00:01:57,736 A:middle
+Now, many of you have also
+gained a lot of knowledge
+
+40
+00:01:57,736 --> 00:02:01,226 A:middle
+and experience in Cocoa and
+Cocoa Touch through your years
+
+41
+
+42
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+43
+00:01:57,736 --> 00:02:01,226 A:middle
+and experience in Cocoa and
+Cocoa Touch through your years
+
+44
+00:02:01,226 --> 00:02:04,726 A:middle
+of Objective-C development and
+that applies to Swift as well.
+
+45
+00:02:05,386 --> 00:02:07,976 A:middle
+You're using the same
+frameworks, the same classes,
+
+46
+00:02:08,645 --> 00:02:12,086 A:middle
+the same APIs with some
+syntactic differences, in fact,
+
+47
+00:02:12,086 --> 00:02:14,546 A:middle
+the same design patterns,
+such as delegation.
+
+48
+00:02:15,116 --> 00:02:18,356 A:middle
+So all that knowledge applies
+and so we expect that a lot
+
+49
+00:02:18,356 --> 00:02:22,946 A:middle
+of you are going to end up with
+projects that contain both Swift
+
+50
+00:02:22,946 --> 00:02:26,096 A:middle
+and Objective-C and we
+worked hard to make sure
+
+51
+00:02:26,096 --> 00:02:28,526 A:middle
+that Xcode lets you freely
+mix Swift and Objective-C.
+
+52
+00:02:29,836 --> 00:02:31,886 A:middle
+So this session over the
+next hour we're going
+
+53
+00:02:31,886 --> 00:02:33,896 A:middle
+to be talking a little
+bit more detail
+
+54
+00:02:33,896 --> 00:02:36,846 A:middle
+than what you've probably
+seen so far about exactly how
+
+55
+00:02:36,846 --> 00:02:37,676 A:middle
+that works in practice.
+
+56
+00:02:37,676 --> 00:02:40,946 A:middle
+We're going to start simple by
+just introducing some Swift code
+
+57
+00:02:40,946 --> 00:02:43,466 A:middle
+into an existing
+Objective-C app.
+
+58
+00:02:44,396 --> 00:02:47,006 A:middle
+Then we'll get a little
+bit more interesting.
+
+59
+00:02:47,006 --> 00:02:48,896 A:middle
+We're going to start
+to add some Swift code
+
+60
+00:02:48,896 --> 00:02:51,816 A:middle
+to a model-level framework,
+which is then embedded
+
+61
+00:02:51,816 --> 00:02:54,716 A:middle
+in an Objective-C app and
+call that from Objective-C.
+
+62
+00:02:56,026 --> 00:02:58,926 A:middle
+We'll talk about how to start
+accessing your pure Swift
+
+63
+00:02:58,926 --> 00:03:01,546 A:middle
+framework which will
+start showing
+
+64
+
+65
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+66
+00:02:58,926 --> 00:03:01,546 A:middle
+framework which will
+start showing
+
+67
+00:03:02,166 --> 00:03:03,506 A:middle
+up from an Objective-C app.
+
+68
+00:03:03,506 --> 00:03:07,706 A:middle
+And then we'll talk as we go
+along about how to adopt some
+
+69
+00:03:07,706 --> 00:03:10,586 A:middle
+of the common, well-established
+Cocoa patterns in Swift.
+
+70
+00:03:10,976 --> 00:03:12,956 A:middle
+And again Swift is
+designed from the ground
+
+71
+00:03:12,956 --> 00:03:16,526 A:middle
+up to be a great Cocoa/Cocoa
+Touch development language.
+
+72
+00:03:16,776 --> 00:03:20,236 A:middle
+And so it has language support
+for some of the Cocoa idioms
+
+73
+00:03:20,236 --> 00:03:22,186 A:middle
+that we've gotten used to.
+
+74
+00:03:22,556 --> 00:03:25,386 A:middle
+So, I could go on here for, you
+know, two dozen slides and talk
+
+75
+00:03:25,386 --> 00:03:28,116 A:middle
+in detail about how this works,
+but I'd rather just give a demo
+
+76
+00:03:28,116 --> 00:03:30,236 A:middle
+because that's usually
+a bit more clear.
+
+77
+00:03:34,126 --> 00:03:37,696 A:middle
+Alright, so I've
+got a project here.
+
+78
+00:03:37,696 --> 00:03:42,316 A:middle
+It's, it's an iOS app and
+it has an embedded framework
+
+79
+00:03:42,316 --> 00:03:44,076 A:middle
+so it's decently designed here.
+
+80
+00:03:44,076 --> 00:03:47,216 A:middle
+It's got a top layer which is
+the actual app with the view
+
+81
+00:03:47,216 --> 00:03:49,506 A:middle
+and the controller
+layer in our MVC design.
+
+82
+00:03:50,706 --> 00:03:53,736 A:middle
+There is a framework
+called ListerKit down here,
+
+83
+00:03:53,736 --> 00:03:55,206 A:middle
+which contains our
+model objects.
+
+84
+00:03:55,206 --> 00:03:57,276 A:middle
+And all of this is currently
+written in Objective-C.
+
+85
+00:03:58,756 --> 00:04:01,456 A:middle
+Just to give a sense of
+what this is, let's go ahead
+
+86
+
+87
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+88
+00:03:58,756 --> 00:04:01,456 A:middle
+Just to give a sense of
+what this is, let's go ahead
+
+89
+00:04:01,456 --> 00:04:04,606 A:middle
+and run it in the simulator
+and we're gonna go ahead here
+
+90
+00:04:04,606 --> 00:04:05,566 A:middle
+and bring up the simulator.
+
+91
+00:04:05,656 --> 00:04:08,526 A:middle
+We see that, yeah, it's a
+typical list-taking application.
+
+92
+00:04:08,526 --> 00:04:11,216 A:middle
+I can go in and add
+colored lists here.
+
+93
+00:04:11,216 --> 00:04:13,706 A:middle
+I can check off items,
+etcetera, edit them.
+
+94
+00:04:14,006 --> 00:04:17,156 A:middle
+What I can't do right
+now is to add a new list.
+
+95
+00:04:17,156 --> 00:04:21,216 A:middle
+This happens to be an iCloud app
+so I could do that in my Mac app
+
+96
+00:04:21,216 --> 00:04:22,106 A:middle
+and it would show up here...
+
+97
+00:04:22,466 --> 00:04:24,926 A:middle
+But, for this example
+we're going to use Swift
+
+98
+00:04:24,926 --> 00:04:28,156 A:middle
+to add the ability to
+add a new list in iOS.
+
+99
+00:04:29,096 --> 00:04:31,106 A:middle
+Alright, so I'm going
+to go back here
+
+100
+00:04:31,106 --> 00:04:33,726 A:middle
+and the first thing I'm
+going to do is look down here
+
+101
+00:04:33,726 --> 00:04:35,076 A:middle
+to the group ViewControllers.
+
+102
+00:04:35,516 --> 00:04:38,636 A:middle
+And here we have some
+ViewControllers already written
+
+103
+00:04:38,776 --> 00:04:42,186 A:middle
+in objectives [ahem]
+in Objective-C.
+
+104
+00:04:42,596 --> 00:04:45,716 A:middle
+I go to File, Create New File,
+and in this case I'm just going
+
+105
+00:04:45,716 --> 00:04:47,496 A:middle
+to create an empty Swift file
+because I want to show you how
+
+106
+00:04:47,496 --> 00:04:48,596 A:middle
+to get started from scratch.
+
+107
+00:04:48,596 --> 00:04:50,556 A:middle
+Xcode has great file
+templates and can fill
+
+108
+00:04:50,556 --> 00:04:51,666 A:middle
+in a lot of code for you.
+
+109
+00:04:51,666 --> 00:04:53,946 A:middle
+And we want to do it
+in a basic way here,
+
+110
+00:04:53,946 --> 00:04:55,506 A:middle
+to show how it's going to work.
+
+111
+00:04:55,956 --> 00:04:59,836 A:middle
+I'm going to call it
+NewListController and I'm going
+
+112
+00:04:59,836 --> 00:05:02,886 A:middle
+to make sure that
+it is going to go
+
+113
+
+114
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+115
+00:04:59,836 --> 00:05:02,886 A:middle
+to make sure that
+it is going to go
+
+116
+00:05:02,886 --> 00:05:04,546 A:middle
+into the application
+target here.
+
+117
+00:05:04,926 --> 00:05:07,926 A:middle
+We also see that I have
+ListerKit, which is my framework
+
+118
+00:05:07,926 --> 00:05:09,366 A:middle
+and one of the new
+extensions, here,
+
+119
+00:05:09,366 --> 00:05:12,816 A:middle
+for showing in the status view.
+
+120
+00:05:12,816 --> 00:05:14,276 A:middle
+So, NewListController.
+
+121
+00:05:14,956 --> 00:05:18,856 A:middle
+Now as I create this,
+my first Swift file,
+
+122
+00:05:19,086 --> 00:05:20,686 A:middle
+in a pure Objective-C project...
+
+123
+00:05:21,226 --> 00:05:22,386 A:middle
+Xcode will offer to create
+
+124
+00:05:22,386 --> 00:05:23,746 A:middle
+for me what's called
+a bridging header.
+
+125
+00:05:24,506 --> 00:05:27,286 A:middle
+So a bridging header, we'll talk
+about that in more detail later,
+
+126
+00:05:27,606 --> 00:05:30,196 A:middle
+but basically what it is, is
+a way for you to expose some
+
+127
+00:05:30,196 --> 00:05:32,916 A:middle
+of your Objective-C
+APIs to Swift.
+
+128
+00:05:35,216 --> 00:05:37,106 A:middle
+I'm going to go ahead
+and create that.
+
+129
+00:05:37,716 --> 00:05:38,926 A:middle
+So I get that by default.
+
+130
+00:05:40,256 --> 00:05:42,336 A:middle
+Now, import foundation...
+
+131
+00:05:42,496 --> 00:05:44,986 A:middle
+actually I'm going to be
+needing some UIKit API here.
+
+132
+00:05:44,986 --> 00:05:46,836 A:middle
+So I go ahead and
+change that to UIKit.
+
+133
+00:05:47,546 --> 00:05:51,476 A:middle
+And I know that I will need to
+import my own model framework
+
+134
+00:05:51,536 --> 00:05:53,966 A:middle
+because we want to obviously
+create our model objects
+
+135
+00:05:53,966 --> 00:05:55,396 A:middle
+from within the ViewController.
+
+136
+00:05:56,966 --> 00:06:01,436 A:middle
+And I'm just going to go ahead
+here and say NewListController.
+
+137
+
+138
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+139
+00:05:56,966 --> 00:06:01,436 A:middle
+And I'm just going to go ahead
+here and say NewListController.
+
+140
+00:06:03,196 --> 00:06:07,226 A:middle
+And now, when I complete,
+we see that because I said
+
+141
+00:06:07,226 --> 00:06:09,186 A:middle
+"import UIKit" there,
+
+142
+00:06:09,806 --> 00:06:12,376 A:middle
+Swift pulls in the
+Objective-C framework UIKit
+
+143
+00:06:12,376 --> 00:06:15,526 A:middle
+and gives me a Swift
+view of those symbols.
+
+144
+00:06:15,526 --> 00:06:17,946 A:middle
+So I'm going to subclass
+from UIController
+
+145
+00:06:18,776 --> 00:06:20,016 A:middle
+and just leave it
+like that for now.
+
+146
+00:06:21,696 --> 00:06:23,826 A:middle
+So we have just a
+basic empty class --
+
+147
+00:06:24,076 --> 00:06:26,516 A:middle
+a Swift class, subclassing
+an Objective-C class --
+
+148
+00:06:26,626 --> 00:06:28,506 A:middle
+that we get from UI-
+...from Cocoa Touch.
+
+149
+00:06:30,356 --> 00:06:32,886 A:middle
+Now we could sit here
+and drag out rectangles
+
+150
+00:06:32,886 --> 00:06:35,306 A:middle
+and create an API-
+...create a UI for this,
+
+151
+00:06:35,346 --> 00:06:36,986 A:middle
+but fortunately I happen
+to already have one.
+
+152
+00:06:37,496 --> 00:06:38,896 A:middle
+How lucky.
+
+153
+00:06:39,326 --> 00:06:40,396 A:middle
+It isn't wire up though,
+
+154
+00:06:40,466 --> 00:06:41,676 A:middle
+so we're going to
+do that right now.
+
+155
+00:06:42,846 --> 00:06:44,806 A:middle
+The first thing I'm
+going to do here is,
+
+156
+00:06:44,946 --> 00:06:48,586 A:middle
+just like with Objective-C,
+I need to set what the class
+
+157
+00:06:48,586 --> 00:06:49,596 A:middle
+of my UIController is.
+
+158
+00:06:49,596 --> 00:06:53,556 A:middle
+So I can go up here and now we
+see that the NewListController
+
+159
+00:06:53,556 --> 00:06:56,296 A:middle
+that I just created is shown
+here among all the ones
+
+160
+00:06:56,296 --> 00:06:57,406 A:middle
+implemented in Objective-C.
+
+161
+00:06:57,826 --> 00:06:59,336 A:middle
+So when you access your classes
+
+162
+00:06:59,336 --> 00:07:01,836 A:middle
+from Swift-...from
+Interface Builder, the Swift
+
+163
+
+164
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+165
+00:06:59,336 --> 00:07:01,836 A:middle
+from Swift-...from
+Interface Builder, the Swift
+
+166
+00:07:01,836 --> 00:07:03,796 A:middle
+and Objective-C classes
+show up next to each other
+
+167
+00:07:03,796 --> 00:07:05,706 A:middle
+and you can work
+with them as equals.
+
+168
+00:07:07,466 --> 00:07:10,306 A:middle
+Alright, so now the next thing
+I want to do after setting that,
+
+169
+00:07:10,986 --> 00:07:13,826 A:middle
+I'm going to go ahead and
+create a bar button item here.
+
+170
+00:07:13,936 --> 00:07:17,326 A:middle
+I'm going to drag that up
+into the toolbar, up here,
+
+171
+00:07:18,366 --> 00:07:21,986 A:middle
+and I'm going to change
+the identifier to be Add,
+
+172
+00:07:21,986 --> 00:07:24,006 A:middle
+and that also changes
+the visual appearance
+
+173
+00:07:24,006 --> 00:07:27,156 A:middle
+to give it a standard Cocoa
+Touch "Add button" look.
+
+174
+00:07:28,676 --> 00:07:31,086 A:middle
+I'll create a segue, it's
+going to be a mobile segue.
+
+175
+00:07:31,686 --> 00:07:32,926 A:middle
+This is, after all,
+the storyboard
+
+176
+00:07:34,166 --> 00:07:38,336 A:middle
+and I'll change the name of
+that segue to be New List.
+
+177
+00:07:38,336 --> 00:07:41,196 A:middle
+Now that's going to be important
+a little bit later on so
+
+178
+00:07:41,196 --> 00:07:42,976 A:middle
+that we can access it
+from within our code.
+
+179
+00:07:44,626 --> 00:07:48,796 A:middle
+Okay. So now, you
+may have seen in one
+
+180
+00:07:48,796 --> 00:07:51,616 A:middle
+of the other demos how we can
+drag from Swift code and connect
+
+181
+00:07:51,616 --> 00:07:53,686 A:middle
+to objects inside of IB.
+
+182
+00:07:54,336 --> 00:07:56,236 A:middle
+We can do the same thing in
+the other direction as well.
+
+183
+00:07:56,596 --> 00:07:59,776 A:middle
+If I option-click here
+on my Swift class --
+
+184
+
+185
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+186
+00:08:01,306 --> 00:08:03,306 A:middle
+my ViewController class
+implemented in Swift --
+
+187
+00:08:03,836 --> 00:08:05,286 A:middle
+now I can drag the
+other direction.
+
+188
+00:08:06,106 --> 00:08:09,126 A:middle
+First thing I'm going to do is
+I'm going to go ahead and drag
+
+189
+00:08:09,126 --> 00:08:12,886 A:middle
+from an outlet and
+insert a new outlet here.
+
+190
+00:08:13,466 --> 00:08:16,766 A:middle
+And I'm going to call
+this "nameField".
+
+191
+00:08:17,316 --> 00:08:20,456 A:middle
+And we see that it's a UIText
+field and the storage is weak
+
+192
+00:08:20,796 --> 00:08:22,796 A:middle
+because we have a
+controller class,
+
+193
+00:08:23,556 --> 00:08:26,176 A:middle
+the super view- ...the view
+hierarchy owns the button,
+
+194
+00:08:26,326 --> 00:08:28,846 A:middle
+and the fields and
+the buttons in here,
+
+195
+00:08:29,246 --> 00:08:31,066 A:middle
+and so we just want a
+weak reference to it.
+
+196
+00:08:31,066 --> 00:08:33,426 A:middle
+And, in fact, when
+we insert this,
+
+197
+00:08:35,025 --> 00:08:36,686 A:middle
+Interface Builder knows
+it's a Swift file.
+
+198
+00:08:36,836 --> 00:08:41,096 A:middle
+So it uses the Swift syntax just
+as it would for Objective-C.
+
+199
+00:08:42,456 --> 00:08:46,886 A:middle
+And it uses the IBOutlet
+property
+
+200
+00:08:47,196 --> 00:08:50,056 A:middle
+for the stored property- ...I'm
+sorry, the IBOutlet attribute
+
+201
+00:08:50,056 --> 00:08:51,216 A:middle
+for the stored property here.
+
+202
+00:08:51,766 --> 00:08:54,876 A:middle
+And this is implicitly
+weak and also optional
+
+203
+00:08:55,286 --> 00:08:57,876 A:middle
+because not all the
+outlets may be connected.
+
+204
+
+205
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+206
+00:09:00,236 --> 00:09:02,736 A:middle
+Give myself some space
+there; I'm going to go ahead
+
+207
+00:09:02,736 --> 00:09:06,106 A:middle
+and do the same thing
+here for the buttons.
+
+208
+00:09:07,016 --> 00:09:10,756 A:middle
+I'm just going to control-drag
+these and I'm just going
+
+209
+00:09:10,786 --> 00:09:12,796 A:middle
+to fill these in
+in the same way.
+
+210
+00:09:12,796 --> 00:09:14,386 A:middle
+Now this is a sample app.
+
+211
+00:09:14,386 --> 00:09:16,986 A:middle
+Let me go ahead and
+adjust the spacing there.
+
+212
+00:09:16,986 --> 00:09:20,316 A:middle
+This is a sample app and
+so it's not rescalable
+
+213
+00:09:20,316 --> 00:09:22,306 A:middle
+to just have six
+buttons and six outlets.
+
+214
+00:09:22,346 --> 00:09:24,196 A:middle
+But I know that you
+all design better,
+
+215
+00:09:24,356 --> 00:09:26,796 A:middle
+more maintainable
+code than this.
+
+216
+00:09:26,886 --> 00:09:29,826 A:middle
+This is for illustrative
+purposes only.
+
+217
+00:09:29,826 --> 00:09:32,246 A:middle
+You might want something
+where you can load colors
+
+218
+00:09:32,246 --> 00:09:34,796 A:middle
+from a TableView- ...uh,
+from a Plist and show them
+
+219
+00:09:34,796 --> 00:09:36,176 A:middle
+in a TableView or
+something like that.
+
+220
+00:09:36,176 --> 00:09:40,346 A:middle
+I'm going to go ahead and
+finish connecting these.
+
+221
+00:09:41,536 --> 00:09:45,106 A:middle
+Alright, so now we have our
+outlets to the UI components.
+
+222
+00:09:45,376 --> 00:09:47,686 A:middle
+We can also create
+Actions in this way.
+
+223
+00:09:48,276 --> 00:09:51,596 A:middle
+If I choose the Cancel button
+down here and I drag in the,
+
+224
+00:09:51,596 --> 00:09:54,126 A:middle
+I can create an Action up
+at the top here just for-
+
+225
+00:09:54,126 --> 00:09:55,216 A:middle
+...just as for Objective-C.
+
+226
+00:09:55,686 --> 00:09:57,376 A:middle
+I change the connection
+type to Action.
+
+227
+00:09:57,656 --> 00:10:00,766 A:middle
+I will type here "cancel" and
+we can just leave the type
+
+228
+
+229
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+230
+00:09:57,656 --> 00:10:00,766 A:middle
+I will type here "cancel" and
+we can just leave the type
+
+231
+00:10:00,766 --> 00:10:01,956 A:middle
+of the sender as
+any object here.
+
+232
+00:10:02,076 --> 00:10:04,426 A:middle
+We don't actually care
+because we're not going
+
+233
+00:10:04,426 --> 00:10:05,496 A:middle
+to be messaging it.
+
+234
+00:10:07,326 --> 00:10:11,536 A:middle
+What we will do, however, is
+to invoke some Cocoa Touch API.
+
+235
+00:10:11,536 --> 00:10:18,716 A:middle
+I give myself some more room
+and I can say "self.dismiss"
+
+236
+00:10:18,716 --> 00:10:21,086 A:middle
+and then the code
+completion gives me access
+
+237
+00:10:21,086 --> 00:10:23,786 A:middle
+to the Cocoa Touch API
+that we already know.
+
+238
+00:10:24,636 --> 00:10:25,836 A:middle
+I can complete here.
+
+239
+00:10:26,176 --> 00:10:27,586 A:middle
+I'm not going to
+need a- ...I want it
+
+240
+00:10:27,586 --> 00:10:28,976 A:middle
+to be animated, so I put "true".
+
+241
+00:10:29,266 --> 00:10:31,496 A:middle
+I don't need a completion
+block, so I give it "nil".
+
+242
+00:10:32,036 --> 00:10:35,346 A:middle
+Now, in Objective-C we
+always have to message "self"
+
+243
+00:10:35,606 --> 00:10:36,766 A:middle
+if we want to talk to self.
+
+244
+00:10:37,516 --> 00:10:40,416 A:middle
+Swift knows from context when
+you are messaging yourself.
+
+245
+00:10:40,416 --> 00:10:41,886 A:middle
+So we can actually
+leave this out
+
+246
+00:10:41,886 --> 00:10:42,976 A:middle
+and make this a little
+bit more readable.
+
+247
+00:10:43,516 --> 00:10:48,546 A:middle
+[ Applause ]
+
+248
+00:10:49,046 --> 00:10:49,606 A:middle
+Excellent.
+
+249
+00:10:50,396 --> 00:10:53,996 A:middle
+Alright, so now we will connect
+the buttons here as well.
+
+250
+00:10:56,116 --> 00:10:58,766 A:middle
+And I'm going to be
+calling this "pickColor".
+
+251
+00:10:59,546 --> 00:11:01,926 A:middle
+Now in this case
+I choose UIButton.
+
+252
+
+253
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+254
+00:10:59,546 --> 00:11:01,926 A:middle
+Now in this case
+I choose UIButton.
+
+255
+00:11:02,566 --> 00:11:05,296 A:middle
+(I'm sorry, I need to
+make it an Action.)
+
+256
+00:11:06,466 --> 00:11:07,896 A:middle
+I choose UIButton down here
+
+257
+00:11:07,896 --> 00:11:10,346 A:middle
+because in this case we
+will actually want to talk
+
+258
+00:11:10,346 --> 00:11:12,906 A:middle
+to the button, or
+compare the button,
+
+259
+00:11:12,906 --> 00:11:14,296 A:middle
+so we want to have that type.
+
+260
+00:11:14,296 --> 00:11:19,126 A:middle
+And as you can see, Interface
+Builder generates the code
+
+261
+00:11:19,726 --> 00:11:21,826 A:middle
+and makes the sender
+be a UIButton.
+
+262
+00:11:22,656 --> 00:11:24,356 A:middle
+Before I forget, I'm
+also going to wire
+
+263
+00:11:24,356 --> 00:11:27,206 A:middle
+up the other actions
+here as well.
+
+264
+00:11:27,206 --> 00:11:28,226 A:middle
+Let me see here.
+
+265
+00:11:30,516 --> 00:11:32,936 A:middle
+To connect to this one,
+
+266
+00:11:32,936 --> 00:11:36,226 A:middle
+give myself a little
+bit of space there.
+
+267
+00:11:41,996 --> 00:11:44,376 A:middle
+And now they're all wired
+up to the same Action.
+
+268
+00:11:44,656 --> 00:11:46,036 A:middle
+So they're all wired
+up to the same Action.
+
+269
+00:11:46,036 --> 00:11:47,436 A:middle
+The sender will be
+different depending
+
+270
+00:11:47,436 --> 00:11:48,426 A:middle
+on which button we touch.
+
+271
+00:11:49,746 --> 00:11:52,556 A:middle
+Now, I want to show
+that some of the power
+
+272
+00:11:52,556 --> 00:11:56,116 A:middle
+of the Swift select statement
+here, the switch statement.
+
+273
+00:11:58,486 --> 00:12:00,956 A:middle
+Unlike Objective-C or
+other C-based languages,
+
+274
+
+275
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+276
+00:11:58,486 --> 00:12:00,956 A:middle
+Unlike Objective-C or
+other C-based languages,
+
+277
+00:12:01,286 --> 00:12:04,646 A:middle
+I can actually switch
+on a wide variety
+
+278
+00:12:04,646 --> 00:12:05,806 A:middle
+of different kinds of patterns.
+
+279
+00:12:05,806 --> 00:12:07,826 A:middle
+In this case I'm just
+switching on what the sender is.
+
+280
+00:12:08,366 --> 00:12:13,396 A:middle
+But this is a very rich
+construct in the Swift language
+
+281
+00:12:13,746 --> 00:12:16,446 A:middle
+and I encourage you to
+catch one of the later talks
+
+282
+00:12:16,446 --> 00:12:19,656 A:middle
+about advanced Swift to
+really get into the depth
+
+283
+00:12:19,656 --> 00:12:21,426 A:middle
+of what you can use this for.
+
+284
+00:12:22,096 --> 00:12:24,736 A:middle
+For right now, to keep
+it simple, I'm just going
+
+285
+00:12:24,736 --> 00:12:25,926 A:middle
+to use it to match on a button.
+
+286
+00:12:26,946 --> 00:12:28,976 A:middle
+And what I will say is "okay,
+
+287
+00:12:28,976 --> 00:12:30,656 A:middle
+now I need to assign
+something here."
+
+288
+00:12:31,096 --> 00:12:33,196 A:middle
+So I'm going to need to
+have a stored property.
+
+289
+00:12:34,386 --> 00:12:37,626 A:middle
+I create a stored property
+called selectedLabel
+
+290
+00:12:37,876 --> 00:12:40,736 A:middle
+because we're actually
+choosing labels here represented
+
+291
+00:12:40,736 --> 00:12:43,466 A:middle
+as colors on the screen.
+
+292
+00:12:43,466 --> 00:12:46,606 A:middle
+And then what I can do
+here is I can say this is
+
+293
+00:12:46,606 --> 00:12:48,186 A:middle
+an AAPLListLabel.
+
+294
+00:12:49,356 --> 00:12:54,386 A:middle
+So this again is an Objective-C
+type that has been imported
+
+295
+00:12:54,766 --> 00:12:56,826 A:middle
+through my import of
+ListerKit up there.
+
+296
+00:12:58,266 --> 00:13:00,086 A:middle
+I'm going to start out by saying
+
+297
+
+298
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+299
+00:12:58,266 --> 00:13:00,086 A:middle
+I'm going to start out by saying
+
+300
+00:13:00,086 --> 00:13:04,096 A:middle
+that that is an
+APLListLabel.Gray.
+
+301
+00:13:04,766 --> 00:13:06,126 A:middle
+That's the default value of it.
+
+302
+00:13:06,766 --> 00:13:09,036 A:middle
+Because I don't put a question
+mark, I don't make it optional,
+
+303
+00:13:09,036 --> 00:13:10,806 A:middle
+that means that it
+has to have a value.
+
+304
+00:13:11,176 --> 00:13:13,286 A:middle
+Remember the IB outlets
+are implicitly optional.
+
+305
+00:13:13,546 --> 00:13:16,966 A:middle
+Now it's kind of ugly to have
+to repeat the same thing here.
+
+306
+00:13:16,966 --> 00:13:19,796 A:middle
+And, in fact, Swift has great
+support for type inference.
+
+307
+00:13:19,796 --> 00:13:21,576 A:middle
+And when it knows exactly
+what type you mean,
+
+308
+00:13:21,956 --> 00:13:23,596 A:middle
+then you can go ahead
+and leave out the type.
+
+309
+00:13:23,996 --> 00:13:27,246 A:middle
+So from this, Swift can tell
+exactly that, "okay this has
+
+310
+00:13:27,286 --> 00:13:30,846 A:middle
+to be an AAPLListLabel," because
+that's how I'm initializing it,
+
+311
+00:13:30,886 --> 00:13:32,516 A:middle
+so I can just leave
+out the type.
+
+312
+00:13:34,666 --> 00:13:36,396 A:middle
+Now I can complete
+my statement here.
+
+313
+00:13:36,396 --> 00:13:41,076 A:middle
+I can say "selectedLabel
+= .Gray" and, in fact,
+
+314
+00:13:41,436 --> 00:13:43,116 A:middle
+I can add to the rest
+of them here as well.
+
+315
+00:13:43,116 --> 00:13:44,376 A:middle
+I'm a very fast typer.
+
+316
+00:13:46,716 --> 00:13:50,556 A:middle
+Now we see here that
+Objective-C- ...I mean, sorry,
+
+317
+00:13:50,716 --> 00:13:53,136 A:middle
+Xcode, Swift has a
+message for us here.
+
+318
+00:13:53,526 --> 00:13:56,686 A:middle
+So in Swift, one of the
+things to notice is each
+
+319
+00:13:56,686 --> 00:13:59,196 A:middle
+of the cases is implicitly ended
+
+320
+00:13:59,586 --> 00:14:00,796 A:middle
+at the beginning
+of the next case.
+
+321
+
+322
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+323
+00:13:59,586 --> 00:14:00,796 A:middle
+at the beginning
+of the next case.
+
+324
+00:14:00,796 --> 00:14:04,096 A:middle
+So you don't have the case of
+C where you implicitly fall
+
+325
+00:14:04,096 --> 00:14:05,776 A:middle
+through and that's the
+source of a lot of bugs.
+
+326
+00:14:06,326 --> 00:14:10,026 A:middle
+In fact, Swift was explicitly
+designed to avoid many
+
+327
+00:14:10,026 --> 00:14:13,376 A:middle
+of the common pitfalls that are
+common in C-based languages.
+
+328
+00:14:14,726 --> 00:14:17,476 A:middle
+Now in this case, another thing
+about the switch statement is
+
+329
+00:14:17,476 --> 00:14:18,576 A:middle
+that it has to be exhaustive.
+
+330
+00:14:18,576 --> 00:14:20,776 A:middle
+So you have to say that
+you cover all the cases.
+
+331
+00:14:21,566 --> 00:14:23,946 A:middle
+In this particular case I'm
+just going to add a default
+
+332
+00:14:25,016 --> 00:14:27,986 A:middle
+and what I'm going to do
+in this case right here is
+
+333
+00:14:27,986 --> 00:14:30,236 A:middle
+to use a Swift standard
+library function
+
+334
+00:14:30,236 --> 00:14:31,436 A:middle
+to just trap into the debugger.
+
+335
+00:14:31,726 --> 00:14:33,476 A:middle
+Because I want to make sure
+that if I just add new buttons
+
+336
+00:14:33,476 --> 00:14:36,106 A:middle
+and hook them up that I actually
+have the code for that as well.
+
+337
+00:14:38,326 --> 00:14:39,336 A:middle
+So now Xcode is happy.
+
+338
+00:14:40,496 --> 00:14:41,106 A:middle
+That's excellent.
+
+339
+00:14:41,106 --> 00:14:42,046 A:middle
+We've just set our property.
+
+340
+00:14:42,316 --> 00:14:43,336 A:middle
+That's all we've done so far.
+
+341
+00:14:44,966 --> 00:14:47,756 A:middle
+But now we can use some
+more of the Cocoa Touch API
+
+342
+00:14:48,266 --> 00:14:50,986 A:middle
+to actually make the button
+show a reflected state-
+
+343
+00:14:51,856 --> 00:14:53,706 A:middle
+...show it's selected
+state, I should say.
+
+344
+00:14:54,656 --> 00:14:58,306 A:middle
+So, we say, in this case
+we can say "sender."
+
+345
+00:14:58,966 --> 00:15:02,316 A:middle
+and then we can use our code
+completion to access the layer.
+
+346
+
+347
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+348
+00:14:58,966 --> 00:15:02,316 A:middle
+and then we can use our code
+completion to access the layer.
+
+349
+00:15:02,316 --> 00:15:06,916 A:middle
+And then we'll set it's
+borderWidth to be five.
+
+350
+00:15:07,936 --> 00:15:09,636 A:middle
+And then, of course,
+we have to initialize
+
+351
+00:15:09,676 --> 00:15:11,356 A:middle
+that to be a borderColor
+as well.
+
+352
+00:15:12,456 --> 00:15:14,806 A:middle
+Now in this case, because
+we're accessing the layer --
+
+353
+00:15:14,876 --> 00:15:16,346 A:middle
+that's a core graphics API --
+
+354
+00:15:16,826 --> 00:15:19,896 A:middle
+we get the CGColor from the
+UILabel- ...the UIColor.
+
+355
+00:15:21,856 --> 00:15:24,626 A:middle
+And all of these are
+standard Cocoa Touch APIs.
+
+356
+00:15:24,626 --> 00:15:27,696 A:middle
+So you see that when we access
+our own Objective-C APIs
+
+357
+00:15:28,086 --> 00:15:30,816 A:middle
+or the Cocoa Touch APIs
+it looks all the same.
+
+358
+00:15:30,816 --> 00:15:32,946 A:middle
+We still use the same,
+nice Swift syntax.
+
+359
+00:15:34,216 --> 00:15:36,336 A:middle
+Another thing we can
+do here is to just say
+
+360
+00:15:36,336 --> 00:15:41,006 A:middle
+that the view's tint color
+is going to be the color
+
+361
+00:15:41,006 --> 00:15:42,186 A:middle
+that corresponds to the label.
+
+362
+00:15:43,116 --> 00:15:48,996 A:middle
+And for this we can call
+another one of our functions
+
+363
+00:15:48,996 --> 00:15:50,736 A:middle
+that we brought in
+from Objective-C.
+
+364
+00:15:52,376 --> 00:15:56,326 A:middle
+And we pass it the
+selectedLabel.
+
+365
+00:15:56,326 --> 00:15:59,296 A:middle
+And, in fact, if we
+command-click on this,
+
+366
+00:15:59,606 --> 00:16:02,776 A:middle
+we see here that we can get
+to a Swift representation
+
+367
+
+368
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+369
+00:15:59,606 --> 00:16:02,776 A:middle
+we see here that we can get
+to a Swift representation
+
+370
+00:16:03,066 --> 00:16:05,076 A:middle
+of our own Objective-C API.
+
+371
+00:16:05,986 --> 00:16:08,886 A:middle
+In Navigate we could actually
+go back to the header itself
+
+372
+00:16:09,116 --> 00:16:09,906 A:middle
+that we declared it from.
+
+373
+00:16:11,366 --> 00:16:15,276 A:middle
+Alright, so now those of you
+
+374
+00:16:15,276 --> 00:16:17,106 A:middle
+who are following closely here
+may have seen a little bit
+
+375
+00:16:17,106 --> 00:16:19,136 A:middle
+of a problem: we set
+the borderWidth to 5;
+
+376
+00:16:19,576 --> 00:16:21,656 A:middle
+we never actually deselect
+the previous button.
+
+377
+00:16:24,016 --> 00:16:25,526 A:middle
+So what we can do
+is to keep track
+
+378
+00:16:25,526 --> 00:16:28,656 A:middle
+of the currently
+selectedButton and in this case,
+
+379
+00:16:28,716 --> 00:16:32,306 A:middle
+I'm going to explicitly say that
+it's a weak stored property.
+
+380
+00:16:32,426 --> 00:16:36,286 A:middle
+So this is not going to cause,
+ah, the- ...extend the lifetime
+
+381
+00:16:36,286 --> 00:16:38,056 A:middle
+of that button which
+is, after all,
+
+382
+00:16:38,056 --> 00:16:39,176 A:middle
+owned by the view hierarchy.
+
+383
+00:16:41,546 --> 00:16:42,856 A:middle
+And I'm going to declare
+
+384
+00:16:42,856 --> 00:16:45,736 A:middle
+that this is a UIButton
+but it's optional.
+
+385
+00:16:46,606 --> 00:16:49,616 A:middle
+Because when we first
+start out it has no value.
+
+386
+00:16:50,406 --> 00:16:51,866 A:middle
+And so, we're going to be able
+
+387
+00:16:51,866 --> 00:16:53,716 A:middle
+to check whether it
+has a value or not.
+
+388
+00:16:55,986 --> 00:17:00,016 A:middle
+We add some code to set the
+selectedButton to the sender
+
+389
+
+390
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+391
+00:16:55,986 --> 00:17:00,016 A:middle
+We add some code to set the
+selectedButton to the sender
+
+392
+00:17:00,616 --> 00:17:02,776 A:middle
+at the end of having
+assigned it.
+
+393
+00:17:02,776 --> 00:17:11,326 A:middle
+And then here we can say "if
+selectedButton" then we're going
+
+394
+00:17:11,326 --> 00:17:14,136 A:middle
+to go ahead and clear out
+the border on that one.
+
+395
+00:17:15,056 --> 00:17:18,856 A:middle
+Now this happens to be a object
+reference so I could do the same
+
+396
+00:17:18,856 --> 00:17:20,326 A:middle
+in Objective-C with a nil value.
+
+397
+00:17:20,646 --> 00:17:23,136 A:middle
+But one of the nice things
+about optionals in Swift is
+
+398
+00:17:23,136 --> 00:17:24,326 A:middle
+that they apply to any type
+
+399
+00:17:24,326 --> 00:17:26,726 A:middle
+of value even a Boolean
+or a scalar.
+
+400
+00:17:27,346 --> 00:17:30,456 A:middle
+So in this particular case,
+I'm just going to go ahead
+
+401
+00:17:30,456 --> 00:17:33,656 A:middle
+and select the selectedButton's
+layer borderWidth to 0.
+
+402
+00:17:33,926 --> 00:17:39,106 A:middle
+Now you'll notice the
+exclamation mark there.
+
+403
+00:17:39,506 --> 00:17:42,566 A:middle
+This is the unwrapping
+operator and that says
+
+404
+00:17:42,566 --> 00:17:44,096 A:middle
+that if I have an
+optional value,
+
+405
+00:17:44,096 --> 00:17:45,756 A:middle
+then when I've determined
+it has a value,
+
+406
+00:17:45,756 --> 00:17:47,466 A:middle
+I get at the actual value.
+
+407
+00:17:47,506 --> 00:17:50,096 A:middle
+And if I forgot to check
+whether it has a value,
+
+408
+00:17:50,096 --> 00:17:51,786 A:middle
+that will cause a
+trap if it doesn't.
+
+409
+00:17:52,186 --> 00:17:54,776 A:middle
+So this is one of the ways
+that Swift makes it safer
+
+410
+00:17:55,086 --> 00:17:58,696 A:middle
+to write your apps, because you
+can catch these errors earlier
+
+411
+00:17:58,696 --> 00:18:02,526 A:middle
+without having to add a lot
+of assertions to your code.
+
+412
+
+413
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+414
+00:17:58,696 --> 00:18:02,526 A:middle
+without having to add a lot
+of assertions to your code.
+
+415
+00:18:03,006 --> 00:18:04,556 A:middle
+So I think we're
+probably good to go here.
+
+416
+00:18:04,556 --> 00:18:06,696 A:middle
+Let's go ahead and take a look
+
+417
+00:18:07,046 --> 00:18:09,206 A:middle
+and I'm sure I forgot
+something somewhere...
+
+418
+00:18:10,326 --> 00:18:11,316 A:middle
+"selectED button"!
+
+419
+00:18:11,436 --> 00:18:12,866 A:middle
+And that's because
+I mistyped it.
+
+420
+00:18:14,136 --> 00:18:15,556 A:middle
+So that shows that
+this is live right?
+
+421
+00:18:15,556 --> 00:18:16,926 A:middle
+I'm not playing a
+QuickTime movie up here.
+
+422
+00:18:18,716 --> 00:18:21,276 A:middle
+[Laughter] Okay,
+so now we're here.
+
+423
+00:18:21,636 --> 00:18:22,796 A:middle
+We have our add button.
+
+424
+00:18:23,906 --> 00:18:25,126 A:middle
+We bring up the modal sheet.
+
+425
+00:18:26,016 --> 00:18:28,626 A:middle
+As we select the various
+buttons we can see
+
+426
+00:18:28,626 --> 00:18:31,356 A:middle
+that we have the border and
+then we do the, the tint,
+
+427
+00:18:31,596 --> 00:18:34,366 A:middle
+we tint the buttons down
+here and, of course,
+
+428
+00:18:34,496 --> 00:18:36,046 A:middle
+the Save button doesn't
+yet work.
+
+429
+00:18:36,676 --> 00:18:38,606 A:middle
+Now I'm just a UI guy.
+
+430
+00:18:38,606 --> 00:18:40,346 A:middle
+So I just make it look pretty.
+
+431
+00:18:40,346 --> 00:18:42,766 A:middle
+But to actually do the model
+level work we're going to have
+
+432
+00:18:42,766 --> 00:18:44,596 A:middle
+to ask one of my colleagues
+to come up here in a moment.
+
+433
+00:18:44,596 --> 00:18:47,736 A:middle
+First let's take a look at
+what we did in this part.
+
+434
+00:18:50,976 --> 00:18:58,556 A:middle
+Okay. So what did we just do?
+
+435
+00:18:59,436 --> 00:19:03,376 A:middle
+So first of all, we added some
+Swift code to an Objective-C app
+
+436
+
+437
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+438
+00:18:59,436 --> 00:19:03,376 A:middle
+So first of all, we added some
+Swift code to an Objective-C app
+
+439
+00:19:03,596 --> 00:19:05,946 A:middle
+and Xcode offered to
+create us a bridging header,
+
+440
+00:19:06,396 --> 00:19:08,416 A:middle
+which the next action we'll go
+onto some more detail about.
+
+441
+00:19:09,686 --> 00:19:12,946 A:middle
+We subclassed the Cocoa class-
+...Cocoa Touch class in Swift.
+
+442
+00:19:12,946 --> 00:19:15,566 A:middle
+In this case it happened to be
+a Cocoa Touch class that's part
+
+443
+00:19:15,566 --> 00:19:19,046 A:middle
+of the standard libraries
+of Cocoa Touch itself.
+
+444
+00:19:19,336 --> 00:19:21,346 A:middle
+But it could also be one
+of your Objective-C classes
+
+445
+00:19:21,456 --> 00:19:22,056 A:middle
+that you've declared.
+
+446
+00:19:23,076 --> 00:19:25,196 A:middle
+We used Swift class in
+the Interface Builder
+
+447
+00:19:25,196 --> 00:19:27,736 A:middle
+and as I hope you saw,
+it's exactly like working
+
+448
+00:19:27,736 --> 00:19:28,956 A:middle
+with an Objective-C class.
+
+449
+00:19:28,956 --> 00:19:31,356 A:middle
+And that's actually a theme
+under here that we wanted
+
+450
+00:19:31,356 --> 00:19:34,666 A:middle
+to feel like exactly the same
+thing; it's interchangable.
+
+451
+00:19:37,096 --> 00:19:41,346 A:middle
+And so now to make this a bit
+more real in terms of the model,
+
+452
+00:19:41,376 --> 00:19:43,386 A:middle
+I'm going to ask my
+colleague Dave to come up
+
+453
+00:19:43,386 --> 00:19:46,276 A:middle
+and complete the project
+here or work on it further.
+
+454
+00:19:47,516 --> 00:19:52,566 A:middle
+[ Applause ]
+
+455
+00:19:53,066 --> 00:19:53,216 A:middle
+>> Alright.
+
+456
+00:19:53,496 --> 00:19:54,086 A:middle
+Thanks Anders.
+
+457
+00:19:54,256 --> 00:19:59,056 A:middle
+What we saw is that you
+have access to everything
+
+458
+00:19:59,636 --> 00:20:03,466 A:middle
+in Cocoa Touch and the power
+that you've got in Xcode
+
+459
+
+460
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+461
+00:19:59,636 --> 00:20:03,466 A:middle
+in Cocoa Touch and the power
+that you've got in Xcode
+
+462
+00:20:03,766 --> 00:20:05,986 A:middle
+from Swift without
+really doing anything.
+
+463
+00:20:06,466 --> 00:20:07,976 A:middle
+But I'm sure what
+you're thinking now is
+
+464
+00:20:07,976 --> 00:20:09,246 A:middle
+"what about MY code?
+
+465
+00:20:09,646 --> 00:20:11,396 A:middle
+What about the Objective-C
+code that I have
+
+466
+00:20:11,456 --> 00:20:13,026 A:middle
+in MY target in MY app?"
+
+467
+00:20:13,976 --> 00:20:15,106 A:middle
+And that's what I
+want to show you.
+
+468
+00:20:15,426 --> 00:20:19,466 A:middle
+As Anders said, we could
+spend a lot of time in slides
+
+469
+00:20:19,466 --> 00:20:21,046 A:middle
+and everything else
+and I'm actually going
+
+470
+00:20:21,046 --> 00:20:22,176 A:middle
+to cut it a little
+shorter than he did
+
+471
+00:20:22,286 --> 00:20:23,976 A:middle
+and just go straight
+into a demo.
+
+472
+00:20:28,346 --> 00:20:30,926 A:middle
+And so we come back right
+where we were before
+
+473
+00:20:32,206 --> 00:20:34,966 A:middle
+and for our purposes the first
+thing we want do here is a
+
+474
+00:20:34,966 --> 00:20:37,896 A:middle
+little bit of tidy-up,
+and that is
+
+475
+00:20:37,896 --> 00:20:39,966 A:middle
+to make our UI text
+field behave the way
+
+476
+00:20:39,966 --> 00:20:41,386 A:middle
+that we want for our user.
+
+477
+00:20:41,576 --> 00:20:43,246 A:middle
+It offers a great deal
+
+478
+00:20:43,246 --> 00:20:47,176 A:middle
+of configurability using
+the delegate pattern.
+
+479
+00:20:47,946 --> 00:20:53,236 A:middle
+And to do that we're going to
+make NewListController conform
+
+480
+00:20:53,626 --> 00:20:58,976 A:middle
+to UITextFieldDelegate,
+which is as easy as...
+
+481
+
+482
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+483
+00:21:02,616 --> 00:21:03,376 A:middle
+if I could type...
+
+484
+00:21:07,796 --> 00:21:09,956 A:middle
+finding our UITextField...
+
+485
+00:21:10,726 --> 00:21:12,166 A:middle
+Man, I'm having some time here.
+
+486
+00:21:13,306 --> 00:21:18,756 A:middle
+[laughter] It's a
+comedy show, I promise.
+
+487
+00:21:19,256 --> 00:21:24,766 A:middle
+[laughter]
+
+488
+00:21:25,266 --> 00:21:25,676 A:middle
+There we go.
+
+489
+00:21:26,626 --> 00:21:28,976 A:middle
+Alright, something to
+call out there is-...
+
+490
+00:21:29,516 --> 00:21:32,776 A:middle
+[ Applause ]
+
+491
+00:21:33,276 --> 00:21:37,236 A:middle
+Success! And that's the
+hardest thing I'm going
+
+492
+00:21:37,236 --> 00:21:38,726 A:middle
+to do the whole time
+I'm up here.
+
+493
+00:21:40,296 --> 00:21:41,656 A:middle
+[laughter] So
+UITextFieldDelegate,
+
+494
+00:21:42,226 --> 00:21:46,766 A:middle
+all we did here was add the
+protocol conformance to the end
+
+495
+00:21:46,766 --> 00:21:49,756 A:middle
+of a common separated
+list after our class.
+
+496
+00:21:50,086 --> 00:21:52,636 A:middle
+In our case it's important
+because we're actually,
+
+497
+00:21:52,636 --> 00:21:54,386 A:middle
+we actually have a superclass.
+
+498
+00:21:54,386 --> 00:21:56,746 A:middle
+The superclass is the
+first thing in that list
+
+499
+00:21:57,176 --> 00:21:58,626 A:middle
+and then our protocols follow.
+
+500
+
+501
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+502
+00:22:00,076 --> 00:22:02,606 A:middle
+Now that I have managed
+
+503
+00:22:02,606 --> 00:22:06,626 A:middle
+to declare textual delegate I'm
+actually going to take it easy
+
+504
+00:22:06,626 --> 00:22:09,856 A:middle
+for the next part
+and just bring in...
+
+505
+00:22:10,346 --> 00:22:12,396 A:middle
+the implementation of
+TextField should return.
+
+506
+00:22:13,056 --> 00:22:15,336 A:middle
+And the only thing we're
+doing here is resigning first
+
+507
+00:22:15,336 --> 00:22:18,696 A:middle
+responder on our
+TextField and returning
+
+508
+00:22:18,696 --> 00:22:20,156 A:middle
+to make sure the
+keyboard dismisses
+
+509
+00:22:20,156 --> 00:22:21,166 A:middle
+when the user hits return.
+
+510
+00:22:22,146 --> 00:22:28,776 A:middle
+Not particularly interesting,
+but it was just as easy
+
+511
+00:22:28,896 --> 00:22:31,026 A:middle
+as it would be in
+Objective-C to go ahead
+
+512
+00:22:31,026 --> 00:22:32,136 A:middle
+and implement this protocol.
+
+513
+00:22:33,626 --> 00:22:37,696 A:middle
+Next, as Anders promised, we are
+going to look a little bit more
+
+514
+00:22:37,876 --> 00:22:41,116 A:middle
+at the interaction with
+the model side of things
+
+515
+00:22:41,386 --> 00:22:43,896 A:middle
+and actually implement Save.
+
+516
+00:22:44,686 --> 00:22:46,356 A:middle
+The first thing I'm
+going to do in-
+
+517
+00:22:47,566 --> 00:22:48,396 A:middle
+...who caught the error here?
+
+518
+00:22:49,506 --> 00:22:53,286 A:middle
+Somebody knows what I
+forgot to do, and that is:
+
+519
+00:22:54,886 --> 00:22:57,066 A:middle
+manage to declare it as
+a UITextFieldDelegate
+
+520
+00:22:57,066 --> 00:23:00,326 A:middle
+but we never actually connected
+it and that would have made
+
+521
+
+522
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+523
+00:22:57,066 --> 00:23:00,326 A:middle
+but we never actually connected
+it and that would have made
+
+524
+00:23:00,326 --> 00:23:01,266 A:middle
+for an interesting end.
+
+525
+00:23:04,646 --> 00:23:10,176 A:middle
+So now that we've got that set
+up I will control-drag over,
+
+526
+00:23:11,116 --> 00:23:17,806 A:middle
+manage to hit the button, set it
+up as an action, call it "Save".
+
+527
+00:23:20,026 --> 00:23:25,416 A:middle
+Now, inside here I
+actually want to interact
+
+528
+00:23:25,416 --> 00:23:31,846 A:middle
+with the representation of
+our documents that we see
+
+529
+00:23:31,896 --> 00:23:34,256 A:middle
+in the document list
+on the main screen.
+
+530
+00:23:34,666 --> 00:23:37,546 A:middle
+And that's a part of our app
+target, not a part of ListerKit.
+
+531
+00:23:38,356 --> 00:23:40,516 A:middle
+And because of that we have
+to take a different approach.
+
+532
+00:23:40,516 --> 00:23:43,036 A:middle
+We can't just simply
+import our framework in.
+
+533
+00:23:44,006 --> 00:23:47,316 A:middle
+And this is where we make use of
+the Objective-C bridging header
+
+534
+00:23:47,946 --> 00:23:49,576 A:middle
+that Xcode offered
+to create for us
+
+535
+00:23:49,716 --> 00:23:52,026 A:middle
+when we created the first
+Swift file in this project.
+
+536
+00:23:53,646 --> 00:23:59,776 A:middle
+So we'll navigate over to
+that and it gets created
+
+537
+00:23:59,776 --> 00:24:03,046 A:middle
+in the same directory -- or in
+the same group, I should say --
+
+538
+
+539
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+540
+00:23:59,776 --> 00:24:03,046 A:middle
+in the same directory -- or in
+the same group, I should say --
+
+541
+00:24:03,716 --> 00:24:05,356 A:middle
+as the Swift file
+that we created.
+
+542
+00:24:07,486 --> 00:24:09,646 A:middle
+It's not overly interesting
+at first.
+
+543
+00:24:09,646 --> 00:24:12,606 A:middle
+It simply has a comment
+that's very instructive.
+
+544
+00:24:12,946 --> 00:24:16,826 A:middle
+This is where we put the imports
+for the classes in our target
+
+545
+00:24:17,136 --> 00:24:18,556 A:middle
+that we want to expose to Swift.
+
+546
+00:24:19,556 --> 00:24:24,516 A:middle
+In our case, it's a single class
+and that is our ListInfo class.
+
+547
+00:24:25,746 --> 00:24:30,666 A:middle
+This is the representation that
+backs the TableView that you see
+
+548
+00:24:30,666 --> 00:24:31,926 A:middle
+when the app initially comes up.
+
+549
+00:24:32,446 --> 00:24:37,896 A:middle
+We save that and head back to...
+
+550
+00:24:40,346 --> 00:24:43,716 A:middle
+really don't need the storyboard
+anymore, so, I'm gonna go ahead
+
+551
+00:24:43,716 --> 00:24:47,986 A:middle
+and collapse things down and let
+us actually focus on the code,
+
+552
+00:24:47,986 --> 00:24:50,806 A:middle
+because the wrapping really
+kind of gets on my nerves.
+
+553
+00:24:50,806 --> 00:24:52,106 A:middle
+That's one of the things
+that I like about Swift,
+
+554
+00:24:52,106 --> 00:24:53,726 A:middle
+is it's a little more succinct.
+
+555
+00:24:55,566 --> 00:24:58,216 A:middle
+So just heading back
+down to our Save...
+
+556
+00:24:59,096 --> 00:25:01,826 A:middle
+Now that we've pulled in
+the bridging header - or,
+
+557
+
+558
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+559
+00:24:59,096 --> 00:25:01,826 A:middle
+Now that we've pulled in
+the bridging header - or,
+
+560
+00:25:01,826 --> 00:25:03,626 A:middle
+now that we've added our class
+to the bridging header --
+
+561
+00:25:03,766 --> 00:25:04,886 A:middle
+we can actually create one.
+
+562
+00:25:04,886 --> 00:25:06,336 A:middle
+I'm going to create
+it as a "let"
+
+563
+00:25:06,466 --> 00:25:07,676 A:middle
+because it's going
+to be constant.
+
+564
+00:25:07,676 --> 00:25:08,896 A:middle
+I'm only going to
+assign it once.
+
+565
+00:25:10,936 --> 00:25:16,476 A:middle
+And so my ListInfo
+is equal ListInfo...
+
+566
+00:25:23,176 --> 00:25:26,796 A:middle
+...and, of course, I
+keep saying "ListInfo"
+
+567
+00:25:28,206 --> 00:25:29,686 A:middle
+like we instruct you guys to do
+
+568
+00:25:29,686 --> 00:25:32,586 A:middle
+when we're writing Objective-C
+code we actually use a prefix.
+
+569
+00:25:33,086 --> 00:25:34,756 A:middle
+And I've been writing a
+lot of Swift code lately,
+
+570
+00:25:34,756 --> 00:25:37,016 A:middle
+so it's not on the
+forefront of my mind.
+
+571
+00:25:37,556 --> 00:25:38,746 A:middle
+So, our ListInfo...
+
+572
+00:25:40,106 --> 00:25:41,846 A:middle
+and it offers us
+two constructors.
+
+573
+00:25:41,846 --> 00:25:43,386 A:middle
+One of them takes URL.
+
+574
+00:25:43,386 --> 00:25:44,956 A:middle
+The other takes an
+NSMetadataItem
+
+575
+00:25:44,956 --> 00:25:46,776 A:middle
+for that iCloud support
+we were talking about.
+
+576
+00:25:47,296 --> 00:25:48,376 A:middle
+We're going to go
+with the URL one.
+
+577
+00:25:49,106 --> 00:25:50,836 A:middle
+I could construct
+the URL right here.
+
+578
+00:25:51,336 --> 00:25:53,206 A:middle
+A little bit of forethought,
+thinking forward,
+
+579
+00:25:53,206 --> 00:25:54,986 A:middle
+I know that I'm actually
+going to want
+
+580
+00:25:54,986 --> 00:25:58,266 A:middle
+to revise this a little bit
+later and iterate on it.
+
+581
+00:25:58,676 --> 00:25:59,496 A:middle
+So I'm going to set
+
+582
+00:25:59,496 --> 00:26:02,826 A:middle
+up a computed property
+as a convenience.
+
+583
+
+584
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+585
+00:25:59,496 --> 00:26:02,826 A:middle
+up a computed property
+as a convenience.
+
+586
+00:26:03,386 --> 00:26:08,766 A:middle
+Now to declare a computed
+property is pretty similar
+
+587
+00:26:08,766 --> 00:26:11,716 A:middle
+to the way that we
+define a stored property.
+
+588
+00:26:12,246 --> 00:26:15,506 A:middle
+And we'll go with var.
+
+589
+00:26:15,506 --> 00:26:16,996 A:middle
+I'm going to call it "fileURL".
+
+590
+00:26:18,146 --> 00:26:19,666 A:middle
+Now with a computed
+property we do have
+
+591
+00:26:19,706 --> 00:26:22,676 A:middle
+to be explicit about our type.
+
+592
+00:26:23,566 --> 00:26:26,426 A:middle
+I'm going to make it
+optional and that's
+
+593
+00:26:26,426 --> 00:26:29,036 A:middle
+because if the user actually
+hasn't provided us a value
+
+594
+00:26:29,036 --> 00:26:32,996 A:middle
+in the TextField yet, I can't
+actually construct a valid URL.
+
+595
+00:26:34,336 --> 00:26:38,156 A:middle
+I've got an implementation ready
+that just happens to make use
+
+596
+00:26:38,156 --> 00:26:41,046 A:middle
+of the list coordinator
+from down in the ListerKit.
+
+597
+00:26:43,426 --> 00:26:47,676 A:middle
+And after defining the computed
+property I can come down
+
+598
+00:26:47,916 --> 00:26:50,026 A:middle
+and make use of it right away.
+
+599
+00:26:50,076 --> 00:26:54,636 A:middle
+And you'll notice as Anders
+had mentioned earlier we don't
+
+600
+00:26:54,696 --> 00:26:56,896 A:middle
+actually have to
+explicitly refer to self
+
+601
+00:26:56,956 --> 00:26:58,146 A:middle
+when accessing our property.
+
+602
+00:26:59,496 --> 00:27:02,986 A:middle
+We set up a few pieces of
+information that we've captured
+
+603
+
+604
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+605
+00:26:59,496 --> 00:27:02,986 A:middle
+We set up a few pieces of
+information that we've captured
+
+606
+00:27:02,986 --> 00:27:10,916 A:middle
+for the user so we'll get the
+name from our nameFields.text
+
+607
+00:27:12,146 --> 00:27:17,446 A:middle
+and the label is
+going to be equal
+
+608
+00:27:17,446 --> 00:27:22,606 A:middle
+to our selectedLabel
+and that looks good.
+
+609
+00:27:24,226 --> 00:27:27,026 A:middle
+So now that we've set it up, we
+actually want to save this out
+
+610
+00:27:27,396 --> 00:27:33,486 A:middle
+and ListInfo provides us
+a convenience for that.
+
+611
+00:27:33,736 --> 00:27:39,096 A:middle
+And we will createAndSaveWith
+CompletionHandler.
+
+612
+00:27:39,096 --> 00:27:41,946 A:middle
+And this CompletionHandler
+is actually going to call-
+
+613
+00:27:41,946 --> 00:27:43,226 A:middle
+...is going to come back to us
+
+614
+00:27:43,756 --> 00:27:47,746 A:middle
+with a Bool letting
+us know whether
+
+615
+00:27:47,746 --> 00:27:49,276 A:middle
+or not the save was successful.
+
+616
+00:27:50,396 --> 00:27:53,826 A:middle
+And I could use what code
+completion's suggesting here
+
+617
+00:27:54,446 --> 00:27:54,996 A:middle
+and fill
+
+618
+00:27:54,996 --> 00:28:01,096 A:middle
+out my completionHandler closure
+inside of the parentheses.
+
+619
+
+620
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+621
+00:27:54,996 --> 00:28:01,096 A:middle
+out my completionHandler closure
+inside of the parentheses.
+
+622
+00:28:01,096 --> 00:28:04,096 A:middle
+But because it's the
+last argument in the call
+
+623
+00:28:04,246 --> 00:28:10,206 A:middle
+and because it's a closure and
+it's going to be a little long,
+
+624
+00:28:10,206 --> 00:28:12,196 A:middle
+I'm actually going to make use
+
+625
+00:28:12,196 --> 00:28:14,736 A:middle
+of Swift's trailing
+closure syntax.
+
+626
+00:28:16,046 --> 00:28:18,246 A:middle
+And in this case I don't
+even have to put the parens
+
+627
+00:28:18,246 --> 00:28:22,176 A:middle
+after the method call
+because our createAndSaveWith
+
+628
+00:28:22,176 --> 00:28:23,666 A:middle
+CompletionHandler
+actually doesn't take any
+
+629
+00:28:23,666 --> 00:28:24,886 A:middle
+other arguments.
+
+630
+00:28:26,036 --> 00:28:32,046 A:middle
+So inside of here I will note
+the variable name that's being
+
+631
+00:28:32,046 --> 00:28:33,336 A:middle
+passed in, which is success.
+
+632
+00:28:35,846 --> 00:28:37,146 A:middle
+...having more typing problems
+
+633
+00:28:37,146 --> 00:28:38,446 A:middle
+so that you guys can
+get a good laugh.
+
+634
+00:28:38,756 --> 00:28:42,346 A:middle
+And I'll just check the value
+and for now I'm just going
+
+635
+00:28:42,376 --> 00:28:45,126 A:middle
+to print a little debug message
+
+636
+00:28:45,126 --> 00:28:46,836 A:middle
+to let me know that
+it was saved.
+
+637
+00:28:50,686 --> 00:28:56,496 A:middle
+And just like Cancel, we want to
+get out of the user's way now,
+
+638
+00:28:56,496 --> 00:28:58,016 A:middle
+so we'll go ahead and dismiss.
+
+639
+
+640
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+641
+00:29:01,176 --> 00:29:05,476 A:middle
+So let's build and run, see
+
+642
+00:29:05,476 --> 00:29:07,066 A:middle
+that everything is doing
+what we want it to do,
+
+643
+00:29:07,066 --> 00:29:09,096 A:middle
+make sure that everything
+is good to go.
+
+644
+00:29:12,666 --> 00:29:15,396 A:middle
+Bring it up...
+
+645
+00:29:15,926 --> 00:29:16,676 A:middle
+Let's see, I need to go
+
+646
+00:29:16,676 --> 00:29:18,286 A:middle
+to the hardware store
+a little bit later.
+
+647
+00:29:20,026 --> 00:29:23,126 A:middle
+And so we'll name our
+list hardware, hit return.
+
+648
+00:29:23,266 --> 00:29:24,766 A:middle
+Keyboard goes away;
+that's a good sign.
+
+649
+00:29:25,846 --> 00:29:29,236 A:middle
+The hardware store I
+frequent actually uses orange
+
+650
+00:29:29,236 --> 00:29:31,096 A:middle
+in the logo rather
+heavily, so that's going
+
+651
+00:29:31,096 --> 00:29:32,456 A:middle
+to help me remember
+what's going on there.
+
+652
+00:29:33,186 --> 00:29:34,686 A:middle
+And I'll go ahead and
+hit the Save button.
+
+653
+00:29:36,836 --> 00:29:39,296 A:middle
+That's not really
+what we wanted.
+
+654
+00:29:39,296 --> 00:29:42,206 A:middle
+I really wanted to see my
+hardware list show up here.
+
+655
+00:29:43,076 --> 00:29:44,566 A:middle
+Did it actually save?
+
+656
+00:29:44,826 --> 00:29:46,546 A:middle
+I'll go over and check
+the debug console.
+
+657
+00:29:47,896 --> 00:29:54,266 A:middle
+Indeed it did save and just
+for fun I'll actually stop
+
+658
+00:29:54,266 --> 00:29:55,486 A:middle
+and run the app again.
+
+659
+00:29:56,026 --> 00:29:58,296 A:middle
+And you'll see that it actually
+did save and get created.
+
+660
+00:29:58,376 --> 00:30:01,436 A:middle
+But we never passed anything
+back to our document list
+
+661
+
+662
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+663
+00:29:58,376 --> 00:30:01,436 A:middle
+But we never passed anything
+back to our document list
+
+664
+00:30:02,296 --> 00:30:06,256 A:middle
+to let it know that we created
+anything new and we kind
+
+665
+00:30:06,256 --> 00:30:08,076 A:middle
+of wanted this to
+not be sitting there
+
+666
+00:30:08,076 --> 00:30:11,576 A:middle
+and polling the file system
+over and over and over again,
+
+667
+00:30:11,576 --> 00:30:13,306 A:middle
+just looking for new
+files that might show up.
+
+668
+00:30:14,526 --> 00:30:16,536 A:middle
+So for our purposes,
+we're going to take a page
+
+669
+00:30:16,536 --> 00:30:19,196 A:middle
+out of UITextField's book
+and we're actually going
+
+670
+00:30:19,196 --> 00:30:22,516 A:middle
+to use Delegation to
+pass information back
+
+671
+00:30:22,516 --> 00:30:23,976 A:middle
+to the ViewController
+that presented us.
+
+672
+00:30:25,166 --> 00:30:28,896 A:middle
+The first step there is
+usually to define a protocol
+
+673
+00:30:29,746 --> 00:30:31,476 A:middle
+that we expect our
+delegate to conform to.
+
+674
+00:30:32,416 --> 00:30:37,816 A:middle
+And in Swift we can do that just
+as easily as declaring a class
+
+675
+00:30:37,816 --> 00:30:39,086 A:middle
+or a struct or anything else.
+
+676
+00:30:39,516 --> 00:30:40,566 A:middle
+We'll just start with the
+
+677
+00:30:40,566 --> 00:30:44,896 A:middle
+"protocol" keyword (that I
+actually spelled correctly)
+
+678
+00:30:46,236 --> 00:30:49,726 A:middle
+and NewListControllerDelegate.
+
+679
+00:30:53,096 --> 00:30:57,886 A:middle
+And I already have a method that
+I want my delegate to conform
+
+680
+00:30:57,886 --> 00:31:00,946 A:middle
+to that I've prepared that
+just takes a new ListController
+
+681
+
+682
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+683
+00:30:57,886 --> 00:31:00,946 A:middle
+to that I've prepared that
+just takes a new ListController
+
+684
+00:31:01,326 --> 00:31:05,376 A:middle
+and a ListInfo letting it
+know what's been created
+
+685
+00:31:05,376 --> 00:31:06,006 A:middle
+and done over here.
+
+686
+00:31:06,666 --> 00:31:10,226 A:middle
+Now at this point this protocol
+is visible to my Swift code
+
+687
+00:31:11,026 --> 00:31:13,856 A:middle
+but I want to make sure that
+my Objective-C code can see it
+
+688
+00:31:13,856 --> 00:31:14,296 A:middle
+as well.
+
+689
+00:31:15,676 --> 00:31:23,386 A:middle
+To do that it's as simple as
+adding an attribute at Obj-C
+
+690
+00:31:23,386 --> 00:31:25,326 A:middle
+and this is going
+to go ahead and say,
+
+691
+00:31:25,326 --> 00:31:27,076 A:middle
+"even though this
+is all Swift here,
+
+692
+00:31:27,406 --> 00:31:29,146 A:middle
+we do want to make
+this available
+
+693
+00:31:30,346 --> 00:31:32,306 A:middle
+to Objective-C a
+little bit later on."
+
+694
+00:31:33,856 --> 00:31:38,066 A:middle
+So now that I have a delegate
+protocol I'll actually define a
+
+695
+00:31:38,066 --> 00:31:42,046 A:middle
+delegate and we'll make it weak
+
+696
+00:31:42,346 --> 00:31:45,136 A:middle
+because we don't
+really want to own it.
+
+697
+00:31:45,136 --> 00:31:46,536 A:middle
+We don't want to
+extend its lifetime.
+
+698
+00:31:48,776 --> 00:31:54,036 A:middle
+And I can declare
+it as being just
+
+699
+00:31:54,036 --> 00:31:55,756 A:middle
+of the NewListControllerDelegate
+type.
+
+700
+00:31:55,826 --> 00:32:00,306 A:middle
+I don't have to do something
+like ID and angle brackets
+
+701
+
+702
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+703
+00:31:55,826 --> 00:32:00,306 A:middle
+I don't have to do something
+like ID and angle brackets
+
+704
+00:32:00,306 --> 00:32:02,336 A:middle
+around my protocol to
+indicate what's going on here.
+
+705
+00:32:02,426 --> 00:32:06,846 A:middle
+I can simply have a property
+that is of this delegate type.
+
+706
+00:32:07,676 --> 00:32:08,886 A:middle
+It's going to be optional
+
+707
+00:32:08,886 --> 00:32:11,206 A:middle
+because I may not
+have a delegate.
+
+708
+00:32:13,356 --> 00:32:16,986 A:middle
+So now that we've defined a
+delegate property I think maybe
+
+709
+00:32:16,986 --> 00:32:18,636 A:middle
+we ought to do something
+a little more useful
+
+710
+00:32:18,946 --> 00:32:20,776 A:middle
+than printing a debug
+statement down here.
+
+711
+00:32:20,776 --> 00:32:24,326 A:middle
+And for that we're going to
+reach out to our delegate
+
+712
+00:32:26,096 --> 00:32:30,806 A:middle
+and I'm going to make use
+of another Swift feature,
+
+713
+00:32:31,376 --> 00:32:33,096 A:middle
+which is optional chaining.
+
+714
+00:32:33,596 --> 00:32:34,986 A:middle
+So the delegate is an optional.
+
+715
+00:32:35,566 --> 00:32:37,436 A:middle
+It may or may not have a value.
+
+716
+00:32:39,376 --> 00:32:42,216 A:middle
+By adding a question mark
+here before actually calling
+
+717
+00:32:42,216 --> 00:32:46,116 A:middle
+out to the method that we want
+to invoke, I'm going to be able
+
+718
+00:32:46,116 --> 00:32:48,126 A:middle
+to say, "IF I have a delegate --
+
+719
+00:32:48,226 --> 00:32:51,186 A:middle
+if there is a value
+there -- make this call.
+
+720
+00:32:52,146 --> 00:32:54,076 A:middle
+If there's not, don't
+do anything."
+
+721
+00:32:56,516 --> 00:33:01,846 A:middle
+[ Applause ]
+
+722
+
+723
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+724
+00:32:56,516 --> 00:33:01,846 A:middle
+[ Applause ]
+
+725
+00:33:02,346 --> 00:33:04,566 A:middle
+And now I'm trying to remember
+what the name of it was.
+
+726
+00:33:04,626 --> 00:33:05,186 A:middle
+Ah, there we go.
+
+727
+00:33:06,586 --> 00:33:12,376 A:middle
+Pass my self and the
+ListInfo that we just created.
+
+728
+00:33:15,786 --> 00:33:18,016 A:middle
+(REALLY not much of a typist,
+in case you can't tell.)
+
+729
+00:33:18,546 --> 00:33:24,016 A:middle
+And at this point we've wrapped
+up the Swift implementation
+
+730
+00:33:24,486 --> 00:33:26,696 A:middle
+of this, but we've
+defined this delegate.
+
+731
+00:33:26,736 --> 00:33:29,826 A:middle
+Now we actually need our
+Objective-C code to be able
+
+732
+00:33:29,826 --> 00:33:31,866 A:middle
+to see the Swift code
+we've just put together
+
+733
+00:33:33,026 --> 00:33:33,906 A:middle
+and interact with it.
+
+734
+00:33:35,086 --> 00:33:39,006 A:middle
+To do that I'm going to head
+back over to the document-
+
+735
+00:33:39,556 --> 00:33:42,006 A:middle
+...the, the controller
+for the document list,
+
+736
+00:33:43,336 --> 00:33:49,276 A:middle
+and inside of here we're
+brought to- ...I mean,
+
+737
+00:33:49,276 --> 00:33:50,986 A:middle
+what comes to your
+mind is the fact
+
+738
+00:33:50,986 --> 00:33:55,136 A:middle
+that the way I make one object
+in Objective-C available
+
+739
+00:33:55,136 --> 00:33:57,716 A:middle
+and visible to another object
+is by importing its header.
+
+740
+00:33:58,676 --> 00:34:01,196 A:middle
+Well, with Swift we
+don't have headers.
+
+741
+
+742
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+743
+00:33:58,676 --> 00:34:01,196 A:middle
+Well, with Swift we
+don't have headers.
+
+744
+00:34:02,106 --> 00:34:05,306 A:middle
+We think that's a good thing
+within Swift, but we've got
+
+745
+00:34:05,306 --> 00:34:09,626 A:middle
+to find a way to bridge the
+gap back to Objective-C.
+
+746
+00:34:10,376 --> 00:34:14,176 A:middle
+And so in that case Xcode's
+got our back and is going
+
+747
+00:34:14,176 --> 00:34:17,426 A:middle
+to provide us with
+a generated header
+
+748
+00:34:18,585 --> 00:34:21,815 A:middle
+that contains the entirety
+of our Swift interface.
+
+749
+00:34:24,476 --> 00:34:26,376 A:middle
+Being generated,
+obviously it has
+
+750
+00:34:26,376 --> 00:34:30,476 A:middle
+to have a well-constructed
+naming scheme, and that's going
+
+751
+00:34:30,516 --> 00:34:32,216 A:middle
+to be our product name --
+
+752
+00:34:33,216 --> 00:34:38,656 A:middle
+which in this case
+is "Lister-Swift.h".
+
+753
+00:34:39,996 --> 00:34:42,456 A:middle
+And so this is a generated
+header, so I'm going to go ahead
+
+754
+00:34:42,456 --> 00:34:44,096 A:middle
+and take the time to
+build, to make sure
+
+755
+00:34:44,096 --> 00:34:48,856 A:middle
+that we've got the most
+up-to-date items in it.
+
+756
+00:34:49,446 --> 00:34:55,146 A:middle
+And after importing that we will
+come over here and we're going
+
+757
+00:34:55,146 --> 00:34:56,946 A:middle
+to go through basically
+the same process
+
+758
+00:34:56,946 --> 00:35:00,746 A:middle
+that you would ordinarily to
+implement any of the Cocoa
+
+759
+
+760
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+761
+00:34:56,946 --> 00:35:00,746 A:middle
+that you would ordinarily to
+implement any of the Cocoa
+
+762
+00:35:00,746 --> 00:35:03,376 A:middle
+or Cocoa Touch delegates
+on your own class.
+
+763
+00:35:03,876 --> 00:35:10,946 A:middle
+We'll add our protocol
+conformance and we can pull
+
+764
+00:35:10,946 --> 00:35:12,296 A:middle
+in our
+NewListControllerDelegate.
+
+765
+00:35:13,906 --> 00:35:18,616 A:middle
+I'm going to choose to
+use the jump bar to head
+
+766
+00:35:18,616 --> 00:35:20,846 A:middle
+down to an appropriate
+place I feel
+
+767
+00:35:20,946 --> 00:35:22,476 A:middle
+to go ahead and implement this.
+
+768
+00:35:25,086 --> 00:35:28,486 A:middle
+And as I code complete here
+
+769
+00:35:30,896 --> 00:35:34,396 A:middle
+with the NewListController
+didCreateListInfo, you'll notice
+
+770
+00:35:34,396 --> 00:35:37,616 A:middle
+that even though we declared
+this completely in within Swift,
+
+771
+00:35:37,616 --> 00:35:42,396 A:middle
+what we get is a syntax
+that matches what I'd expect
+
+772
+00:35:42,396 --> 00:35:45,636 A:middle
+from Objective-C so that
+everything still feels natural;
+
+773
+00:35:45,636 --> 00:35:48,596 A:middle
+everything feels like a first
+class citizen in its place.
+
+774
+00:35:51,286 --> 00:35:53,336 A:middle
+Happen to have the
+implementation...
+
+775
+00:35:56,406 --> 00:35:57,806 A:middle
+Wellllll...
+
+776
+00:35:58,156 --> 00:36:00,616 A:middle
+The implementation of
+the last thing ready.
+
+777
+
+778
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+779
+00:35:58,156 --> 00:36:00,616 A:middle
+The implementation of
+the last thing ready.
+
+780
+00:36:01,566 --> 00:36:03,956 A:middle
+In this case what we're really
+doing is just updating our data
+
+781
+00:36:03,956 --> 00:36:05,916 A:middle
+source and then refreshing
+the TableView
+
+782
+00:36:05,916 --> 00:36:07,226 A:middle
+with a little bit
+of new information.
+
+783
+00:36:09,736 --> 00:36:13,226 A:middle
+And the very last thing
+here, or the final step,
+
+784
+00:36:13,326 --> 00:36:15,596 A:middle
+is that we actually
+need this ViewController
+
+785
+00:36:15,596 --> 00:36:19,686 A:middle
+to make itself the delegate
+for our new ListController.
+
+786
+00:36:21,146 --> 00:36:22,616 A:middle
+We're using a modal segue,
+
+787
+00:36:22,976 --> 00:36:25,016 A:middle
+so why not do it
+in prepareForSegue?
+
+788
+00:36:26,456 --> 00:36:28,726 A:middle
+Down here we'll just
+check to make sure
+
+789
+00:36:28,726 --> 00:36:29,856 A:middle
+that it's the right segue.
+
+790
+00:36:30,336 --> 00:36:34,136 A:middle
+We'll grab the newListController
+and we'll set ourselves --
+
+791
+00:36:34,276 --> 00:36:36,356 A:middle
+in this case our
+ListDocumentsViewController --
+
+792
+00:36:36,906 --> 00:36:37,606 A:middle
+as the delegate.
+
+793
+00:36:39,536 --> 00:36:46,936 A:middle
+At this point I fully expect
+things to do what I want.
+
+794
+00:36:51,586 --> 00:37:01,366 A:middle
+And... Coming up with another
+list, "WWDC Must Haves".
+
+795
+
+796
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+797
+00:36:51,586 --> 00:37:01,366 A:middle
+And... Coming up with another
+list, "WWDC Must Haves".
+
+798
+00:37:03,336 --> 00:37:04,646 A:middle
+Not really sure what
+those are yet,
+
+799
+00:37:04,676 --> 00:37:06,426 A:middle
+but I'm pretty sure I'm
+going to think something up.
+
+800
+00:37:07,876 --> 00:37:11,056 A:middle
+And this time it
+actually comes through,
+
+801
+00:37:11,436 --> 00:37:13,326 A:middle
+shows up in our
+DocumentViewController
+
+802
+00:37:13,326 --> 00:37:16,986 A:middle
+and just for, you know,
+proof's sake I can come into it;
+
+803
+00:37:16,986 --> 00:37:17,916 A:middle
+I can change it around.
+
+804
+00:37:17,916 --> 00:37:19,756 A:middle
+I really like this salmon
+color that they're using
+
+805
+00:37:19,756 --> 00:37:21,106 A:middle
+for the Apple badges this year.
+
+806
+00:37:21,106 --> 00:37:22,976 A:middle
+So I'm going to actually
+pick that
+
+807
+00:37:23,776 --> 00:37:28,976 A:middle
+and that's integrating our code.
+
+808
+00:37:29,516 --> 00:37:36,586 A:middle
+[ Applause ]
+
+809
+00:37:37,086 --> 00:37:39,506 A:middle
+And just to head back to
+the slides for a second,
+
+810
+00:37:41,106 --> 00:37:44,786 A:middle
+what we've just seen here
+is that it's very easy
+
+811
+00:37:44,786 --> 00:37:47,326 A:middle
+to expose our Objective-C
+code to Swift.
+
+812
+00:37:47,626 --> 00:37:49,766 A:middle
+Simply import whatever
+headers you want
+
+813
+00:37:50,156 --> 00:37:52,736 A:middle
+into the bridging header and
+they'll be made available
+
+814
+00:37:52,736 --> 00:37:53,986 A:middle
+to the Swift in your target.
+
+815
+00:37:55,696 --> 00:37:59,106 A:middle
+We defined a protocol in
+Swift which was as easy
+
+816
+00:37:59,106 --> 00:38:00,736 A:middle
+as defining a protocol
+in Objective-C.
+
+817
+
+818
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+819
+00:37:59,106 --> 00:38:00,736 A:middle
+as defining a protocol
+in Objective-C.
+
+820
+00:38:02,146 --> 00:38:06,646 A:middle
+And finally, we've exposed
+that protocol and the class
+
+821
+00:38:06,646 --> 00:38:08,846 A:middle
+that we just created
+in Swift back
+
+822
+00:38:08,846 --> 00:38:10,456 A:middle
+to the Objective-C
+code in our target.
+
+823
+00:38:10,456 --> 00:38:13,206 A:middle
+And we actually didn't
+have to do anything there.
+
+824
+00:38:13,316 --> 00:38:16,256 A:middle
+Xcode did the generation
+of the header
+
+825
+00:38:16,626 --> 00:38:17,936 A:middle
+that provided that interface.
+
+826
+00:38:19,216 --> 00:38:25,176 A:middle
+So just to reiterate a little
+bit more when we want to go
+
+827
+00:38:25,176 --> 00:38:27,326 A:middle
+from our Objective-C headers
+
+828
+00:38:27,676 --> 00:38:31,636 A:middle
+and make our Objective-C objects
+available to Swift we're going
+
+829
+00:38:31,636 --> 00:38:32,466 A:middle
+through the bridging header.
+
+830
+00:38:33,676 --> 00:38:36,156 A:middle
+This is going to be
+created- ...Xcode will offer
+
+831
+00:38:36,156 --> 00:38:37,656 A:middle
+to create this for
+you automatically
+
+832
+00:38:37,696 --> 00:38:40,896 A:middle
+when you add a Swift file to
+an existing Objective-C target
+
+833
+00:38:41,506 --> 00:38:44,186 A:middle
+or an Objective-C file to
+an existing Swift target.
+
+834
+00:38:46,166 --> 00:38:52,686 A:middle
+When we want to get our
+Swift interface exposed
+
+835
+00:38:52,686 --> 00:38:54,426 A:middle
+to our Objective-C
+implementation,
+
+836
+00:38:55,036 --> 00:38:56,966 A:middle
+there we're looking at
+the generated header
+
+837
+00:38:56,966 --> 00:38:59,456 A:middle
+that Xcode provides and
+this is going to be named
+
+838
+00:38:59,456 --> 00:39:02,926 A:middle
+after our product
+and it's going to be
+
+839
+
+840
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+841
+00:38:59,456 --> 00:39:02,926 A:middle
+after our product
+and it's going to be
+
+842
+00:39:02,926 --> 00:39:05,576 A:middle
+"our product name
+dash Swift dot h".
+
+843
+00:39:07,076 --> 00:39:09,256 A:middle
+One last thing to
+remember about these,
+
+844
+00:39:12,316 --> 00:39:17,696 A:middle
+is that the bridging header
+is created for you by Xcode
+
+845
+00:39:18,116 --> 00:39:20,346 A:middle
+but you own it from
+that point forward.
+
+846
+00:39:20,526 --> 00:39:21,916 A:middle
+So it should be something
+you check
+
+847
+00:39:21,916 --> 00:39:23,366 A:middle
+into your source control system.
+
+848
+00:39:23,826 --> 00:39:28,636 A:middle
+It should be something that
+you maintain, you manage
+
+849
+00:39:28,976 --> 00:39:31,866 A:middle
+and it's there so
+that you only expose
+
+850
+00:39:31,866 --> 00:39:34,186 A:middle
+to Swift what you want
+to expose to Swift.
+
+851
+00:39:35,096 --> 00:39:37,206 A:middle
+In the case of the generated
+header, it's just that.
+
+852
+00:39:37,386 --> 00:39:39,466 A:middle
+It's generated as part
+of the build process.
+
+853
+00:39:39,466 --> 00:39:42,966 A:middle
+It's going to contain your
+com- ...the complete interface
+
+854
+00:39:43,656 --> 00:39:46,306 A:middle
+for the Swift files
+within your target.
+
+855
+00:39:46,736 --> 00:39:48,186 A:middle
+And those are going to
+be readily available
+
+856
+00:39:48,186 --> 00:39:50,346 A:middle
+to Objective-C simply by
+importing that header.
+
+857
+00:39:51,896 --> 00:39:55,076 A:middle
+So at this point to talk
+with you a little bit more
+
+858
+00:39:55,106 --> 00:39:59,226 A:middle
+about what you can do with
+frameworks in your product-
+
+859
+00:39:59,526 --> 00:40:02,276 A:middle
+...in your projects, I'd like to
+invite my colleague Jordan up.
+
+860
+
+861
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+862
+00:39:59,526 --> 00:40:02,276 A:middle
+...in your projects, I'd like to
+invite my colleague Jordan up.
+
+863
+00:40:03,516 --> 00:40:06,126 A:middle
+[ Applause ]
+
+864
+00:40:06,626 --> 00:40:07,076 A:middle
+>> Thanks Dave.
+
+865
+00:40:09,246 --> 00:40:11,746 A:middle
+Alright, so we've seen
+how easy it is to deal
+
+866
+00:40:11,746 --> 00:40:13,756 A:middle
+with integrating your Swift code
+
+867
+00:40:13,756 --> 00:40:15,786 A:middle
+into an existing
+Objective-C app.
+
+868
+00:40:16,776 --> 00:40:19,046 A:middle
+And Xcode pretty much takes
+care of all the details for you.
+
+869
+00:40:19,046 --> 00:40:20,426 A:middle
+It's available in
+Interface Builder.
+
+870
+00:40:20,426 --> 00:40:21,906 A:middle
+It's going to show
+up in the simulator.
+
+871
+00:40:21,906 --> 00:40:23,856 A:middle
+Everything works just fine.
+
+872
+00:40:24,046 --> 00:40:25,696 A:middle
+So I'd like to move a
+step down in the hierarchy
+
+873
+00:40:25,696 --> 00:40:26,706 A:middle
+and look at the framework.
+
+874
+00:40:31,706 --> 00:40:34,306 A:middle
+So at this point we've been
+working pretty much the entire
+
+875
+00:40:34,306 --> 00:40:36,866 A:middle
+time up in this Lister
+part of the application,
+
+876
+00:40:37,066 --> 00:40:38,596 A:middle
+which is the actual
+application target.
+
+877
+00:40:39,206 --> 00:40:41,226 A:middle
+Now we're going to
+move down to ListerKit
+
+878
+00:40:41,226 --> 00:40:44,206 A:middle
+which handles the model and the
+object graph for this target.
+
+879
+00:40:44,716 --> 00:40:47,036 A:middle
+And specifically we're going
+to add a new functionality:
+
+880
+00:40:47,266 --> 00:40:50,356 A:middle
+the ability to add
+attachments to every list item,
+
+881
+00:40:50,676 --> 00:40:54,646 A:middle
+something like, oh, a
+photo or a voice recording.
+
+882
+00:40:54,646 --> 00:40:58,266 A:middle
+To do this in Objective-C
+you would create a new class,
+
+883
+00:40:58,606 --> 00:41:01,226 A:middle
+add it to your object graph
+by adding a new property
+
+884
+
+885
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+886
+00:40:58,606 --> 00:41:01,226 A:middle
+add it to your object graph
+by adding a new property
+
+887
+00:41:01,346 --> 00:41:04,056 A:middle
+and then setting up an interface
+to mange it and we're going
+
+888
+00:41:04,056 --> 00:41:06,156 A:middle
+to do the exact same
+thing but using Swift.
+
+889
+00:41:06,156 --> 00:41:10,076 A:middle
+So I'll start here by
+going to File, New File
+
+890
+00:41:10,076 --> 00:41:13,546 A:middle
+and this time let's use the
+Cocoa Touch class template.
+
+891
+00:41:13,546 --> 00:41:17,346 A:middle
+I can name this
+APLListItemAttachment.
+
+892
+00:41:18,226 --> 00:41:21,096 A:middle
+Subclass of NSObject and the
+language, of course, is Swift.
+
+893
+00:41:22,786 --> 00:41:23,426 A:middle
+I make sure that it's
+
+894
+00:41:23,426 --> 00:41:25,506 A:middle
+in the ListerKit
+target and click Create.
+
+895
+00:41:25,506 --> 00:41:29,826 A:middle
+You notice here that
+Xcode did not offer
+
+896
+00:41:29,826 --> 00:41:31,446 A:middle
+to create a bridging
+header for us.
+
+897
+00:41:31,956 --> 00:41:34,666 A:middle
+This is because we're working
+with a framework target.
+
+898
+00:41:35,286 --> 00:41:37,576 A:middle
+In a framework you
+already have a header
+
+899
+00:41:37,576 --> 00:41:39,826 A:middle
+that specifies the entire
+contents of the framework.
+
+900
+00:41:40,336 --> 00:41:41,416 A:middle
+That's your umbrella header.
+
+901
+00:41:42,236 --> 00:41:43,986 A:middle
+So when you're working
+with a framework target
+
+902
+00:41:43,986 --> 00:41:46,536 A:middle
+in Swift everything
+that's available
+
+903
+00:41:46,536 --> 00:41:49,116 A:middle
+in your umbrella header will
+automatically be visible
+
+904
+00:41:49,116 --> 00:41:51,586 A:middle
+to the Swift code,
+no work required.
+
+905
+00:41:54,616 --> 00:41:56,676 A:middle
+So we're going to want
+attachment objects to persist.
+
+906
+00:41:56,826 --> 00:41:59,396 A:middle
+So the very first thing I'm
+going to do is add a conformance
+
+907
+00:41:59,396 --> 00:42:02,376 A:middle
+to a standard Cocoa
+Touch protocol, NSCoding.
+
+908
+
+909
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+910
+00:41:59,396 --> 00:42:02,376 A:middle
+to a standard Cocoa
+Touch protocol, NSCoding.
+
+911
+00:42:03,906 --> 00:42:05,516 A:middle
+Attachments are made
+up of two things:
+
+912
+00:42:05,836 --> 00:42:08,686 A:middle
+their data (which will I
+represent using NSData)
+
+913
+00:42:08,906 --> 00:42:09,506 A:middle
+and their type.
+
+914
+00:42:10,056 --> 00:42:12,306 A:middle
+For types of data
+Cocoa Touch likes
+
+915
+00:42:12,346 --> 00:42:16,066 A:middle
+to use uniform type identifiers,
+which are a very general way
+
+916
+00:42:16,066 --> 00:42:17,696 A:middle
+to represent file and data types
+
+917
+00:42:17,696 --> 00:42:19,996 A:middle
+that the user just
+stored as Strings.
+
+918
+00:42:21,646 --> 00:42:24,486 A:middle
+The next thing to do here
+is to declare an initializer
+
+919
+00:42:24,696 --> 00:42:27,746 A:middle
+and that just takes the
+data and type from outside
+
+920
+00:42:27,746 --> 00:42:30,166 A:middle
+and will assign them
+into our own fields.
+
+921
+00:42:30,396 --> 00:42:32,816 A:middle
+But we do need to be
+careful because the data
+
+922
+00:42:32,816 --> 00:42:36,056 A:middle
+that we are given might
+be an NS mutable data
+
+923
+00:42:36,056 --> 00:42:38,086 A:middle
+and somebody might
+try to change it
+
+924
+00:42:38,086 --> 00:42:39,676 A:middle
+after they've created
+our attachment.
+
+925
+00:42:40,306 --> 00:42:43,556 A:middle
+So in order to work around this,
+we need to call the copy method.
+
+926
+00:42:44,786 --> 00:42:49,006 A:middle
+However, copy returns
+ID in Objective-C
+
+927
+00:42:49,246 --> 00:42:50,496 A:middle
+and in Swift that's
+going to come
+
+928
+00:42:50,546 --> 00:42:52,406 A:middle
+through as the Any object type.
+
+929
+00:42:53,276 --> 00:42:57,686 A:middle
+We can't go directly from any
+object to NSData in Swift,
+
+930
+00:42:58,096 --> 00:42:59,776 A:middle
+because that's not
+guaranteed to be safe.
+
+931
+
+932
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+933
+00:43:00,306 --> 00:43:00,996 A:middle
+So instead, we have
+
+934
+00:43:00,996 --> 00:43:03,966 A:middle
+to explicitly tell the
+compiler to do a cast here.
+
+935
+00:43:03,966 --> 00:43:07,426 A:middle
+And this is important, because
+if anybody ever implements the
+
+936
+00:43:07,426 --> 00:43:09,006 A:middle
+copy method incorrectly
+
+937
+00:43:09,706 --> 00:43:12,676 A:middle
+and doesn't return an NSData
+we would much rather find
+
+938
+00:43:12,676 --> 00:43:15,766 A:middle
+out about it right here in the
+initializer than crash somewhere
+
+939
+00:43:15,766 --> 00:43:17,296 A:middle
+down the line when
+we try to use it.
+
+940
+00:43:18,696 --> 00:43:21,656 A:middle
+On the other hand, we can
+just assign the type directly
+
+941
+00:43:21,906 --> 00:43:25,456 A:middle
+and this is because
+strings in Swift are values.
+
+942
+00:43:26,336 --> 00:43:29,046 A:middle
+Unlike NSString, every
+Swift string has an
+
+943
+00:43:29,046 --> 00:43:30,226 A:middle
+independent existence.
+
+944
+00:43:30,496 --> 00:43:33,356 A:middle
+And when you assign across
+using the equal operator you get
+
+945
+00:43:33,356 --> 00:43:34,506 A:middle
+independent strings.
+
+946
+00:43:34,826 --> 00:43:36,406 A:middle
+So, whatever somebody
+does over here
+
+947
+00:43:36,406 --> 00:43:39,666 A:middle
+to their string won't affect
+your string over here.
+
+948
+00:43:40,516 --> 00:43:44,596 A:middle
+[ Applause ]
+
+949
+00:43:45,096 --> 00:43:47,456 A:middle
+So next I need to implement
+the NSCoding protocol.
+
+950
+00:43:47,516 --> 00:43:48,906 A:middle
+(Let's close this
+for a bit more room.)
+
+951
+00:43:49,906 --> 00:43:51,576 A:middle
+And here we can co- (ah!)
+
+952
+00:43:52,186 --> 00:43:55,026 A:middle
+...code complete here, no
+code completion, awesome.
+
+953
+00:43:57,036 --> 00:44:01,596 A:middle
+So here I'm implementing
+the NSCoder initializer
+
+954
+
+955
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+956
+00:43:57,036 --> 00:44:01,596 A:middle
+So here I'm implementing
+the NSCoder initializer
+
+957
+00:44:01,926 --> 00:44:03,706 A:middle
+and you'll notice something
+a little funny here.
+
+958
+00:44:04,006 --> 00:44:08,596 A:middle
+In Objective-C we'd have the
+method named initWithCoder.
+
+959
+00:44:08,906 --> 00:44:11,296 A:middle
+But in Swift we have an
+initializer that's just
+
+960
+00:44:11,296 --> 00:44:12,286 A:middle
+init coder.
+
+961
+00:44:13,236 --> 00:44:16,096 A:middle
+So in order for more
+consistency in the Swift world,
+
+962
+00:44:16,556 --> 00:44:19,316 A:middle
+where object creation syntax
+is a little different,
+
+963
+00:44:19,936 --> 00:44:23,246 A:middle
+an init method from
+Objective-C that starts with
+
+964
+00:44:23,246 --> 00:44:27,936 A:middle
+"initWith" will come into
+Swift with the "With" dropped.
+
+965
+00:44:28,166 --> 00:44:30,836 A:middle
+This ensures a consistent
+world with Objective-C.
+
+966
+00:44:33,956 --> 00:44:36,086 A:middle
+Sure, the implementation of
+this is pretty much the same
+
+967
+00:44:36,086 --> 00:44:37,066 A:middle
+as what you'd expect.
+
+968
+00:44:37,486 --> 00:44:39,326 A:middle
+Just call decodeObjectForKey
+
+969
+00:44:39,616 --> 00:44:42,436 A:middle
+and again explicitly
+downcasting to the type we want.
+
+970
+00:44:42,786 --> 00:44:44,986 A:middle
+If somebody hands us a
+bad archive we'll find
+
+971
+00:44:44,986 --> 00:44:48,266 A:middle
+out about it now rather
+than crashing later on.
+
+972
+00:44:50,166 --> 00:44:51,106 A:middle
+Finally, the last thing
+
+973
+00:44:51,106 --> 00:44:54,086 A:middle
+to do here is implement
+the encodeWithCoder method
+
+974
+00:44:54,686 --> 00:44:57,716 A:middle
+and this one does not
+get any name changes
+
+975
+00:44:57,756 --> 00:45:00,746 A:middle
+because that is limited
+specifically to initializers.
+
+976
+
+977
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+978
+00:44:57,756 --> 00:45:00,746 A:middle
+because that is limited
+specifically to initializers.
+
+979
+00:45:01,496 --> 00:45:03,816 A:middle
+And the implementation of
+this, again, is very simple.
+
+980
+00:45:03,856 --> 00:45:07,666 A:middle
+We call encodeObjectForKey with
+both the data and the type.
+
+981
+00:45:09,316 --> 00:45:12,316 A:middle
+And that's it; this is an
+entire Swift model object
+
+982
+00:45:12,316 --> 00:45:13,956 A:middle
+and it fits on one slide.
+
+983
+00:45:13,956 --> 00:45:17,536 A:middle
+I didn't do anything crazy
+or confusing here beyond some
+
+984
+00:45:17,536 --> 00:45:20,856 A:middle
+of the things you need to do to
+be a good Cocoa Touch citizen.
+
+985
+00:45:22,516 --> 00:45:27,586 A:middle
+[ Applause ]
+
+986
+00:45:28,086 --> 00:45:30,396 A:middle
+The next step, of course, is to
+add this into our object graph.
+
+987
+00:45:30,736 --> 00:45:32,276 A:middle
+So I go back to our
+Objective-C header
+
+988
+00:45:32,276 --> 00:45:34,026 A:middle
+and now we have a
+bit of a problem.
+
+989
+00:45:34,296 --> 00:45:36,976 A:middle
+Because last time that we
+wanted to access Swift code
+
+990
+00:45:36,976 --> 00:45:40,836 A:middle
+from Objective-C what we did
+is import the generated header
+
+991
+00:45:40,836 --> 00:45:43,266 A:middle
+into the Objective-C file.
+
+992
+00:45:43,266 --> 00:45:45,086 A:middle
+But we can't do that here
+
+993
+00:45:45,086 --> 00:45:47,346 A:middle
+because the generated
+header depends on the Swift.
+
+994
+00:45:47,786 --> 00:45:50,816 A:middle
+And the Swift reads the
+entire public contents
+
+995
+00:45:50,816 --> 00:45:52,796 A:middle
+of our framework (via
+the umbrella header)
+
+996
+00:45:53,136 --> 00:45:54,976 A:middle
+and that includes this
+header right here.
+
+997
+00:45:55,946 --> 00:45:58,376 A:middle
+So instead, I use
+exactly the same mechanism
+
+998
+00:45:58,376 --> 00:45:59,816 A:middle
+that I have in Objective-C.
+
+999
+
+1000
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1001
+00:46:00,306 --> 00:46:01,696 A:middle
+This is what we use
+to break cycles.
+
+1002
+00:46:01,696 --> 00:46:04,326 A:middle
+It's a forward declaration
+using @class
+
+1003
+00:46:05,196 --> 00:46:07,546 A:middle
+and I can forward-declare
+the Swift class just
+
+1004
+00:46:07,546 --> 00:46:09,206 A:middle
+like I would any
+Objective-C class.
+
+1005
+00:46:09,806 --> 00:46:11,786 A:middle
+And now I am perfectly able
+
+1006
+00:46:11,786 --> 00:46:14,596 A:middle
+to create a property here
+using the attachment.
+
+1007
+00:46:16,806 --> 00:46:19,816 A:middle
+The last thing to do, of course,
+is to update the implementation
+
+1008
+00:46:19,816 --> 00:46:23,416 A:middle
+of the list item to actually
+handle the attachment and for
+
+1009
+00:46:23,416 --> 00:46:25,556 A:middle
+that I'm going to import
+the generated header now
+
+1010
+00:46:25,556 --> 00:46:27,136 A:middle
+that we're in a .m file.
+
+1011
+00:46:27,866 --> 00:46:30,936 A:middle
+And because this is a framework,
+and the generated header is part
+
+1012
+00:46:30,936 --> 00:46:33,256 A:middle
+of our public interface,
+we are going
+
+1013
+00:46:33,256 --> 00:46:35,086 A:middle
+to use framework
+syntax to import it.
+
+1014
+00:46:36,826 --> 00:46:39,466 A:middle
+All that's left to do here now
+is to update the implementation
+
+1015
+00:46:39,466 --> 00:46:41,866 A:middle
+of this class so that
+we actually handle this
+
+1016
+00:46:41,896 --> 00:46:42,596 A:middle
+new property.
+
+1017
+00:46:42,766 --> 00:46:45,866 A:middle
+So that means having an
+extra key for encoding here.
+
+1018
+00:46:48,446 --> 00:46:51,446 A:middle
+Setting the attachment
+explicitly to nil,
+
+1019
+00:46:54,236 --> 00:46:56,466 A:middle
+making sure that we can
+encode and decode it.
+
+1020
+00:46:56,466 --> 00:46:59,486 A:middle
+And while I'm doing this
+I'd like you all to note
+
+1021
+00:46:59,486 --> 00:47:01,436 A:middle
+that this is exactly
+what you'd be doing
+
+1022
+
+1023
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1024
+00:46:59,486 --> 00:47:01,436 A:middle
+that this is exactly
+what you'd be doing
+
+1025
+00:47:01,436 --> 00:47:04,266 A:middle
+if we had implemented the
+attachment class in Objective-C.
+
+1026
+00:47:04,576 --> 00:47:06,356 A:middle
+There's nothing surprising
+going on here.
+
+1027
+00:47:06,356 --> 00:47:08,526 A:middle
+It's exactly what you
+would have done before.
+
+1028
+00:47:11,366 --> 00:47:14,226 A:middle
+Finally we do need to make sure
+that we update the copy method
+
+1029
+00:47:14,226 --> 00:47:15,866 A:middle
+so that when we copy
+a list item,
+
+1030
+00:47:16,146 --> 00:47:18,826 A:middle
+that we actually do get a copy
+of the attachment as well.
+
+1031
+00:47:20,456 --> 00:47:21,206 A:middle
+(Square bracket.)
+
+1032
+00:47:22,186 --> 00:47:25,846 A:middle
+And since we made our
+attachments immutable using that
+
+1033
+00:47:25,846 --> 00:47:27,796 A:middle
+"let" keyword to
+define the properties,
+
+1034
+00:47:28,366 --> 00:47:30,526 A:middle
+we can just assign
+this across directly.
+
+1035
+00:47:30,526 --> 00:47:32,516 A:middle
+We don't need to do any
+special copying to ensure
+
+1036
+00:47:32,516 --> 00:47:35,466 A:middle
+that they are independent and
+not going to change on us.
+
+1037
+00:47:36,836 --> 00:47:38,256 A:middle
+So that's it; that's
+the entire model.
+
+1038
+00:47:38,256 --> 00:47:41,016 A:middle
+And now you're probably
+thinking, "Oh great,
+
+1039
+00:47:41,016 --> 00:47:43,336 A:middle
+here we go again, back
+to Interface Builder
+
+1040
+00:47:43,336 --> 00:47:46,556 A:middle
+to define a new layout, a new
+ViewController and add a bunch
+
+1041
+00:47:46,556 --> 00:47:49,036 A:middle
+of outlets and actions and hook
+everything up all over again.
+
+1042
+00:47:49,036 --> 00:47:50,026 A:middle
+We already saw that!"
+
+1043
+00:47:51,486 --> 00:47:52,106 A:middle
+And you'd be right...
+
+1044
+00:47:52,106 --> 00:47:54,876 A:middle
+except that, we're
+actually really lucky here.
+
+1045
+00:47:55,266 --> 00:47:57,356 A:middle
+The three of us work in
+a department with lots
+
+1046
+00:47:57,356 --> 00:47:59,456 A:middle
+of other great people and
+another team is working
+
+1047
+00:47:59,456 --> 00:48:01,366 A:middle
+on a very similar app
+that needs to deal
+
+1048
+
+1049
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1050
+00:47:59,456 --> 00:48:01,366 A:middle
+on a very similar app
+that needs to deal
+
+1051
+00:48:01,366 --> 00:48:02,486 A:middle
+with these kind of attachments.
+
+1052
+00:48:03,306 --> 00:48:04,796 A:middle
+And because their app is new,
+
+1053
+00:48:04,796 --> 00:48:06,316 A:middle
+they've written it
+entirely in Swift.
+
+1054
+00:48:06,856 --> 00:48:10,736 A:middle
+But they've also factored out
+their attachment ViewController
+
+1055
+00:48:11,076 --> 00:48:14,856 A:middle
+into a separate framework,
+which is a new feature of iOS 8.
+
+1056
+00:48:15,176 --> 00:48:17,556 A:middle
+So we're going to use their
+framework, written entirely
+
+1057
+00:48:17,556 --> 00:48:19,956 A:middle
+in Swift, to implement
+the interface that deals
+
+1058
+00:48:19,956 --> 00:48:21,006 A:middle
+with this model object.
+
+1059
+00:48:24,396 --> 00:48:26,606 A:middle
+To start off here I'm going
+to go to the bottom here
+
+1060
+00:48:26,606 --> 00:48:28,506 A:middle
+and check the plus,
+yet another way
+
+1061
+00:48:28,506 --> 00:48:29,996 A:middle
+to add new files to our target.
+
+1062
+00:48:31,476 --> 00:48:34,946 A:middle
+Choose "Add Files Here" and I'm
+going to the media view folder
+
+1063
+00:48:34,946 --> 00:48:37,596 A:middle
+to select their project,
+mediaviewer.xcodeproj.
+
+1064
+00:48:39,056 --> 00:48:42,236 A:middle
+Once I have this in my project
+then I can just add this
+
+1065
+00:48:42,236 --> 00:48:46,936 A:middle
+to our target by going to our
+own project, selecting the list
+
+1066
+00:48:46,936 --> 00:48:50,336 A:middle
+or target and in the embedded
+binary section clicking
+
+1067
+00:48:50,336 --> 00:48:50,806 A:middle
+the plus.
+
+1068
+00:48:51,246 --> 00:48:53,256 A:middle
+This lets us add the
+framework directly.
+
+1069
+00:48:54,496 --> 00:48:55,556 A:middle
+Notice what we just did there.
+
+1070
+00:48:55,556 --> 00:48:59,966 A:middle
+This is a new feature of iOS 8
+to allow embedded frameworks.
+
+1071
+
+1072
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1073
+00:49:00,106 --> 00:49:02,426 A:middle
+Of course, if you're a Mac
+programmer you're probably used
+
+1074
+00:49:02,426 --> 00:49:03,136 A:middle
+to this by now.
+
+1075
+00:49:04,566 --> 00:49:06,846 A:middle
+These embedded frameworks
+need to be made available
+
+1076
+00:49:06,846 --> 00:49:09,806 A:middle
+to Interface Builder, to
+other classes in your project,
+
+1077
+00:49:10,996 --> 00:49:13,866 A:middle
+linked into your binary so
+that you can actually run it,
+
+1078
+00:49:14,196 --> 00:49:15,846 A:middle
+and copied into the app so that
+
+1079
+00:49:15,846 --> 00:49:17,306 A:middle
+when other people
+download it they don't need
+
+1080
+00:49:17,306 --> 00:49:18,756 A:middle
+to download the framework
+separately.
+
+1081
+00:49:19,536 --> 00:49:22,506 A:middle
+And Xcode 6 did all of
+that for us without asking
+
+1082
+00:49:22,506 --> 00:49:25,366 A:middle
+if the framework was written
+in Objective-C or Swift
+
+1083
+00:49:25,716 --> 00:49:27,046 A:middle
+or a mixture of the both.
+
+1084
+00:49:28,516 --> 00:49:33,176 A:middle
+[ Applause ]
+
+1085
+00:49:33,676 --> 00:49:34,906 A:middle
+So in our storyboard now.
+
+1086
+00:49:34,906 --> 00:49:36,886 A:middle
+We can zoom out, and...
+
+1087
+00:49:36,886 --> 00:49:39,266 A:middle
+let's bring up the
+library here to bring
+
+1088
+00:49:39,266 --> 00:49:40,666 A:middle
+out a new ViewController.
+
+1089
+00:49:41,316 --> 00:49:43,546 A:middle
+And in this case I'm
+going to set the class
+
+1090
+00:49:43,546 --> 00:49:46,096 A:middle
+of that ViewController to
+be the media ViewController
+
+1091
+00:49:46,096 --> 00:49:46,926 A:middle
+from the other framework.
+
+1092
+00:49:47,136 --> 00:49:49,516 A:middle
+And you'll see the module
+field here populates as well;
+
+1093
+00:49:49,516 --> 00:49:50,666 A:middle
+this is that feature of Swift
+
+1094
+00:49:50,666 --> 00:49:53,486 A:middle
+that keeps different
+framework classes from stepping
+
+1095
+00:49:53,486 --> 00:49:55,466 A:middle
+on each other at runtime,
+even without a prefix.
+
+1096
+00:49:57,476 --> 00:49:59,476 A:middle
+We don't need the view that
+Interface Builder provides
+
+1097
+00:49:59,476 --> 00:50:01,986 A:middle
+for us, because it already
+has one in its own framework.
+
+1098
+
+1099
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1100
+00:49:59,476 --> 00:50:01,986 A:middle
+for us, because it already
+has one in its own framework.
+
+1101
+00:50:02,026 --> 00:50:03,116 A:middle
+So I can just delete that.
+
+1102
+00:50:03,816 --> 00:50:05,826 A:middle
+And now, to make sure that
+we can actually get to this,
+
+1103
+00:50:06,076 --> 00:50:10,366 A:middle
+I'll select the tables out here
+and drag over- ...control-drag,
+
+1104
+00:50:10,366 --> 00:50:11,206 A:middle
+to create a new segue.
+
+1105
+00:50:11,206 --> 00:50:17,906 A:middle
+Make that a push segue and we'll
+give that a name: "attachment".
+
+1106
+00:50:19,576 --> 00:50:21,106 A:middle
+Now we've set up
+Interface Builder.
+
+1107
+00:50:21,266 --> 00:50:23,346 A:middle
+We've set up the interface
+and the model object.
+
+1108
+00:50:23,346 --> 00:50:23,946 A:middle
+It's time to put them together.
+
+1109
+00:50:24,086 --> 00:50:27,346 A:middle
+And once again we're going
+to use a delegate for that.
+
+1110
+00:50:28,636 --> 00:50:30,156 A:middle
+So let's go to our
+Objective-C code.
+
+1111
+00:50:30,156 --> 00:50:32,306 A:middle
+This is the code that
+displays the lists.
+
+1112
+00:50:32,356 --> 00:50:36,056 A:middle
+At the top here we have
+the NotificationCenter
+
+1113
+00:50:36,686 --> 00:50:39,766 A:middle
+which is a system framework
+and the import for ListerKit,
+
+1114
+00:50:39,816 --> 00:50:42,296 A:middle
+which is our own model
+framework within this project.
+
+1115
+00:50:42,726 --> 00:50:45,006 A:middle
+I can add a third
+import for MediaViewer,
+
+1116
+00:50:45,196 --> 00:50:46,966 A:middle
+which is the framework
+in the other project.
+
+1117
+00:50:47,946 --> 00:50:49,646 A:middle
+I'm going to hit Build
+again, to make sure
+
+1118
+00:50:49,646 --> 00:50:51,276 A:middle
+that everything is
+compiled and up to date.
+
+1119
+00:50:51,786 --> 00:50:53,336 A:middle
+And now I get code completion
+
+1120
+00:50:53,546 --> 00:50:55,186 A:middle
+for the MediaViewerDelegate
+protocol.
+
+1121
+00:50:57,866 --> 00:51:00,246 A:middle
+Just like before I'm going
+to jump down to a nice,
+
+1122
+
+1123
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1124
+00:50:57,866 --> 00:51:00,246 A:middle
+Just like before I'm going
+to jump down to a nice,
+
+1125
+00:51:00,296 --> 00:51:02,496 A:middle
+convenient place in the
+application to implement this.
+
+1126
+00:51:02,556 --> 00:51:03,386 A:middle
+And the first thing I'm going
+
+1127
+00:51:03,386 --> 00:51:05,826 A:middle
+to do is implement a
+little helper method here
+
+1128
+00:51:05,826 --> 00:51:07,386 A:middle
+that just returns
+the selectedItem.
+
+1129
+00:51:08,436 --> 00:51:11,186 A:middle
+Again, even though this is
+sort of details of, like,
+
+1130
+00:51:11,186 --> 00:51:13,966 A:middle
+how the application currently
+works, I want you to remember
+
+1131
+00:51:13,966 --> 00:51:16,576 A:middle
+that everything we're doing
+here is exactly what you do
+
+1132
+00:51:16,576 --> 00:51:17,556 A:middle
+in Objective-C.
+
+1133
+00:51:17,776 --> 00:51:20,676 A:middle
+From the perspective of this
+code you can't really tell
+
+1134
+00:51:20,676 --> 00:51:22,836 A:middle
+that the entire framework
+was written in Swift.
+
+1135
+00:51:24,406 --> 00:51:26,556 A:middle
+We even get code completion
+for the delegate method here.
+
+1136
+00:51:26,556 --> 00:51:29,406 A:middle
+MediaViewController
+didChooseNewMedia, type.
+
+1137
+00:51:30,196 --> 00:51:32,796 A:middle
+And now that we have all of
+this set up it's really easy
+
+1138
+00:51:32,796 --> 00:51:35,296 A:middle
+to add an attachment to the
+currently selected item.
+
+1139
+00:51:37,536 --> 00:51:39,906 A:middle
+So here we say that
+its attachment is going
+
+1140
+00:51:39,906 --> 00:51:41,886 A:middle
+to be a new attachment
+that we create now
+
+1141
+00:51:42,536 --> 00:51:44,846 A:middle
+by calling alloc initWithData.
+
+1142
+00:51:45,796 --> 00:51:46,566 A:middle
+Wait a second!
+
+1143
+00:51:46,636 --> 00:51:48,376 A:middle
+We designed this
+attachment class in Swift,
+
+1144
+00:51:48,376 --> 00:51:51,556 A:middle
+and it had an initializer
+named "initData, type".
+
+1145
+00:51:52,296 --> 00:51:56,286 A:middle
+But in Objective-C it's showing
+up as "initWITHData, type".
+
+1146
+00:51:56,326 --> 00:51:59,226 A:middle
+So you see that this name
+translation works both ways
+
+1147
+00:51:59,226 --> 00:52:00,586 A:middle
+so that you have
+a consistent world
+
+1148
+
+1149
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1150
+00:51:59,226 --> 00:52:00,586 A:middle
+so that you have
+a consistent world
+
+1151
+00:52:00,586 --> 00:52:02,806 A:middle
+in Swift and in Objective-C.
+
+1152
+00:52:03,516 --> 00:52:08,656 A:middle
+[ Applause ]
+
+1153
+00:52:09,156 --> 00:52:10,816 A:middle
+I'll do a bit of
+housekeeping here to make sure
+
+1154
+00:52:10,816 --> 00:52:12,396 A:middle
+that we update our backing store
+
+1155
+00:52:12,856 --> 00:52:15,206 A:middle
+and now we have everything
+set up here.
+
+1156
+00:52:15,316 --> 00:52:18,466 A:middle
+All that's left to do, just
+like Dave did, is set ourselves
+
+1157
+00:52:18,466 --> 00:52:20,996 A:middle
+as the delegate for the
+MediaViewController.
+
+1158
+00:52:21,536 --> 00:52:23,966 A:middle
+So this starts off the same,
+where we set the attachment
+
+1159
+00:52:24,326 --> 00:52:26,016 A:middle
+and we set ourselves
+as the delegate.
+
+1160
+00:52:26,016 --> 00:52:29,986 A:middle
+And then we can also set the
+title of the NewViewController
+
+1161
+00:52:30,396 --> 00:52:33,036 A:middle
+and make sure that it's showing
+the attachment that's actually
+
+1162
+00:52:33,036 --> 00:52:34,206 A:middle
+on the selected item.
+
+1163
+00:52:35,016 --> 00:52:37,266 A:middle
+Or if the selected item
+does not have an attachment,
+
+1164
+00:52:37,366 --> 00:52:39,466 A:middle
+make sure that the controller
+isn't showing anything.
+
+1165
+00:52:40,766 --> 00:52:42,256 A:middle
+So with that, everything
+should be working.
+
+1166
+00:52:42,256 --> 00:52:42,976 A:middle
+Let's build and run.
+
+1167
+00:52:49,046 --> 00:52:50,696 A:middle
+Let's go into the
+tech toys section here
+
+1168
+00:52:50,696 --> 00:52:52,936 A:middle
+and you see now we have
+these disclosure indicators
+
+1169
+00:52:52,936 --> 00:52:54,396 A:middle
+on each of the items.
+
+1170
+00:52:55,066 --> 00:52:56,346 A:middle
+We'll go into Thunderbolt
+this way.
+
+1171
+00:52:56,346 --> 00:52:58,826 A:middle
+Then I can see it
+says No Attachment.
+
+1172
+00:52:59,546 --> 00:53:02,286 A:middle
+But I can click this Edit
+button using the ViewController
+
+1173
+
+1174
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1175
+00:52:59,546 --> 00:53:02,286 A:middle
+But I can click this Edit
+button using the ViewController
+
+1176
+00:53:02,286 --> 00:53:03,436 A:middle
+from the media views framework.
+
+1177
+00:53:03,806 --> 00:53:05,866 A:middle
+That brings up a
+standard iOS control.
+
+1178
+00:53:05,866 --> 00:53:09,306 A:middle
+Making sure that our privacy
+is protected, and, ah...
+
+1179
+00:53:09,796 --> 00:53:12,046 A:middle
+This kid looks like he'd really
+enjoy a Thunderbolt display.
+
+1180
+00:53:13,816 --> 00:53:17,126 A:middle
+[Laughter] Okay, we can go back
+to another one of these here;
+
+1181
+00:53:18,376 --> 00:53:20,056 A:middle
+managed to get myself
+stuck editing.
+
+1182
+00:53:20,056 --> 00:53:20,786 A:middle
+There we go.
+
+1183
+00:53:21,426 --> 00:53:23,576 A:middle
+And you can see that the
+image actually does persist
+
+1184
+00:53:23,576 --> 00:53:25,216 A:middle
+in the Thunderbolt
+display section.
+
+1185
+00:53:25,756 --> 00:53:26,976 A:middle
+So it looks like
+everything's working.
+
+1186
+00:53:33,076 --> 00:53:35,036 A:middle
+So you saw how easy it
+was, to not just deal
+
+1187
+00:53:35,036 --> 00:53:38,246 A:middle
+with a new model object- ...or,
+sorry, not just a new object
+
+1188
+00:53:38,246 --> 00:53:39,496 A:middle
+in your application target,
+
+1189
+00:53:39,656 --> 00:53:42,736 A:middle
+but also a new model
+object in your framework.
+
+1190
+00:53:44,656 --> 00:53:47,576 A:middle
+Additionally, this is not
+related to Swift at all.
+
+1191
+00:53:47,576 --> 00:53:50,226 A:middle
+But in iOS 8 we now have
+embedded frameworks.
+
+1192
+00:53:50,546 --> 00:53:52,946 A:middle
+And Xcode 6 will handle all
+the details of that for you.
+
+1193
+00:53:52,946 --> 00:53:53,686 A:middle
+Yes, clap!
+
+1194
+00:53:54,516 --> 00:53:58,566 A:middle
+[ Applause ]
+
+1195
+00:53:59,066 --> 00:54:01,606 A:middle
+Finally, once again, we
+updated our interface
+
+1196
+
+1197
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1198
+00:53:59,066 --> 00:54:01,606 A:middle
+Finally, once again, we
+updated our interface
+
+1199
+00:54:01,606 --> 00:54:04,156 A:middle
+and added a delegate-
+...adopted a delegate protocol.
+
+1200
+00:54:04,716 --> 00:54:07,526 A:middle
+And once again I want
+to impress on you
+
+1201
+00:54:07,526 --> 00:54:10,926 A:middle
+that it's exactly what we would
+have done had the delegate
+
+1202
+00:54:10,926 --> 00:54:14,656 A:middle
+protocol and the ViewController
+been implemented in Objective-C.
+
+1203
+00:54:14,756 --> 00:54:17,266 A:middle
+We didn't have to do
+anything unusual or different
+
+1204
+00:54:17,266 --> 00:54:18,886 A:middle
+because it was implemented
+in Swift.
+
+1205
+00:54:20,546 --> 00:54:24,016 A:middle
+So you see how easy it is with
+Xcode 6 to use user frameworks.
+
+1206
+00:54:24,116 --> 00:54:26,516 A:middle
+And in general we want you
+to be treating those the same
+
+1207
+00:54:26,516 --> 00:54:27,896 A:middle
+as we do system frameworks.
+
+1208
+00:54:28,416 --> 00:54:31,786 A:middle
+So that means in Swift you'll
+be using "import MyFramework"
+
+1209
+00:54:31,786 --> 00:54:34,986 A:middle
+and in Objective-C
+you'll be using
+
+1210
+00:54:35,186 --> 00:54:38,296 A:middle
+"@import MyFramework;
+(semicolon)".
+
+1211
+00:54:40,446 --> 00:54:41,866 A:middle
+In general we do want you
+
+1212
+00:54:41,866 --> 00:54:44,466 A:middle
+to be using @import
+instead of #import.
+
+1213
+00:54:45,036 --> 00:54:47,376 A:middle
+For Swift- ...for frameworks
+containing Swift code this is
+
+1214
+00:54:47,376 --> 00:54:48,636 A:middle
+absolutely required.
+
+1215
+00:54:48,996 --> 00:54:50,966 A:middle
+But even for other frameworks,
+if they've been built
+
+1216
+00:54:50,966 --> 00:54:53,996 A:middle
+with Xcode 6 and have the
+defined module build setting
+
+1217
+00:54:53,996 --> 00:54:56,186 A:middle
+turned on -- which
+is on, by default --
+
+1218
+00:54:57,206 --> 00:55:00,066 A:middle
+then you have- ...then you'll
+have a framework ready for use
+
+1219
+
+1220
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1221
+00:54:57,206 --> 00:55:00,066 A:middle
+then you have- ...then you'll
+have a framework ready for use
+
+1222
+00:55:00,066 --> 00:55:01,786 A:middle
+in Objective-C or Swift.
+
+1223
+00:55:01,786 --> 00:55:05,376 A:middle
+The only reasons now to use
+#import are if you are working
+
+1224
+00:55:05,376 --> 00:55:07,696 A:middle
+with an older framework that
+has not yet been rebuilt
+
+1225
+00:55:07,696 --> 00:55:11,326 A:middle
+with Xcode 6 in a defined module
+setting or if you're working
+
+1226
+00:55:11,326 --> 00:55:12,876 A:middle
+with C++, which does not
+
+1227
+00:55:12,876 --> 00:55:15,296 A:middle
+yet support the modules
+feature we introduced last year.
+
+1228
+00:55:16,806 --> 00:55:18,486 A:middle
+So with that, everything
+seems to be working
+
+1229
+00:55:18,486 --> 00:55:19,136 A:middle
+and our walkthrough is complete.
+
+1230
+00:55:19,136 --> 00:55:19,976 A:middle
+I'd like to hand
+it back to Anders.
+
+1231
+00:55:20,516 --> 00:55:28,546 A:middle
+[ Applause ]
+
+1232
+00:55:29,046 --> 00:55:29,506 A:middle
+>> Thank you Jordan.
+
+1233
+00:55:30,706 --> 00:55:35,236 A:middle
+So, over the past hour we've
+seen several different ways
+
+1234
+00:55:35,236 --> 00:55:37,336 A:middle
+of mixing Swift and Objective-C.
+
+1235
+00:55:38,426 --> 00:55:41,696 A:middle
+Swift is a better, safer
+way to do Cocoa development.
+
+1236
+00:55:41,696 --> 00:55:45,796 A:middle
+It was designed to support
+the Cocoa frameworks,
+
+1237
+00:55:45,856 --> 00:55:49,576 A:middle
+the Cocoa Touch idioms
+and the common patterns
+
+1238
+00:55:49,576 --> 00:55:50,316 A:middle
+that we already know.
+
+1239
+00:55:51,606 --> 00:55:55,036 A:middle
+It's still Cocoa and
+Cocoa Touch on iOS.
+
+1240
+00:55:55,106 --> 00:55:57,286 A:middle
+So that means that the
+knowledge and experience
+
+1241
+00:55:57,376 --> 00:55:58,866 A:middle
+that you've gained
+over the years
+
+1242
+00:55:58,906 --> 00:56:01,446 A:middle
+and the code you have
+applies to Swift as well.
+
+1243
+
+1244
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1245
+00:55:58,906 --> 00:56:01,446 A:middle
+and the code you have
+applies to Swift as well.
+
+1246
+00:56:01,506 --> 00:56:04,476 A:middle
+And as we've seen
+some of the patterns
+
+1247
+00:56:04,476 --> 00:56:08,376 A:middle
+such as optionally calling a
+delegate method are much easier
+
+1248
+00:56:08,376 --> 00:56:10,146 A:middle
+in Swift and much more succinct.
+
+1249
+00:56:10,816 --> 00:56:14,676 A:middle
+And in other cases you've seen
+how Swift makes us define our
+
+1250
+00:56:14,676 --> 00:56:17,886 A:middle
+intentions much more clearly,
+which can help save us later
+
+1251
+00:56:17,886 --> 00:56:20,536 A:middle
+on so we don't just
+accidentally message nil
+
+1252
+00:56:20,536 --> 00:56:22,046 A:middle
+or message an object
+of the wrong type.
+
+1253
+00:56:24,576 --> 00:56:27,546 A:middle
+And another thing that I hope
+you've seen here is we've put a
+
+1254
+00:56:27,546 --> 00:56:29,846 A:middle
+lot of effort into making
+sure that Xcode takes care
+
+1255
+00:56:29,846 --> 00:56:31,536 A:middle
+of the details so that
+
+1256
+00:56:31,536 --> 00:56:35,536 A:middle
+when you're using Objective-C
+your Swift code looks
+
+1257
+00:56:35,536 --> 00:56:38,926 A:middle
+like Objective-C and when you're
+using Swift the Objective-C code
+
+1258
+00:56:38,926 --> 00:56:39,586 A:middle
+looks like Swift.
+
+1259
+00:56:40,486 --> 00:56:44,316 A:middle
+And you saw some examples of
+subclassing Cocoa Touch classes,
+
+1260
+00:56:44,706 --> 00:56:47,056 A:middle
+but that equally applies to
+your own classes as well.
+
+1261
+00:56:48,806 --> 00:56:51,976 A:middle
+So for more information about
+this there is, of course,
+
+1262
+00:56:51,976 --> 00:56:54,646 A:middle
+the Swift book in
+the iBooks Bookstore,
+
+1263
+00:56:55,156 --> 00:56:57,146 A:middle
+but I'd also especially
+like to call your attention
+
+1264
+00:56:57,146 --> 00:56:59,916 A:middle
+to the Using Swift with Cocoa
+and Objective-C document
+
+1265
+00:56:59,916 --> 00:57:01,796 A:middle
+that we have on
+developer.apple.com.
+
+1266
+
+1267
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1268
+00:56:59,916 --> 00:57:01,796 A:middle
+that we have on
+developer.apple.com.
+
+1269
+00:57:01,906 --> 00:57:04,976 A:middle
+It's available as a PDF file
+that you can download and read
+
+1270
+00:57:04,976 --> 00:57:08,336 A:middle
+on your favorite iOS
+device and it goes
+
+1271
+00:57:08,336 --> 00:57:10,326 A:middle
+into a lot more details
+about this.
+
+1272
+00:57:10,326 --> 00:57:12,986 A:middle
+There are several
+related sessions.
+
+1273
+00:57:13,106 --> 00:57:16,136 A:middle
+One of them has already
+been but it's on video.
+
+1274
+00:57:16,196 --> 00:57:18,266 A:middle
+It's the Introduction
+to Swift, of course.
+
+1275
+00:57:18,626 --> 00:57:20,256 A:middle
+Later on today there's
+going to be a session
+
+1276
+00:57:20,256 --> 00:57:24,266 A:middle
+on Swift Interoperability in
+Depth and that goes into more
+
+1277
+00:57:24,266 --> 00:57:27,896 A:middle
+of the language details of how
+to mix Objective-C with Swift.
+
+1278
+00:57:29,056 --> 00:57:30,036 A:middle
+There's a great session
+
+1279
+00:57:30,036 --> 00:57:33,086 A:middle
+on Creating Modern Cocoa Apps
+coming up and another one
+
+1280
+00:57:33,086 --> 00:57:35,546 A:middle
+on Building Modern Frameworks
+so that you can make sure
+
+1281
+00:57:35,546 --> 00:57:38,486 A:middle
+that you make your
+frameworks embeddable on iOS
+
+1282
+00:57:38,486 --> 00:57:40,156 A:middle
+and useable from Swift.
+
+1283
+00:57:41,706 --> 00:57:43,976 A:middle
+Thanks and enjoy the
+rest of the week.
+
+1284
+00:57:44,508 --> 00:57:46,508 A:middle
+[ Applause]
+
+1285

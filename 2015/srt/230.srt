@@ -1,0 +1,4040 @@
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1
+00:00:27,516 --> 00:00:31,156 A:middle
+[Applause]
+
+2
+00:00:31,656 --> 00:00:32,146 A:middle
+>> BEN ENGLERT: Good morning.
+
+3
+00:00:34,006 --> 00:00:35,146 A:middle
+My name's Ben.
+
+4
+00:00:35,146 --> 00:00:38,126 A:middle
+I am an iOS Performance
+Engineer, and today we are going
+
+5
+00:00:38,126 --> 00:00:40,906 A:middle
+to talk about "Performance
+on iOS and watchOS."
+
+6
+00:00:41,746 --> 00:00:44,296 A:middle
+So we are going to
+start by telling you,
+
+7
+00:00:44,686 --> 00:00:46,156 A:middle
+why should you think
+about performance?
+
+8
+00:00:46,676 --> 00:00:48,146 A:middle
+If you've never thought
+about performance
+
+9
+00:00:48,146 --> 00:00:51,706 A:middle
+in your app before,
+why start now?
+
+10
+00:00:51,926 --> 00:00:54,216 A:middle
+Hopefully I'll convince
+you to stay in your seats,
+
+11
+00:00:55,196 --> 00:00:56,516 A:middle
+and then we can move on to,
+
+12
+00:00:56,646 --> 00:00:57,966 A:middle
+how should you think
+about performance?
+
+13
+00:00:58,536 --> 00:01:01,756 A:middle
+It can be like a very broad
+and sometimes daunting topic,
+
+14
+
+15
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+16
+00:00:58,536 --> 00:01:01,756 A:middle
+It can be like a very broad
+and sometimes daunting topic,
+
+17
+00:01:01,756 --> 00:01:04,566 A:middle
+but we are going to break it
+down into a couple of categories
+
+18
+00:01:05,075 --> 00:01:07,076 A:middle
+and give you a few
+specific strategies
+
+19
+00:01:07,146 --> 00:01:09,936 A:middle
+for improving the performance
+of your app in those areas.
+
+20
+00:01:11,066 --> 00:01:13,406 A:middle
+And finally, you're
+hopefully really excited
+
+21
+00:01:13,546 --> 00:01:16,646 A:middle
+to bring native code to watchOS
+2, and we are going to dig
+
+22
+00:01:16,646 --> 00:01:19,306 A:middle
+into what you can do to get
+the best user experience
+
+23
+00:01:19,426 --> 00:01:20,896 A:middle
+in your app on that platform.
+
+24
+00:01:22,056 --> 00:01:24,426 A:middle
+So why should you think
+about performance?
+
+25
+00:01:25,246 --> 00:01:29,146 A:middle
+The easiest way to sum it up is
+that performance is a feature.
+
+26
+00:01:29,966 --> 00:01:31,786 A:middle
+It's a core and central element
+
+27
+00:01:31,786 --> 00:01:34,596 A:middle
+of giving your users a great
+experience in your app.
+
+28
+00:01:35,236 --> 00:01:37,876 A:middle
+It's not an extra or a bonus
+or something you can get
+
+29
+00:01:37,876 --> 00:01:39,576 A:middle
+to at the end if you have time.
+
+30
+00:01:40,506 --> 00:01:41,846 A:middle
+It's actually something
+that should be
+
+31
+00:01:41,846 --> 00:01:44,616 A:middle
+on your mind all the time
+while you are writing your app.
+
+32
+00:01:45,336 --> 00:01:46,466 A:middle
+There's a couple of
+reasons for that.
+
+33
+00:01:48,056 --> 00:01:49,706 A:middle
+If your app is really
+responsive,
+
+34
+00:01:49,936 --> 00:01:52,606 A:middle
+if it always responds to
+user input right away,
+
+35
+00:01:53,576 --> 00:01:55,886 A:middle
+that actually builds
+the trust of your users.
+
+36
+00:01:56,886 --> 00:02:00,516 A:middle
+That lets them know that if they
+quickly need to access a piece
+
+37
+
+38
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+39
+00:01:56,886 --> 00:02:00,516 A:middle
+That lets them know that if they
+quickly need to access a piece
+
+40
+00:02:00,516 --> 00:02:03,396 A:middle
+of information or service
+some interaction in your app,
+
+41
+00:02:03,646 --> 00:02:04,936 A:middle
+it's not going to
+keep them waiting,
+
+42
+00:02:05,536 --> 00:02:08,116 A:middle
+and that makes them really happy
+and keeps them coming back.
+
+43
+00:02:08,116 --> 00:02:13,586 A:middle
+If you are going to adopt
+Multitasking on iPad in iOS 9,
+
+44
+00:02:14,206 --> 00:02:17,316 A:middle
+not only does your app no longer
+have full run of the screen,
+
+45
+00:02:18,136 --> 00:02:19,536 A:middle
+it actually doesn't
+have full run
+
+46
+00:02:19,536 --> 00:02:21,246 A:middle
+of the system's resources
+either.
+
+47
+00:02:22,106 --> 00:02:25,726 A:middle
+So a performance problem in your
+app doesn't just cause a bad
+
+48
+00:02:25,726 --> 00:02:27,316 A:middle
+experience in your app anymore;
+
+49
+00:02:27,656 --> 00:02:29,306 A:middle
+it can actually cause
+a bad experience
+
+50
+00:02:29,426 --> 00:02:30,636 A:middle
+in another app as well.
+
+51
+00:02:31,596 --> 00:02:34,356 A:middle
+You really want to be known as
+a good neighbor in Multitasking.
+
+52
+00:02:34,906 --> 00:02:39,876 A:middle
+Apps that are architected to be
+efficient with system resources,
+
+53
+00:02:40,156 --> 00:02:42,926 A:middle
+like CPU or memory,
+don't just feel great
+
+54
+00:02:42,926 --> 00:02:45,726 A:middle
+when you are using them; they
+actually save battery power
+
+55
+00:02:45,796 --> 00:02:47,226 A:middle
+and let your user get
+through their day,
+
+56
+00:02:47,556 --> 00:02:48,746 A:middle
+and they really appreciate that.
+
+57
+00:02:50,166 --> 00:02:53,826 A:middle
+And finally, iOS 9 supports
+a huge range of hardware,
+
+58
+00:02:54,326 --> 00:02:57,026 A:middle
+and performance is a
+prerequisite of continuing
+
+59
+00:02:57,026 --> 00:03:00,316 A:middle
+to bring great apps and features
+to all of your customers.
+
+60
+
+61
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+62
+00:02:57,026 --> 00:03:00,316 A:middle
+to bring great apps and features
+to all of your customers.
+
+63
+00:03:03,576 --> 00:03:05,886 A:middle
+So hopefully I have convinced
+you, you don't have to walk out.
+
+64
+00:03:07,566 --> 00:03:08,956 A:middle
+How should you think
+about performance?
+
+65
+00:03:09,496 --> 00:03:11,216 A:middle
+Well, the very first step
+
+66
+00:03:11,566 --> 00:03:14,166 A:middle
+when you are building your
+app is choosing technologies.
+
+67
+00:03:15,076 --> 00:03:17,876 A:middle
+This is critical because
+you need to choose
+
+68
+00:03:18,006 --> 00:03:19,076 A:middle
+which technologies are going
+
+69
+00:03:19,076 --> 00:03:22,286 A:middle
+to give your users the best
+experience in your app.
+
+70
+00:03:22,556 --> 00:03:25,376 A:middle
+Once you are a little bit of
+the way into building your app,
+
+71
+00:03:26,106 --> 00:03:27,786 A:middle
+you can start taking
+measurements
+
+72
+00:03:27,786 --> 00:03:30,626 A:middle
+and actually understanding
+what the user experience is
+
+73
+00:03:30,856 --> 00:03:33,806 A:middle
+in the critical interactions
+in your app.
+
+74
+00:03:34,076 --> 00:03:37,276 A:middle
+Your measurements will inform
+you how your app is doing today.
+
+75
+00:03:37,926 --> 00:03:40,446 A:middle
+Once you've got those, you
+can actually set some goals
+
+76
+00:03:40,676 --> 00:03:42,336 A:middle
+for what state you
+want your app to be
+
+77
+00:03:42,336 --> 00:03:43,946 A:middle
+in before you submit
+it to the Store.
+
+78
+00:03:45,066 --> 00:03:47,746 A:middle
+And finally, once you've
+got all that, you are ready
+
+79
+00:03:47,746 --> 00:03:50,496 A:middle
+to start making code changes
+to improve the performance
+
+80
+00:03:50,496 --> 00:03:53,066 A:middle
+in your app, and there's a
+great workflow you can follow
+
+81
+00:03:53,296 --> 00:03:54,456 A:middle
+to converge on your targets.
+
+82
+00:03:55,696 --> 00:03:57,956 A:middle
+So let's start with
+choosing technologies.
+
+83
+00:03:59,006 --> 00:04:02,206 A:middle
+Picking the right tool for
+the job is a really early
+
+84
+
+85
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+86
+00:03:59,006 --> 00:04:02,206 A:middle
+Picking the right tool for
+the job is a really early
+
+87
+00:04:02,206 --> 00:04:03,186 A:middle
+and critical aspect
+
+88
+00:04:03,436 --> 00:04:06,456 A:middle
+of proactively architecting
+your app for great performance.
+
+89
+00:04:07,226 --> 00:04:09,946 A:middle
+And the very first step of
+choosing technologies is
+
+90
+00:04:09,996 --> 00:04:11,116 A:middle
+to know the technologies.
+
+91
+00:04:11,656 --> 00:04:13,366 A:middle
+So over the course of this talk,
+
+92
+00:04:13,366 --> 00:04:16,166 A:middle
+I'm going to reference several
+other talks from this year
+
+93
+00:04:16,245 --> 00:04:19,046 A:middle
+and previous years
+that cover technologies
+
+94
+00:04:19,286 --> 00:04:20,745 A:middle
+that we have found
+really helpful
+
+95
+00:04:20,866 --> 00:04:23,956 A:middle
+for getting great
+performance in apps.
+
+96
+00:04:24,186 --> 00:04:27,206 A:middle
+Once you know the universe of
+technologies that are available
+
+97
+00:04:27,206 --> 00:04:30,106 A:middle
+to you, then you can start
+to bring in your knowledge
+
+98
+00:04:30,106 --> 00:04:32,246 A:middle
+of how your app works
+and what it needs to do,
+
+99
+00:04:33,446 --> 00:04:35,036 A:middle
+and pick the best
+ones for your app.
+
+100
+00:04:36,056 --> 00:04:38,726 A:middle
+A great example here
+is if your app needs
+
+101
+00:04:38,786 --> 00:04:42,556 A:middle
+to store three strings, it's
+probably okay to write those
+
+102
+00:04:42,556 --> 00:04:44,696 A:middle
+out to a plist or put
+them in user defaults.
+
+103
+00:04:45,476 --> 00:04:48,816 A:middle
+On the other hand, if your app
+needs to use 3,000 strings,
+
+104
+00:04:49,556 --> 00:04:51,556 A:middle
+you might want to
+consider Core Data.
+
+105
+00:04:52,176 --> 00:04:55,746 A:middle
+Speaking of Core Data, when
+you are choosing technologies,
+
+106
+00:04:56,296 --> 00:04:57,316 A:middle
+I strongly encourage you
+
+107
+00:04:57,316 --> 00:04:59,436 A:middle
+to consider Apple
+APIs and frameworks.
+
+108
+
+109
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+110
+00:05:00,336 --> 00:05:03,016 A:middle
+We spent a lot of time trying
+to make those great for you
+
+111
+00:05:03,016 --> 00:05:07,436 A:middle
+and your users, and we build
+our own products on them.
+
+112
+00:05:07,646 --> 00:05:11,356 A:middle
+One benefit of adopting
+Apple APIs and frameworks is
+
+113
+00:05:11,356 --> 00:05:13,736 A:middle
+that after the user
+installs your app,
+
+114
+00:05:14,666 --> 00:05:16,376 A:middle
+they might install
+an iOS update,
+
+115
+00:05:16,876 --> 00:05:19,916 A:middle
+and these frequently contain
+performance improvements
+
+116
+00:05:19,966 --> 00:05:21,536 A:middle
+to core APIs and technologies.
+
+117
+00:05:21,996 --> 00:05:23,826 A:middle
+So the next time
+they open your app
+
+118
+00:05:23,826 --> 00:05:27,016 A:middle
+after installing an iOS
+update, it magically got faster.
+
+119
+00:05:28,186 --> 00:05:29,696 A:middle
+So you've chosen
+some technologies,
+
+120
+00:05:29,836 --> 00:05:31,706 A:middle
+and you've started
+building your app.
+
+121
+00:05:32,816 --> 00:05:33,876 A:middle
+Let's measure a few things.
+
+122
+00:05:34,676 --> 00:05:36,486 A:middle
+There's a couple of
+categories of performance
+
+123
+00:05:36,486 --> 00:05:37,626 A:middle
+that we can think
+about measuring.
+
+124
+00:05:38,936 --> 00:05:40,236 A:middle
+Let's start with animations.
+
+125
+00:05:40,856 --> 00:05:43,756 A:middle
+Animations are what make
+your app feel alive and fluid
+
+126
+00:05:43,756 --> 00:05:46,706 A:middle
+and let your user know where
+they are and what's going on.
+
+127
+00:05:47,566 --> 00:05:49,416 A:middle
+The easiest way to
+measure the performance
+
+128
+00:05:49,416 --> 00:05:52,186 A:middle
+of your animations is the
+Core Animation instrument.
+
+129
+00:05:55,336 --> 00:05:59,326 A:middle
+Responsiveness is all about how
+quickly you react to user input,
+
+130
+00:05:59,876 --> 00:06:01,706 A:middle
+and actually, the simplest way
+
+131
+
+132
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+133
+00:05:59,876 --> 00:06:01,706 A:middle
+and actually, the simplest way
+
+134
+00:06:01,706 --> 00:06:05,176 A:middle
+of measuring responsiveness
+may seem a little bit low tech,
+
+135
+00:06:05,596 --> 00:06:06,616 A:middle
+but it's really powerful,
+
+136
+00:06:06,616 --> 00:06:09,336 A:middle
+and that is simply
+instrumenting your actual code.
+
+137
+00:06:09,336 --> 00:06:11,186 A:middle
+I am going to go into
+an example of that.
+
+138
+00:06:12,676 --> 00:06:15,816 A:middle
+For more complex scenarios that
+maybe involve several threads
+
+139
+00:06:15,816 --> 00:06:17,246 A:middle
+or lots of system interactions,
+
+140
+00:06:17,246 --> 00:06:19,526 A:middle
+there is a great instrument
+called System Trace.
+
+141
+00:06:21,176 --> 00:06:22,566 A:middle
+And finally, memory.
+
+142
+00:06:23,426 --> 00:06:26,336 A:middle
+Memory is the most precious
+resource on mobile devices,
+
+143
+00:06:26,976 --> 00:06:27,996 A:middle
+and it's really important
+
+144
+00:06:27,996 --> 00:06:30,836 A:middle
+to make sure your app is
+using exactly as much memory
+
+145
+00:06:30,836 --> 00:06:32,276 A:middle
+as it needs and no more.
+
+146
+00:06:33,456 --> 00:06:35,866 A:middle
+Again, a simple but powerful way
+
+147
+00:06:35,866 --> 00:06:37,726 A:middle
+to understand your
+app's memory use --
+
+148
+00:06:37,726 --> 00:06:40,206 A:middle
+which I am going to go into
+-- is the Xcode debugger.
+
+149
+00:06:41,356 --> 00:06:42,646 A:middle
+When you are ready
+to dig in more,
+
+150
+00:06:43,106 --> 00:06:44,886 A:middle
+there's a great instrument
+called Allocations.
+
+151
+00:06:45,636 --> 00:06:48,136 A:middle
+And if you think you have
+leaks, there's an instrument
+
+152
+00:06:48,136 --> 00:06:51,116 A:middle
+to help you track
+those down as well.
+
+153
+00:06:51,346 --> 00:06:55,616 A:middle
+So let's go into a code
+instrumentation example.
+
+154
+00:06:55,616 --> 00:06:58,856 A:middle
+Here I've got an IBAction
+that's wired to a button,
+
+155
+00:06:58,856 --> 00:07:01,926 A:middle
+so when my user taps this,
+I am going to load an image
+
+156
+
+157
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+158
+00:06:58,856 --> 00:07:01,926 A:middle
+so when my user taps this,
+I am going to load an image
+
+159
+00:07:01,926 --> 00:07:02,756 A:middle
+and put it in my view.
+
+160
+00:07:03,526 --> 00:07:04,976 A:middle
+And I want to know
+how long this takes.
+
+161
+00:07:05,136 --> 00:07:09,276 A:middle
+So I am going to use an API
+called 'CF absolute time
+
+162
+00:07:09,276 --> 00:07:09,786 A:middle
+get current.'
+
+163
+00:07:10,746 --> 00:07:12,916 A:middle
+Now, I don't actually care
+about the absolute value
+
+164
+00:07:12,916 --> 00:07:14,706 A:middle
+of the current time,
+but I do care
+
+165
+00:07:14,706 --> 00:07:17,106 A:middle
+about the difference
+between these.
+
+166
+00:07:17,716 --> 00:07:21,206 A:middle
+This API, although this is
+Swift and it's type inference
+
+167
+00:07:21,206 --> 00:07:24,026 A:middle
+and it's wonderful, I will
+tell you this returns a double,
+
+168
+00:07:24,436 --> 00:07:27,266 A:middle
+and specifically, that double
+represents the current time
+
+169
+00:07:27,266 --> 00:07:27,856 A:middle
+in seconds.
+
+170
+00:07:28,696 --> 00:07:30,906 A:middle
+A second is actually
+a really long time.
+
+171
+00:07:31,176 --> 00:07:33,196 A:middle
+Your user is really going
+to feel it if something
+
+172
+00:07:33,196 --> 00:07:34,386 A:middle
+in your app takes a second.
+
+173
+00:07:35,286 --> 00:07:37,186 A:middle
+So we actually find milliseconds
+
+174
+00:07:37,396 --> 00:07:39,336 A:middle
+to be a more actionable
+unit of measure here.
+
+175
+00:07:40,026 --> 00:07:42,336 A:middle
+So we are going to subtract the
+start time from the end time
+
+176
+00:07:42,336 --> 00:07:44,156 A:middle
+and multiply the
+result by a thousand
+
+177
+00:07:44,476 --> 00:07:46,346 A:middle
+to get our measurement
+in milliseconds.
+
+178
+00:07:48,826 --> 00:07:52,506 A:middle
+It's important to profile
+the release configuration
+
+179
+00:07:52,506 --> 00:07:55,926 A:middle
+of your app so that you get
+all the compiler optimizations
+
+180
+00:07:56,536 --> 00:07:57,716 A:middle
+that your users will get and so
+
+181
+00:07:57,716 --> 00:07:59,836 A:middle
+that you understand how your
+app is actually behaving
+
+182
+00:07:59,836 --> 00:08:03,476 A:middle
+in the field; however,
+it's equally important not
+
+183
+
+184
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+185
+00:07:59,836 --> 00:08:03,476 A:middle
+in the field; however,
+it's equally important not
+
+186
+00:08:03,476 --> 00:08:05,616 A:middle
+to submit your performance
+instrumentation
+
+187
+00:08:05,616 --> 00:08:06,306 A:middle
+to the App Store.
+
+188
+00:08:06,976 --> 00:08:09,416 A:middle
+So my suggestion is that
+you actually create a copy
+
+189
+00:08:09,416 --> 00:08:13,966 A:middle
+of your release scheme in Xcode
+and define one additional define
+
+190
+00:08:14,236 --> 00:08:17,496 A:middle
+so that you can build a
+release version of your app
+
+191
+00:08:17,846 --> 00:08:20,206 A:middle
+with the performance
+instrumentation quickly
+
+192
+00:08:20,206 --> 00:08:20,716 A:middle
+and easily.
+
+193
+00:08:21,886 --> 00:08:25,306 A:middle
+So what types of responsiveness
+are we interested in measuring?
+
+194
+00:08:25,766 --> 00:08:28,076 A:middle
+Well, definitely taps
+and button presses.
+
+195
+00:08:29,416 --> 00:08:32,635 A:middle
+Most commonly, you'll be
+doing these in IBActions.
+
+196
+00:08:33,336 --> 00:08:37,155 A:middle
+You may also do them in
+UIView touch handling code.
+
+197
+00:08:37,936 --> 00:08:39,996 A:middle
+Or you may have a
+gesture recognizer target.
+
+198
+00:08:40,356 --> 00:08:44,246 A:middle
+Another aspect of your app's
+performance that's interesting
+
+199
+00:08:44,246 --> 00:08:47,006 A:middle
+to understand is what it
+feels for the user to move
+
+200
+00:08:47,006 --> 00:08:49,046 A:middle
+around in your app and
+switch to different views,
+
+201
+00:08:49,516 --> 00:08:51,456 A:middle
+whether that's using a
+tab bar or modal views.
+
+202
+00:08:52,126 --> 00:08:55,526 A:middle
+In this case, we find
+it interesting to think
+
+203
+00:08:55,526 --> 00:08:57,266 A:middle
+about the time between
+'view will appear'
+
+204
+00:08:57,266 --> 00:08:59,776 A:middle
+and 'view did appear'
+because that lets you compare
+
+205
+
+206
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+207
+00:09:00,106 --> 00:09:03,096 A:middle
+which of your views take longer
+to get ready to get on screen.
+
+208
+00:09:05,596 --> 00:09:07,546 A:middle
+So you've taken some
+measurements,
+
+209
+00:09:07,646 --> 00:09:09,396 A:middle
+and you understand how
+your app is behaving.
+
+210
+00:09:10,386 --> 00:09:12,346 A:middle
+How do you set goals for
+where you want your app
+
+211
+00:09:12,406 --> 00:09:14,116 A:middle
+to be before you
+submit it to the Store?
+
+212
+00:09:15,576 --> 00:09:18,896 A:middle
+Animations feel great, they feel
+realistic and fluid and alive
+
+213
+00:09:19,206 --> 00:09:20,976 A:middle
+when they run at 60
+frames per second.
+
+214
+00:09:22,146 --> 00:09:23,986 A:middle
+I'm not going to talk too
+much about them this year
+
+215
+00:09:24,436 --> 00:09:26,396 A:middle
+because there's a great talk
+from last year you can check
+
+216
+00:09:26,396 --> 00:09:29,386 A:middle
+out called "Advanced Graphics
+and Animations in iOS Apps,"
+
+217
+00:09:30,326 --> 00:09:33,026 A:middle
+and there they cover the
+Core Animation instrument
+
+218
+00:09:33,026 --> 00:09:34,906 A:middle
+and how you can use it to
+measure the performance
+
+219
+00:09:34,906 --> 00:09:36,826 A:middle
+of your animations
+and also improve it
+
+220
+00:09:36,826 --> 00:09:38,196 A:middle
+across the full range
+of hardware.
+
+221
+00:09:39,506 --> 00:09:42,486 A:middle
+We are going to spend a lot of
+time today on responsiveness.
+
+222
+00:09:43,336 --> 00:09:45,896 A:middle
+Responsiveness is
+all about, again,
+
+223
+00:09:45,896 --> 00:09:47,506 A:middle
+how you react to user input.
+
+224
+00:09:47,996 --> 00:09:50,566 A:middle
+And we've found that if
+it takes too much longer
+
+225
+00:09:50,566 --> 00:09:53,226 A:middle
+than a hundred milliseconds,
+your user starts to feel it.
+
+226
+00:09:53,636 --> 00:09:56,406 A:middle
+So your goal for any
+responsiveness scenario should
+
+227
+00:09:56,406 --> 00:09:57,726 A:middle
+be 100 milliseconds.
+
+228
+00:09:58,756 --> 00:10:00,376 A:middle
+By the way, you want to think
+
+229
+
+230
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+231
+00:09:58,756 --> 00:10:00,376 A:middle
+By the way, you want to think
+
+232
+00:10:00,376 --> 00:10:02,466 A:middle
+about reaching these
+performance goals
+
+233
+00:10:02,686 --> 00:10:04,896 A:middle
+on the oldest hardware
+you intend to support.
+
+234
+00:10:05,486 --> 00:10:10,736 A:middle
+If you are targeting iOS 9, that
+might be the original iPad mini,
+
+235
+00:10:11,106 --> 00:10:13,416 A:middle
+the iPhone 4s, or
+even the iPad 2.
+
+236
+00:10:14,586 --> 00:10:15,826 A:middle
+If you've already
+got one of those --
+
+237
+00:10:15,826 --> 00:10:17,616 A:middle
+or rather, if you've
+still got one of those --
+
+238
+00:10:18,206 --> 00:10:21,646 A:middle
+please keep it, continue to
+use it, continue testing on it.
+
+239
+00:10:22,546 --> 00:10:25,756 A:middle
+And if you don't, well, there's
+a great refurbished section
+
+240
+00:10:25,936 --> 00:10:27,126 A:middle
+on the Apple Online Store.
+
+241
+00:10:28,516 --> 00:10:30,936 A:middle
+[Laughter]
+
+242
+00:10:31,436 --> 00:10:33,066 A:middle
+So you've set goals.
+
+243
+00:10:33,426 --> 00:10:34,316 A:middle
+You've taken measurements.
+
+244
+00:10:34,896 --> 00:10:37,746 A:middle
+And now you want to proceed with
+making code changes in your app
+
+245
+00:10:38,186 --> 00:10:39,356 A:middle
+to improve the performance.
+
+246
+00:10:40,576 --> 00:10:41,176 A:middle
+How do we start?
+
+247
+00:10:42,626 --> 00:10:43,916 A:middle
+First of all, don't guess.
+
+248
+00:10:45,106 --> 00:10:48,676 A:middle
+You really would like to profile
+with tools and act on evidence
+
+249
+00:10:48,676 --> 00:10:51,216 A:middle
+of what's causing the
+performance issues in your app.
+
+250
+00:10:51,796 --> 00:10:54,746 A:middle
+It's charming to think that your
+intuition will be right all the
+
+251
+00:10:54,746 --> 00:10:58,666 A:middle
+time, but it's probably
+closer to a coin toss.
+
+252
+00:10:58,866 --> 00:11:02,016 A:middle
+Along those lines, avoid
+premature optimization.
+
+253
+
+254
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+255
+00:10:58,866 --> 00:11:02,016 A:middle
+Along those lines, avoid
+premature optimization.
+
+256
+00:11:02,586 --> 00:11:05,506 A:middle
+Don't complexify your code
+until you have evidence
+
+257
+00:11:05,796 --> 00:11:08,936 A:middle
+that the simplest possible
+implementation is not sufficient
+
+258
+00:11:08,936 --> 00:11:09,776 A:middle
+for great performance.
+
+259
+00:11:10,466 --> 00:11:13,456 A:middle
+Frequently, the mechanisms
+that people introduce to try
+
+260
+00:11:13,456 --> 00:11:16,596 A:middle
+to proactively stave off
+performance problems end
+
+261
+00:11:16,596 --> 00:11:20,836 A:middle
+up causing performance
+problems of their own.
+
+262
+00:11:20,926 --> 00:11:22,386 A:middle
+Make one change at a time.
+
+263
+00:11:22,776 --> 00:11:28,006 A:middle
+You do want to start to hone and
+develop your intuition for how
+
+264
+00:11:28,006 --> 00:11:29,896 A:middle
+to approach improving the
+performance of your app,
+
+265
+00:11:30,486 --> 00:11:33,636 A:middle
+and it's very hard to
+understand which thing you did
+
+266
+00:11:33,906 --> 00:11:36,456 A:middle
+that actually ended up improving
+the performance of your app,
+
+267
+00:11:36,956 --> 00:11:38,596 A:middle
+so make one change at a time.
+
+268
+00:11:39,316 --> 00:11:41,296 A:middle
+And what I am really
+trying to say here is
+
+269
+00:11:41,296 --> 00:11:42,526 A:middle
+that there's no magic.
+
+270
+00:11:42,996 --> 00:11:44,686 A:middle
+This is just like
+ordinary debugging.
+
+271
+00:11:45,086 --> 00:11:48,406 A:middle
+So bring the same rigorous,
+scientific mindset you would
+
+272
+00:11:48,406 --> 00:11:51,296 A:middle
+to debugging an app crash
+or a functional issue.
+
+273
+00:11:51,866 --> 00:11:57,166 A:middle
+So here is the picture
+I want you to print out,
+
+274
+00:11:57,166 --> 00:12:00,016 A:middle
+stick on your wall, set as
+the wallpaper on your Mac.
+
+275
+
+276
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+277
+00:11:57,166 --> 00:12:00,016 A:middle
+stick on your wall, set as
+the wallpaper on your Mac.
+
+278
+00:12:01,126 --> 00:12:03,556 A:middle
+This is how we go through
+making code changes
+
+279
+00:12:03,786 --> 00:12:04,906 A:middle
+to improve performance
+in an app.
+
+280
+00:12:05,816 --> 00:12:08,416 A:middle
+The first thing you need to
+do is reproduce the issue.
+
+281
+00:12:09,646 --> 00:12:14,486 A:middle
+Then profile with tools to get
+an understanding of which areas
+
+282
+00:12:14,486 --> 00:12:15,976 A:middle
+of your code are
+actually contributing
+
+283
+00:12:15,976 --> 00:12:16,876 A:middle
+to a performance issue.
+
+284
+00:12:17,616 --> 00:12:19,266 A:middle
+In a sufficiently
+large code base,
+
+285
+00:12:19,806 --> 00:12:22,266 A:middle
+your intuition may actually
+not be correct here,
+
+286
+00:12:22,376 --> 00:12:23,876 A:middle
+so it's good to collect
+evidence.
+
+287
+00:12:24,926 --> 00:12:28,186 A:middle
+Then, once you've zoomed in on
+the specific sections of code
+
+288
+00:12:28,466 --> 00:12:31,226 A:middle
+that are causing
+less-than-desirable performance
+
+289
+00:12:31,226 --> 00:12:34,226 A:middle
+in your app, you can measure
+exactly how much time you are
+
+290
+00:12:34,226 --> 00:12:34,786 A:middle
+spending there.
+
+291
+00:12:35,476 --> 00:12:38,706 A:middle
+And finally, you can make a
+single targeted code change
+
+292
+00:12:38,926 --> 00:12:40,586 A:middle
+to try and advance
+towards your goals.
+
+293
+00:12:40,586 --> 00:12:46,286 A:middle
+Often it's the case that one
+single change doesn't get you
+
+294
+00:12:46,286 --> 00:12:48,706 A:middle
+all the way to where you
+want to be, and in fact,
+
+295
+00:12:49,056 --> 00:12:51,036 A:middle
+several different
+changes will combine
+
+296
+00:12:51,366 --> 00:12:52,996 A:middle
+to eventually get
+you to your goal.
+
+297
+00:12:53,706 --> 00:12:55,896 A:middle
+So that's why this is a
+cycle because you may find
+
+298
+00:12:56,136 --> 00:12:59,196 A:middle
+that after you change code and
+reproduce again, it's better,
+
+299
+00:12:59,196 --> 00:13:00,456 A:middle
+but you are not where
+you want to be.
+
+300
+
+301
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+302
+00:12:59,196 --> 00:13:00,456 A:middle
+but you are not where
+you want to be.
+
+303
+00:13:01,256 --> 00:13:08,326 A:middle
+So you can keep going through
+the cycle until you are happy.
+
+304
+00:13:09,626 --> 00:13:13,536 A:middle
+Profiling and measuring are on
+that slide, and maybe they seem
+
+305
+00:13:13,536 --> 00:13:15,436 A:middle
+like they are similar,
+but actually,
+
+306
+00:13:15,436 --> 00:13:16,796 A:middle
+they are two discrete steps
+
+307
+00:13:17,036 --> 00:13:18,466 A:middle
+of improving the
+performance of your app.
+
+308
+00:13:19,036 --> 00:13:22,636 A:middle
+Profiling, again, is using
+tools like the Xcode debugger
+
+309
+00:13:22,826 --> 00:13:25,546 A:middle
+and Instruments: Time
+Profiler to get an overview
+
+310
+00:13:25,626 --> 00:13:28,336 A:middle
+of all the aspects of your
+code that are contributing
+
+311
+00:13:28,336 --> 00:13:29,456 A:middle
+to your performance scenario.
+
+312
+00:13:30,356 --> 00:13:34,086 A:middle
+Measuring means instrumenting
+a specific area of your code
+
+313
+00:13:34,086 --> 00:13:36,916 A:middle
+to understand precisely how
+much time the user spends
+
+314
+00:13:36,916 --> 00:13:37,536 A:middle
+waiting there.
+
+315
+00:13:38,126 --> 00:13:42,376 A:middle
+And again, the 'CF absolute time
+get current' example I gave is
+
+316
+00:13:42,376 --> 00:13:44,136 A:middle
+actually a really
+powerful way to do that.
+
+317
+00:13:45,096 --> 00:13:48,086 A:middle
+Again, for more complex
+scenarios, there's System Trace.
+
+318
+00:13:50,276 --> 00:13:52,086 A:middle
+So let's talk about
+responsiveness.
+
+319
+00:13:56,996 --> 00:14:00,206 A:middle
+Responsiveness is all about
+reacting to user input.
+
+320
+
+321
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+322
+00:13:56,996 --> 00:14:00,206 A:middle
+Responsiveness is all about
+reacting to user input.
+
+323
+00:14:00,836 --> 00:14:03,266 A:middle
+And we can't talk about
+responsiveness without talking
+
+324
+00:14:03,266 --> 00:14:04,906 A:middle
+about your app's main thread
+
+325
+00:14:05,396 --> 00:14:06,736 A:middle
+because your app's
+main thread is
+
+326
+00:14:06,736 --> 00:14:08,526 A:middle
+where you consume
+all the user input.
+
+327
+00:14:09,026 --> 00:14:10,906 A:middle
+That's anything from
+the touchscreen --
+
+328
+00:14:10,906 --> 00:14:14,226 A:middle
+a tap or a scroll -- anything
+from the other sensors
+
+329
+00:14:14,226 --> 00:14:16,026 A:middle
+on the device, like
+an orientation change,
+
+330
+00:14:16,736 --> 00:14:20,306 A:middle
+and multitasking resizes and
+other system state events.
+
+331
+00:14:21,686 --> 00:14:24,336 A:middle
+If your main thread is
+mostly dedicated to the task
+
+332
+00:14:24,456 --> 00:14:25,766 A:middle
+of responding to user input,
+
+333
+00:14:26,236 --> 00:14:28,416 A:middle
+your app will feel
+really great all the time.
+
+334
+00:14:29,756 --> 00:14:31,726 A:middle
+If you're a little less
+careful with what you do
+
+335
+00:14:31,726 --> 00:14:33,666 A:middle
+on your main thread or
+maybe you do everything
+
+336
+00:14:33,666 --> 00:14:34,446 A:middle
+on your main thread,
+
+337
+00:14:34,996 --> 00:14:37,746 A:middle
+it's possible your app
+will appear hung or frozen.
+
+338
+00:14:38,346 --> 00:14:43,226 A:middle
+So what should we avoid
+doing on our main thread?
+
+339
+00:14:44,376 --> 00:14:47,826 A:middle
+Specific things to watch out
+for include CPU-intensive work.
+
+340
+00:14:48,496 --> 00:14:51,256 A:middle
+That can mean parsing a long
+string that you downloaded
+
+341
+00:14:51,256 --> 00:14:54,126 A:middle
+from the network, maybe
+applying a filter to an image,
+
+342
+00:14:54,696 --> 00:14:57,146 A:middle
+and tasks that depend
+on an external resource.
+
+343
+00:14:57,146 --> 00:14:58,296 A:middle
+And I will come back to that.
+
+344
+00:14:58,946 --> 00:15:02,106 A:middle
+I am not going to spend too much
+time on CPU-intensive work today
+
+345
+
+346
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+347
+00:14:58,946 --> 00:15:02,106 A:middle
+I am not going to spend too much
+time on CPU-intensive work today
+
+348
+00:15:02,106 --> 00:15:04,746 A:middle
+because there was a great talk
+earlier this week from the folks
+
+349
+00:15:04,796 --> 00:15:07,316 A:middle
+that made Instruments
+called "Profiling in Depth,"
+
+350
+00:15:08,036 --> 00:15:10,516 A:middle
+and they actually talk about
+improving the performance
+
+351
+00:15:10,516 --> 00:15:14,256 A:middle
+of CPU-intensive code in
+Instruments using Instruments.
+
+352
+00:15:14,726 --> 00:15:15,186 A:middle
+It's awesome.
+
+353
+00:15:16,736 --> 00:15:19,756 A:middle
+So let's go back to tasks that
+depend on an external resource.
+
+354
+00:15:20,136 --> 00:15:22,556 A:middle
+Another name for these
+is a blocking call.
+
+355
+00:15:23,356 --> 00:15:25,036 A:middle
+It's called that because
+it prevents your thread
+
+356
+00:15:25,036 --> 00:15:26,686 A:middle
+from making progress,
+so you are blocked.
+
+357
+00:15:27,666 --> 00:15:28,586 A:middle
+Now, what's a blocking call?
+
+358
+00:15:29,416 --> 00:15:31,906 A:middle
+Some of you may be familiar
+with the concept of a syscall.
+
+359
+00:15:33,246 --> 00:15:34,456 A:middle
+Any code path that ends
+
+360
+00:15:34,456 --> 00:15:37,016 A:middle
+up making a syscall is
+considered a blocking call.
+
+361
+00:15:37,536 --> 00:15:41,926 A:middle
+As I mentioned, these
+typically involve resources
+
+362
+00:15:41,966 --> 00:15:44,966 A:middle
+that are not currently in
+memory, commonly things
+
+363
+00:15:44,966 --> 00:15:46,746 A:middle
+like loading things
+from the disk
+
+364
+00:15:46,966 --> 00:15:48,616 A:middle
+or fetching stuff
+over the network.
+
+365
+00:15:49,966 --> 00:15:52,236 A:middle
+Occasionally, your main
+thread will also get blocked
+
+366
+00:15:52,896 --> 00:15:55,146 A:middle
+because it's waiting for a
+resource that is available,
+
+367
+00:15:55,766 --> 00:15:57,666 A:middle
+but it's waiting for
+someone else to finish using
+
+368
+00:15:57,666 --> 00:16:00,476 A:middle
+that resource because that
+resource only allows one client
+
+369
+
+370
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+371
+00:15:57,666 --> 00:16:00,476 A:middle
+that resource because that
+resource only allows one client
+
+372
+00:16:00,476 --> 00:16:04,016 A:middle
+at a time.
+
+373
+00:16:04,186 --> 00:16:06,346 A:middle
+So, how do you spot blocking
+calls in your thread?
+
+374
+00:16:06,856 --> 00:16:08,406 A:middle
+Well, sometimes they
+jump right out at you.
+
+375
+00:16:09,336 --> 00:16:11,756 A:middle
+The word "synchronous" is
+a synonym for blocking.
+
+376
+00:16:12,506 --> 00:16:13,336 A:middle
+So that's a clue.
+
+377
+00:16:13,336 --> 00:16:15,266 A:middle
+When you are reading through
+your code, that should light
+
+378
+00:16:15,266 --> 00:16:16,286 A:middle
+up and draw your eyes.
+
+379
+00:16:17,416 --> 00:16:19,536 A:middle
+So, great, we spotted this
+blocking call in my code,
+
+380
+00:16:19,536 --> 00:16:21,836 A:middle
+'NSURLConnection send
+synchronous request.'
+
+381
+00:16:21,916 --> 00:16:23,856 A:middle
+Well, what do I do now?
+
+382
+00:16:25,026 --> 00:16:27,926 A:middle
+Well, sometimes there is
+an asynchronous API --
+
+383
+00:16:28,096 --> 00:16:30,296 A:middle
+especially for APIs
+that specifically call
+
+384
+00:16:30,296 --> 00:16:31,746 A:middle
+out that they're
+synchronous in their name --
+
+385
+00:16:32,436 --> 00:16:33,876 A:middle
+that you can easily
+switch over to.
+
+386
+00:16:34,516 --> 00:16:37,436 A:middle
+In this case, we got
+lucky, and in fact,
+
+387
+00:16:37,436 --> 00:16:39,936 A:middle
+this one helpfully has the word
+"asynchronous" in the name,
+
+388
+00:16:40,386 --> 00:16:42,356 A:middle
+so we know exactly what we
+are getting ourselves into.
+
+389
+00:16:43,536 --> 00:16:46,166 A:middle
+Unfortunately, it's not quite
+as simple as search and replace.
+
+390
+00:16:46,706 --> 00:16:49,566 A:middle
+You are changing the order
+that your code executes in,
+
+391
+00:16:49,826 --> 00:16:51,576 A:middle
+and you may have other
+code that depends
+
+392
+00:16:51,576 --> 00:16:53,016 A:middle
+on the result of this operation.
+
+393
+00:16:53,556 --> 00:16:56,386 A:middle
+So unfortunately, some
+restructuring is required.
+
+394
+00:16:58,216 --> 00:17:01,846 A:middle
+But let's say you don't
+have an async equivalent
+
+395
+
+396
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+397
+00:16:58,216 --> 00:17:01,846 A:middle
+But let's say you don't
+have an async equivalent
+
+398
+00:17:01,846 --> 00:17:05,516 A:middle
+that you can easily switch to or
+you want to move a whole section
+
+399
+00:17:05,516 --> 00:17:07,736 A:middle
+of code off the main
+thread in one operation.
+
+400
+00:17:08,516 --> 00:17:10,996 A:middle
+In that case, use
+Grand Central Dispatch.
+
+401
+00:17:12,386 --> 00:17:14,496 A:middle
+Grand Central Dispatch
+is an Apple technology
+
+402
+00:17:15,006 --> 00:17:17,435 A:middle
+that manages a global
+thread pool in your app.
+
+403
+00:17:17,606 --> 00:17:18,296 A:middle
+It's already there.
+
+404
+00:17:18,566 --> 00:17:20,066 A:middle
+Even if you don't notice it.
+
+405
+00:17:20,636 --> 00:17:22,846 A:middle
+If you are familiar with
+programming with threads
+
+406
+00:17:22,846 --> 00:17:26,425 A:middle
+on other platforms, Grand
+Central Dispatch sort of takes
+
+407
+00:17:26,425 --> 00:17:29,016 A:middle
+out all the confusion
+and trouble of worrying
+
+408
+00:17:29,016 --> 00:17:31,466 A:middle
+about starting threads and what
+state they are in and so on,
+
+409
+00:17:32,166 --> 00:17:34,246 A:middle
+and lets you express tasks
+that you'd like to run
+
+410
+00:17:34,246 --> 00:17:36,286 A:middle
+as closures or blocks.
+
+411
+00:17:37,316 --> 00:17:40,176 A:middle
+These closures, once you submit
+them to Grand Central Dispatch,
+
+412
+00:17:40,616 --> 00:17:48,826 A:middle
+run on an arbitrary
+thread in your process.
+
+413
+00:17:48,946 --> 00:17:51,386 A:middle
+Arbitrary threads are awesome
+because you didn't have to deal
+
+414
+00:17:51,386 --> 00:17:52,566 A:middle
+with starting them, and
+you don't have to think
+
+415
+00:17:52,566 --> 00:17:55,146 A:middle
+about how many there are,
+but they have the caveat.
+
+416
+00:17:55,546 --> 00:17:58,896 A:middle
+Since you don't control which
+thread your code is running on,
+
+417
+00:17:59,606 --> 00:18:01,786 A:middle
+any operation you
+express in a closure
+
+418
+
+419
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+420
+00:17:59,606 --> 00:18:01,786 A:middle
+any operation you
+express in a closure
+
+421
+00:18:01,786 --> 00:18:04,686 A:middle
+or block must be safe
+to do on any thread.
+
+422
+00:18:05,276 --> 00:18:08,106 A:middle
+What are some examples?
+
+423
+00:18:08,106 --> 00:18:12,306 A:middle
+Well, some objects are
+actually restricted to access
+
+424
+00:18:12,306 --> 00:18:13,356 A:middle
+on the main thread only.
+
+425
+00:18:13,876 --> 00:18:17,936 A:middle
+UIKit views and controllers,
+for example, must be created,
+
+426
+00:18:17,936 --> 00:18:21,166 A:middle
+modified, and destroyed
+only on the main thread.
+
+427
+00:18:22,506 --> 00:18:25,356 A:middle
+Some objects, like Foundation
+and Core Graphics objects,
+
+428
+00:18:25,846 --> 00:18:27,536 A:middle
+allow use from any thread.
+
+429
+00:18:28,466 --> 00:18:31,256 A:middle
+However, many of these have
+the additional stipulation
+
+430
+00:18:31,576 --> 00:18:33,156 A:middle
+that the caller is responsible
+
+431
+00:18:33,156 --> 00:18:37,426 A:middle
+for ensuring only one thread
+accesses them at the time.
+
+432
+00:18:38,106 --> 00:18:39,926 A:middle
+They don't protect
+themselves internally.
+
+433
+00:18:40,406 --> 00:18:42,666 A:middle
+So if you intend to use
+them for multiple threads,
+
+434
+00:18:43,016 --> 00:18:45,666 A:middle
+you frequently have to implement
+the protection yourself,
+
+435
+00:18:46,016 --> 00:18:49,086 A:middle
+and the preferred way of doing
+this is a serial GCD queue.
+
+436
+00:18:50,546 --> 00:18:52,646 A:middle
+The best way to find out
+how your objects expect
+
+437
+00:18:52,646 --> 00:18:54,586 A:middle
+to be treated is to
+read the headers.
+
+438
+00:18:54,916 --> 00:18:56,866 A:middle
+Per object, usually
+near the initializer,
+
+439
+00:18:57,096 --> 00:18:59,666 A:middle
+there should be a description
+of exactly how it expects
+
+440
+00:18:59,666 --> 00:19:01,246 A:middle
+to be accessed by
+threads in your app.
+
+441
+
+442
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+443
+00:18:59,666 --> 00:19:01,246 A:middle
+to be accessed by
+threads in your app.
+
+444
+00:19:01,986 --> 00:19:03,416 A:middle
+So, let's go back
+to my example here.
+
+445
+00:19:04,366 --> 00:19:05,516 A:middle
+What do I do in this code?
+
+446
+00:19:05,516 --> 00:19:07,116 A:middle
+I load some data from a file.
+
+447
+00:19:08,416 --> 00:19:09,796 A:middle
+I process and filter an image.
+
+448
+00:19:10,806 --> 00:19:13,626 A:middle
+And finally, I put it in image
+view in my view hierarchy.
+
+449
+00:19:14,666 --> 00:19:17,426 A:middle
+So right now when the user
+taps a button in my app,
+
+450
+00:19:18,426 --> 00:19:19,866 A:middle
+my main thread looks a
+little bit like this.
+
+451
+00:19:20,376 --> 00:19:23,456 A:middle
+It does those three things
+in order one after another.
+
+452
+00:19:24,456 --> 00:19:27,496 A:middle
+Simple, straightforward,
+easy to understand, great.
+
+453
+00:19:28,846 --> 00:19:32,366 A:middle
+Unfortunately, should the
+user happen to try and scroll
+
+454
+00:19:32,366 --> 00:19:34,796 A:middle
+or rotate right when I am
+in the middle of doing this,
+
+455
+00:19:35,896 --> 00:19:40,956 A:middle
+we won't be able to service
+that input until later.
+
+456
+00:19:42,326 --> 00:19:45,196 A:middle
+And the thing with blocking
+calls is you never really know
+
+457
+00:19:45,196 --> 00:19:46,086 A:middle
+how long they are going to take.
+
+458
+00:19:46,086 --> 00:19:46,926 A:middle
+It's sort of like the weather.
+
+459
+00:19:47,596 --> 00:19:50,886 A:middle
+So the user is going to be kept
+waiting for some unknown amount
+
+460
+00:19:50,886 --> 00:19:52,796 A:middle
+of time, and that
+will make them sad.
+
+461
+00:19:54,116 --> 00:19:54,876 A:middle
+So how do we fix this?
+
+462
+00:19:55,876 --> 00:19:58,066 A:middle
+Well, we can use Grand
+Central Dispatch,
+
+463
+00:19:58,396 --> 00:20:01,026 A:middle
+and we can use a Grand
+Central Dispatch API called
+
+464
+
+465
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+466
+00:19:58,396 --> 00:20:01,026 A:middle
+and we can use a Grand
+Central Dispatch API called
+
+467
+00:20:01,026 --> 00:20:01,836 A:middle
+'dispatch async.'
+
+468
+00:20:02,686 --> 00:20:04,736 A:middle
+Now, 'dispatch async'
+takes two arguments.
+
+469
+00:20:05,886 --> 00:20:08,066 A:middle
+The first thing you
+need to pass in is
+
+470
+00:20:08,066 --> 00:20:10,096 A:middle
+which queue you want it to use.
+
+471
+00:20:10,876 --> 00:20:13,126 A:middle
+As I mentioned, there's already
+several queues in your app
+
+472
+00:20:13,766 --> 00:20:15,146 A:middle
+that GCD has created for you.
+
+473
+00:20:15,146 --> 00:20:16,546 A:middle
+And I am going to get one
+
+474
+00:20:16,546 --> 00:20:19,056 A:middle
+of them using the 'dispatch
+get global queue' API.
+
+475
+00:20:20,406 --> 00:20:23,066 A:middle
+Because there are several,
+I have to actually tell GCD
+
+476
+00:20:23,296 --> 00:20:25,466 A:middle
+which one I want,
+and here I am going
+
+477
+00:20:25,466 --> 00:20:27,356 A:middle
+to use a 'Quality
+of Service' class.
+
+478
+00:20:28,206 --> 00:20:31,276 A:middle
+'Quality of Service' is how you
+tell the system how important
+
+479
+00:20:31,276 --> 00:20:34,166 A:middle
+the work you are asking it to do
+is relative to both other work
+
+480
+00:20:34,166 --> 00:20:36,466 A:middle
+on your app and work across
+the rest of the system.
+
+481
+00:20:37,236 --> 00:20:39,766 A:middle
+In this case, because
+this is the direct result
+
+482
+00:20:39,766 --> 00:20:43,406 A:middle
+of a user action and the user is
+probably waiting for the result,
+
+483
+00:20:43,406 --> 00:20:48,436 A:middle
+I am going to use the
+'user-initiated' QOS class.
+
+484
+00:20:48,606 --> 00:20:52,646 A:middle
+The final argument to 'dispatch
+async' is a closure containing
+
+485
+00:20:52,646 --> 00:20:55,496 A:middle
+the code you would
+like it to run.
+
+486
+00:20:55,646 --> 00:20:56,516 A:middle
+So, great.
+
+487
+00:20:56,516 --> 00:20:57,126 A:middle
+I am done.
+
+488
+00:20:57,426 --> 00:20:58,276 A:middle
+It's off the main thread.
+
+489
+00:20:58,476 --> 00:21:00,986 A:middle
+Right? Not quite.
+
+490
+
+491
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+492
+00:20:58,476 --> 00:21:00,986 A:middle
+Right? Not quite.
+
+493
+00:21:01,906 --> 00:21:05,236 A:middle
+As I mentioned, UIKit views
+and controllers are only safe
+
+494
+00:21:05,286 --> 00:21:09,906 A:middle
+for use on the main thread, so I
+can't put them in this closure.
+
+495
+00:21:10,086 --> 00:21:12,456 A:middle
+So that wasn't really the
+particularly slow part
+
+496
+00:21:12,456 --> 00:21:13,536 A:middle
+of my code anyway, right?
+
+497
+00:21:13,576 --> 00:21:15,256 A:middle
+The first two lines
+were the blocking calls.
+
+498
+00:21:16,156 --> 00:21:19,856 A:middle
+Why don't I just move this
+back out onto the main thread?
+
+499
+00:21:20,056 --> 00:21:22,116 A:middle
+Unfortunately, that's not
+quite going to work either
+
+500
+00:21:22,446 --> 00:21:24,116 A:middle
+because I have actually
+changed the order
+
+501
+00:21:24,116 --> 00:21:25,446 A:middle
+that this code executes in.
+
+502
+00:21:26,456 --> 00:21:28,746 A:middle
+This closure is not
+guaranteed to have run
+
+503
+00:21:29,046 --> 00:21:30,986 A:middle
+by the time 'dispatch
+async' returns.
+
+504
+00:21:31,556 --> 00:21:33,766 A:middle
+Hopefully it will run
+quite shortly afterwards.
+
+505
+00:21:34,486 --> 00:21:37,996 A:middle
+But most likely, once GCD
+has fired the work off
+
+506
+00:21:37,996 --> 00:21:40,166 A:middle
+to the dispatch queue,
+it will immediately move
+
+507
+00:21:40,166 --> 00:21:42,286 A:middle
+on to the next line,
+and at this point,
+
+508
+00:21:42,926 --> 00:21:44,496 A:middle
+my image is still
+likely to be nil.
+
+509
+00:21:45,086 --> 00:21:46,426 A:middle
+The user will never
+see their image.
+
+510
+00:21:47,076 --> 00:21:48,946 A:middle
+That will also make them sad.
+
+511
+00:21:49,596 --> 00:21:50,806 A:middle
+So how do we fix this?
+
+512
+00:21:51,776 --> 00:21:54,356 A:middle
+Well, we can actually make
+another call to 'dispatch async,
+
+513
+00:21:54,976 --> 00:21:57,926 A:middle
+and this time we'll use a
+very special queue called the
+
+514
+00:21:57,926 --> 00:21:58,586 A:middle
+main queue.
+
+515
+00:21:59,086 --> 00:22:02,326 A:middle
+The main queue is guaranteed to
+be serviced by the main thread.
+
+516
+
+517
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+518
+00:21:59,086 --> 00:22:02,326 A:middle
+The main queue is guaranteed to
+be serviced by the main thread.
+
+519
+00:22:02,756 --> 00:22:06,146 A:middle
+You can get it using the API
+dispatch 'get main queue.'
+
+520
+00:22:07,226 --> 00:22:10,766 A:middle
+What that means is if you have
+objects that require access
+
+521
+00:22:10,766 --> 00:22:13,296 A:middle
+on the main thread, you can
+still put them in a closure
+
+522
+00:22:13,296 --> 00:22:14,346 A:middle
+and pass it to dispatch.
+
+523
+00:22:14,746 --> 00:22:16,336 A:middle
+You just have to make sure
+they run on this queue.
+
+524
+00:22:16,336 --> 00:22:20,296 A:middle
+So I have done that here and now
+my imageView is safe and happy.
+
+525
+00:22:21,686 --> 00:22:24,766 A:middle
+With this, we've moved that
+work off the main thread,
+
+526
+00:22:25,386 --> 00:22:27,176 A:middle
+but then when we've
+needed to use objects
+
+527
+00:22:27,216 --> 00:22:29,486 A:middle
+that must be accessed on the
+main thread, we have done
+
+528
+00:22:29,486 --> 00:22:31,356 A:middle
+so once the data
+is ready for them.
+
+529
+00:22:32,426 --> 00:22:35,136 A:middle
+And by the way, the original
+problem we were trying to solve,
+
+530
+00:22:35,866 --> 00:22:37,616 A:middle
+should the user try
+and scroll or rotate,
+
+531
+00:22:37,616 --> 00:22:40,556 A:middle
+that will get serviced right
+away, and they will be happy.
+
+532
+00:22:41,436 --> 00:22:42,616 A:middle
+Thank you.
+
+533
+00:22:43,516 --> 00:22:46,856 A:middle
+[Applause]
+
+534
+00:22:47,356 --> 00:22:49,746 A:middle
+So what types of blocking
+calls are you likely
+
+535
+00:22:49,746 --> 00:22:50,596 A:middle
+to find in your code?
+
+536
+00:22:50,776 --> 00:22:52,876 A:middle
+They are sneaky and they
+hide in all kinds of places.
+
+537
+00:22:53,436 --> 00:22:55,896 A:middle
+As I mentioned, networking.
+
+538
+00:22:56,186 --> 00:22:57,766 A:middle
+NSURLConnection and friends.
+
+539
+00:22:57,766 --> 00:23:00,426 A:middle
+It's very easy to,
+without meaning to,
+
+540
+
+541
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+542
+00:22:57,766 --> 00:23:00,426 A:middle
+It's very easy to,
+without meaning to,
+
+543
+00:23:00,796 --> 00:23:02,446 A:middle
+make a synchronous
+call to the network.
+
+544
+00:23:03,506 --> 00:23:05,756 A:middle
+Usually you can switch
+to asynchronous API,
+
+545
+00:23:06,856 --> 00:23:09,416 A:middle
+or if you actually
+want even more control
+
+546
+00:23:09,666 --> 00:23:11,626 A:middle
+over when your application
+accesses the network --
+
+547
+00:23:12,436 --> 00:23:14,376 A:middle
+and in some cases even
+let it download things
+
+548
+00:23:14,376 --> 00:23:15,096 A:middle
+when it's not running --
+
+549
+00:23:15,596 --> 00:23:18,806 A:middle
+I encourage you to check out the
+NSURLSession background session.
+
+550
+00:23:20,316 --> 00:23:21,786 A:middle
+Foundation initializers.
+
+551
+00:23:21,906 --> 00:23:23,476 A:middle
+When you come across
+these in your code,
+
+552
+00:23:23,956 --> 00:23:25,056 A:middle
+they don't look that scary.
+
+553
+00:23:25,196 --> 00:23:25,876 A:middle
+It's one line.
+
+554
+00:23:26,136 --> 00:23:26,926 A:middle
+How bad can it be?
+
+555
+00:23:27,606 --> 00:23:29,006 A:middle
+But actually, some of these,
+
+556
+00:23:29,256 --> 00:23:32,896 A:middle
+like ones with the name
+'contents of file' or 'contents
+
+557
+00:23:32,896 --> 00:23:36,636 A:middle
+of URL,' may end up having to
+use the disk or other resources
+
+558
+00:23:36,696 --> 00:23:37,676 A:middle
+to service your request.
+
+559
+00:23:39,076 --> 00:23:40,826 A:middle
+And finally, Core Data.
+
+560
+00:23:41,536 --> 00:23:44,696 A:middle
+Again, they just look like
+objects, not bad, right?
+
+561
+00:23:45,416 --> 00:23:48,206 A:middle
+Core Data frequently does a
+lot of I/O on your behalf.
+
+562
+00:23:49,366 --> 00:23:51,446 A:middle
+Luckily, it's pretty
+easy to move some
+
+563
+00:23:51,446 --> 00:23:53,126 A:middle
+of your heavy recorded
+operations
+
+564
+00:23:53,346 --> 00:23:54,796 A:middle
+to different concurrency modes.
+
+565
+00:23:55,336 --> 00:23:57,996 A:middle
+And actually, there's great
+new API in Core Data this year
+
+566
+00:23:58,246 --> 00:24:01,406 A:middle
+to simplify that and other
+common bulk operations.
+
+567
+
+568
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+569
+00:23:58,246 --> 00:24:01,406 A:middle
+to simplify that and other
+common bulk operations.
+
+570
+00:24:02,066 --> 00:24:04,086 A:middle
+You can go learn about it in
+the session from the other day,
+
+571
+00:24:04,446 --> 00:24:05,396 A:middle
+"What's New in Core Data."
+
+572
+00:24:06,376 --> 00:24:08,466 A:middle
+So if you find a blocking call,
+
+573
+00:24:08,986 --> 00:24:11,626 A:middle
+switch to asynchronous
+API or use GCD.
+
+574
+00:24:11,626 --> 00:24:15,156 A:middle
+If you want to know more
+about GCD, including, again,
+
+575
+00:24:15,156 --> 00:24:18,266 A:middle
+new API this year that's going
+to simplify common operations
+
+576
+00:24:18,736 --> 00:24:20,596 A:middle
+and also the quality
+of service classes
+
+577
+00:24:20,596 --> 00:24:22,966 A:middle
+that I mentioned earlier,
+there's a great talk
+
+578
+00:24:22,966 --> 00:24:25,476 A:middle
+from just an hour ago
+called "Building Responsive
+
+579
+00:24:25,476 --> 00:24:26,606 A:middle
+and Efficient Apps with GCD,"
+
+580
+00:24:26,606 --> 00:24:29,066 A:middle
+and I encourage you
+to go watch it.
+
+581
+00:24:31,956 --> 00:24:34,316 A:middle
+Let's move on to memory.
+
+582
+00:24:35,426 --> 00:24:38,296 A:middle
+Like I said, memory is
+the most precious resource
+
+583
+00:24:38,586 --> 00:24:39,386 A:middle
+on mobile devices.
+
+584
+00:24:39,386 --> 00:24:45,016 A:middle
+If you are planning to adopt
+multitasking in your app, again,
+
+585
+00:24:45,956 --> 00:24:48,816 A:middle
+you don't have full run of the
+screen anymore, so it stands
+
+586
+00:24:48,816 --> 00:24:51,286 A:middle
+to reason that you also don't
+have full run of the rest
+
+587
+00:24:51,286 --> 00:24:52,516 A:middle
+of the system's resources.
+
+588
+00:24:52,976 --> 00:24:56,506 A:middle
+If you are going to bring
+some of the code from your app
+
+589
+00:24:56,506 --> 00:24:58,636 A:middle
+to watchOS, it's
+especially important
+
+590
+00:24:58,636 --> 00:25:02,266 A:middle
+that its memory footprint
+be compact.
+
+591
+
+592
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+593
+00:24:58,636 --> 00:25:02,266 A:middle
+that its memory footprint
+be compact.
+
+594
+00:25:02,346 --> 00:25:05,236 A:middle
+Once again, iOS 9 supports
+a huge range of hardware.
+
+595
+00:25:05,856 --> 00:25:08,816 A:middle
+If you want to bring your
+great apps and features to some
+
+596
+00:25:08,816 --> 00:25:10,826 A:middle
+of the lower-end devices
+supported by the OS,
+
+597
+00:25:11,506 --> 00:25:13,666 A:middle
+memory is extremely
+important on those systems.
+
+598
+00:25:14,486 --> 00:25:17,086 A:middle
+And finally, if you are the
+developer of an extension,
+
+599
+00:25:17,646 --> 00:25:20,046 A:middle
+think about the fact that your
+extension may now be called
+
+600
+00:25:20,046 --> 00:25:23,226 A:middle
+on to run when there are two
+other apps on the screen.
+
+601
+00:25:24,186 --> 00:25:26,836 A:middle
+So memory will be in high
+demand, and you need to be able
+
+602
+00:25:26,836 --> 00:25:29,176 A:middle
+to get away with using
+as little as possible.
+
+603
+00:25:29,566 --> 00:25:34,046 A:middle
+So let's get a little bit
+into how memory works on iOS.
+
+604
+00:25:35,036 --> 00:25:36,016 A:middle
+Ground rules.
+
+605
+00:25:36,476 --> 00:25:39,456 A:middle
+There is not enough physical
+memory on any iOS device
+
+606
+00:25:39,736 --> 00:25:43,446 A:middle
+to keep all the suspended
+apps in RAM at the same time.
+
+607
+00:25:44,636 --> 00:25:47,306 A:middle
+When we come under memory
+pressure, we actually have
+
+608
+00:25:47,366 --> 00:25:50,486 A:middle
+to evict things to make
+room for the foreground app.
+
+609
+00:25:51,476 --> 00:25:55,256 A:middle
+On OS X or a PC operating
+system, we might write the state
+
+610
+00:25:55,256 --> 00:25:57,826 A:middle
+of those apps out to
+disk first, but it turns
+
+611
+00:25:57,826 --> 00:26:00,086 A:middle
+out that doesn't make
+sense on mobile devices,
+
+612
+
+613
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+614
+00:25:57,826 --> 00:26:00,086 A:middle
+out that doesn't make
+sense on mobile devices,
+
+615
+00:26:00,586 --> 00:26:04,536 A:middle
+so when you get evicted,
+you are just gone.
+
+616
+00:26:04,756 --> 00:26:06,886 A:middle
+There's lots more detail
+here and lots to get into,
+
+617
+00:26:07,446 --> 00:26:10,646 A:middle
+and there's actually a great
+talk from a few years ago called
+
+618
+00:26:10,736 --> 00:26:12,176 A:middle
+"iOS App Performance Memory."
+
+619
+00:26:13,036 --> 00:26:15,106 A:middle
+The slide template and colors
+are a little different,
+
+620
+00:26:15,106 --> 00:26:19,256 A:middle
+but the information is really
+solid, so please go watch
+
+621
+00:26:19,256 --> 00:26:20,066 A:middle
+that one if you are interested
+
+622
+00:26:20,066 --> 00:26:21,156 A:middle
+to learn more about
+how this works.
+
+623
+00:26:22,466 --> 00:26:24,786 A:middle
+But if you've never thought
+about memory in your app before,
+
+624
+00:26:25,196 --> 00:26:28,696 A:middle
+it boils down to this --
+reclaiming memory takes time.
+
+625
+00:26:29,186 --> 00:26:31,496 A:middle
+If you've already used up
+all the available memory
+
+626
+00:26:31,496 --> 00:26:33,446 A:middle
+in the system and then
+you need some more,
+
+627
+00:26:33,876 --> 00:26:36,306 A:middle
+you might be kept waiting
+while the system evicts things
+
+628
+00:26:36,306 --> 00:26:36,916 A:middle
+on your behalf.
+
+629
+00:26:37,936 --> 00:26:40,216 A:middle
+If you suddenly request
+a large amount of memory,
+
+630
+00:26:40,966 --> 00:26:42,976 A:middle
+the system might need to
+evict several different things
+
+631
+00:26:43,026 --> 00:26:43,946 A:middle
+to service your request,
+
+632
+00:26:44,366 --> 00:26:47,346 A:middle
+and that can influence the
+responsiveness of your app.
+
+633
+00:26:48,636 --> 00:26:50,866 A:middle
+Conversely, when you
+are in the background,
+
+634
+00:26:51,536 --> 00:26:53,196 A:middle
+if your footprint
+is very compact,
+
+635
+00:26:53,696 --> 00:26:55,556 A:middle
+it's actually less likely
+that you will be one
+
+636
+00:26:55,556 --> 00:26:56,916 A:middle
+of the things that gets evicted.
+
+637
+00:26:57,426 --> 00:26:59,336 A:middle
+And so when the user
+then returns to your app,
+
+638
+00:26:59,726 --> 00:27:02,076 A:middle
+you will be able to resume
+instead of launching,
+
+639
+
+640
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+641
+00:26:59,726 --> 00:27:02,076 A:middle
+you will be able to resume
+instead of launching,
+
+642
+00:27:02,076 --> 00:27:05,286 A:middle
+and that will feel a lot faster.
+
+643
+00:27:05,476 --> 00:27:07,516 A:middle
+So if you've never thought
+about memory before,
+
+644
+00:27:08,326 --> 00:27:09,946 A:middle
+it's really important
+as a first step
+
+645
+00:27:10,076 --> 00:27:11,946 A:middle
+to rationalize your
+app's memory footprint.
+
+646
+00:27:12,586 --> 00:27:14,746 A:middle
+And what that means is
+to think about the types
+
+647
+00:27:14,746 --> 00:27:16,166 A:middle
+of resources that it uses.
+
+648
+00:27:17,056 --> 00:27:20,866 A:middle
+These might be strings; maybe
+long blobs of JSON or XML
+
+649
+00:27:20,866 --> 00:27:24,036 A:middle
+that you downloaded from the
+network; images that, again,
+
+650
+00:27:24,036 --> 00:27:26,376 A:middle
+came from the network or the
+user took them with the camera;
+
+651
+00:27:27,086 --> 00:27:29,976 A:middle
+and again, Core Data managed
+objects, which use a lot
+
+652
+00:27:29,976 --> 00:27:34,206 A:middle
+of underlying resources to
+sort of make the magic happen.
+
+653
+00:27:34,396 --> 00:27:36,816 A:middle
+Once you've thought about
+these resources, you can start
+
+654
+00:27:36,816 --> 00:27:40,206 A:middle
+to group them according to
+which user interactions depend
+
+655
+00:27:40,206 --> 00:27:43,476 A:middle
+on each kind, and that helps
+you establish a mental model
+
+656
+00:27:43,476 --> 00:27:45,146 A:middle
+of the resources
+that your app uses.
+
+657
+00:27:46,366 --> 00:27:47,066 A:middle
+Once you've done that,
+
+658
+00:27:47,546 --> 00:27:50,086 A:middle
+we can quickly check our work
+using the Xcode debugger.
+
+659
+00:27:51,526 --> 00:27:54,416 A:middle
+To get into more detail, we
+would reach for the Allocations
+
+660
+00:27:54,416 --> 00:27:55,466 A:middle
+and Leaks Instruments.
+
+661
+00:27:55,576 --> 00:27:58,466 A:middle
+I am not going to go into
+those today, but please check
+
+662
+00:27:58,466 --> 00:28:00,496 A:middle
+out this talk from last year
+called "Improving Your App
+
+663
+
+664
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+665
+00:27:58,466 --> 00:28:00,496 A:middle
+out this talk from last year
+called "Improving Your App
+
+666
+00:28:00,496 --> 00:28:03,526 A:middle
+with Instruments" to
+get started with those.
+
+667
+00:28:03,736 --> 00:28:05,546 A:middle
+So let's go back to
+the Xcode debugger.
+
+668
+00:28:05,546 --> 00:28:09,046 A:middle
+I have downloaded the
+Photos framework example app
+
+669
+00:28:09,216 --> 00:28:10,536 A:middle
+from the Apple Developer
+website.
+
+670
+00:28:11,276 --> 00:28:13,306 A:middle
+I've plugged in my phone,
+opened the Xcode project,
+
+671
+00:28:13,676 --> 00:28:14,466 A:middle
+and hit build and run.
+
+672
+00:28:15,266 --> 00:28:16,886 A:middle
+And now I am just going
+to look at the top left
+
+673
+00:28:16,886 --> 00:28:18,916 A:middle
+of my Xcode window
+at the debugger.
+
+674
+00:28:19,476 --> 00:28:20,106 A:middle
+Zoom in on that.
+
+675
+00:28:21,506 --> 00:28:23,246 A:middle
+So, here, right away I can see
+
+676
+00:28:23,486 --> 00:28:26,106 A:middle
+without touching my phone the
+first number that's interesting
+
+677
+00:28:26,106 --> 00:28:26,316 A:middle
+to me.
+
+678
+00:28:27,356 --> 00:28:29,576 A:middle
+Now I know that right
+after my app launches,
+
+679
+00:28:29,616 --> 00:28:31,046 A:middle
+before the user does anything,
+
+680
+00:28:31,386 --> 00:28:33,966 A:middle
+I am using about 10
+megabytes of memory.
+
+681
+00:28:35,636 --> 00:28:39,406 A:middle
+The next data point that I want
+to collect is that I want to go
+
+682
+00:28:39,406 --> 00:28:42,396 A:middle
+and do whatever the most common
+user interaction in my app is,
+
+683
+00:28:42,866 --> 00:28:45,516 A:middle
+so because this is a Photos
+app, I am going to open a photo.
+
+684
+00:28:46,466 --> 00:28:49,636 A:middle
+And now I've learned that to
+open a photo, my app needs
+
+685
+00:28:49,636 --> 00:28:51,656 A:middle
+about another 2.5
+megabytes of memory.
+
+686
+00:28:53,106 --> 00:28:56,486 A:middle
+At this point, an additional
+interesting experiment is
+
+687
+00:28:56,486 --> 00:28:58,526 A:middle
+to repeat the same
+action over and over.
+
+688
+00:28:58,706 --> 00:29:01,736 A:middle
+So I might open the
+same photo or a couple
+
+689
+
+690
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+691
+00:28:58,706 --> 00:29:01,736 A:middle
+So I might open the
+same photo or a couple
+
+692
+00:29:01,736 --> 00:29:03,226 A:middle
+of different photos a few times.
+
+693
+00:29:04,066 --> 00:29:06,036 A:middle
+If my memory footprint
+continues to grow,
+
+694
+00:29:06,506 --> 00:29:08,466 A:middle
+I may have a memory issue
+worth investigating.
+
+695
+00:29:10,236 --> 00:29:13,086 A:middle
+The final point of
+interest here is I am going
+
+696
+00:29:13,086 --> 00:29:15,746 A:middle
+to use the Home button on my
+device to suspend the app,
+
+697
+00:29:16,196 --> 00:29:17,726 A:middle
+and I am going to
+see what happens
+
+698
+00:29:17,726 --> 00:29:18,806 A:middle
+when it goes into
+the background.
+
+699
+00:29:19,466 --> 00:29:22,596 A:middle
+And it looks like it shrank down
+to actually a little bit smaller
+
+700
+00:29:22,596 --> 00:29:24,256 A:middle
+than it was right
+after it launched.
+
+701
+00:29:25,296 --> 00:29:26,836 A:middle
+This is a great balance
+to strike.
+
+702
+00:29:27,746 --> 00:29:29,946 A:middle
+You don't want to repeat work
+that you did during launch
+
+703
+00:29:30,136 --> 00:29:33,636 A:middle
+on resume, but you also want to
+stay compact in the background
+
+704
+00:29:33,846 --> 00:29:41,166 A:middle
+to make sure your users actually
+get to experience that resume.
+
+705
+00:29:41,296 --> 00:29:43,916 A:middle
+Important to note that the
+Photos framework example app
+
+706
+00:29:43,996 --> 00:29:46,456 A:middle
+didn't actually have to do
+anything special or magical
+
+707
+00:29:46,646 --> 00:29:47,676 A:middle
+to achieve that behavior.
+
+708
+00:29:48,136 --> 00:29:50,266 A:middle
+It's actually just a
+really straightforward
+
+709
+00:29:50,266 --> 00:29:52,816 A:middle
+and minimal implementation
+of Apple technologies,
+
+710
+00:29:53,436 --> 00:29:57,046 A:middle
+and Apple technologies actually
+have this behavior often built
+
+711
+00:29:57,046 --> 00:29:59,786 A:middle
+in, and they manage sort of
+their underlying resources
+
+712
+
+713
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+714
+00:30:00,046 --> 00:30:02,956 A:middle
+in response to application
+lifecycle events automatically.
+
+715
+00:30:03,286 --> 00:30:04,256 A:middle
+So you don't need
+to worry about it.
+
+716
+00:30:05,606 --> 00:30:08,236 A:middle
+However, if you have large
+objects or other resources
+
+717
+00:30:08,236 --> 00:30:11,406 A:middle
+of your own that you'd like
+to sort of dynamically lose
+
+718
+00:30:11,406 --> 00:30:14,076 A:middle
+and get back in response to
+application lifecycle events,
+
+719
+00:30:14,556 --> 00:30:16,456 A:middle
+the easiest way to do
+it is to use NSCache.
+
+720
+00:30:18,176 --> 00:30:20,726 A:middle
+In some cases, though,
+you might have things
+
+721
+00:30:20,726 --> 00:30:23,516 A:middle
+that can't be neatly
+represented as evictable objects
+
+722
+00:30:23,516 --> 00:30:25,446 A:middle
+for NSCache, and then you have
+
+723
+00:30:25,476 --> 00:30:28,066 A:middle
+to actually implement
+custom code that responds
+
+724
+00:30:28,116 --> 00:30:30,396 A:middle
+to system lifecycle
+notifications in your app.
+
+725
+00:30:31,696 --> 00:30:32,856 A:middle
+A few that you might
+be interested
+
+726
+00:30:32,856 --> 00:30:35,566 A:middle
+in are the 'did enter
+background' notification.
+
+727
+00:30:36,346 --> 00:30:38,266 A:middle
+Your app will get this
+when it's suspended,
+
+728
+00:30:38,266 --> 00:30:41,626 A:middle
+and this is what NSCache
+uses to actually shrink
+
+729
+00:30:41,816 --> 00:30:42,706 A:middle
+when you go into the background.
+
+730
+00:30:43,696 --> 00:30:46,796 A:middle
+Another interesting one is the
+memory warning notification.
+
+731
+00:30:47,316 --> 00:30:50,356 A:middle
+The system actually sends
+this before it starts evicting
+
+732
+00:30:50,406 --> 00:30:52,786 A:middle
+suspended apps to give
+them a chance to shrink,
+
+733
+00:30:53,736 --> 00:30:55,346 A:middle
+and maybe they can
+avoid getting evicted
+
+734
+00:30:55,586 --> 00:30:56,706 A:middle
+if their footprint goes down.
+
+735
+00:30:56,706 --> 00:30:59,146 A:middle
+So here is a quick
+example of that.
+
+736
+00:30:59,146 --> 00:31:03,266 A:middle
+I am going to use the
+default NSNotificationCenter.
+
+737
+
+738
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+739
+00:30:59,146 --> 00:31:03,266 A:middle
+I am going to use the
+default NSNotificationCenter.
+
+740
+00:31:03,266 --> 00:31:05,666 A:middle
+I am going to add an
+observer for, in this case,
+
+741
+00:31:06,036 --> 00:31:07,926 A:middle
+the 'did receive memory
+warning' notification.
+
+742
+00:31:08,466 --> 00:31:12,056 A:middle
+And all I am going to do
+is call some 'custom cache
+
+743
+00:31:12,156 --> 00:31:12,826 A:middle
+purging' code.
+
+744
+00:31:14,056 --> 00:31:16,826 A:middle
+Maybe this walks a
+linked use of C structures
+
+745
+00:31:16,826 --> 00:31:18,126 A:middle
+and frees some other memory.
+
+746
+00:31:18,706 --> 00:31:22,336 A:middle
+An important note,
+if you do register
+
+747
+00:31:22,336 --> 00:31:26,066 A:middle
+for NSNotificationCenter
+observer, especially in init,
+
+748
+00:31:26,626 --> 00:31:28,786 A:middle
+please be sure to remove
+yourself on deinit.
+
+749
+00:31:29,636 --> 00:31:31,076 A:middle
+So memory is actually
+so important
+
+750
+00:31:31,336 --> 00:31:32,686 A:middle
+that there's another
+talk I am going
+
+751
+00:31:32,686 --> 00:31:33,836 A:middle
+to encourage you to go watch.
+
+752
+00:31:35,246 --> 00:31:36,726 A:middle
+It's called "Optimizing Your App
+
+753
+00:31:36,876 --> 00:31:39,346 A:middle
+for Multitasking
+on iPad in iOS 9."
+
+754
+00:31:40,146 --> 00:31:42,706 A:middle
+But actually, even if your
+app doesn't run on iPad,
+
+755
+00:31:42,706 --> 00:31:44,886 A:middle
+or you have no plans to
+support Multitasking,
+
+756
+00:31:45,106 --> 00:31:46,396 A:middle
+please go watch this talk.
+
+757
+00:31:47,136 --> 00:31:50,036 A:middle
+They go into a lot of detail
+about the types of resources
+
+758
+00:31:50,036 --> 00:31:51,086 A:middle
+that applications use,
+
+759
+00:31:51,556 --> 00:31:53,476 A:middle
+the patterns they
+typically access them in,
+
+760
+00:31:53,936 --> 00:31:56,796 A:middle
+and more information about
+how to have your app respond
+
+761
+00:31:56,796 --> 00:31:57,846 A:middle
+to system memory state.
+
+762
+00:31:58,436 --> 00:31:58,956 A:middle
+It's really great.
+
+763
+00:31:59,466 --> 00:32:04,396 A:middle
+Last but not least, I hope
+you are all really excited
+
+764
+
+765
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+766
+00:31:59,466 --> 00:32:04,396 A:middle
+Last but not least, I hope
+you are all really excited
+
+767
+00:32:04,396 --> 00:32:06,366 A:middle
+to bring native code
+to watchOS 2.
+
+768
+00:32:06,926 --> 00:32:10,716 A:middle
+When you are thinking about how
+to build your watchOS 2 app,
+
+769
+00:32:11,496 --> 00:32:13,396 A:middle
+you have to start
+with a great design,
+
+770
+00:32:14,026 --> 00:32:16,906 A:middle
+a design that really focuses
+on the essential functions
+
+771
+00:32:16,906 --> 00:32:19,366 A:middle
+of your app and makes
+them easy, delightful,
+
+772
+00:32:19,366 --> 00:32:20,506 A:middle
+and accessible to the user.
+
+773
+00:32:21,476 --> 00:32:22,386 A:middle
+If you need help with that,
+
+774
+00:32:22,836 --> 00:32:24,856 A:middle
+there's a great session
+you can go watch called
+
+775
+00:32:24,856 --> 00:32:27,566 A:middle
+"Designing for Apple Watch."
+
+776
+00:32:27,766 --> 00:32:30,356 A:middle
+Once you've got a great design
+for your Apple Watch app,
+
+777
+00:32:31,356 --> 00:32:33,726 A:middle
+then you can start to
+think about which aspects
+
+778
+00:32:33,726 --> 00:32:36,246 A:middle
+of your iOS app it might
+make sense to reuse.
+
+779
+00:32:37,226 --> 00:32:42,416 A:middle
+This could include actual code
+or familiar access patterns
+
+780
+00:32:42,756 --> 00:32:46,926 A:middle
+to APIs and frameworks that are
+shared between the platforms.
+
+781
+00:32:46,926 --> 00:32:48,776 A:middle
+Sometimes something
+you are doing
+
+782
+00:32:48,776 --> 00:32:51,336 A:middle
+on iOS might actually
+not make sense on watchOS
+
+783
+00:32:51,696 --> 00:32:52,756 A:middle
+for performance reasons.
+
+784
+00:32:53,236 --> 00:32:55,386 A:middle
+And you will end up
+implementing new mechanisms
+
+785
+00:32:55,596 --> 00:33:05,426 A:middle
+to achieve the same result
+on the other platform.
+
+786
+
+787
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+788
+00:32:55,596 --> 00:33:05,426 A:middle
+to achieve the same result
+on the other platform.
+
+789
+00:33:05,426 --> 00:33:08,426 A:middle
+watchOS users expect
+short, simple interactions,
+
+790
+00:33:09,016 --> 00:33:12,046 A:middle
+and they expect to always
+see recent and relevant data
+
+791
+00:33:12,396 --> 00:33:14,556 A:middle
+in Apps, Notifications,
+and Glances.
+
+792
+00:33:15,736 --> 00:33:18,066 A:middle
+What does this mean for
+you as an app developer?
+
+793
+00:33:19,146 --> 00:33:21,056 A:middle
+The most likely thing
+the user will do
+
+794
+00:33:21,056 --> 00:33:24,136 A:middle
+on watchOS is just
+launch the app and look
+
+795
+00:33:24,136 --> 00:33:26,956 A:middle
+at the one thing it shows
+immediately afterwards.
+
+796
+00:33:28,296 --> 00:33:30,776 A:middle
+So what are some things we can
+do to get great launch time
+
+797
+00:33:30,776 --> 00:33:32,776 A:middle
+and great responsiveness
+on watchOS?
+
+798
+00:33:34,496 --> 00:33:37,086 A:middle
+Focus on minimizing
+both the amount
+
+799
+00:33:37,086 --> 00:33:40,046 A:middle
+of network traffic you generate
+and the amount of work you have
+
+800
+00:33:40,046 --> 00:33:42,576 A:middle
+to do on the device to do
+something sensible with it.
+
+801
+00:33:43,876 --> 00:33:46,306 A:middle
+If you are accessing a
+server that you can control
+
+802
+00:33:46,356 --> 00:33:50,806 A:middle
+and add new APIs to, make sure
+you are sending appropriately
+
+803
+00:33:50,806 --> 00:33:52,956 A:middle
+sized and formatted
+responses down to the Watch.
+
+804
+00:33:54,116 --> 00:33:57,566 A:middle
+This can include something as
+simple as removing unused keys
+
+805
+00:33:57,686 --> 00:34:01,496 A:middle
+from JSON or XML
+blobs; resizing images
+
+806
+
+807
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+808
+00:33:57,686 --> 00:34:01,496 A:middle
+from JSON or XML
+blobs; resizing images
+
+809
+00:34:01,786 --> 00:34:03,926 A:middle
+so that the Watch can
+just display them exactly
+
+810
+00:34:03,926 --> 00:34:05,596 A:middle
+as they came over the
+wire and doesn't have
+
+811
+00:34:05,626 --> 00:34:09,616 A:middle
+to do any extra work; and
+if your API is accustomed
+
+812
+00:34:09,616 --> 00:34:13,186 A:middle
+to feeding devices with large
+screens that can show 10
+
+813
+00:34:13,186 --> 00:34:16,496 A:middle
+or 20 records at a time,
+it may be sending back all
+
+814
+00:34:16,496 --> 00:34:17,946 A:middle
+that information in one call.
+
+815
+00:34:18,485 --> 00:34:19,585 A:middle
+But actually, for the Watch,
+
+816
+00:34:19,946 --> 00:34:21,766 A:middle
+you should send only
+the appropriate number
+
+817
+00:34:21,766 --> 00:34:24,466 A:middle
+of records needed to
+display a single screen.
+
+818
+00:34:25,746 --> 00:34:28,246 A:middle
+To show fresh, relevant
+information all the time,
+
+819
+00:34:28,806 --> 00:34:30,576 A:middle
+it's important to
+use your iPhone app
+
+820
+00:34:30,706 --> 00:34:32,386 A:middle
+to keep the app context updated.
+
+821
+00:34:33,196 --> 00:34:36,505 A:middle
+The app context is a piece
+of bidirectional shared state
+
+822
+00:34:36,556 --> 00:34:37,436 A:middle
+between the platforms.
+
+823
+00:34:37,876 --> 00:34:40,216 A:middle
+So when the user takes
+an action on either end
+
+824
+00:34:40,216 --> 00:34:42,746 A:middle
+that will cause them to expect
+to see something different
+
+825
+00:34:42,746 --> 00:34:45,065 A:middle
+on the other end,
+that can be updated.
+
+826
+00:34:45,676 --> 00:34:49,235 A:middle
+The API for doing this is
+'watch connectivity update
+
+827
+00:34:49,235 --> 00:34:50,315 A:middle
+application context.'
+
+828
+00:34:51,346 --> 00:34:55,036 A:middle
+A great time to do this is
+when your iPhone app gets woken
+
+829
+00:34:55,036 --> 00:34:56,686 A:middle
+up by background app refresh.
+
+830
+00:34:57,616 --> 00:34:59,286 A:middle
+When it's done downloading
+new information
+
+831
+00:34:59,286 --> 00:35:02,156 A:middle
+and updating its own
+snapshot, it can also push
+
+832
+
+833
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+834
+00:34:59,286 --> 00:35:02,156 A:middle
+and updating its own
+snapshot, it can also push
+
+835
+00:35:02,156 --> 00:35:03,596 A:middle
+that information
+over to the Watch
+
+836
+00:35:03,906 --> 00:35:06,236 A:middle
+so that it will be ready
+next time the user launches.
+
+837
+00:35:09,276 --> 00:35:12,816 A:middle
+Finally, in case you're
+relying on a server
+
+838
+00:35:12,816 --> 00:35:14,516 A:middle
+that you can't change
+for some reason,
+
+839
+00:35:15,246 --> 00:35:17,156 A:middle
+let's say you're hitting
+a third-party API,
+
+840
+00:35:18,306 --> 00:35:21,166 A:middle
+you can use the power of your
+iPhone's network connection
+
+841
+00:35:21,456 --> 00:35:25,226 A:middle
+and CPU to actually implement
+an intermediary that formats
+
+842
+00:35:25,226 --> 00:35:26,936 A:middle
+and sizes responses
+for the Watch.
+
+843
+00:35:27,946 --> 00:35:30,866 A:middle
+The API you would use to do
+this is 'watch connectivity
+
+844
+00:35:31,036 --> 00:35:32,396 A:middle
+send message.'
+
+845
+00:35:33,156 --> 00:35:35,296 A:middle
+So you would send a
+message to the iPhone,
+
+846
+00:35:36,176 --> 00:35:38,256 A:middle
+requesting whatever you need,
+
+847
+00:35:38,256 --> 00:35:39,436 A:middle
+and the iPhone would
+download it,
+
+848
+00:35:40,276 --> 00:35:43,196 A:middle
+and do all the operations I
+mentioned, remove unused keys,
+
+849
+00:35:43,386 --> 00:35:45,436 A:middle
+reduce the number of
+records, resize images.
+
+850
+00:35:46,286 --> 00:35:49,466 A:middle
+Then it could send a compact and
+actionable reply to the Watch,
+
+851
+00:35:49,846 --> 00:35:51,366 A:middle
+again, over WC Session.
+
+852
+00:35:51,926 --> 00:35:55,336 A:middle
+So wrapping up, performance
+is a feature.
+
+853
+00:35:56,026 --> 00:35:57,336 A:middle
+It's an essential aspect
+
+854
+00:35:57,656 --> 00:36:00,006 A:middle
+of giving your users a great
+experience in your apps.
+
+855
+
+856
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+857
+00:35:57,656 --> 00:36:00,006 A:middle
+of giving your users a great
+experience in your apps.
+
+858
+00:36:00,756 --> 00:36:02,676 A:middle
+And it should be on
+your mind from day one
+
+859
+00:36:02,726 --> 00:36:04,416 A:middle
+when you are building your apps.
+
+860
+00:36:05,376 --> 00:36:07,686 A:middle
+Efficient apps feel great
+when you are using them,
+
+861
+00:36:08,126 --> 00:36:12,186 A:middle
+they build your users' trust,
+and they save battery power.
+
+862
+00:36:13,416 --> 00:36:16,826 A:middle
+Please go learn about all the
+Apple technologies I mentioned,
+
+863
+00:36:17,266 --> 00:36:17,846 A:middle
+and when you are thinking
+
+864
+00:36:17,846 --> 00:36:19,626 A:middle
+about building your app,
+choose the best ones.
+
+865
+00:36:20,916 --> 00:36:22,986 A:middle
+Keep your main thread
+always ready for user input.
+
+866
+00:36:24,346 --> 00:36:26,426 A:middle
+Understand when and why
+your app uses memory.
+
+867
+00:36:27,416 --> 00:36:30,086 A:middle
+And to get a great
+experience on watchOS, download
+
+868
+00:36:30,086 --> 00:36:32,036 A:middle
+and process a minimal
+set of information.
+
+869
+00:36:32,536 --> 00:36:36,126 A:middle
+Here's some great written
+documentation you can get
+
+870
+00:36:36,126 --> 00:36:38,216 A:middle
+into if you are starting to
+get interested in this stuff.
+
+871
+00:36:39,376 --> 00:36:41,456 A:middle
+And again, here are the
+sessions that I mentioned.
+
+872
+00:36:42,456 --> 00:36:44,716 A:middle
+The first few are
+about technologies
+
+873
+00:36:44,716 --> 00:36:46,416 A:middle
+that we covered this
+year, and there's a few
+
+874
+00:36:46,416 --> 00:36:47,496 A:middle
+from previous years as well.
+
+875
+00:36:47,496 --> 00:36:48,766 A:middle
+Thanks, and have a great Friday.
+
+876
+00:36:49,516 --> 00:36:52,500 A:middle
+[Applause]
+
+877

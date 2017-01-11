@@ -1,0 +1,3914 @@
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+1
+00:00:23,046 --> 00:00:24,456 A:middle
+>> KATE STONE: Good
+afternoon and welcome
+
+2
+00:00:24,456 --> 00:00:26,016 A:middle
+to What's New In LLDB.
+
+3
+00:00:26,326 --> 00:00:27,086 A:middle
+My name is Kate.
+
+4
+00:00:28,516 --> 00:00:33,566 A:middle
+[ Applause ]
+
+5
+00:00:34,066 --> 00:00:36,106 A:middle
+>> KATE STONE: And I manage
+the runtime analysis tools
+
+6
+00:00:36,106 --> 00:00:37,756 A:middle
+in Xcode, including LLDB.
+
+7
+00:00:37,926 --> 00:00:40,246 A:middle
+I will be getting us started
+here but I'll be bringing up two
+
+8
+00:00:40,246 --> 00:00:42,386 A:middle
+of my engineers,
+Sean and Enrico,
+
+9
+00:00:42,386 --> 00:00:44,616 A:middle
+to dive into the details
+in just a little bit.
+
+10
+00:00:45,346 --> 00:00:47,806 A:middle
+But to get us started, I would
+like to talk a little bit
+
+11
+00:00:47,886 --> 00:00:49,936 A:middle
+about the year's highlights,
+some of the changes,
+
+12
+00:00:49,936 --> 00:00:53,346 A:middle
+big and small, since the
+last time we were at WWDC.
+
+13
+00:00:54,356 --> 00:00:58,426 A:middle
+Most notably we shipped
+our first Swift debugger.
+
+14
+00:00:58,936 --> 00:01:01,446 A:middle
+It is a step forward, obviously,
+in being able to write
+
+15
+
+16
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+17
+00:00:58,936 --> 00:01:01,446 A:middle
+It is a step forward, obviously,
+in being able to write
+
+18
+00:01:01,596 --> 00:01:04,156 A:middle
+and develop the Swift code that
+you have come to know and love.
+
+19
+00:01:05,676 --> 00:01:07,926 A:middle
+But more importantly it
+wasn't our last step.
+
+20
+00:01:08,316 --> 00:01:10,156 A:middle
+We continued to improve
+that debugger
+
+21
+00:01:10,156 --> 00:01:12,556 A:middle
+and we hope your continued
+feedback will help us make it
+
+22
+00:01:12,556 --> 00:01:13,466 A:middle
+even better still.
+
+23
+00:01:13,626 --> 00:01:16,626 A:middle
+At the same time we
+shipped the Swift REPL;
+
+24
+00:01:17,156 --> 00:01:17,966 A:middle
+it's a little bit different
+
+25
+00:01:17,966 --> 00:01:21,266 A:middle
+than your standard request
+response REPL environment,
+
+26
+00:01:21,556 --> 00:01:24,496 A:middle
+in that it is really
+LLDB in disguise.
+
+27
+00:01:25,226 --> 00:01:28,856 A:middle
+The REPL is not just a way that
+you can ask questions in Swift.
+
+28
+00:01:28,856 --> 00:01:31,376 A:middle
+It is a way that you can
+debug those questions,
+
+29
+00:01:31,376 --> 00:01:33,106 A:middle
+you can actually set
+breakpoints in the REPL
+
+30
+00:01:33,336 --> 00:01:34,396 A:middle
+and do everything you'd expect
+
+31
+00:01:34,476 --> 00:01:37,276 A:middle
+from a debugging environment
+because it is LLDB.
+
+32
+00:01:37,276 --> 00:01:39,186 A:middle
+If you haven't dug
+deep into that,
+
+33
+00:01:39,346 --> 00:01:41,916 A:middle
+I'd recommend you take a look at
+the blog posts on the subject.
+
+34
+00:01:42,876 --> 00:01:44,606 A:middle
+But, of course, that's
+not the end.
+
+35
+00:01:44,606 --> 00:01:47,176 A:middle
+There are numerous improvements
+that we have made since then.
+
+36
+00:01:47,176 --> 00:01:50,286 A:middle
+Since we first shipped, we've
+made over 100 improvements
+
+37
+00:01:50,286 --> 00:01:52,576 A:middle
+in the Swift debugging
+experience, and we continue
+
+38
+00:01:52,576 --> 00:01:54,226 A:middle
+to enhance the debugging
+experience
+
+39
+00:01:54,226 --> 00:01:55,706 A:middle
+for Objective-C as well.
+
+40
+00:01:56,106 --> 00:01:57,396 A:middle
+We're going to cover
+some of them here,
+
+41
+00:01:57,826 --> 00:01:59,976 A:middle
+but just to recap some of the
+changes that have been made
+
+42
+00:01:59,976 --> 00:02:04,766 A:middle
+since last year, Swift types
+initially did not show inherited
+
+43
+
+44
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+45
+00:01:59,976 --> 00:02:04,766 A:middle
+since last year, Swift types
+initially did not show inherited
+
+46
+00:02:04,766 --> 00:02:05,876 A:middle
+Objective-C fields.
+
+47
+00:02:06,146 --> 00:02:07,096 A:middle
+We've since corrected that.
+
+48
+00:02:07,986 --> 00:02:10,416 A:middle
+Help now includes
+command aliases.
+
+49
+00:02:10,416 --> 00:02:12,386 A:middle
+And it is important
+to understand these,
+
+50
+00:02:12,386 --> 00:02:15,706 A:middle
+because while LLDB has what
+may look like a wordy syntax,
+
+51
+00:02:16,576 --> 00:02:17,956 A:middle
+we might ask you to type 'help,
+
+52
+00:02:18,416 --> 00:02:20,246 A:middle
+in practice there are
+a number of short cuts.
+
+53
+00:02:20,246 --> 00:02:22,866 A:middle
+And throughout this presentation
+we'll use the following notation
+
+54
+00:02:22,866 --> 00:02:23,616 A:middle
+to describe them.
+
+55
+00:02:24,296 --> 00:02:28,366 A:middle
+Help can actually be abbreviated
+to the first unique sequence.
+
+56
+00:02:28,716 --> 00:02:31,076 A:middle
+So in this case H is
+enough to bring up help.
+
+57
+00:02:31,846 --> 00:02:34,536 A:middle
+More importantly, for
+more elaborate examples
+
+58
+00:02:34,536 --> 00:02:39,136 A:middle
+like expression-O-- , which
+means 'evaluate an expression,
+
+59
+00:02:39,706 --> 00:02:41,946 A:middle
+tell me the results as
+if it were an object
+
+60
+00:02:42,046 --> 00:02:44,216 A:middle
+by sending it a method
+to describe itself,
+
+61
+00:02:44,736 --> 00:02:48,086 A:middle
+and then no more options
+followed by the expression,
+
+62
+00:02:48,546 --> 00:02:49,826 A:middle
+but you can just type PO.
+
+63
+00:02:49,926 --> 00:02:52,746 A:middle
+PO is a handy alias
+that is shorthand
+
+64
+00:02:52,806 --> 00:02:53,946 A:middle
+for everything to the left.
+
+65
+00:02:54,776 --> 00:02:57,226 A:middle
+So, as you get used to
+the help, you should learn
+
+66
+00:02:57,226 --> 00:02:59,966 A:middle
+to use the aliases, because they
+are going to be your fastest way
+
+67
+
+68
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+69
+00:03:00,076 --> 00:03:04,036 A:middle
+to get to some of the
+powerful functionality in LLDB.
+
+70
+00:03:04,196 --> 00:03:06,726 A:middle
+We've also improved data
+formatting, because telling you
+
+71
+00:03:06,726 --> 00:03:08,486 A:middle
+about your data is
+absolutely critical
+
+72
+00:03:08,626 --> 00:03:10,236 A:middle
+to your debugging experience.
+
+73
+00:03:10,716 --> 00:03:15,696 A:middle
+So types like set and NS Index
+Path now have default formatting
+
+74
+00:03:15,696 --> 00:03:17,726 A:middle
+to help you understand
+your data instead
+
+75
+00:03:17,726 --> 00:03:19,146 A:middle
+of just showing you the raw dump
+
+76
+00:03:19,196 --> 00:03:20,726 A:middle
+of the underlying
+representation.
+
+77
+00:03:21,586 --> 00:03:23,546 A:middle
+Printf prototype
+for expressions,
+
+78
+00:03:24,176 --> 00:03:27,216 A:middle
+if you've ever tried to evaluate
+an expression involving printf,
+
+79
+00:03:27,216 --> 00:03:30,046 A:middle
+you may have seen some
+slightly suspect results.
+
+80
+00:03:30,546 --> 00:03:32,416 A:middle
+That's because the
+debugger tries to make a lot
+
+81
+00:03:32,416 --> 00:03:35,586 A:middle
+of assumptions about your
+expression for any declaration
+
+82
+00:03:35,586 --> 00:03:36,446 A:middle
+that it doesn't know,
+
+83
+00:03:36,516 --> 00:03:39,176 A:middle
+and it didn't know
+printf, in most cases.
+
+84
+00:03:39,786 --> 00:03:42,476 A:middle
+So it didn't know that it was
+a variatic function, that is,
+
+85
+00:03:42,476 --> 00:03:44,426 A:middle
+one that can take a
+variable number of arguments,
+
+86
+00:03:44,836 --> 00:03:47,876 A:middle
+and didn't know especially
+on 64-bit devices how
+
+87
+00:03:47,876 --> 00:03:49,416 A:middle
+to pass those arguments
+correctly.
+
+88
+00:03:49,886 --> 00:03:51,476 A:middle
+That has been corrected
+so that all
+
+89
+00:03:51,476 --> 00:03:54,086 A:middle
+of your expressions
+involving printf for C
+
+90
+00:03:54,086 --> 00:03:56,886 A:middle
+and Objective-C should just
+work right out of the box.
+
+91
+00:03:57,536 --> 00:03:59,586 A:middle
+And then lastly, and
+truly lastly, this time,
+
+92
+00:03:59,876 --> 00:04:01,506 A:middle
+we have improved the
+disassembly format
+
+93
+
+94
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+95
+00:03:59,876 --> 00:04:01,506 A:middle
+we have improved the
+disassembly format
+
+96
+00:04:01,506 --> 00:04:05,066 A:middle
+to make it easier
+than ever to read.
+
+97
+00:04:05,426 --> 00:04:07,846 A:middle
+Digging into some of the more
+interesting enhancements,
+
+98
+00:04:08,716 --> 00:04:10,926 A:middle
+breakpoint enhancements
+were made this spring
+
+99
+00:04:10,926 --> 00:04:12,466 A:middle
+that you may not be aware of.
+
+100
+00:04:12,826 --> 00:04:15,076 A:middle
+Specifically you can
+now name breakpoints.
+
+101
+00:04:15,076 --> 00:04:18,505 A:middle
+And it may not seem obvious
+why a named breakpoint would be
+
+102
+00:04:18,505 --> 00:04:21,236 A:middle
+easier to use than any other
+breakpoint, until you realize
+
+103
+00:04:21,286 --> 00:04:23,156 A:middle
+that those names don't
+have to be unique
+
+104
+00:04:23,156 --> 00:04:25,736 A:middle
+and that you can apply multiple
+names to a single breakpoint.
+
+105
+00:04:26,006 --> 00:04:29,396 A:middle
+You can think of
+them a lot like tags.
+
+106
+00:04:29,566 --> 00:04:32,426 A:middle
+And all breakpoint
+commands take those names.
+
+107
+00:04:32,586 --> 00:04:35,786 A:middle
+So I can set a breakpoint
+by providing breakpoint set
+
+108
+00:04:35,936 --> 00:04:40,526 A:middle
+and dash N, capital N followed
+by a name, optionally followed
+
+109
+00:04:40,526 --> 00:04:43,286 A:middle
+by another dash capital N and
+additional name, and so forth.
+
+110
+00:04:44,156 --> 00:04:46,616 A:middle
+But more importantly, once
+I've given a breakpoint
+
+111
+00:04:46,796 --> 00:04:50,216 A:middle
+or multiple breakpoints a name,
+I can then operate on them
+
+112
+00:04:50,466 --> 00:04:51,606 A:middle
+with all the other commands.
+
+113
+00:04:51,606 --> 00:04:54,966 A:middle
+Breakpoint enable name
+will enable all breakpoints
+
+114
+00:04:55,266 --> 00:04:59,846 A:middle
+that share that name or,
+again, think of it as that tag.
+
+115
+
+116
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+117
+00:05:00,046 --> 00:05:02,466 A:middle
+That is made even more
+interesting by the fact
+
+118
+00:05:02,466 --> 00:05:05,496 A:middle
+that we now allow you to
+set breakpoints in LLDBinit.
+
+119
+00:05:06,276 --> 00:05:07,996 A:middle
+If you're not familiar
+with LLDBinit,
+
+120
+00:05:08,206 --> 00:05:12,416 A:middle
+this is a filename starting with
+a prefix with a period that goes
+
+121
+00:05:12,416 --> 00:05:15,666 A:middle
+in your home directory that
+tells LLDB, here are a bunch
+
+122
+00:05:15,666 --> 00:05:19,366 A:middle
+of commands to execute every
+time I start an LLDB session.
+
+123
+00:05:20,256 --> 00:05:22,156 A:middle
+So if you use these,
+you can create a set
+
+124
+00:05:22,156 --> 00:05:24,846 A:middle
+of default breakpoints
+when LLDB starts,
+
+125
+00:05:25,166 --> 00:05:28,226 A:middle
+and all breakpoints you set
+before you actually create a
+
+126
+00:05:28,226 --> 00:05:31,536 A:middle
+target are inherited by
+every target you create.
+
+127
+00:05:32,646 --> 00:05:36,256 A:middle
+So combine these two, and I
+can write an LLDBinit along
+
+128
+00:05:36,256 --> 00:05:36,846 A:middle
+these lines.
+
+129
+00:05:37,236 --> 00:05:39,306 A:middle
+A set of breakpoints, -n
+everything named malloc,
+
+130
+00:05:39,696 --> 00:05:41,426 A:middle
+a breakpoint -n everything
+named free,
+
+131
+00:05:41,656 --> 00:05:45,176 A:middle
+name all of those breakpoints
+memory, and then disable them.
+
+132
+00:05:45,366 --> 00:05:47,966 A:middle
+And what this gives me
+is a handy way to get all
+
+133
+00:05:47,966 --> 00:05:49,966 A:middle
+of my memory handling
+breakpoints just
+
+134
+00:05:49,966 --> 00:05:53,876 A:middle
+by typing 'breakpoint enable
+memory' in any session
+
+135
+00:05:53,876 --> 00:05:54,896 A:middle
+that I use thereafter.
+
+136
+00:05:55,406 --> 00:05:58,236 A:middle
+So, you'll have your own set,
+I'm sure, of handy breakpoints
+
+137
+00:05:58,276 --> 00:05:59,706 A:middle
+that you always want
+to have access to
+
+138
+00:05:59,896 --> 00:06:02,126 A:middle
+and now you can give them
+easy to remember names.
+
+139
+
+140
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+141
+00:05:59,896 --> 00:06:02,126 A:middle
+and now you can give them
+easy to remember names.
+
+142
+00:06:02,746 --> 00:06:07,586 A:middle
+But, of course, you are here
+not just to learn about things
+
+143
+00:06:07,586 --> 00:06:09,086 A:middle
+that we have done
+and already shipped,
+
+144
+00:06:09,356 --> 00:06:11,706 A:middle
+but the things we are
+just starting to preview.
+
+145
+00:06:11,786 --> 00:06:14,636 A:middle
+Xcode 7, really important
+release,
+
+146
+00:06:14,986 --> 00:06:16,406 A:middle
+a lot of improvements here.
+
+147
+00:06:16,636 --> 00:06:18,376 A:middle
+An expression evaluation,
+notably.
+
+148
+00:06:18,606 --> 00:06:21,066 A:middle
+And Sean is going to talk to you
+a lot more in depth about this.
+
+149
+00:06:21,696 --> 00:06:24,406 A:middle
+Swift 2 support, because, of
+course, the language continues
+
+150
+00:06:24,406 --> 00:06:27,546 A:middle
+to evolve, as well as
+Objective-C support in terms
+
+151
+00:06:27,546 --> 00:06:29,376 A:middle
+of advanced handling
+for modules.
+
+152
+00:06:30,646 --> 00:06:32,146 A:middle
+Some of this we'll
+cover in depth,
+
+153
+00:06:32,546 --> 00:06:34,806 A:middle
+but some of it is really
+just behind the scenes.
+
+154
+00:06:34,806 --> 00:06:36,796 A:middle
+If you go digging, you
+may notice, for example,
+
+155
+00:06:36,796 --> 00:06:39,976 A:middle
+that in Xcode 7, because
+we know about modules,
+
+156
+00:06:40,736 --> 00:06:44,086 A:middle
+we can actually build debug
+information for the module once
+
+157
+00:06:44,366 --> 00:06:46,516 A:middle
+and then not replicate
+it everywhere else.
+
+158
+00:06:46,856 --> 00:06:50,176 A:middle
+This allows us to
+drastically decrease the size
+
+159
+00:06:50,746 --> 00:06:54,096 A:middle
+of debug information and improve
+the performance of compilation.
+
+160
+00:06:54,666 --> 00:06:56,656 A:middle
+Once you get into
+actual .dSYM file,
+
+161
+00:06:56,656 --> 00:06:59,596 A:middle
+that .dSYM file will then
+contain absolutely everything
+
+162
+00:06:59,596 --> 00:07:00,056 A:middle
+you need.
+
+163
+
+164
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+165
+00:06:59,596 --> 00:07:00,056 A:middle
+you need.
+
+166
+00:07:00,536 --> 00:07:03,026 A:middle
+But it also contains some
+handy other optimizations,
+
+167
+00:07:03,026 --> 00:07:06,006 A:middle
+like not duplicating
+information for C++ types,
+
+168
+00:07:06,376 --> 00:07:07,886 A:middle
+thanks to the one
+definition rule,
+
+169
+00:07:08,126 --> 00:07:10,266 A:middle
+whereas before we may
+have had multiple copies.
+
+170
+00:07:10,786 --> 00:07:13,576 A:middle
+In fact, we have seen
+debug information winding
+
+171
+00:07:13,576 --> 00:07:18,076 A:middle
+up a sixth the size
+that it was in Xcode 6,
+
+172
+00:07:18,236 --> 00:07:19,906 A:middle
+especially for C++ projects.
+
+173
+00:07:20,466 --> 00:07:23,456 A:middle
+We have also improved the data
+formatting in a variety of ways.
+
+174
+00:07:23,706 --> 00:07:26,996 A:middle
+Vector types now get unique
+automatic data formatting both
+
+175
+00:07:26,996 --> 00:07:28,476 A:middle
+for Objective-C and Swift.
+
+176
+00:07:29,036 --> 00:07:31,946 A:middle
+And, perhaps most importantly,
+if you have custom types
+
+177
+00:07:32,086 --> 00:07:35,396 A:middle
+in Swift, you can now customize
+the way they are presented just
+
+178
+00:07:35,506 --> 00:07:36,576 A:middle
+by writing Swift code.
+
+179
+00:07:36,576 --> 00:07:39,936 A:middle
+And Enrico will talk
+about this in depth.
+
+180
+00:07:40,276 --> 00:07:42,796 A:middle
+We have integrated support for
+address sanitizer into LLDB.
+
+181
+00:07:42,796 --> 00:07:45,986 A:middle
+So not only will address
+sanitizer tell you
+
+182
+00:07:45,986 --> 00:07:47,506 A:middle
+when you reference
+memory that is invalid,
+
+183
+00:07:47,796 --> 00:07:49,466 A:middle
+but you can ask questions
+about memory.
+
+184
+00:07:49,846 --> 00:07:52,906 A:middle
+You can ask, for example, for
+the history of memory to see
+
+185
+00:07:52,906 --> 00:07:55,556 A:middle
+where it was allocated or
+when it was deallocated,
+
+186
+00:07:55,756 --> 00:07:59,006 A:middle
+right from the LLDB
+console, so the memory family
+
+187
+00:07:59,006 --> 00:08:01,286 A:middle
+of commands are ones you
+might want to dig into
+
+188
+
+189
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+190
+00:07:59,006 --> 00:08:01,286 A:middle
+of commands are ones you
+might want to dig into
+
+191
+00:08:01,346 --> 00:08:03,706 A:middle
+and look at the help for.
+
+192
+00:08:03,916 --> 00:08:06,606 A:middle
+We've also added
+type lookup commands.
+
+193
+00:08:06,886 --> 00:08:09,496 A:middle
+The type lookup command will
+allow you to get information
+
+194
+00:08:09,496 --> 00:08:10,906 A:middle
+about any type in the system.
+
+195
+00:08:11,436 --> 00:08:13,786 A:middle
+Basically it's a
+header-like representation
+
+196
+00:08:13,786 --> 00:08:16,296 A:middle
+that you can get right there
+in the debugger to remind you
+
+197
+00:08:16,376 --> 00:08:17,746 A:middle
+about the contents of the type.
+
+198
+00:08:19,146 --> 00:08:20,606 A:middle
+So, from the LLDB prompt,
+
+199
+00:08:21,116 --> 00:08:24,596 A:middle
+all I need to do is type 'type
+lookup' followed by a type name
+
+200
+00:08:24,836 --> 00:08:26,806 A:middle
+and I'll get a quick
+description of that type.
+
+201
+00:08:26,966 --> 00:08:28,866 A:middle
+In this case the new
+error type that's used
+
+202
+00:08:28,866 --> 00:08:31,026 A:middle
+by Swift's error
+handling mechanism.
+
+203
+00:08:31,346 --> 00:08:33,586 A:middle
+I see that behind the
+scenes we have a pair
+
+204
+00:08:33,586 --> 00:08:36,606 A:middle
+of properties normally
+implemented for you so long
+
+205
+00:08:36,606 --> 00:08:37,785 A:middle
+as you're using a EDAM type,
+
+206
+00:08:38,216 --> 00:08:40,726 A:middle
+but nonetheless you can see the
+details right from the console.
+
+207
+00:08:41,206 --> 00:08:43,145 A:middle
+Similarly if I'm
+interested in a type
+
+208
+00:08:43,145 --> 00:08:44,876 A:middle
+like 'Comparable,' a protocol.
+
+209
+00:08:45,216 --> 00:08:47,136 A:middle
+It will tell me that this
+protocol actually derives
+
+210
+00:08:47,136 --> 00:08:49,936 A:middle
+from two others, so that you
+will see that Equatable is
+
+211
+00:08:49,936 --> 00:08:51,626 A:middle
+where we get the
+equality operator.
+
+212
+00:08:52,066 --> 00:08:54,806 A:middle
+The underscore Comparable is
+where we get the basic less-than
+
+213
+00:08:55,116 --> 00:08:57,246 A:middle
+and then the derived
+operators are part
+
+214
+00:08:57,246 --> 00:08:58,316 A:middle
+of the Comparable protocol.
+
+215
+00:08:58,776 --> 00:09:01,206 A:middle
+So there's a lot of convenient
+information you can get here.
+
+216
+
+217
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+218
+00:08:58,776 --> 00:09:01,206 A:middle
+So there's a lot of convenient
+information you can get here.
+
+219
+00:09:01,496 --> 00:09:04,516 A:middle
+And like everything else,
+remind you that you don't have
+
+220
+00:09:04,566 --> 00:09:06,576 A:middle
+to type the full
+command 'type lookup.'
+
+221
+00:09:06,836 --> 00:09:10,266 A:middle
+TY space L is sufficient
+to use this command.
+
+222
+00:09:10,846 --> 00:09:13,986 A:middle
+But to dive into more depth,
+especially to talk to us
+
+223
+00:09:13,986 --> 00:09:15,696 A:middle
+about how we evaluate
+expressions,
+
+224
+00:09:15,996 --> 00:09:17,956 A:middle
+I would like to invite up
+Sean Callanan [applause].
+
+225
+00:09:19,456 --> 00:09:19,876 A:middle
+>> SEAN CALLANAN: Hello.
+
+226
+00:09:21,606 --> 00:09:24,276 A:middle
+I want to tell you
+about compilers in LLDB.
+
+227
+00:09:24,276 --> 00:09:26,346 A:middle
+Now you may be saying
+
+228
+00:09:26,346 --> 00:09:28,916 A:middle
+to yourself there are
+lots of compiler sessions.
+
+229
+00:09:29,296 --> 00:09:30,456 A:middle
+Why do I care about compilers?
+
+230
+00:09:31,566 --> 00:09:34,486 A:middle
+Compilers are a critical
+part of LLDB.
+
+231
+00:09:35,276 --> 00:09:37,646 A:middle
+They are what makes
+LLDB powerful,
+
+232
+00:09:37,646 --> 00:09:40,646 A:middle
+and they are what
+makes LLDB easy to use.
+
+233
+00:09:41,196 --> 00:09:44,866 A:middle
+It is really powerful because
+compilers have a unique
+
+234
+00:09:44,866 --> 00:09:49,076 A:middle
+understanding of the way your
+program works, the way it lays
+
+235
+00:09:49,076 --> 00:09:53,976 A:middle
+out its data, and what you mean
+when you say I want to look
+
+236
+00:09:53,976 --> 00:09:56,876 A:middle
+at this variable or
+call this function.
+
+237
+00:09:56,956 --> 00:10:00,246 A:middle
+Another reason the
+compilers are so important is
+
+238
+
+239
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+240
+00:09:56,956 --> 00:10:00,246 A:middle
+Another reason the
+compilers are so important is
+
+241
+00:10:00,246 --> 00:10:02,946 A:middle
+because they make it easy
+to work with the debugger.
+
+242
+00:10:03,896 --> 00:10:08,156 A:middle
+If you want to print something
+you just use the code you are
+
+243
+00:10:08,156 --> 00:10:11,476 A:middle
+used to typing, pass it
+to the expression command,
+
+244
+00:10:11,476 --> 00:10:14,916 A:middle
+and the compiler
+takes over from there.
+
+245
+00:10:16,176 --> 00:10:19,436 A:middle
+So today I want to tell you
+
+246
+00:10:19,436 --> 00:10:21,326 A:middle
+about the improvements
+we've made
+
+247
+00:10:21,816 --> 00:10:25,206 A:middle
+in two important areas related
+to our compiler integration.
+
+248
+00:10:26,776 --> 00:10:29,296 A:middle
+First of all, I've
+got some great news
+
+249
+00:10:29,296 --> 00:10:31,276 A:middle
+for you long-time
+Objective-C developers.
+
+250
+00:10:32,486 --> 00:10:35,996 A:middle
+And then I'm going to tell
+all you Swift developers,
+
+251
+00:10:35,996 --> 00:10:38,206 A:middle
+whom I hope is all
+of you at this point,
+
+252
+00:10:39,446 --> 00:10:41,946 A:middle
+about the improvements
+we've made there, too.
+
+253
+00:10:42,516 --> 00:10:47,246 A:middle
+Let's get started
+on Objective-C.
+
+254
+00:10:47,506 --> 00:10:52,376 A:middle
+Now, LLDB contains two
+separate compilers.
+
+255
+00:10:53,916 --> 00:10:58,646 A:middle
+Clang, a powerful Objective-C
+compiler and, of course,
+
+256
+00:10:58,796 --> 00:11:02,606 A:middle
+since last year,
+the Swift compiler.
+
+257
+
+258
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+259
+00:10:58,796 --> 00:11:02,606 A:middle
+since last year,
+the Swift compiler.
+
+260
+00:11:02,606 --> 00:11:06,196 A:middle
+Our Objective-C compiler
+support has been improving
+
+261
+00:11:06,196 --> 00:11:09,446 A:middle
+over the years and we have
+been adding great new features.
+
+262
+00:11:10,686 --> 00:11:13,996 A:middle
+For example, the Objective-C
+runtime integration.
+
+263
+00:11:14,826 --> 00:11:18,006 A:middle
+So if there's some information
+in the Objective-C runtime
+
+264
+00:11:18,296 --> 00:11:21,946 A:middle
+that isn't present in your debug
+information, we know to feed
+
+265
+00:11:21,946 --> 00:11:25,166 A:middle
+that to the compiler so that
+you can use lots of classes
+
+266
+00:11:25,606 --> 00:11:27,136 A:middle
+without having to
+do anything special.
+
+267
+00:11:27,656 --> 00:11:29,596 A:middle
+Last year, of course,
+
+268
+00:11:29,936 --> 00:11:32,966 A:middle
+we introduced the Swift
+compiler into LLDB.
+
+269
+00:11:32,966 --> 00:11:39,026 A:middle
+And the Swift compiler already
+is a very powerful tool.
+
+270
+00:11:39,496 --> 00:11:41,996 A:middle
+And we've used a lot of
+lessons that we learned
+
+271
+00:11:41,996 --> 00:11:43,546 A:middle
+from integrating
+the Swift compiler,
+
+272
+00:11:43,546 --> 00:11:46,106 A:middle
+and we are improving
+them both together.
+
+273
+00:11:47,636 --> 00:11:50,576 A:middle
+Let's talk about how the
+expression parser works
+
+274
+00:11:51,596 --> 00:11:54,696 A:middle
+with Swift, with a
+view of Objective-C.
+
+275
+00:11:54,696 --> 00:11:59,966 A:middle
+Let's look at a simple
+print command.
+
+276
+
+277
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+278
+00:12:00,686 --> 00:12:03,556 A:middle
+Now I say print here because
+I'm using the p shortcut.
+
+279
+00:12:04,476 --> 00:12:07,116 A:middle
+What that actually
+means is expression.
+
+280
+00:12:08,186 --> 00:12:09,466 A:middle
+Notice the dash dash.
+
+281
+00:12:10,336 --> 00:12:14,156 A:middle
+That means everything after
+the p command has to be code.
+
+282
+00:12:14,476 --> 00:12:17,746 A:middle
+You can't pass extra options
+to the command this way.
+
+283
+00:12:18,356 --> 00:12:20,186 A:middle
+There are other ways,
+as Enrico will tell you,
+
+284
+00:12:20,296 --> 00:12:21,496 A:middle
+and as Kate showed you before.
+
+285
+00:12:22,686 --> 00:12:25,866 A:middle
+Now here is some simple code
+that runs through a loop
+
+286
+00:12:25,866 --> 00:12:27,366 A:middle
+and prints the loop
+counter each time.
+
+287
+00:12:28,046 --> 00:12:30,876 A:middle
+And, indeed, if you run
+it you get the numbers
+
+288
+00:12:30,876 --> 00:12:31,796 A:middle
+out that you would expect.
+
+289
+00:12:33,296 --> 00:12:34,066 A:middle
+Why is this cool?
+
+290
+00:12:35,006 --> 00:12:39,736 A:middle
+Well, LLDB and your program
+are separate processes.
+
+291
+00:12:40,766 --> 00:12:43,116 A:middle
+LLDB has a swift
+compiler inside it.
+
+292
+00:12:44,316 --> 00:12:48,276 A:middle
+Your program is already
+running, but with LLDB's help,
+
+293
+00:12:48,866 --> 00:12:52,356 A:middle
+the Swift compiler can inject
+the code that you just typed
+
+294
+00:12:52,596 --> 00:12:53,906 A:middle
+into your program to run.
+
+295
+00:12:54,506 --> 00:12:58,726 A:middle
+That's kind of cool if you
+like printing loop counters.
+
+296
+00:12:59,436 --> 00:13:03,426 A:middle
+But there's a little
+bit more to debugging.
+
+297
+
+298
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+299
+00:12:59,436 --> 00:13:03,426 A:middle
+But there's a little
+bit more to debugging.
+
+300
+00:13:03,516 --> 00:13:05,886 A:middle
+Swift also works
+with your variables.
+
+301
+00:13:06,536 --> 00:13:08,836 A:middle
+You type in some code.
+
+302
+00:13:09,486 --> 00:13:13,176 A:middle
+And the contents of
+an array are printed.
+
+303
+00:13:14,626 --> 00:13:17,526 A:middle
+Now, this array here
+is just a piece of data
+
+304
+00:13:17,526 --> 00:13:18,426 A:middle
+that is in your program.
+
+305
+00:13:19,436 --> 00:13:23,236 A:middle
+And LLDB arranges to show
+that data to the compiler
+
+306
+00:13:23,626 --> 00:13:26,426 A:middle
+so that it can generate
+the code that you expect.
+
+307
+00:13:27,176 --> 00:13:31,306 A:middle
+There is another thing I want
+to talk about really quickly.
+
+308
+00:13:31,746 --> 00:13:33,836 A:middle
+And that is how Swift
+works with the SDK.
+
+309
+00:13:35,426 --> 00:13:39,286 A:middle
+When you type an expression like
+NSApplication.sharedApplication,
+
+310
+00:13:40,606 --> 00:13:42,796 A:middle
+what happens is, first
+
+311
+00:13:42,796 --> 00:13:46,166 A:middle
+of all you see the
+NSApplication.sharedApplication,
+
+312
+00:13:46,166 --> 00:13:46,926 A:middle
+the way you would expect.
+
+313
+00:13:48,396 --> 00:13:53,146 A:middle
+But what LLDB is doing is going
+out and finding the SDK module
+
+314
+00:13:53,146 --> 00:13:56,916 A:middle
+that contains that, giving
+the compiler access to it,
+
+315
+00:13:57,566 --> 00:14:00,646 A:middle
+then the compiler finds
+NSApplication and figures
+
+316
+
+317
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+318
+00:13:57,566 --> 00:14:00,646 A:middle
+then the compiler finds
+NSApplication and figures
+
+319
+00:14:00,646 --> 00:14:02,556 A:middle
+out how to use
+sharedApplication.
+
+320
+00:14:03,896 --> 00:14:07,516 A:middle
+That's all great and it
+is automatic in Swift.
+
+321
+00:14:08,686 --> 00:14:12,306 A:middle
+In Objective-C it
+doesn't always work.
+
+322
+00:14:13,516 --> 00:14:18,086 A:middle
+So let's try all these things
+in Objective-C and some
+
+323
+00:14:18,086 --> 00:14:20,926 A:middle
+of you may be getting a little
+bit apprehensive at this moment,
+
+324
+00:14:21,596 --> 00:14:25,476 A:middle
+because you know that trying to
+NSLog something isn't as easy
+
+325
+00:14:25,476 --> 00:14:26,916 A:middle
+as it sounds in the debugger.
+
+326
+00:14:26,916 --> 00:14:32,356 A:middle
+Well, in the past when
+you've typed in NSLog,
+
+327
+00:14:32,766 --> 00:14:36,826 A:middle
+you've seen errors like this:
+NS log has unknown return type.
+
+328
+00:14:37,716 --> 00:14:40,006 A:middle
+That's because in
+the SDK, sure enough,
+
+329
+00:14:40,006 --> 00:14:41,706 A:middle
+there's a definition of NSLog.
+
+330
+00:14:42,116 --> 00:14:44,296 A:middle
+But what LLDB sees
+is only what's
+
+331
+00:14:44,296 --> 00:14:46,016 A:middle
+in the debug information
+in the symbols.
+
+332
+00:14:46,426 --> 00:14:48,056 A:middle
+In this case, all
+it sees is a symbol.
+
+333
+00:14:48,836 --> 00:14:51,236 A:middle
+That symbol, we don't know
+what its return type is
+
+334
+00:14:51,376 --> 00:14:53,616 A:middle
+and we don't even know that
+it takes a format string.
+
+335
+00:14:54,536 --> 00:14:57,006 A:middle
+Well, the good news is,
+we fixed that [applause].
+
+336
+00:14:58,126 --> 00:14:59,686 A:middle
+>> SEAN CALLANAN: NSLog works
+the way you would expect.
+
+337
+
+338
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+339
+00:15:05,846 --> 00:15:09,766 A:middle
+Now, let's try something a
+little bit more underhanded.
+
+340
+00:15:11,316 --> 00:15:12,836 A:middle
+Print NSMakeRect.
+
+341
+00:15:13,566 --> 00:15:14,206 A:middle
+Wait a second!
+
+342
+00:15:14,276 --> 00:15:15,516 A:middle
+Why is this underhanded?
+
+343
+00:15:15,716 --> 00:15:19,476 A:middle
+It's right there
+in the frameworks.
+
+344
+00:15:19,476 --> 00:15:22,856 A:middle
+Unfortunately it looks like this
+identifier doesn't even exist.
+
+345
+00:15:23,766 --> 00:15:26,706 A:middle
+Now, you may know
+that if you use NSLog
+
+346
+00:15:26,706 --> 00:15:29,166 A:middle
+and you cast the result,
+yeah, you can use that.
+
+347
+00:15:30,096 --> 00:15:32,086 A:middle
+But with NSMakeRect
+you can't even do that.
+
+348
+00:15:33,546 --> 00:15:37,336 A:middle
+That's because NSMakeRect
+is defined NS-Inline.
+
+349
+00:15:37,896 --> 00:15:39,236 A:middle
+There is no symbol for it.
+
+350
+00:15:39,796 --> 00:15:42,166 A:middle
+What LLDB sees is nothing.
+
+351
+00:15:44,106 --> 00:15:44,566 A:middle
+Good news.
+
+352
+00:15:45,346 --> 00:15:47,816 A:middle
+No problem anymore.
+
+353
+00:15:48,516 --> 00:15:53,566 A:middle
+[ Applause ]
+
+354
+00:15:54,066 --> 00:15:55,566 A:middle
+>> SEAN CALLANAN: Just
+one more pain point left.
+
+355
+00:15:56,796 --> 00:16:00,266 A:middle
+Now let's look at
+the old NSApplication
+
+356
+
+357
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+358
+00:15:56,796 --> 00:16:00,266 A:middle
+Now let's look at
+the old NSApplication
+
+359
+00:16:00,266 --> 00:16:01,526 A:middle
+sharedApplication case.
+
+360
+00:16:01,846 --> 00:16:04,486 A:middle
+Sure, if you ran that
+expression by yourself, yes,
+
+361
+00:16:04,486 --> 00:16:05,656 A:middle
+it would work in Objective-C.
+
+362
+00:16:05,656 --> 00:16:06,826 A:middle
+I mean, we have been working
+
+363
+00:16:06,826 --> 00:16:08,536 A:middle
+on the Objective-C
+runtime integration.
+
+364
+00:16:09,446 --> 00:16:12,216 A:middle
+But if you try to get out the
+undo.Manager you quickly see
+
+365
+00:16:12,446 --> 00:16:14,496 A:middle
+that the runtime doesn't
+tell you everything.
+
+366
+00:16:15,226 --> 00:16:17,316 A:middle
+In particular you
+get this weird error
+
+367
+00:16:17,576 --> 00:16:21,546 A:middle
+about undo.Manager not being
+found on an object of type id.
+
+368
+00:16:22,536 --> 00:16:23,686 A:middle
+What is going on there?
+
+369
+00:16:24,146 --> 00:16:25,636 A:middle
+In the SDK, sure enough,
+
+370
+00:16:25,636 --> 00:16:28,316 A:middle
+sharedApplication returns
+an NSApplication star.
+
+371
+00:16:28,786 --> 00:16:32,836 A:middle
+But if you look at the
+runtime, what it returns is id,
+
+372
+00:16:33,076 --> 00:16:36,426 A:middle
+a generic Objective-C object.
+
+373
+00:16:36,956 --> 00:16:39,906 A:middle
+Great news.
+
+374
+00:16:40,186 --> 00:16:41,426 A:middle
+That is no longer a problem.
+
+375
+00:16:41,926 --> 00:16:45,086 A:middle
+In fact we see information
+that we can only find
+
+376
+00:16:45,086 --> 00:16:48,956 A:middle
+out from the SDK such as that
+that pointer is nullable.
+
+377
+00:16:49,076 --> 00:16:51,716 A:middle
+This is some of the great
+new SDK support for Swift
+
+378
+00:16:52,066 --> 00:16:54,266 A:middle
+that just bubbles down
+into Objective-C as well.
+
+379
+00:16:55,066 --> 00:17:00,076 A:middle
+But the information
+is right there.
+
+380
+
+381
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+382
+00:16:55,066 --> 00:17:00,076 A:middle
+But the information
+is right there.
+
+383
+00:17:00,466 --> 00:17:02,676 A:middle
+And that's the philosophy
+that we've applied here.
+
+384
+00:17:03,526 --> 00:17:05,415 A:middle
+Read straight from the SDK.
+
+385
+00:17:06,205 --> 00:17:08,406 A:middle
+Your code has always
+worked in LLDB.
+
+386
+00:17:08,705 --> 00:17:13,215 A:middle
+We knew about local variables,
+functions, your own classes.
+
+387
+00:17:14,986 --> 00:17:16,886 A:middle
+SDK functions, on
+the other hand,
+
+388
+00:17:17,656 --> 00:17:20,106 A:middle
+we had a little bit more
+issues with, as you see.
+
+389
+00:17:20,915 --> 00:17:24,256 A:middle
+SDK classes like NSView
+and NSApplication, yeah,
+
+390
+00:17:24,256 --> 00:17:25,695 A:middle
+we saw them but, as you see,
+
+391
+00:17:25,695 --> 00:17:27,266 A:middle
+because of the runtime
+integration,
+
+392
+00:17:28,006 --> 00:17:29,626 A:middle
+there was a little bit
+of an asterisk there.
+
+393
+00:17:31,116 --> 00:17:33,966 A:middle
+Now, SDK constants, if
+you ever tried using
+
+394
+00:17:34,136 --> 00:17:36,566 A:middle
+NSASCIIStringEncoding
+in an expression,
+
+395
+00:17:36,566 --> 00:17:37,866 A:middle
+you know that never flew.
+
+396
+00:17:39,136 --> 00:17:43,256 A:middle
+And if you tried using macros
+like int-max, and, you know,
+
+397
+00:17:43,456 --> 00:17:46,006 A:middle
+max, to take the
+largest of two numbers,
+
+398
+00:17:46,616 --> 00:17:48,106 A:middle
+that wasn't going
+anywhere either.
+
+399
+00:17:49,226 --> 00:17:52,816 A:middle
+Well, all of that is
+fixed in the latest LLDB.
+
+400
+00:17:53,516 --> 00:17:59,776 A:middle
+[ Applause ]
+
+401
+
+402
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+403
+00:18:00,276 --> 00:18:00,866 A:middle
+>> SEAN CALLANAN: And we got rid
+
+404
+00:18:00,866 --> 00:18:04,776 A:middle
+of the annoying asterisk,
+too [laughter].
+
+405
+00:18:05,046 --> 00:18:06,316 A:middle
+>> SEAN CALLANAN:
+Now, you may say,
+
+406
+00:18:06,316 --> 00:18:09,936 A:middle
+how many easy monthly payments
+of 39.95 do I need to make
+
+407
+00:18:10,196 --> 00:18:11,406 A:middle
+to get this functionality?
+
+408
+00:18:11,406 --> 00:18:13,116 A:middle
+Well, good news, it is all free
+
+409
+00:18:13,116 --> 00:18:15,766 A:middle
+and the way you do
+it is @import AppKit.
+
+410
+00:18:17,116 --> 00:18:18,886 A:middle
+You just run an expression
+
+411
+00:18:19,026 --> 00:18:21,656 A:middle
+that says import the
+frameworks I care about,
+
+412
+00:18:22,526 --> 00:18:24,736 A:middle
+if you pull in AppKit,
+or for the two
+
+413
+00:18:24,736 --> 00:18:31,966 A:middle
+or three iOS programmers among
+you, import UIKit, this works.
+
+414
+00:18:32,566 --> 00:18:39,726 A:middle
+Now, we haven't been standing
+still with Swift either.
+
+415
+00:18:40,156 --> 00:18:44,476 A:middle
+Swift 2.0 has great
+error handling support
+
+416
+00:18:44,656 --> 00:18:47,956 A:middle
+and LLDB is right off
+at the bat supporting
+
+417
+00:18:47,956 --> 00:18:52,856 A:middle
+that just the way
+you would expect.
+
+418
+00:18:52,986 --> 00:18:58,596 A:middle
+We can handle Swift errors and
+you don't need to call 'try'
+
+419
+00:18:58,596 --> 00:19:00,016 A:middle
+when you are calling functions
+
+420
+
+421
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+422
+00:18:58,596 --> 00:19:00,016 A:middle
+when you are calling functions
+
+423
+00:19:00,046 --> 00:19:02,416 A:middle
+that could throw
+errors in expressions.
+
+424
+00:19:03,396 --> 00:19:07,576 A:middle
+The reason is because
+we catch stuff for you.
+
+425
+00:19:08,176 --> 00:19:12,456 A:middle
+If you type this
+function 'throws' and pass
+
+426
+00:19:12,506 --> 00:19:13,496 A:middle
+that to an expression,
+
+427
+00:19:13,496 --> 00:19:15,366 A:middle
+notice this is the
+same as the p command.
+
+428
+00:19:16,646 --> 00:19:20,996 A:middle
+You will get an error
+variable created for you
+
+429
+00:19:21,256 --> 00:19:23,646 A:middle
+that contains the error
+that that function threw.
+
+430
+00:19:24,236 --> 00:19:28,576 A:middle
+You can also do this
+in the REPL.
+
+431
+00:19:29,276 --> 00:19:34,356 A:middle
+If from the REPL prompt,
+you do the same thing,
+
+432
+00:19:34,566 --> 00:19:36,476 A:middle
+you get an error variable.
+
+433
+00:19:38,516 --> 00:19:44,226 A:middle
+Now, let's look at a little bit
+more detail of LLDB support.
+
+434
+00:19:44,466 --> 00:19:47,126 A:middle
+And that is, you
+don't always want
+
+435
+00:19:47,246 --> 00:19:49,236 A:middle
+to see what the resulting
+error was.
+
+436
+00:19:49,926 --> 00:19:52,916 A:middle
+You want to know what was the
+code that threw that error.
+
+437
+00:19:54,546 --> 00:19:55,486 A:middle
+Well, the way you've done this
+
+438
+00:19:55,486 --> 00:19:57,476 A:middle
+in Objective-C is
+you used breakpoints.
+
+439
+00:19:58,706 --> 00:20:01,976 A:middle
+Specifically you set breakpoints
+on Objective-C exceptions.
+
+440
+
+441
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+442
+00:19:58,706 --> 00:20:01,976 A:middle
+Specifically you set breakpoints
+on Objective-C exceptions.
+
+443
+00:20:03,166 --> 00:20:06,706 A:middle
+The way you did this was you
+used the breakpoint set command.
+
+444
+00:20:07,276 --> 00:20:12,676 A:middle
+You specify that you want
+to set the breakpoint
+
+445
+00:20:13,016 --> 00:20:15,776 A:middle
+for the Objective-C exception,
+
+446
+00:20:16,656 --> 00:20:18,676 A:middle
+and we set that breakpoint
+for you.
+
+447
+00:20:19,106 --> 00:20:21,886 A:middle
+Now whenever your
+Objective-C code tries
+
+448
+00:20:21,956 --> 00:20:23,806 A:middle
+to throw an exception,
+we'll stop.
+
+449
+00:20:25,196 --> 00:20:27,376 A:middle
+You can do the same
+thing with Swift errors.
+
+450
+00:20:28,196 --> 00:20:30,536 A:middle
+Just replace the
+Objective-C with Swift
+
+451
+00:20:30,536 --> 00:20:34,276 A:middle
+and we'll stop whenever
+your program wants
+
+452
+00:20:34,316 --> 00:20:36,056 A:middle
+to throw a Swift error.
+
+453
+00:20:37,476 --> 00:20:40,806 A:middle
+But there's another cool
+thing that you can do.
+
+454
+00:20:40,806 --> 00:20:45,516 A:middle
+And that is you can stop on
+specific types of errors.
+
+455
+00:20:46,646 --> 00:20:48,456 A:middle
+This is something
+we support in Swift.
+
+456
+00:20:49,146 --> 00:20:52,026 A:middle
+And the way you do it is very
+simple, it's very similar
+
+457
+00:20:52,026 --> 00:20:54,826 A:middle
+to the way you would set an
+expression breakpoint anyway.
+
+458
+00:20:56,136 --> 00:21:01,596 A:middle
+You use the dash O parameter,
+which specifies the type name
+
+459
+
+460
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+461
+00:20:56,136 --> 00:21:01,596 A:middle
+You use the dash O parameter,
+which specifies the type name
+
+462
+00:21:01,876 --> 00:21:04,606 A:middle
+of the error you want to catch.
+
+463
+00:21:04,816 --> 00:21:10,886 A:middle
+Now if you do that, you
+will stop only when the type
+
+464
+00:21:10,886 --> 00:21:15,276 A:middle
+of error you're interested
+in would be thrown.
+
+465
+00:21:15,876 --> 00:21:23,616 A:middle
+Now, finally, of course you can
+still catch errors the way you
+
+466
+00:21:23,616 --> 00:21:24,776 A:middle
+would in normal code.
+
+467
+00:21:24,776 --> 00:21:28,646 A:middle
+After all, the REPL is meant
+partially as a way to learn
+
+468
+00:21:28,706 --> 00:21:30,646 A:middle
+and explore the way
+the language works.
+
+469
+00:21:32,016 --> 00:21:35,076 A:middle
+If you import Foundation
+to get an NSError
+
+470
+00:21:36,236 --> 00:21:39,436 A:middle
+and then you write some
+code that throws an NSError,
+
+471
+00:21:40,336 --> 00:21:44,306 A:middle
+you can catch that
+NSError and print it.
+
+472
+00:21:45,096 --> 00:21:48,616 A:middle
+If you do that, the output
+will be exactly the same
+
+473
+00:21:48,746 --> 00:21:50,566 A:middle
+as if you had caught
+it in your own program.
+
+474
+00:21:50,596 --> 00:21:55,666 A:middle
+So I hope you go out of
+this remembering two things.
+
+475
+00:21:56,126 --> 00:22:01,606 A:middle
+First of all, add import your
+modules, and second of all,
+
+476
+
+477
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+478
+00:21:56,126 --> 00:22:01,606 A:middle
+First of all, add import your
+modules, and second of all,
+
+479
+00:22:02,416 --> 00:22:04,916 A:middle
+try playing around with
+error handing in LLDB.
+
+480
+00:22:04,916 --> 00:22:07,436 A:middle
+It's a great place to do it.
+
+481
+00:22:07,696 --> 00:22:10,226 A:middle
+Now, for much more
+detail, not about how
+
+482
+00:22:10,226 --> 00:22:12,256 A:middle
+to tell your program what to do,
+
+483
+00:22:12,696 --> 00:22:16,006 A:middle
+but how to print the information
+your program produces
+
+484
+00:22:16,006 --> 00:22:18,766 A:middle
+after it's done it,
+I would like to call
+
+485
+00:22:18,766 --> 00:22:19,686 A:middle
+up Enrico Granata [applause].
+
+486
+00:22:23,046 --> 00:22:23,176 A:middle
+>> ENRICO GRANATA: Hi!
+
+487
+00:22:23,846 --> 00:22:26,036 A:middle
+I was in the Labs this morning.
+
+488
+00:22:26,316 --> 00:22:30,266 A:middle
+And we were trying to look
+through a problem and one thing
+
+489
+00:22:30,266 --> 00:22:33,366 A:middle
+that came up is, why can
+I not see this variable?
+
+490
+00:22:33,796 --> 00:22:35,566 A:middle
+What's up with that?
+
+491
+00:22:35,566 --> 00:22:37,956 A:middle
+And in order to help
+us figure that out,
+
+492
+00:22:38,516 --> 00:22:39,856 A:middle
+we tried several commands.
+
+493
+00:22:39,856 --> 00:22:42,886 A:middle
+We tried expression, we tried
+PO, we tried frame variable.
+
+494
+00:22:43,376 --> 00:22:47,086 A:middle
+And people usually at this
+point ask, why do you have
+
+495
+00:22:47,086 --> 00:22:49,576 A:middle
+so many commands to do
+pretty much the same thing?
+
+496
+00:22:49,616 --> 00:22:51,916 A:middle
+Look at my data, see what
+is happening in my program.
+
+497
+00:22:52,536 --> 00:22:56,266 A:middle
+Well, all of you here get
+the insider scoop now.
+
+498
+00:22:56,716 --> 00:22:58,596 A:middle
+Let's look at the
+commands that LLDB has
+
+499
+00:22:58,716 --> 00:22:59,676 A:middle
+to let you look at data.
+
+500
+
+501
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+502
+00:23:00,326 --> 00:23:01,526 A:middle
+There's three of them.
+
+503
+00:23:01,526 --> 00:23:07,046 A:middle
+Frame variable, the expression
+command, which is the p command,
+
+504
+00:23:07,686 --> 00:23:09,686 A:middle
+the expression dash uppercase O,
+
+505
+00:23:09,876 --> 00:23:11,716 A:middle
+which as you've been
+told before,
+
+506
+00:23:12,296 --> 00:23:14,856 A:middle
+you know as the po command.
+
+507
+00:23:15,976 --> 00:23:17,976 A:middle
+First one, frame
+variable command.
+
+508
+00:23:18,696 --> 00:23:21,666 A:middle
+The frame variable command
+which you can shorten as frv
+
+509
+00:23:21,666 --> 00:23:26,036 A:middle
+when you type it, is pretty
+much the Xcode variables view.
+
+510
+00:23:26,606 --> 00:23:29,346 A:middle
+It lets you look at all
+your local variables.
+
+511
+00:23:30,356 --> 00:23:33,656 A:middle
+It lets you look at only a
+few of your local variables,
+
+512
+00:23:34,596 --> 00:23:37,806 A:middle
+and optionally you can
+also apply formatting
+
+513
+00:23:38,116 --> 00:23:40,166 A:middle
+with the dash dash format flag.
+
+514
+00:23:40,636 --> 00:23:45,086 A:middle
+One thing I want to highlight,
+because I will get back to it,
+
+515
+00:23:45,086 --> 00:23:48,616 A:middle
+is when you see that
+Tuple in the first output,
+
+516
+00:23:49,056 --> 00:23:51,926 A:middle
+that is an aggregate,
+that is an object
+
+517
+00:23:51,966 --> 00:23:53,706 A:middle
+that contains other objects.
+
+518
+00:23:54,146 --> 00:23:56,446 A:middle
+The things that are
+within that aggregate,
+
+519
+00:23:56,976 --> 00:23:59,206 A:middle
+we call them children.
+
+520
+00:23:59,866 --> 00:24:04,596 A:middle
+The expression command is
+the command you've seen a lot
+
+521
+
+522
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+523
+00:23:59,866 --> 00:24:04,596 A:middle
+The expression command is
+the command you've seen a lot
+
+524
+00:24:04,596 --> 00:24:05,226 A:middle
+in this session.
+
+525
+00:24:05,486 --> 00:24:06,446 A:middle
+I'll be really brief.
+
+526
+00:24:06,986 --> 00:24:09,206 A:middle
+Of course, with the
+expression command,
+
+527
+00:24:09,206 --> 00:24:11,426 A:middle
+you can do simple
+arithmetic, as you'd guess.
+
+528
+00:24:12,526 --> 00:24:16,056 A:middle
+It is totally possible
+to use previous results
+
+529
+00:24:16,666 --> 00:24:19,926 A:middle
+and actually do more
+stuff with them.
+
+530
+00:24:20,166 --> 00:24:22,416 A:middle
+And of course, the expression
+command also knows how
+
+531
+00:24:22,416 --> 00:24:24,576 A:middle
+to do custom formatting
+of your results.
+
+532
+00:24:25,716 --> 00:24:29,356 A:middle
+One thing I want to point
+out, once again, children.
+
+533
+00:24:30,786 --> 00:24:33,226 A:middle
+Third command, the po command.
+
+534
+00:24:34,146 --> 00:24:36,626 A:middle
+This is probably the
+command that all of you
+
+535
+00:24:36,626 --> 00:24:39,896 A:middle
+who are Objective-C developers,
+I'm guessing quite a few prior
+
+536
+00:24:39,896 --> 00:24:43,216 A:middle
+to Objective-C code, and
+you know the po command.
+
+537
+00:24:43,796 --> 00:24:46,886 A:middle
+You can create objects and get
+their description printed out.
+
+538
+00:24:47,786 --> 00:24:51,006 A:middle
+You can just create an NSArray
+or print the existing NSArray
+
+539
+00:24:51,006 --> 00:24:52,246 A:middle
+and you'll see the
+contents of it.
+
+540
+00:24:53,046 --> 00:24:56,336 A:middle
+Or, guess what, it
+simply works for a string.
+
+541
+00:24:57,756 --> 00:24:59,266 A:middle
+So, three commands.
+
+542
+00:24:59,906 --> 00:25:02,076 A:middle
+They don't all do
+exactly the same thing,
+
+543
+
+544
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+545
+00:24:59,906 --> 00:25:02,076 A:middle
+They don't all do
+exactly the same thing,
+
+546
+00:25:02,206 --> 00:25:03,766 A:middle
+as you probably guessed by now.
+
+547
+00:25:04,706 --> 00:25:07,996 A:middle
+Actually, they are
+somewhat similar
+
+548
+00:25:07,996 --> 00:25:09,036 A:middle
+and not at all identical.
+
+549
+00:25:09,416 --> 00:25:11,846 A:middle
+For instance, the
+expression command
+
+550
+00:25:11,846 --> 00:25:15,586 A:middle
+and the po command are
+'run my code' commands.
+
+551
+00:25:16,086 --> 00:25:19,826 A:middle
+Whatever code you type,
+these commands will run it.
+
+552
+00:25:20,556 --> 00:25:22,386 A:middle
+But then the frame
+variable command
+
+553
+00:25:22,386 --> 00:25:25,236 A:middle
+and expression command
+do step 2 differently.
+
+554
+00:25:25,716 --> 00:25:27,486 A:middle
+When they have to
+show you your result,
+
+555
+00:25:27,856 --> 00:25:30,136 A:middle
+they use the LLDB
+formatter system.
+
+556
+00:25:31,346 --> 00:25:34,216 A:middle
+We talked quite a bit about
+the LLDB formatter system
+
+557
+00:25:34,346 --> 00:25:36,476 A:middle
+in past WWDC sessions.
+
+558
+00:25:36,856 --> 00:25:38,546 A:middle
+And you should totally
+go check them out.
+
+559
+00:25:39,086 --> 00:25:41,896 A:middle
+But really briefly,
+LLDB has knowledge
+
+560
+00:25:41,896 --> 00:25:45,446 A:middle
+of some built-in system types
+and automatically formats them.
+
+561
+00:25:45,776 --> 00:25:48,456 A:middle
+NSArray, NSDictionaries
+with strings.
+
+562
+00:25:48,936 --> 00:25:50,966 A:middle
+And it is possible for you
+
+563
+00:25:50,966 --> 00:25:53,496 A:middle
+to provide your own format
+as written in Python.
+
+564
+00:25:54,696 --> 00:25:55,576 A:middle
+On the other hand,
+
+565
+00:25:55,986 --> 00:25:58,216 A:middle
+the po command will not
+use LLDB formatters.
+
+566
+00:25:58,646 --> 00:26:02,766 A:middle
+The po command runs some more
+extra code behind the covers,
+
+567
+
+568
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+569
+00:25:58,646 --> 00:26:02,766 A:middle
+The po command runs some more
+extra code behind the covers,
+
+570
+00:26:03,136 --> 00:26:06,276 A:middle
+behind the scenes, to actually
+produce the result it has
+
+571
+00:26:06,316 --> 00:26:06,766 A:middle
+to show you.
+
+572
+00:26:06,806 --> 00:26:10,576 A:middle
+You probably have written at
+least one description method
+
+573
+00:26:10,576 --> 00:26:13,376 A:middle
+in one of your Objective-C
+classes and then you realized,
+
+574
+00:26:13,506 --> 00:26:15,196 A:middle
+oh, that's what po prints.
+
+575
+00:26:16,266 --> 00:26:20,016 A:middle
+Now I want you to think for a
+second about these two models
+
+576
+00:26:20,016 --> 00:26:23,756 A:middle
+of actually taking your object
+and producing data for it.
+
+577
+00:26:24,136 --> 00:26:28,346 A:middle
+The LLDB formatter's model
+is what we call the 'out
+
+578
+00:26:28,346 --> 00:26:29,576 A:middle
+of process' formatting model.
+
+579
+00:26:29,996 --> 00:26:33,636 A:middle
+Why? Because the formatter
+sits outside of your process.
+
+580
+00:26:33,946 --> 00:26:36,376 A:middle
+It is either built
+knowledge into the debugger
+
+581
+00:26:36,846 --> 00:26:39,596 A:middle
+or you brought some Python
+script to represent your object.
+
+582
+00:26:39,596 --> 00:26:41,976 A:middle
+It's different languages,
+different files
+
+583
+00:26:42,066 --> 00:26:43,756 A:middle
+that live in different scopes.
+
+584
+00:26:44,636 --> 00:26:48,706 A:middle
+On the other hand, that external
+formatter lives in the dugger.
+
+585
+00:26:48,906 --> 00:26:51,936 A:middle
+It is really easy for
+that guy to get access
+
+586
+00:26:51,936 --> 00:26:54,436 A:middle
+to all the knowledge about your
+program that the debugger has.
+
+587
+00:26:54,736 --> 00:26:57,276 A:middle
+It's kind of like a bird's
+eye view of your process.
+
+588
+00:26:57,526 --> 00:27:01,506 A:middle
+Because of that, it's also
+really easy for this kind
+
+589
+
+590
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+591
+00:26:57,526 --> 00:27:01,506 A:middle
+Because of that, it's also
+really easy for this kind
+
+592
+00:27:01,506 --> 00:27:03,076 A:middle
+of formatter to make sure
+
+593
+00:27:03,076 --> 00:27:05,146 A:middle
+that your program
+state is not changed.
+
+594
+00:27:05,666 --> 00:27:07,986 A:middle
+You don't want to change
+the state of your program
+
+595
+00:27:07,986 --> 00:27:10,326 A:middle
+as a result of looking
+at data in the debugger.
+
+596
+00:27:10,756 --> 00:27:13,786 A:middle
+The debugger is kind of
+like the stage inspector.
+
+597
+00:27:13,786 --> 00:27:16,406 A:middle
+It looks at things and
+tries not to change them.
+
+598
+00:27:17,616 --> 00:27:20,046 A:middle
+The other model, the po model,
+
+599
+00:27:20,416 --> 00:27:24,286 A:middle
+the 'write a description
+method' model is an in-process
+
+600
+00:27:24,286 --> 00:27:25,126 A:middle
+formatting model.
+
+601
+00:27:25,616 --> 00:27:28,356 A:middle
+You write your data and
+your formatter together,
+
+602
+00:27:28,666 --> 00:27:30,566 A:middle
+you write them in
+the same language.
+
+603
+00:27:31,116 --> 00:27:33,656 A:middle
+You probably even write
+them in the same file.
+
+604
+00:27:34,606 --> 00:27:37,056 A:middle
+And because your formatter
+is just code that runs
+
+605
+00:27:37,056 --> 00:27:40,496 A:middle
+in your application, it
+gets easy and full access
+
+606
+00:27:40,496 --> 00:27:42,746 A:middle
+to the object model
+of your application.
+
+607
+00:27:44,046 --> 00:27:47,846 A:middle
+But with great power,
+comes great responsibility.
+
+608
+00:27:48,526 --> 00:27:52,116 A:middle
+You want to make sure that your
+formatter does not change the
+
+609
+00:27:52,116 --> 00:27:52,976 A:middle
+state of your program.
+
+610
+00:27:53,526 --> 00:27:56,486 A:middle
+You want to make sure you don't
+do anything in your formatter
+
+611
+00:27:56,896 --> 00:27:59,176 A:middle
+that will alter the object
+you're trying to represent.
+
+612
+
+613
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+614
+00:28:00,976 --> 00:28:04,396 A:middle
+Well, you say, okay,
+Objective-C has an in-process
+
+615
+00:28:04,396 --> 00:28:05,136 A:middle
+formatting model.
+
+616
+00:28:05,456 --> 00:28:06,856 A:middle
+I can write a description
+method,
+
+617
+00:28:06,856 --> 00:28:08,036 A:middle
+the debugger will pick it up.
+
+618
+00:28:08,786 --> 00:28:10,556 A:middle
+What about Swift?
+
+619
+00:28:11,346 --> 00:28:13,566 A:middle
+Turns out, and once again,
+those of you that are
+
+620
+00:28:13,566 --> 00:28:15,006 A:middle
+in this room get
+the insider scoop,
+
+621
+00:28:15,446 --> 00:28:18,256 A:middle
+that Swift has had an
+in-process formatting model
+
+622
+00:28:18,646 --> 00:28:19,746 A:middle
+since the very beginning.
+
+623
+00:28:20,696 --> 00:28:21,396 A:middle
+But, where is it?
+
+624
+00:28:21,616 --> 00:28:22,676 A:middle
+How do I use it?
+
+625
+00:28:23,126 --> 00:28:26,496 A:middle
+I hope all of you have
+used the Swift playground.
+
+626
+00:28:27,116 --> 00:28:28,986 A:middle
+If you have used the
+Swift playground,
+
+627
+00:28:29,496 --> 00:28:32,126 A:middle
+you have used the Swift
+in-process formatting model.
+
+628
+00:28:32,356 --> 00:28:35,836 A:middle
+It has been there
+since the beginning.
+
+629
+00:28:35,836 --> 00:28:36,526 A:middle
+So what is new?
+
+630
+00:28:37,436 --> 00:28:41,236 A:middle
+Now in Xcode 7, we take
+that very same model,
+
+631
+00:28:41,796 --> 00:28:43,486 A:middle
+we make it public API.
+
+632
+00:28:44,416 --> 00:28:46,986 A:middle
+It is available for you to use.
+
+633
+00:28:46,986 --> 00:28:50,066 A:middle
+And it still powers
+the playgrounds,
+
+634
+00:28:50,656 --> 00:28:53,806 A:middle
+but now it also powers
+the LLDB po command.
+
+635
+00:28:54,436 --> 00:28:56,606 A:middle
+Now you've got the
+right Swift formatters
+
+636
+00:28:56,656 --> 00:28:58,006 A:middle
+for your Swift objects.
+
+637
+00:28:58,696 --> 00:29:01,406 A:middle
+How? Let's look a little
+bit under the cover.
+
+638
+
+639
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+640
+00:28:58,696 --> 00:29:01,406 A:middle
+How? Let's look a little
+bit under the cover.
+
+641
+00:29:01,916 --> 00:29:05,306 A:middle
+The model is based
+upon four protocols.
+
+642
+00:29:05,886 --> 00:29:07,836 A:middle
+These are their names.
+
+643
+00:29:09,286 --> 00:29:11,426 A:middle
+Yes, I said four protocols.
+
+644
+00:29:12,086 --> 00:29:13,856 A:middle
+And their names are
+also quite lengthy.
+
+645
+00:29:14,616 --> 00:29:16,666 A:middle
+But I wouldn't worry
+too much about that.
+
+646
+00:29:16,946 --> 00:29:20,126 A:middle
+It's possible to only opt-in
+partially to this model.
+
+647
+00:29:20,376 --> 00:29:22,306 A:middle
+The four protocols
+doesn't mean you have
+
+648
+00:29:22,306 --> 00:29:23,956 A:middle
+to conform to all of them.
+
+649
+00:29:23,956 --> 00:29:26,576 A:middle
+You can choose a subset to
+get the result you want done.
+
+650
+00:29:27,156 --> 00:29:30,256 A:middle
+>> ENRICO: Conform to those,
+do that work, and profit.
+
+651
+00:29:31,486 --> 00:29:32,406 A:middle
+Let's look at the protocols.
+
+652
+00:29:33,836 --> 00:29:37,336 A:middle
+CustomStringConvertible is
+the protocol that tells,
+
+653
+00:29:37,926 --> 00:29:42,286 A:middle
+that tells us, how would I
+print my object as a string?
+
+654
+00:29:42,816 --> 00:29:45,426 A:middle
+It doesn't only tell LLDB.
+
+655
+00:29:45,716 --> 00:29:47,166 A:middle
+It also tells Swift.
+
+656
+00:29:47,856 --> 00:29:50,266 A:middle
+How? The Swift print function,
+
+657
+00:29:50,816 --> 00:29:53,466 A:middle
+as well as the Swift string
+interpolation feature,
+
+658
+00:29:53,776 --> 00:29:55,656 A:middle
+both use the
+CustomStringConvertible
+
+659
+00:29:55,656 --> 00:29:56,206 A:middle
+protocol.
+
+660
+00:29:57,276 --> 00:29:58,416 A:middle
+That's a lot of benefit.
+
+661
+00:29:58,586 --> 00:30:00,596 A:middle
+How hard can it be to get it?
+
+662
+
+663
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+664
+00:29:58,586 --> 00:30:00,596 A:middle
+How hard can it be to get it?
+
+665
+00:30:01,346 --> 00:30:02,676 A:middle
+It's pretty easy.
+
+666
+00:30:02,846 --> 00:30:05,026 A:middle
+I have a data structure
+that represents the bottles
+
+667
+00:30:05,026 --> 00:30:07,946 A:middle
+of beer song, because I'm
+preparing myself for the bash.
+
+668
+00:30:08,376 --> 00:30:10,186 A:middle
+And I want to print the lyrics.
+
+669
+00:30:10,886 --> 00:30:13,316 A:middle
+I create an instance of that,
+and I say, how many bottles
+
+670
+00:30:13,316 --> 00:30:14,396 A:middle
+of beer are on the wall.
+
+671
+00:30:14,396 --> 00:30:18,366 A:middle
+But that's for when
+everything in my app works fine.
+
+672
+00:30:18,366 --> 00:30:20,286 A:middle
+If I'm debugging it,
+maybe I need a little bit
+
+673
+00:30:20,286 --> 00:30:21,176 A:middle
+more information.
+
+674
+00:30:21,666 --> 00:30:24,546 A:middle
+That's where Custom Debug
+String Convertible kicks in.
+
+675
+00:30:25,376 --> 00:30:28,536 A:middle
+It's a debugger specific
+representation of the object.
+
+676
+00:30:29,536 --> 00:30:33,786 A:middle
+What debugger-specific means
+is really up to your app.
+
+677
+00:30:33,786 --> 00:30:35,756 A:middle
+It's really up to the
+semantics of your object model.
+
+678
+00:30:36,506 --> 00:30:40,166 A:middle
+But, as a hint, the
+debugPrint function will default
+
+679
+00:30:40,166 --> 00:30:41,626 A:middle
+to choosing this protocol.
+
+680
+00:30:42,326 --> 00:30:46,266 A:middle
+Of course, both print and
+debugPrint will fall back
+
+681
+00:30:46,316 --> 00:30:49,496 A:middle
+to the other conformance if
+their favorite one isn't there.
+
+682
+00:30:50,476 --> 00:30:52,266 A:middle
+How to get this to work?
+
+683
+00:30:52,266 --> 00:30:52,986 A:middle
+Pretty simple.
+
+684
+00:30:53,966 --> 00:30:55,276 A:middle
+Let's extend our
+bottles of beer.
+
+685
+00:30:55,386 --> 00:30:58,626 A:middle
+Because we are debugging, we
+want to know a little bit more
+
+686
+00:30:58,626 --> 00:31:01,436 A:middle
+about the bottles of beer on
+the wall, so we can just check
+
+687
+
+688
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+689
+00:30:58,626 --> 00:31:01,436 A:middle
+about the bottles of beer on
+the wall, so we can just check
+
+690
+00:31:01,496 --> 00:31:03,916 A:middle
+that they are all correctly
+stout, and it is going
+
+691
+00:31:03,916 --> 00:31:05,466 A:middle
+to be a great bash
+because they all are.
+
+692
+00:31:06,316 --> 00:31:10,656 A:middle
+Third protocol is Custom
+Playground Quick Lookable.
+
+693
+00:31:11,776 --> 00:31:12,876 A:middle
+As the name implies,
+
+694
+00:31:13,366 --> 00:31:16,196 A:middle
+this protocol is
+specifically for playgrounds.
+
+695
+00:31:16,476 --> 00:31:20,726 A:middle
+It is meant to provide rich
+graphical representations
+
+696
+00:31:20,726 --> 00:31:22,596 A:middle
+of your object in a playground.
+
+697
+00:31:23,706 --> 00:31:24,466 A:middle
+You want an example?
+
+698
+00:31:24,726 --> 00:31:25,716 A:middle
+Sure thing.
+
+699
+00:31:26,626 --> 00:31:29,636 A:middle
+I can write a data structure
+that represents a person,
+
+700
+00:31:29,636 --> 00:31:32,726 A:middle
+and then I can get a
+depiction of a person to show
+
+701
+00:31:32,726 --> 00:31:35,306 A:middle
+up in my playground
+sidebar as a result
+
+702
+00:31:35,306 --> 00:31:37,526 A:middle
+of creating an object
+of that type.
+
+703
+00:31:38,556 --> 00:31:41,846 A:middle
+I'm quite sorry to disappoint
+you guys, I really wanted
+
+704
+00:31:41,846 --> 00:31:42,826 A:middle
+to get this to happen.
+
+705
+00:31:43,146 --> 00:31:44,716 A:middle
+But, unfortunately the t-shirts
+
+706
+00:31:44,716 --> 00:31:47,806 A:middle
+with my person will not
+be sold at the conference.
+
+707
+00:31:48,356 --> 00:31:52,176 A:middle
+Sorry. But I have something
+to make up for that.
+
+708
+00:31:52,696 --> 00:31:56,126 A:middle
+The last protocol in the lot,
+the Custom Reflectable protocol.
+
+709
+00:31:56,426 --> 00:31:58,466 A:middle
+It allows us to invent
+a entirely custom
+
+710
+00:31:58,686 --> 00:31:59,666 A:middle
+children hierarchy.
+
+711
+
+712
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+713
+00:32:00,076 --> 00:32:02,916 A:middle
+Yes, I said I would get back to
+the word 'children' and I did.
+
+714
+00:32:04,036 --> 00:32:07,136 A:middle
+When I say an entirely
+custom children hierarchy,
+
+715
+00:32:08,276 --> 00:32:11,926 A:middle
+what I mean is that
+I can make a new --
+
+716
+00:32:11,926 --> 00:32:14,786 A:middle
+I can make a new
+structure for my object.
+
+717
+00:32:15,016 --> 00:32:17,196 A:middle
+I can tell the language,
+I can tell the debugger,
+
+718
+00:32:17,196 --> 00:32:18,206 A:middle
+I can tell the playgrounds,
+
+719
+00:32:18,636 --> 00:32:20,786 A:middle
+this is what my object
+is actually made of.
+
+720
+00:32:20,876 --> 00:32:22,006 A:middle
+This is how you should see it.
+
+721
+00:32:22,566 --> 00:32:26,416 A:middle
+And the way you do this, the
+currency that you transact in,
+
+722
+00:32:26,866 --> 00:32:29,106 A:middle
+when you're trying to describe
+the structure of objects
+
+723
+00:32:29,156 --> 00:32:33,426 A:middle
+to Swift, is called a
+Mirror, reflectable mirror.
+
+724
+00:32:35,226 --> 00:32:37,766 A:middle
+Let's see an example,
+without further ado.
+
+725
+00:32:38,056 --> 00:32:40,596 A:middle
+I have an application
+whose job it is
+
+726
+00:32:40,816 --> 00:32:42,726 A:middle
+to collect temperature samples.
+
+727
+00:32:43,046 --> 00:32:45,116 A:middle
+It has got a couple
+data structures.
+
+728
+00:32:45,706 --> 00:32:49,556 A:middle
+One that describes a moment
+in time, and one says,
+
+729
+00:32:49,746 --> 00:32:51,126 A:middle
+for a given moment in time,
+
+730
+00:32:51,536 --> 00:32:53,516 A:middle
+this was the temperature
+information I got.
+
+731
+00:32:54,236 --> 00:32:56,206 A:middle
+And then we have got
+temperature samples, of course.
+
+732
+00:32:57,256 --> 00:32:58,356 A:middle
+Now I'm debugging this app.
+
+733
+00:32:58,356 --> 00:33:00,796 A:middle
+I'm trying to see
+what is going on,
+
+734
+
+735
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+736
+00:32:58,356 --> 00:33:00,796 A:middle
+I'm trying to see
+what is going on,
+
+737
+00:33:00,796 --> 00:33:02,146 A:middle
+how it's processing the samples.
+
+738
+00:33:02,686 --> 00:33:05,156 A:middle
+So I say po temperatures.
+
+739
+00:33:05,626 --> 00:33:07,246 A:middle
+And that's what I got.
+
+740
+00:33:08,716 --> 00:33:11,426 A:middle
+Honestly, you know, I
+look at it and I say,
+
+741
+00:33:11,426 --> 00:33:13,676 A:middle
+it is not bad for a default.
+
+742
+00:33:14,406 --> 00:33:16,216 A:middle
+But I immediately see
+a couple things I want
+
+743
+00:33:16,216 --> 00:33:17,146 A:middle
+to change about this.
+
+744
+00:33:17,936 --> 00:33:20,136 A:middle
+Why stack time on two lines?
+
+745
+00:33:20,136 --> 00:33:22,456 A:middle
+I really wish it
+was all in one line.
+
+746
+00:33:22,826 --> 00:33:24,906 A:middle
+And it would be great
+if it was in a.m.
+
+747
+00:33:24,906 --> 00:33:26,756 A:middle
+/p.m. format, too.
+
+748
+00:33:26,916 --> 00:33:29,816 A:middle
+And that temperature, I
+look at it and I'm like,
+
+749
+00:33:30,046 --> 00:33:31,636 A:middle
+what scale is that in?
+
+750
+00:33:31,706 --> 00:33:32,436 A:middle
+I don't even know.
+
+751
+00:33:32,676 --> 00:33:35,696 A:middle
+Is it Kelvin, is it
+Reaumur, is it Rankine?
+
+752
+00:33:36,006 --> 00:33:39,116 A:middle
+We are in America and
+we want our Fahrenheit
+
+753
+00:33:40,766 --> 00:33:40,966 A:middle
+degrees [laughter].
+
+754
+00:33:41,056 --> 00:33:44,296 A:middle
+>> ENRICO GRANATA: Well, the
+good news is that we can fix all
+
+755
+00:33:44,296 --> 00:33:46,856 A:middle
+of these things, in two steps.
+
+756
+00:33:48,306 --> 00:33:52,356 A:middle
+Let's go. Step one, let's get
+the time printed on one line.
+
+757
+00:33:53,156 --> 00:33:56,776 A:middle
+Here is what I did to get
+that to happen for me.
+
+758
+00:33:57,186 --> 00:33:59,076 A:middle
+I used an NSDate formatter.
+
+759
+
+760
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+761
+00:34:00,726 --> 00:34:03,806 A:middle
+Because I got to run
+within my application,
+
+762
+00:34:04,186 --> 00:34:05,696 A:middle
+because the code I'm running
+
+763
+00:34:05,696 --> 00:34:09,686 A:middle
+to format this object is
+actually just normal Swift code,
+
+764
+00:34:09,976 --> 00:34:12,766 A:middle
+it is just code I would normally
+write as part of my app,
+
+765
+00:34:12,846 --> 00:34:15,056 A:middle
+whatever framework,
+whatever library,
+
+766
+00:34:15,386 --> 00:34:17,696 A:middle
+whatever technology my
+app would normally use
+
+767
+00:34:17,696 --> 00:34:21,016 A:middle
+to get this job done, I can
+just use it in my formatters.
+
+768
+00:34:21,496 --> 00:34:23,606 A:middle
+In this case NSDate formatter.
+
+769
+00:34:24,926 --> 00:34:28,295 A:middle
+Step two, let's get those
+Fahrenheit degrees going.
+
+770
+00:34:29,456 --> 00:34:30,886 A:middle
+How do we do it?
+
+771
+00:34:31,696 --> 00:34:32,946 A:middle
+We create a mirror.
+
+772
+00:34:33,576 --> 00:34:34,176 A:middle
+Here we are.
+
+773
+00:34:34,876 --> 00:34:38,266 A:middle
+Now we are saying that our
+temperature data object is
+
+774
+00:34:38,266 --> 00:34:41,626 A:middle
+structured as a container
+of three things.
+
+775
+00:34:42,246 --> 00:34:44,286 A:middle
+A time, a temperature
+in Centigrade,
+
+776
+00:34:44,286 --> 00:34:45,596 A:middle
+and a temperature in Fahrenheit.
+
+777
+00:34:46,235 --> 00:34:48,626 A:middle
+The time is the string
+interpolation
+
+778
+00:34:48,916 --> 00:34:51,755 A:middle
+of the actual time data
+stored inside the object.
+
+779
+00:34:52,496 --> 00:34:54,896 A:middle
+And because it is
+string interpolated
+
+780
+00:34:54,896 --> 00:34:57,766 A:middle
+and because we provided a custom
+string convertible conformance,
+
+781
+00:34:58,386 --> 00:35:00,266 A:middle
+that will be automatically
+picked up.
+
+782
+
+783
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+784
+00:34:58,386 --> 00:35:00,266 A:middle
+that will be automatically
+picked up.
+
+785
+00:35:01,216 --> 00:35:04,496 A:middle
+One more thing worth
+noticing here is
+
+786
+00:35:04,576 --> 00:35:08,246 A:middle
+that when I get both scales,
+when I get both Centigrade
+
+787
+00:35:08,246 --> 00:35:10,596 A:middle
+and Fahrenheit for
+my result printing,
+
+788
+00:35:11,106 --> 00:35:13,916 A:middle
+I don't change the value
+stored inside the object.
+
+789
+00:35:13,976 --> 00:35:15,866 A:middle
+Of course, you say, you don't.
+
+790
+00:35:16,346 --> 00:35:20,036 A:middle
+Well, it is actually quite a
+bit important to remember not
+
+791
+00:35:20,036 --> 00:35:21,416 A:middle
+to change the state
+of your program
+
+792
+00:35:21,596 --> 00:35:23,296 A:middle
+by writing in-process
+formatters.
+
+793
+00:35:24,066 --> 00:35:27,476 A:middle
+And now that we've done all this
+work, now we've got all this,
+
+794
+00:35:28,666 --> 00:35:30,376 A:middle
+now how do we benefit?
+
+795
+00:35:31,726 --> 00:35:35,496 A:middle
+Well, we could try
+po-ing that again.
+
+796
+00:35:35,686 --> 00:35:36,986 A:middle
+And here we go.
+
+797
+00:35:37,196 --> 00:35:38,526 A:middle
+And now I look at it again.
+
+798
+00:35:38,666 --> 00:35:39,586 A:middle
+I see my object.
+
+799
+00:35:39,636 --> 00:35:42,256 A:middle
+And I can look and I see now
+
+800
+00:35:42,256 --> 00:35:46,806 A:middle
+that at 6:30 p.m.
+it was 93.2 degrees.
+
+801
+00:35:49,056 --> 00:35:51,396 A:middle
+Yup, in case you are
+wondering, it was really hot
+
+802
+00:35:51,396 --> 00:35:52,456 A:middle
+in Cupertino yesterday.
+
+803
+00:35:53,746 --> 00:35:58,116 A:middle
+And now we did this work but
+we did it because we were smart
+
+804
+00:35:58,186 --> 00:35:59,836 A:middle
+and we did the work
+ahead of time.
+
+805
+
+806
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+807
+00:36:00,516 --> 00:36:03,346 A:middle
+Sometimes I'm trying
+to debug something
+
+808
+00:36:03,796 --> 00:36:07,076 A:middle
+and I got my program
+just where I want it.
+
+809
+00:36:07,286 --> 00:36:09,806 A:middle
+I have got this one
+hard-to-reproduce bug
+
+810
+00:36:10,006 --> 00:36:12,066 A:middle
+to finally happen.
+
+811
+00:36:12,326 --> 00:36:14,816 A:middle
+But now it is really
+hard to look at the data.
+
+812
+00:36:15,316 --> 00:36:17,126 A:middle
+The data is confusing,
+it's complicated.
+
+813
+00:36:17,286 --> 00:36:20,136 A:middle
+And I wish I had done
+this work before,
+
+814
+00:36:20,436 --> 00:36:21,746 A:middle
+so that now I could
+actually look
+
+815
+00:36:21,746 --> 00:36:23,146 A:middle
+at my data in much simpler ways.
+
+816
+00:36:24,066 --> 00:36:26,186 A:middle
+But alas I haven't.
+
+817
+00:36:26,186 --> 00:36:27,156 A:middle
+All hope is lost.
+
+818
+00:36:28,606 --> 00:36:30,266 A:middle
+Nope! No, it isn't!
+
+819
+00:36:30,706 --> 00:36:33,246 A:middle
+You can add conformances
+and runtime, too.
+
+820
+00:36:33,246 --> 00:36:36,656 A:middle
+Through the expression parser
+you can add these conformances
+
+821
+00:36:36,826 --> 00:36:39,126 A:middle
+and run while debugging
+your app.
+
+822
+00:36:39,806 --> 00:36:43,156 A:middle
+On the other hand, you
+cannot change them.
+
+823
+00:36:43,236 --> 00:36:45,186 A:middle
+Existing conformances stay.
+
+824
+00:36:45,186 --> 00:36:49,246 A:middle
+You are in the REPL,
+you're experimenting.
+
+825
+00:36:50,016 --> 00:36:51,706 A:middle
+You really wish you
+could po something.
+
+826
+00:36:52,166 --> 00:36:54,136 A:middle
+Oh, how I wish I could
+add a conformance.
+
+827
+00:36:55,326 --> 00:36:56,786 A:middle
+You can do that in
+the REPL as well.
+
+828
+00:36:57,166 --> 00:37:02,926 A:middle
+And, of course, but I'm sure
+you all expect that, guess what?
+
+829
+
+830
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+831
+00:36:57,166 --> 00:37:02,926 A:middle
+And, of course, but I'm sure
+you all expect that, guess what?
+
+832
+00:37:04,086 --> 00:37:06,346 A:middle
+In playgrounds, too.
+
+833
+00:37:07,176 --> 00:37:11,106 A:middle
+Look at that!
+
+834
+00:37:11,306 --> 00:37:15,876 A:middle
+It seems to me that a lot
+of this work that we've done
+
+835
+00:37:15,876 --> 00:37:18,086 A:middle
+over the last year in
+debugger land that you've heard
+
+836
+00:37:18,086 --> 00:37:22,896 A:middle
+from Kate, from Sean, and from
+me, has to do with making sure
+
+837
+00:37:22,896 --> 00:37:26,826 A:middle
+that it is really easy to access
+as much of your information
+
+838
+00:37:26,826 --> 00:37:28,556 A:middle
+as possible while
+you are debugging.
+
+839
+00:37:29,606 --> 00:37:33,596 A:middle
+Access to the Objective-C
+runtime gives you more insight
+
+840
+00:37:33,666 --> 00:37:36,146 A:middle
+into fields that before
+were unavailable to you.
+
+841
+00:37:36,426 --> 00:37:41,556 A:middle
+The SDK modules offer an
+unprecedented level of access
+
+842
+00:37:41,606 --> 00:37:43,056 A:middle
+to the operating environment
+
+843
+00:37:43,056 --> 00:37:45,986 A:middle
+that your application is
+running in, more types,
+
+844
+00:37:45,986 --> 00:37:48,086 A:middle
+more functions, even macros.
+
+845
+00:37:49,186 --> 00:37:51,156 A:middle
+And in-process formatting,
+
+846
+00:37:52,726 --> 00:37:55,016 A:middle
+in-process formatting
+is a great way for you
+
+847
+00:37:55,016 --> 00:37:58,666 A:middle
+to create compelling
+representations of your types,
+
+848
+00:37:59,126 --> 00:38:00,846 A:middle
+that apply across the board.
+
+849
+
+850
+X-TIMESTAMP-MAP=MPEGTS:181083,LOCAL:00:00:00,000
+
+851
+00:37:59,126 --> 00:38:00,846 A:middle
+that apply across the board.
+
+852
+00:38:01,176 --> 00:38:03,696 A:middle
+They apply in the playgrounds,
+they apply in the REPL,
+
+853
+00:38:03,816 --> 00:38:05,216 A:middle
+they apply in the debugger.
+
+854
+00:38:06,626 --> 00:38:09,656 A:middle
+For more information, of
+course, do not hesitate
+
+855
+00:38:09,656 --> 00:38:12,216 A:middle
+to visit our website,
+Swift language docs,
+
+856
+00:38:12,486 --> 00:38:15,776 A:middle
+or Developer Forums, of
+course, the Labs, and Stefan,
+
+857
+00:38:15,776 --> 00:38:17,776 A:middle
+our Evangelist, is
+but an email away.
+
+858
+00:38:19,376 --> 00:38:22,326 A:middle
+Thank you very much,
+and have a great WWDC!
+
+859
+00:38:24,516 --> 00:38:36,190 A:middle
+[ Applause ]
+
+860
